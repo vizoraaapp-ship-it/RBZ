@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Button from '../ui/Button';
 import Image from 'next/image';
+import BookingModal from '../ui/BookingModal';
 
 const NAV_LINKS = [
   { name: 'Home', href: '/' },
@@ -93,6 +94,7 @@ const HVAC_CATEGORIES = [
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [bookingOpen, setBookingOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -141,7 +143,7 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <Button size="md" className="hidden sm:inline-flex" href="/contact">Book Service</Button>
+            <Button size="md" className="hidden sm:inline-flex" onClick={() => setBookingOpen(true)}>Book Service</Button>
             
             <button 
               className="md:hidden text-primary p-2"
@@ -248,11 +250,12 @@ const Navbar = () => {
            
            <div className="pt-8 border-t border-outline-variant/10">
               <div className="mt-6">
-                <Button fullWidth href="/contact">Book Service</Button>
+                <Button fullWidth onClick={() => { setBookingOpen(true); setIsMobileMenuOpen(false); }}>Book Service</Button>
               </div>
            </div>
         </div>
       )}
+      <BookingModal isOpen={bookingOpen} onClose={() => setBookingOpen(false)} />
     </header>
   );
 };
