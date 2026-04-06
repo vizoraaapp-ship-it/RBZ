@@ -1,8 +1,10 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Section from '@/components/ui/Section';
 import Button from '@/components/ui/Button';
+import CareerModal from '@/components/ui/CareerModal';
 import Image from 'next/image';
 
 const JOBS = [
@@ -37,6 +39,8 @@ const JOBS = [
 ];
 
 export default function CareersPage() {
+  const [selectedJob, setSelectedJob] = useState<string | null>(null);
+
   return (
     <main className="min-h-screen bg-surface">
       <Navbar />
@@ -105,7 +109,7 @@ export default function CareersPage() {
               <span className="material-symbols-outlined text-5xl">diversity_3</span>
            </div>
            <div className="space-y-4 text-center md:text-left">
-              <h2 className="text-3xl font-black text-on-surface leading-tight">Collaboration & Networking <span className="text-primary">(HVAC Students)</span></h2>
+              <h2 className="text-3xl font-black text-on-surface leading-tight">Collaboration &amp; Networking <span className="text-primary">(HVAC Students)</span></h2>
               <p className="text-on-surface-variant text-lg font-semibold leading-relaxed">
                 Supporting student growth through industry connections and knowledge sharing. At RBZ, we believe in mentoring the next generation of HVAC experts.
               </p>
@@ -143,13 +147,26 @@ export default function CareersPage() {
                     <p className="pt-4 text-on-surface-variant max-w-xl font-medium">{job.description}</p>
                   </div>
               </div>
-              <Button variant="outline" className="shrink-0" href="mailto:careers@rbzclimate.ca?subject=Application for Job">Apply Now</Button>
+              <Button
+                variant="outline"
+                className="shrink-0"
+                onClick={() => setSelectedJob(job.title)}
+              >
+                Apply Now
+              </Button>
             </div>
           ))}
         </div>
       </Section>
 
       <Footer />
+
+      {/* Career Application Modal */}
+      <CareerModal
+        isOpen={!!selectedJob}
+        onClose={() => setSelectedJob(null)}
+        jobTitle={selectedJob ?? ''}
+      />
     </main>
   );
 }
