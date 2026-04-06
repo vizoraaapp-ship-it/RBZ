@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #2B5BB5;
+  --color-primary-dim: #1A4EA8;
+  --color-secondary: #00639F;
+  --color-background: #FBF8FF;
+  --color-on-background: #0011A8;
+  --color-surface: #FBF8FF;
+  --color-on-surface: #0011A8;
+  --color-surface-container-lowest: #FFFFFF;
+  --color-surface-container-low: #F4F2FF;
+  --color-surface-container: #EDECFF;
+  --color-surface-container-high: #E6E6FF;
+  --color-surface-container-highest: #E0E0FF;
+  --color-on-surface-variant: #2D40FF;
+  --color-outline: #5B6AFF;
+  --color-outline-variant: #A4ACFF;
+  --color-error: #9F403D;
+
+  --font-headline: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 2.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-outline-variant/10;
+  }
+  body {
+    @apply bg-background text-on-background font-body antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline;
+  }
+}
+
+@layer utilities {
+  .glass-nav {
+    @apply backdrop-blur-md bg-white/70;
+  }
+  .tonal-transition {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  .atmospheric-shadow {
+    box-shadow: 0 12px 32px -4px rgba(0, 17, 168, 0.06);
+  }
+  .atmospheric-shadow-hover:hover {
+    box-shadow: 0 20px 48px -8px rgba(0, 17, 168, 0.12);
+  }
+}

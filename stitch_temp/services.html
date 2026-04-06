@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Our Services | RBZ Climate Solutions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#b5d8ff",
+                      "on-tertiary-fixed": "#3a4851",
+                      "error-container": "#fe8983",
+                      "surface-container-highest": "#e0e0ff",
+                      "surface-bright": "#fbf8ff",
+                      "inverse-on-surface": "#8c95f3",
+                      "on-surface-variant": "#2d40ff",
+                      "on-secondary-fixed-variant": "#005f99",
+                      "on-secondary-fixed": "#00426c",
+                      "secondary-dim": "#00578c",
+                      "on-primary-fixed": "#003b8d",
+                      "tertiary-fixed-dim": "#d3e2ed",
+                      "on-secondary-container": "#005589",
+                      "surface": "#fbf8ff",
+                      "error": "#9f403d",
+                      "secondary-fixed": "#cfe5ff",
+                      "surface-container-high": "#e6e6ff",
+                      "on-secondary": "#f7f9ff",
+                      "tertiary-fixed": "#e1f0fb",
+                      "tertiary-dim": "#47555e",
+                      "surface-container": "#edecff",
+                      "surface-tint": "#2b5bb5",
+                      "on-primary-container": "#194da7",
+                      "primary-fixed-dim": "#c5d4ff",
+                      "outline-variant": "#a4acff",
+                      "primary": "#2b5bb5",
+                      "background": "#fbf8ff",
+                      "on-error": "#fff7f6",
+                      "on-error-container": "#752121",
+                      "inverse-primary": "#759efd",
+                      "on-primary": "#f7f7ff",
+                      "primary-container": "#d9e2ff",
+                      "primary-fixed": "#d9e2ff",
+                      "outline": "#5b6aff",
+                      "error-dim": "#4e0309",
+                      "on-surface": "#0011a8",
+                      "on-tertiary-container": "#4c5a63",
+                      "surface-dim": "#d5d7ff",
+                      "inverse-surface": "#000341",
+                      "primary-dim": "#1a4ea8",
+                      "secondary-container": "#cfe5ff",
+                      "secondary": "#00639f",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary": "#f4faff",
+                      "on-background": "#0011a8",
+                      "on-tertiary-fixed-variant": "#56656e",
+                      "on-primary-fixed-variant": "#2858b2",
+                      "surface-variant": "#e0e0ff",
+                      "tertiary": "#53616a",
+                      "tertiary-container": "#e1f0fb",
+                      "surface-container-low": "#f4f2ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Manrope"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-transition {
+            background: linear-gradient(to bottom, transparent, var(--tw-bg-opacity));
+        }
+        .atmospheric-shadow {
+            box-shadow: 0 12px 32px -4px rgba(0, 17, 168, 0.06);
+        }
+        .atmospheric-shadow-hover:hover {
+            box-shadow: 0 20px 48px -8px rgba(0, 17, 168, 0.12);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-xl shadow-blue-900/5 flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-blue-900 font-headline">RBZ Climate Solutions</div>
+<div class="hidden md:flex space-x-8 items-center">
+<a class="text-slate-600 font-medium hover:text-blue-800 transition-colors" href="#">Home</a>
+<a class="text-blue-700 font-bold border-b-2 border-blue-700" href="#">Services</a>
+<a class="text-slate-600 font-medium hover:text-blue-800 transition-colors" href="#">About</a>
+<a class="text-slate-600 font-medium hover:text-blue-800 transition-colors" href="#">Contact</a>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-dim text-white px-6 py-2.5 rounded-lg font-semibold hover:opacity-90 transition-all atmospheric-shadow">
+            Book Service
+        </button>
+</nav>
+<!-- SideNavBar (Mega Menu style for HVAC Categories) -->
+<div class="bg-blue-900 text-white flex justify-center space-x-8 py-3 w-full mt-20 relative font-headline tracking-tight font-semibold">
+<div class="flex items-center space-x-2 px-4 py-1 hover:bg-blue-800 transition-all cursor-pointer text-blue-100/80">
+<span class="material-symbols-outlined text-sm" data-icon="heat_pump">heat_pump</span>
+<span>Furnace</span>
+</div>
+<div class="flex items-center space-x-2 px-4 py-1 hover:bg-blue-800 transition-all cursor-pointer text-blue-100/80">
+<span class="material-symbols-outlined text-sm" data-icon="water_heater">water_heater</span>
+<span>Boiler</span>
+</div>
+<div class="flex items-center space-x-2 px-4 py-1 hover:bg-blue-800 transition-all cursor-pointer text-blue-100/80">
+<span class="material-symbols-outlined text-sm" data-icon="ac_unit">ac_unit</span>
+<span>Air Conditioner</span>
+</div>
+<div class="flex items-center space-x-2 px-4 py-1 hover:bg-blue-800 transition-all cursor-pointer text-blue-100/80">
+<span class="material-symbols-outlined text-sm" data-icon="thermostat">thermostat</span>
+<span>Heat Pump</span>
+</div>
+<div class="flex items-center space-x-2 px-4 py-1 hover:bg-blue-800 transition-all cursor-pointer text-blue-100/80">
+<span class="material-symbols-outlined text-sm" data-icon="plumbing">plumbing</span>
+<span>Water Tank</span>
+</div>
+<div class="flex items-center space-x-2 px-4 py-1 hover:bg-blue-800 transition-all cursor-pointer text-blue-100/80">
+<span class="material-symbols-outlined text-sm" data-icon="airway">air</span>
+<span>Duct Work</span>
+</div>
+<div class="flex items-center space-x-2 px-4 py-1 hover:bg-blue-800 transition-all cursor-pointer text-blue-100/80">
+<span class="material-symbols-outlined text-sm" data-icon="settings">settings</span>
+<span>Accessories</span>
+</div>
+<div class="flex items-center space-x-2 px-4 py-1 hover:bg-blue-800 transition-all cursor-pointer text-blue-100/80">
+<span class="material-symbols-outlined text-sm" data-icon="build">build</span>
+<span>Repair</span>
+</div>
+</div>
+<!-- Page Header / Hero -->
+<header class="w-full bg-gradient-to-b from-primary-container/30 to-surface py-24 px-8 text-center">
+<div class="max-w-4xl mx-auto">
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tight text-on-surface mb-6">Our Services</h1>
+<p class="font-body text-xl text-on-surface-variant max-w-2xl mx-auto">Professional solutions for your home comfort needs, delivered with atmospheric precision and technical mastery.</p>
+</div>
+</header>
+<!-- Services Grid -->
+<section class="max-w-7xl mx-auto px-8 py-20">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+<!-- 1. Air Conditioning -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden atmospheric-shadow-hover transition-all duration-300 flex flex-col h-full">
+<div class="h-64 bg-slate-200 relative overflow-hidden shrink-0">
+<img alt="Modern high-efficiency central air conditioning outdoor unit installed on a clean concrete pad next to a luxury home" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuCrmnADkxiqGidd2aw7AXjyvv0Zfm3zQdYn3BhZmXtnQbSMl4Zns4FoS4cv0Y_LGwdJ6gcOoaWUi0nFJDPDMN55hCU2OILmcfj069yin0Xu8tPOm-bz2BvEslundyf58As5ZKSzbwxeY7mq_tOx5PA52_qdNqeCeDkNkuD9Dux8Fz9NnnsPfZBAgGC0SRUmi02-3vE919GAFeAXN2szOxJR8NHukJSAc6QmjGxvEAU9SmvLTJ8mK5Nu2qCcPYEaGi0-MnQE9Qtko"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="font-headline text-2xl font-bold mb-3 text-on-surface">Air Conditioning</h3>
+<p class="text-on-surface-variant mb-6 leading-relaxed flex-grow">Advanced cooling solutions featuring precision multi-stage cooling for optimal energy efficiency and humidity control.</p>
+<a class="text-primary font-bold flex items-center group/link mt-auto" href="#">
+                        Explore Service <span class="ml-2 group-hover/link:translate-x-1 transition-transform">→</span>
+</a>
+</div>
+</div>
+<!-- 2. Furnace -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden atmospheric-shadow-hover transition-all duration-300 flex flex-col h-full">
+<div class="h-64 bg-slate-200 relative overflow-hidden shrink-0">
+<img alt="Contemporary high-performance gas furnace unit in a clean, well-lit utility room setting with professional ductwork" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0EbiDKPj50AxHLmbI72w1XGIfwPUDV3NQQAsWHg2Dul83Wj4uRrQRzgIsj8OxIoNmbRkE2yDKEGou095HmC_cFzHTxeqIdzB7DtxcB-0G0r6wKixNrgwODRcT6UsU9hYwJLNugIru3VvprVV0HtMmz8pT_NdeLSP0ibmyKTKgqexB8Dups1YmG4pJvCs8fxuuKMuSSzjvsXYKub5ImCfRv6azF-m7j1Wgm0qApaAJBuFoRoMh4TJIsU7W4IIRrNon_gCGKcqdL0w"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="font-headline text-2xl font-bold mb-3 text-on-surface">Furnace</h3>
+<p class="text-on-surface-variant mb-6 leading-relaxed flex-grow">Installation and maintenance of high-efficiency gas and electric heating systems designed for maximum reliability.</p>
+<a class="text-primary font-bold flex items-center group/link mt-auto" href="#">
+                        Explore Service <span class="ml-2 group-hover/link:translate-x-1 transition-transform">→</span>
+</a>
+</div>
+</div>
+<!-- 3. Heat Pump -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden atmospheric-shadow-hover transition-all duration-300 flex flex-col h-full">
+<div class="h-64 bg-slate-200 relative overflow-hidden shrink-0">
+<img alt="Advanced air-to-air heat pump system outdoor unit in a modern residential landscape during a bright day" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGnZ8h-84mZu5x2rhIpOXv0bE2VPm8Cjx808zslOICx2bvUUxgvWidoyLTz7x70kCHqViK_-Y1upLqc8Hhaq58huL51dKU2dVM_aIHDOTSxmsmaByLmzIw4mPliyTbfoR50yQUtbtpbqxXkFNVLt4_ZppbyVgm2yDb7_xy_Zs0jhZZcZHPpOdEk9r8tccBO3PfTiPPGkkO3a7KEwccT_9MTwkREm0jrBL6CM5yfwam96M6tWiDHjdFrseUliOl63dCGx3_JDnhGBY"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="font-headline text-2xl font-bold mb-3 text-on-surface">Heat Pump</h3>
+<p class="text-on-surface-variant mb-6 leading-relaxed flex-grow">Eco-friendly heating and cooling hybrids that leverage sustainable technology to reduce your carbon footprint.</p>
+<a class="text-primary font-bold flex items-center group/link mt-auto" href="#">
+                        Explore Service <span class="ml-2 group-hover/link:translate-x-1 transition-transform">→</span>
+</a>
+</div>
+</div>
+<!-- 4. Water Tank -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden atmospheric-shadow-hover transition-all duration-300 flex flex-col h-full">
+<div class="h-64 bg-slate-200 relative overflow-hidden shrink-0">
+<img alt="Large energy-efficient insulated hot water storage tank with clean professional plumbing and copper piping" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCs5-cF0MUKw3hhXp8p0EyVz9aQTD45dr-M0oPIBe04lFyDOwHHZ0v-ykdlvcY4_qYOGKmRWN53Czp9GpnYCm4s_yXC5amSkijFAdoSC8R_yy6ihTPzZz4tnX9NCpGBLv4phLoIR0ifcqWA4wx5I-LG0uL44sOSYx9RUeL_MQhzVk8qdckIoArU4upnzH5VwE8DAHNxWGeZ40N8ZWz2EbnoDmYysWgCEAIzen0PBOXS2_cf3diIgF3lIeinrbG7ZFLTeaImfeP2tA"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="font-headline text-2xl font-bold mb-3 text-on-surface">Water Tank</h3>
+<p class="text-on-surface-variant mb-6 leading-relaxed flex-grow">Premium water storage tank systems engineered for thermal retention and long-term durability in any home.</p>
+<a class="text-primary font-bold flex items-center group/link mt-auto" href="#">
+                        Explore Service <span class="ml-2 group-hover/link:translate-x-1 transition-transform">→</span>
+</a>
+</div>
+</div>
+<!-- 5. Duct Work -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden atmospheric-shadow-hover transition-all duration-300 flex flex-col h-full">
+<div class="h-64 bg-slate-200 relative overflow-hidden shrink-0">
+<img alt="Professional technician cleaning intricate metal HVAC ductwork in a spacious modern attic space" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_6d4lNfLSDcyWVK9hrUDAWYoLbgHeV1uMJBvxLAeVjkoNlzlVi2Pvgc0OWT_7cuoSN_Do-m6CWn11OzsAw5q5lZYqMTQpmixVdbmVfwdm78AL1XhqilmnTcKwnj3SW541dBQi1-k6QwWW2qKDgCghm1OrO6ynbMXrHHteiuL4UBYhEtQLkC-bslD-FiZLWVUYhhgz-16SEKhJ7cw9E6xp0tdm7A94WUsoEwvB226JS0grfFYVWXK1w8Hze0jNQKHuC775FzlHW6I"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="font-headline text-2xl font-bold mb-3 text-on-surface">Duct Work</h3>
+<p class="text-on-surface-variant mb-6 leading-relaxed flex-grow">Professional cleaning and airtight sealing services to ensure your air quality and system efficiency remain peaked.</p>
+<a class="text-primary font-bold flex items-center group/link mt-auto" href="#">
+                        Explore Service <span class="ml-2 group-hover/link:translate-x-1 transition-transform">→</span>
+</a>
+</div>
+</div>
+<!-- 6. Boiler -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden atmospheric-shadow-hover transition-all duration-300 flex flex-col h-full">
+<div class="h-64 bg-slate-200 relative overflow-hidden shrink-0">
+<img alt="High-efficiency wall-mounted condensing boiler unit in a clean utility room with modern controls" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVrMP6m-VOPo7AZc6v95c-vNku49Wa288x_FS15uy_Ltsb2OmPLGR-dczLSvoyOChE9nCTBiZGQBtRNE96w7DiqAPTmZovBnU57ikt2J9Av_YNsZjZcHus8yYxGHki_KPADpvk3XxHP1hJXlkIgeyktd9yhWUT7gH_Bdd-hECouOa9KinE-bJuSTOFNttfycG1e_822WO612VejUAcXvWCsKE2BdQnN5kpov8Ti--FiNyWLcjDSh221BRaQ9Z2ZAoAtPn82-VNaqk"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="font-headline text-2xl font-bold mb-3 text-on-surface">Boiler</h3>
+<p class="text-on-surface-variant mb-6 leading-relaxed flex-grow">High-efficiency boiler systems for hydronic heating, providing consistent radiant warmth throughout your home.</p>
+<a class="text-primary font-bold flex items-center group/link mt-auto" href="#">
+                        Explore Service <span class="ml-2 group-hover/link:translate-x-1 transition-transform">→</span>
+</a>
+</div>
+</div>
+<!-- 7. Repair -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden atmospheric-shadow-hover transition-all duration-300 flex flex-col h-full">
+<div class="h-64 bg-slate-200 relative overflow-hidden shrink-0">
+<img alt="Close-up of a skilled technician's hands using professional tools to repair a complex electronic HVAC circuit board" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn6w8owEcZh9oRhbIZgkRO9mrGD9uxTtOZj-P_xLDn2M3ZtX4cx3XwoEMwSBUU60XLmqefclGzM1B7_l-KB9NMU6UxZBIGRSjDhSpajRwqkk8tK1PCljh2ihb_28UgNz7gYkTfFR9s4NwQ1kCRo34a_jg2aHlKvlkmTGSFbkcU7cxszCyqx8FRLsO1bjhDXNPqECw59UA9dn47FshDSpu850qdakm_Nno30XvdfOW9b_4_sFFw7YLiAIIeox8opIaiBLdxdqokuJ4"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="font-headline text-2xl font-bold mb-3 text-on-surface">Repair</h3>
+<p class="text-on-surface-variant mb-6 leading-relaxed flex-grow">Expert repair services for all major brands, utilizing genuine parts and advanced diagnostic equipment.</p>
+<a class="text-primary font-bold flex items-center group/link mt-auto" href="#">
+                        Explore Service <span class="ml-2 group-hover/link:translate-x-1 transition-transform">→</span>
+</a>
+</div>
+</div>
+<!-- 8. Accessories -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden atmospheric-shadow-hover transition-all duration-300 flex flex-col h-full">
+<div class="h-64 bg-slate-200 relative overflow-hidden shrink-0">
+<img alt="Various HVAC tools, digital thermostats, and essential system components arranged on a workspace" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKFMeMoQfMqNLe8BYV2acAyxSyz1C09lJP03m_7zrZi2FX0CvQHahWcp2A_Bh6v-r1GfdCcQijMIvqG32PS4JsbXtD8_03tg4JZI3Qb39qOxMmwr9apb4d5RBM_SiN1btU-lfh5XWOzqQXuVSKbTlseUXCYO6pfsPJx1dLtsaE68lCwM1zdDIvOMSS-LxEYfc9KBlaJpf6MbuwQoHhFKdTSlQhpDASs_uF6dPbtqHjxd_QgpriG3Fp_T_FPxWHQNkDvpPwCMMPsa4"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="font-headline text-2xl font-bold mb-3 text-on-surface">Accessories</h3>
+<p class="text-on-surface-variant mb-6 leading-relaxed flex-grow">Essential accessories and components for HVAC and water systems.</p>
+<a class="text-primary font-bold flex items-center group/link mt-auto" href="#">
+                        Explore Service <span class="ml-2 group-hover/link:translate-x-1 transition-transform">→</span>
+</a>
+</div>
+</div>
+<!-- 9. Smart Home -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden atmospheric-shadow-hover transition-all duration-300 flex flex-col h-full">
+<div class="h-64 bg-slate-200 relative overflow-hidden shrink-0">
+<img alt="Close-up of a sleek modern smart thermostat on a white wall showing a temperature interface with glowing blue light" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDT3GV2JLR9dZjl-fTHqehM3o5wzyymnSPBCaV3l2ccUy2pLuda0q41ukiwMep7DW_YPLzhhn-MniL9-ugWf90dqVfQwMTDfYl0rek5CrRFzif4Al7zb5baUpZh-l666PKuSMVINGLvhEicauBasYKeYtOp26S0FIAxyRb-U7kt58rBS_01Q4faKr1UQTTbGix_8oWoUv6Rzyn5gO9ou_Sd36o4SCBfbsSkfbSTRLZG0qmhATI2R59tLwLOVlHps6mjUNOx0s8eM-U"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="font-headline text-2xl font-bold mb-3 text-on-surface">Smart Home</h3>
+<p class="text-on-surface-variant mb-6 leading-relaxed flex-grow">Smart home automation integration for intelligent temperature scheduling and remote climate control.</p>
+<a class="text-primary font-bold flex items-center group/link mt-auto" href="#">
+                        Explore Service <span class="ml-2 group-hover/link:translate-x-1 transition-transform">→</span>
+</a>
+</div>
+</div>
+<!-- 10. Ductless Heat Pump -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden atmospheric-shadow-hover transition-all duration-300 flex flex-col h-full">
+<div class="h-64 bg-slate-200 relative overflow-hidden shrink-0">
+<img alt="Wall-mounted indoor ductless mini-split unit in a modern living room interior" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5aUBfwZCP9WqsIrnrFl9mBhMIT68odOa_cpQefXLZ2RMW07cpiXyub5OoV9sLZJVkPByU36ToWithCCNXMYhNvyz_x7kmlhXPhSrbgSwHhDJZ51dYge-DPbt2yzHglye81DNPC8REw-HMJxbeVSyN8unpGqNCNul1OFpUAybnvUwSDhC3_bznDBh5dRa4MfePaZ6SatPEK4cIyDuHwuQeJeBVyXpe6pMii2BOMrn78dz8ZaaytkxSRdqBC4Y1z14sZg2m4ECvcMs"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="font-headline text-2xl font-bold mb-3 text-on-surface">Ductless Heat Pump</h3>
+<p class="text-on-surface-variant mb-6 leading-relaxed flex-grow">Ductless mini-split systems for efficient heating and cooling without ductwork.</p>
+<a class="text-primary font-bold flex items-center group/link mt-auto" href="#">
+                        Explore Service <span class="ml-2 group-hover/link:translate-x-1 transition-transform">→</span>
+</a>
+</div>
+</div>
+<!-- 11. Humidifier / Air Quality -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden atmospheric-shadow-hover transition-all duration-300 flex flex-col h-full">
+<div class="h-64 bg-slate-200 relative overflow-hidden shrink-0">
+<img alt="Modern air purifier and humidifier unit in a clean, bright home environment" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZInhsPGrclPYhc8kY89Mwc8v7jqFimgVyq0iJWH7-cu7p75HpRmYYvBSSPg5FNotOAkNPeJChN9eJs2fFrnGPABYLeyKUNH3ErxTsctQO6Y-06OZOM0zm0GG-QSOYxI7Tg0PUttp916Wei_I-XAKWkKOms0iPleKg32OkuMktra-vXaBeZaU6Tt114r4qt53bAEBQyXsHeB8YsU_uwopK0j3sjtr4X7VflYDVDxOfbZbRN2BW6aJ-vS7a9EGTvNy-HCLTslBXj4c"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="font-headline text-2xl font-bold mb-3 text-on-surface">Humidifier / Air Quality</h3>
+<p class="text-on-surface-variant mb-6 leading-relaxed flex-grow">Whole-home humidifiers and air quality solutions for improved indoor comfort and health.</p>
+<a class="text-primary font-bold flex items-center group/link mt-auto" href="#">
+                        Explore Service <span class="ml-2 group-hover/link:translate-x-1 transition-transform">→</span>
+</a>
+</div>
+</div>
+<!-- 12. Tankless Water Heater -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden atmospheric-shadow-hover transition-all duration-300 flex flex-col h-full">
+<div class="h-64 bg-slate-200 relative overflow-hidden shrink-0">
+<img alt="Modern tankless water heater mounted on a clean grey wall with sleek silver finish and copper pipes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATNWsFoL8oy8GFn7A7lm3sL_R9pLeo8lhqkAJXSyR-xNJ4NMUoKGAlKhDplFwsNZHVGYxafDnnLIxuE2IkRHwewRbG7YfAZyMG2_3duGol9fVWk4MBDLsi3IoYHboOcxXLwr0qyJMU9IhGasujivg_TTkuJig-1dsRt6ao5EbK0STvbBjx9PYs5RgFLB5JsW_FEfU_emnWWhDxquO6Wxt4EJZSFaRI_dEwDv-Cwv3kZsY3NltRj1qOaWGhHW-gAn25ChGPsC3T12s"/>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="font-headline text-2xl font-bold mb-3 text-on-surface">Tankless Water Heater</h3>
+<p class="text-on-surface-variant mb-6 leading-relaxed flex-grow">Energy-efficient tankless water heaters providing endless hot water on demand with a compact footprint.</p>
+<a class="text-primary font-bold flex items-center group/link mt-auto" href="#">
+                        Explore Service <span class="ml-2 group-hover/link:translate-x-1 transition-transform">→</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="w-full bg-blue-950 py-24 px-8">
+<div class="max-w-5xl mx-auto text-center">
+<h2 class="font-headline text-4xl md:text-5xl font-extrabold text-white mb-6">Ready to improve your home comfort?</h2>
+<p class="text-blue-100/80 text-xl mb-12 max-w-2xl mx-auto">Our expert technicians are ready to help with all your heating and cooling needs. Experience the RBZ difference today.</p>
+<div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+<button class="bg-gradient-to-br from-primary to-primary-dim text-white px-10 py-4 rounded-lg font-bold text-lg hover:scale-105 transition-transform atmospheric-shadow">
+                    Book Service
+                </button>
+<button class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-white/20 transition-all">
+                    Call: +1 647 299 9648
+                </button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="relative w-full pt-16 pb-8 bg-slate-50">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="text-xl font-black text-blue-900 mb-6 font-headline">RBZ Climate Solutions</div>
+<p class="text-slate-500 text-sm font-body">Mastering environments through atmospheric precision and engineering excellence.</p>
+</div>
+<div>
+<h4 class="font-headline font-bold text-blue-900 mb-6 uppercase tracking-wider text-sm">Services</h4>
+<ul class="space-y-3 font-body text-sm">
+<li><a class="text-slate-500 hover:text-blue-600 hover:translate-x-1 transition-transform inline-block" href="#">Gas Furnace</a></li>
+<li><a class="text-slate-500 hover:text-blue-600 hover:translate-x-1 transition-transform inline-block" href="#">Propane Furnace</a></li>
+<li><a class="text-slate-500 hover:text-blue-600 hover:translate-x-1 transition-transform inline-block" href="#">Repair Services</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold text-blue-900 mb-6 uppercase tracking-wider text-sm">Company</h4>
+<ul class="space-y-3 font-body text-sm">
+<li><a class="text-slate-500 hover:text-blue-600 hover:translate-x-1 transition-transform inline-block" href="#">About Us</a></li>
+<li><a class="text-slate-500 hover:text-blue-600 hover:translate-x-1 transition-transform inline-block" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-500 hover:text-blue-600 hover:translate-x-1 transition-transform inline-block" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold text-blue-900 mb-6 uppercase tracking-wider text-sm">Contact</h4>
+<p class="text-slate-500 text-sm font-body mb-2">Toronto, Ontario</p>
+<p class="text-slate-500 text-sm font-body">+1 647 299 9648</p>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-12 mt-16 pt-8 border-t border-slate-200/60 text-center">
+<p class="text-slate-400 text-xs font-body">© 2024 RBZ Climate Solutions. All rights reserved.</p>
+</div>
+</footer>
+</body></html>
