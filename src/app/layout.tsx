@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
+import { VisitorTracker } from "@/components/ui/VisitorTracker";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -34,6 +35,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased selection:bg-primary-container selection:text-on-primary-container">
+        <VisitorTracker />
         {children}
       </body>
     </html>

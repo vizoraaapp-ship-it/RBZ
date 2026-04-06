@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import Modal from '@/components/ui/Modal';
+import { supabase } from '@/lib/supabase';
 
 const SERVICE_TYPES = [
   'Air Conditioning',
@@ -62,13 +63,21 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors = validate();
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
+    // Save to Supabase
+    await supabase.from('bookings').insert({
+      full_name: form.fullName,
+      email: form.email,
+      phone: form.phone,
+      service_type: form.serviceType,
+      message: form.message || null,
+    });
     setSubmitted(true);
   };
 

@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import Modal from '@/components/ui/Modal';
+import { supabase } from '@/lib/supabase';
 
 const INITIAL_STATE = {
   fullName: '',
@@ -55,13 +56,23 @@ const CareerModal: React.FC<CareerModalProps> = ({ isOpen, onClose, jobTitle }) 
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors = validate();
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
+    // Save to Supabase
+    await supabase.from('careers').insert({
+      full_name: form.fullName,
+      age: Number(form.age),
+      phone: form.phone,
+      email: form.email,
+      university: form.university || null,
+      college: form.college || null,
+      role: jobTitle,
+    });
     setSubmitted(true);
   };
 
