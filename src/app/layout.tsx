@@ -9,7 +9,7 @@ const inter = Inter({
 
 const manrope = Manrope({
   variable: "--font-manrope",
-  sets: ["latin"],
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
