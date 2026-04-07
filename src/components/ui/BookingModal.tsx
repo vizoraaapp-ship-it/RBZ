@@ -71,13 +71,19 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
       return;
     }
     // Save to Supabase
-    await supabase.from('bookings').insert({
+    const { error } = await supabase.from('bookings').insert({
       full_name: form.fullName,
       email: form.email,
       phone: form.phone,
       service_type: form.serviceType,
       message: form.message || null,
     });
+    
+    if (error) {
+      alert(`Error submitting request: ${error.message}`);
+      console.error(error);
+      return;
+    }
     setSubmitted(true);
   };
 
@@ -213,15 +219,15 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
           </div>
 
           {/* Submit */}
-          <div className="space-y-3 pt-2">
+          <div className="flex flex-col items-center md:items-start pt-2 gap-4">
             <button
               type="submit"
               disabled={!isValid}
-              className="w-full py-4 bg-primary text-white font-black text-base rounded-xl hover:bg-primary-dim transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+              className="w-full md:w-full py-3.5 bg-primary text-white font-black text-base rounded-xl hover:bg-primary-dim transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-lg hover:shadow-xl px-12 md:px-6"
             >
               Submit Request
             </button>
-            <p className="text-center text-xs text-on-surface-variant font-medium leading-relaxed">
+            <p className="text-center md:text-left text-xs text-on-surface-variant font-medium leading-relaxed">
               If you need to send a resume or additional documents, email us at{' '}
               <a
                 href="mailto:support@company.com"

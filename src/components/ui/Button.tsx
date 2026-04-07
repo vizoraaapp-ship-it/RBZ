@@ -1,5 +1,8 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'tonal' | 'surface';
@@ -19,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   className = '',
   ...props
 }) => {
-  const baseStyles = 'inline-flex items-center justify-center font-bold transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:pointer-events-none gap-2 rounded-xl';
+  const baseStyles = 'inline-flex items-center justify-center font-bold transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none gap-2 rounded-xl';
   
   const variants = {
     primary: 'bg-primary text-surface-container-lowest hover:bg-primary-dim shadow-lg shadow-primary/20',
@@ -39,6 +42,12 @@ const Button: React.FC<ButtonProps> = ({
 
   const combinedClasses = `${baseStyles} ${variants[variant]} ${sizes[size]} ${fullWidth ? 'w-full' : ''} ${className}`;
 
+  const motionProps = {
+    whileHover: { scale: 1.03, y: -2 },
+    whileTap: { scale: 0.97 },
+    transition: { type: "spring", stiffness: 400, damping: 10 }
+  };
+
   const content = (
     <>
       {icon && <span className="material-symbols-outlined text-[inherit]">{icon}</span>}
@@ -47,17 +56,22 @@ const Button: React.FC<ButtonProps> = ({
   );
 
   if (href) {
+    const MotionLink = motion(Link);
     return (
-      <Link href={href} className={combinedClasses}>
+      <MotionLink href={href} className={combinedClasses} {...motionProps}>
         {content}
-      </Link>
+      </MotionLink>
     );
   }
 
   return (
-    <button className={combinedClasses} {...props}>
+    <motion.button 
+      className={combinedClasses} 
+      {...motionProps}
+      {...(props as any)}
+    >
       {content}
-    </button>
+    </motion.button>
   );
 };
 

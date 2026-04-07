@@ -4,11 +4,14 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Section from '@/components/ui/Section';
 import Button from '@/components/ui/Button';
+import AutoSlider from '@/components/ui/AutoSlider';
 import CareerModal from '@/components/ui/CareerModal';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const JOBS = [
   {
+    id: 1,
     title: 'HVAC Service Technician',
     type: 'Full-Time',
     location: 'Scarborough / GTA',
@@ -16,6 +19,7 @@ const JOBS = [
     icon: 'build'
   },
   {
+    id: 2,
     title: 'Lead HVAC Installer',
     type: 'Full-Time',
     location: 'Barrie / Simcoe County',
@@ -23,6 +27,7 @@ const JOBS = [
     icon: 'construction'
   },
   {
+    id: 3,
     title: 'Sales & Estimation Specialist',
     type: 'Full-Time / Commission',
     location: 'Hybrid / GTA',
@@ -30,6 +35,7 @@ const JOBS = [
     icon: 'sell'
   },
   {
+    id: 4,
     title: 'Customer Support Representative',
     type: 'Part-Time',
     location: 'Office (Scarborough)',
@@ -38,17 +44,37 @@ const JOBS = [
   }
 ];
 
+const BENEFITS = [
+  { title: 'Training & Growth', icon: 'school', desc: 'Continuous education on the latest HVAC and smart home technology.' },
+  { title: 'Premium Gear', icon: 'handyman', desc: 'Access to top-tier diagnostic tools and well-maintained service vehicles.' },
+  { title: 'Collaborative Environment', icon: 'groups', desc: 'A supportive team culture where technical expertise is shared and celebrated.' },
+  { title: 'Competitive Rewards', icon: 'card_giftcard', desc: 'Industry-leading pay, benefits, and performance-based incentives.' }
+];
+
 export default function CareersPage() {
   const [selectedJob, setSelectedJob] = useState<string | null>(null);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.4 }
+    }
+  };
 
   return (
     <main className="min-h-screen bg-surface">
       <Navbar />
       
-      {/* Careers Hero Section - Immersive Full-Screen Style */}
-      <header className="relative w-full h-screen min-h-[800px] flex items-center justify-center overflow-hidden">
+      {/* Careers Hero Section - Optimized Overlay */}
+      <header className="relative w-full h-[70vh] min-h-[500px] md:h-screen md:min-h-[800px] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0 z-0">
+        <motion.div 
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="absolute inset-0 z-0"
+        >
           <Image 
             src="/career-hero.png" 
             alt="Careers at RBZ Climate Solutions" 
@@ -58,105 +84,208 @@ export default function CareersPage() {
           />
           {/* Black Shade Filter Overlay */}
           <div className="absolute inset-0 bg-black/60 z-10" />
-        </div>
+        </motion.div>
 
         {/* Content Centered - Matched to Service Page Style */}
-        <div className="relative z-20 max-w-4xl mx-auto px-8 text-center space-y-10 animate-in fade-in slide-in-from-top duration-1000">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 mx-auto">
-            <span className="material-symbols-outlined text-white text-sm">rocket_launch</span>
-            <span className="text-white text-xs font-bold tracking-widest uppercase">Join Our Expert Team</span>
-          </div>
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          className="relative z-20 max-w-4xl mx-auto px-6 md:px-8 text-center space-y-8 md:space-y-12"
+        >
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4 }}
+            className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-2.5 rounded-full border border-white/20 mx-auto"
+          >
+            <motion.span 
+              animate={{ y: [0, -4, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="material-symbols-outlined text-white text-sm"
+            >
+              rocket_launch
+            </motion.span>
+            <span className="text-white text-[10px] font-black tracking-[0.3em] uppercase">Join Our Expert Team</span>
+          </motion.div>
           
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.1] drop-shadow-2xl">
+          <motion.h1 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="text-4xl md:text-8xl font-black tracking-tight text-white leading-[1.1] drop-shadow-2xl"
+          >
             Precision in <br />
-            <span className="text-primary-fixed-dim">Your Career</span>
-          </h1>
+            <motion.span 
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+              className="text-primary-fixed-dim"
+            >
+              Your Career
+            </motion.span>
+          </motion.h1>
           
-          <p className="text-xl md:text-2xl text-white/90 font-body leading-relaxed max-w-2xl mx-auto drop-shadow-lg">
-            Grow your skills at RBZ Climate Solutions. We re looking for dedicated technicians and professionals to help us redefine home comfort across Ontario.
-          </p>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 0.8 }}
+            className="text-base md:text-2xl text-white/90 font-bold leading-relaxed max-w-2xl mx-auto drop-shadow-lg opacity-80"
+          >
+            Grow your skills at RBZ Climate Solutions. We're looking for dedicated technicians and professionals to help us redefine home comfort across Ontario.
+          </motion.p>
           
-          <div className="pt-8">
-            <Button size="xl" href="#openings">View Open Positions</Button>
-          </div>
-        </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2 }}
+            className="pt-4 md:pt-8"
+          >
+            <Button size="xl" href="#openings" className="shadow-2xl">View Open Positions</Button>
+          </motion.div>
+        </motion.div>
       </header>
 
-      {/* Why Join Us */}
-      <Section background="surface">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {[
-            { title: 'Training & Growth', icon: 'school', desc: 'Continuous education on the latest HVAC and smart home technology.' },
-            { title: 'Premium Gear', icon: 'handyman', desc: 'Access to top-tier diagnostic tools and well-maintained service vehicles.' },
-            { title: 'Collaborative Environment', icon: 'groups', desc: 'A supportive team culture where technical expertise is shared and celebrated.' },
-            { title: 'Competitive Rewards', icon: 'card_giftcard', desc: 'Industry-leading pay, benefits, and performance-based incentives.' }
-          ].map((item, index) => (
-            <div key={index} className="p-8 bg-white rounded-2xl border border-outline-variant/10 shadow-sm animate-in fade-in slide-in-from-bottom duration-700 hover:shadow-xl transition-all" style={{ animationDelay: `${index * 150}ms` }}>
-              <div className="text-primary mb-6">
-                <span className="material-symbols-outlined text-4xl">{item.icon}</span>
-              </div>
-              <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-              <p className="text-on-surface-variant text-sm leading-relaxed font-medium">{item.desc}</p>
-            </div>
+      {/* Why Join Us & Slider */}
+      <Section background="surface" className="py-16 md:py-32">
+        {/* Desktop Benefits Grid */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-10"
+        >
+          {BENEFITS.map((item, index) => (
+             <BenefitCard key={index} item={item} />
           ))}
+        </motion.div>
+
+        {/* Mobile Benefits Auto-Slider */}
+        <div className="md:hidden relative -mx-4">
+          <AutoSlider interval={4000}>
+            {BENEFITS.map((item, index) => (
+              <BenefitCard key={index} item={item} />
+            ))}
+          </AutoSlider>
         </div>
       </Section>
 
-      {/* Student Opportunity / Collaboration Section */}
-      <Section id="students" background="high">
-        <div className="max-w-4xl mx-auto bg-white rounded-[2.5rem] p-10 md:p-16 border border-outline-variant/10 shadow-xl flex flex-col md:flex-row items-center gap-10 animate-in fade-in slide-in-from-bottom duration-1000">
-           <div className="w-24 h-24 shrink-0 bg-primary/10 rounded-3xl flex items-center justify-center text-primary">
-              <span className="material-symbols-outlined text-5xl">diversity_3</span>
-           </div>
-           <div className="space-y-4 text-center md:text-left">
-              <h2 className="text-3xl font-black text-on-surface leading-tight">Collaboration &amp; Networking <span className="text-primary">(HVAC Students)</span></h2>
-              <p className="text-on-surface-variant text-lg font-semibold leading-relaxed">
+      {/* Student Opportunity Section - Mobile Proportions */}
+      <Section id="students" background="high" className="py-16 md:py-24">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-4xl mx-auto bg-white rounded-[2.5rem] md:rounded-[4rem] p-8 md:p-20 border border-outline-variant/10 shadow-2xl flex flex-col md:flex-row items-center gap-10 md:gap-12 relative overflow-hidden group"
+        >
+           {/* Subtle background motif */}
+           <motion.div 
+             animate={{ rotate: 360 }}
+             transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+             className="absolute -right-20 -bottom-20 w-80 h-80 border-2 border-primary/5 rounded-full pointer-events-none" 
+           />
+
+           <motion.div 
+            whileHover={{ scale: 1.1, rotate: 12 }}
+            className="w-24 h-24 md:w-32 md:h-32 shrink-0 bg-primary/10 rounded-[1.75rem] md:rounded-[2.5rem] flex items-center justify-center text-primary shadow-inner"
+           >
+              <span className="material-symbols-outlined text-4xl md:text-6xl">diversity_3</span>
+           </motion.div>
+           <div className="space-y-4 md:space-y-6 text-center md:text-left relative z-10">
+              <h2 className="text-2xl md:text-4xl font-black text-on-surface leading-tight tracking-tight">Collaboration &amp; Mentorship <br /><span className="text-primary text-xl md:text-3xl">(HVAC Students)</span></h2>
+              <p className="text-on-surface-variant text-base md:text-xl font-bold leading-relaxed opacity-70">
                 Supporting student growth through industry connections and knowledge sharing. At RBZ, we believe in mentoring the next generation of HVAC experts.
               </p>
               <div className="pt-4 flex justify-center md:justify-start">
-                <Button variant="outline" href="/contact">Inquire for Mentorship</Button>
+                <Button variant="outline" href="/contact" fullWidth className="sm:w-auto" size="lg">Inquire for Mentorship</Button>
               </div>
            </div>
-        </div>
+        </motion.div>
       </Section>
 
       {/* Openings Section */}
-      <Section id="openings" background="surface">
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl font-bold text-on-surface">Current Opportunities</h2>
-          <p className="text-on-surface-variant text-lg">Looking for professional growth? Apply today.</p>
-        </div>
+      <Section id="openings" background="surface" className="py-24 md:py-32">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16 md:mb-24 space-y-4"
+        >
+          <motion.span 
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-black text-[10px] tracking-[0.3em] uppercase"
+          >
+            Open Positions
+          </motion.span>
+          <h2 className="text-3xl md:text-6xl font-black text-on-background tracking-tight leading-tight">Current Opportunities</h2>
+          <p className="text-base md:text-xl font-bold opacity-60 max-w-md mx-auto">Looking for professional growth? Apply today.</p>
+        </motion.div>
         
-        <div className="space-y-6 max-w-5xl mx-auto">
-          {JOBS.map((job, index) => (
-            <div 
-              key={index} 
-              className="group bg-surface-container-lowest p-8 md:p-10 rounded-2xl border border-outline-variant/10 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 animate-in fade-in slide-in-from-left duration-700"
-              style={{ animationDelay: `${index * 100}ms` }}
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.12 } }
+          }}
+          className="space-y-8 md:space-y-10 max-w-5xl mx-auto px-4 md:px-0"
+        >
+          {JOBS.map((job) => (
+            <motion.div 
+              key={job.id} 
+              variants={{
+                hidden: { opacity: 0, scale: 0.95 },
+                visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+              }}
+              whileHover={{ 
+                x: 10,
+                backgroundColor: "rgba(255, 255, 255, 1)",
+                boxShadow: "0 25px 60px -12px rgba(0, 0, 0, 0.1)"
+              }}
+              className="group bg-white/60 backdrop-blur-sm p-8 md:p-14 rounded-[2rem] md:rounded-[3rem] border border-outline-variant/10 shadow-sm transition-all duration-500 flex flex-col xl:flex-row items-center xl:items-center justify-between gap-8 md:gap-10 text-center xl:text-left"
             >
-              <div className="flex gap-6 items-start">
-                 <div className="w-14 h-14 bg-primary/5 rounded-xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                    <span className="material-symbols-outlined text-2xl">{job.icon}</span>
-                 </div>
-                 <div className="space-y-1">
-                    <h3 className="text-2xl font-bold">{job.title}</h3>
-                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-on-surface-variant text-sm font-medium uppercase tracking-widest">
-                      <span className="flex items-center gap-1"><span className="material-symbols-outlined text-xs">work</span> {job.type}</span>
-                      <span className="flex items-center gap-1"><span className="material-symbols-outlined text-xs">location_on</span> {job.location}</span>
+              <div className="flex flex-col md:flex-row gap-8 md:gap-10 items-center md:items-start w-full">
+                 <motion.div 
+                  whileHover={{ rotate: 15, scale: 1.1 }}
+                  className="w-20 h-20 bg-primary/10 rounded-[1.75rem] flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm shrink-0"
+                 >
+                    <span className="material-symbols-outlined text-4xl">{job.icon}</span>
+                 </motion.div>
+                 <div className="space-y-4 flex-grow">
+                    <h3 className="text-2xl md:text-3xl font-black tracking-tight group-hover:text-primary transition-colors leading-tight">{job.title}</h3>
+                    <div className="flex flex-wrap justify-center xl:justify-start gap-x-4 gap-y-3 text-[10px] font-black uppercase tracking-[0.2em] text-primary/60">
+                      <span className="flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10">
+                        <span className="material-symbols-outlined text-base">work</span> {job.type}
+                      </span>
+                      <span className="flex items-center gap-2 px-4 py-2 bg-surface-container rounded-full border border-outline-variant/10 text-on-surface-variant">
+                        <span className="material-symbols-outlined text-base">location_on</span> {job.location}
+                      </span>
                     </div>
-                    <p className="pt-4 text-on-surface-variant max-w-xl font-medium">{job.description}</p>
+                    <p className="pt-4 text-on-surface-variant max-w-2xl font-bold text-sm md:text-lg opacity-80 group-hover:opacity-100 transition-opacity leading-relaxed">{job.description}</p>
                   </div>
               </div>
-              <Button
-                variant="outline"
-                className="shrink-0"
-                onClick={() => setSelectedJob(job.title)}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full xl:w-auto mt-4 xl:mt-0"
               >
-                Apply Now
-              </Button>
-            </div>
+                <Button
+                  variant="primary"
+                  size="lg"
+                  fullWidth
+                  className="xl:px-12 rounded-2xl shadow-xl shadow-primary/20"
+                  onClick={() => setSelectedJob(job.title)}
+                >
+                  Apply Now
+                </Button>
+              </motion.div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </Section>
 
       <Footer />
@@ -170,3 +299,25 @@ export default function CareersPage() {
     </main>
   );
 }
+
+const BenefitCard = ({ item }: { item: any }) => (
+  <motion.div 
+    variants={{
+      hidden: { opacity: 0, y: 20, scale: 0.95 },
+      visible: { opacity: 1, y: 0, scale: 1 }
+    }}
+    whileHover={{ 
+      y: -10, 
+      backgroundColor: "rgba(255, 255, 255, 1)",
+      borderColor: "rgba(var(--primary), 0.1)"
+    }}
+    className="p-8 md:p-10 bg-white rounded-[2rem] md:rounded-[2.5rem] border border-outline-variant/10 shadow-sm transition-all duration-500 overflow-hidden relative group h-full flex flex-col"
+  >
+    <div className="absolute -top-12 -right-12 w-24 h-24 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors" />
+    <div className="text-primary mb-6 md:mb-8 relative z-10 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 flex-shrink-0">
+      <span className="material-symbols-outlined text-4xl md:text-5xl font-black">{item.icon}</span>
+    </div>
+    <h3 className="text-xl md:text-2xl font-black mb-3 md:mb-4 tracking-tight group-hover:text-primary transition-colors leading-tight">{item.title}</h3>
+    <p className="text-on-surface-variant text-sm md:text-base leading-relaxed font-bold opacity-70 group-hover:opacity-100 transition-opacity flex-grow">{item.desc}</p>
+  </motion.div>
+);

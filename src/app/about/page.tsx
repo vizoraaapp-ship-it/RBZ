@@ -1,9 +1,13 @@
+'use client';
 import React from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Section from '@/components/ui/Section';
 import Image from 'next/image';
 import Button from '@/components/ui/Button';
+import AutoSlider from '@/components/ui/AutoSlider';
+import { motion } from 'framer-motion';
+import Counter from '@/components/ui/Counter';
 
 const VALUES = [
   { 
@@ -24,15 +28,15 @@ const VALUES = [
   { 
     title: 'Eco-Friendly', 
     icon: 'eco', 
-    desc: 'Committed to Ontarios greener future through high-efficiency heat pumps and energy-saving audits.' 
+    desc: 'Committed to Ontario\'s greener future through high-efficiency heat pumps and energy-saving audits.' 
   }
 ];
 
 const STATS = [
-  { label: 'Years Experience', value: '15+' },
-  { label: 'Skilled Technicians', value: '30+' },
-  { label: 'Solutions Delivered', value: '5k+' },
-  { label: 'Customer Trust', value: '98%' }
+  { label: 'Years Experience', value: 15, suffix: '+' },
+  { label: 'Skilled Technicians', value: 30, suffix: '+' },
+  { label: 'Solutions Delivered', value: 5000, suffix: '+' },
+  { label: 'Customer Trust', value: 98, suffix: '%' }
 ];
 
 export default function AboutPage() {
@@ -40,110 +44,291 @@ export default function AboutPage() {
     <main className="min-h-screen bg-surface">
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="relative pt-48 pb-32 md:pt-64 md:pb-48 bg-gradient-to-br from-primary/10 via-surface to-surface-container-low flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-primary blur-[120px] rounded-full"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary blur-[120px] rounded-full"></div>
-        </div>
-        <div className="max-w-4xl mx-auto px-8 text-center relative z-10 space-y-8 animate-in fade-in slide-in-from-top duration-1000">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary-container text-on-primary-container font-medium text-sm tracking-widest uppercase">Established 2009</span>
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-on-surface leading-[1.1]">
-            About RBZ Climate Solutions
-          </h1>
-          <p className="text-xl md:text-2xl text-on-surface-variant font-body leading-relaxed max-w-2xl mx-auto">
+      {/* Page Hero Section - Optimized for Mobile Overlay */}
+      <header className="relative w-full h-[60vh] min-h-[500px] md:h-screen md:min-h-[800px] flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <motion.div 
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="absolute inset-0 z-0"
+        >
+          <Image 
+            src="/about-hero.jpeg" 
+            alt="About RBZ Climate Solutions" 
+            fill 
+            className="object-cover"
+            priority
+          />
+          {/* Black Shade Filter Overlay */}
+          <div className="absolute inset-0 bg-black/60 z-10" />
+        </motion.div>
+
+        {/* Content Centered - Matched to Services Page Style */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-20 max-w-4xl mx-auto px-6 md:px-8 text-center space-y-6 md:space-y-8"
+        >
+          <motion.span 
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5 }}
+            className="inline-block px-5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-black text-[10px] md:text-xs tracking-[0.2em] uppercase shadow-xl"
+          >
+            Established 2009
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
+            className="text-4xl md:text-8xl font-black tracking-tight text-white leading-[1.1] drop-shadow-2xl"
+          >
+            About RBZ <br /> Climate Solutions
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
+            className="text-base md:text-2xl text-white/90 font-medium leading-relaxed max-w-2xl mx-auto drop-shadow-lg opacity-80"
+          >
             Trusted by homeowners and businesses across Ontario to deliver precise atmospheric mastery and mechanical reliability.
-          </p>
-        </div>
-      </section>
+          </motion.p>
+        </motion.div>
+      </header>
 
       {/* Who We Are */}
       <Section id="who-we-are">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8 animate-in fade-in slide-in-from-left duration-1000">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-on-surface">Who We Are</h2>
-            <div className="space-y-6 text-lg text-on-surface-variant font-medium leading-relaxed">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="space-y-6 md:space-y-8 text-center md:text-left"
+          >
+            <h2 className="text-3xl md:text-6xl font-black tracking-tight text-on-surface leading-tight">Who We Are</h2>
+            <div className="space-y-6 text-lg text-on-surface-variant font-medium leading-relaxed opacity-90">
               <p>
                 At RBZ Climate Solutions, we believe that the environment you live and work in dictates your quality of life. For over 15 years, our team has been the cornerstone of HVAC reliability throughout Ontario, blending technical expertise with white-glove service.
               </p>
               <p>
-                What started as a small family-focused repair shop has evolved into a leading architectural partner for environmental control. We don t just install units; we design sustainable systems that optimize comfort, air purity, and energy efficiency.
+                What started as a small family-focused repair shop has evolved into a leading architectural partner for environmental control. We don't just install units; we design sustainable systems that optimize comfort, air purity, and energy efficiency.
               </p>
               <p>
                 Our mission is to elevate the standard of living across Ontario by providing superior heating, cooling, and water solutions that prioritize precision, sustainability, and human comfort.
               </p>
+
+              {/* TSSA Verification Highlight */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="mt-12 p-8 bg-surface-container-low rounded-[2rem] border border-outline-variant/10 shadow-xl overflow-hidden relative group"
+              >
+                <div className="absolute inset-0 bg-primary/[0.02] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                
+                <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
+                  {/* TSSA Logo Container */}
+                  <motion.div 
+                    whileHover={{ scale: 1.05 }}
+                    className="w-32 h-32 md:w-40 md:h-40 bg-white rounded-2xl flex items-center justify-center p-4 shadow-sm shrink-0 transition-transform duration-500"
+                  >
+                    <Image 
+                      src="/tssa.png" 
+                      alt="TSSA Certification Logo" 
+                      width={140} 
+                      height={140} 
+                      className="w-full h-auto object-contain"
+                    />
+                  </motion.div>
+
+                  {/* TSSA Content */}
+                  <div className="space-y-4 text-center md:text-left">
+                    <div className="space-y-2">
+                       <h3 className="text-2xl font-black text-on-surface tracking-tight">TSSA Certified & Verified</h3>
+                       <p className="text-sm text-on-surface-variant font-medium leading-relaxed opacity-80">
+                         We are fully certified and verified by TSSA, ensuring all our HVAC and mechanical services meet the highest safety and regulatory standards.
+                       </p>
+                    </div>
+                    
+                    {/* Trust Indicators */}
+                    <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
+                       {[
+                         { icon: 'shield_lock', label: 'Safety Compliant' },
+                         { icon: 'verified_user', label: 'Licensed Professionals' },
+                         { icon: 'assignment_turned_in', label: 'Regulatory Approved' }
+                       ].map((indicator) => (
+                         <div key={indicator.label} className="flex items-center gap-2 px-3 py-1.5 bg-white rounded-full border border-outline-variant/10 shadow-sm transition-all hover:bg-primary/5 hover:border-primary/20">
+                            <span className="material-symbols-outlined text-primary text-sm font-black">{indicator.icon}</span>
+                            <span className="text-[10px] font-black uppercase tracking-wider text-on-surface-variant">{indicator.label}</span>
+                         </div>
+                       ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
             </div>
-          </div>
-          <div className="relative group animate-in fade-in slide-in-from-right duration-1000">
-            <div className="absolute inset-0 bg-primary/10 rounded-2xl -rotate-3 scale-105 transition-transform group-hover:rotate-0 duration-500"></div>
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
+          </motion.div>
+          
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="relative group lg:block"
+          >
+            <div className="absolute inset-0 bg-primary/10 rounded-3xl -rotate-4 scale-105 transition-transform group-hover:rotate-0 duration-700" />
+            <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border border-white/10">
               <Image 
                 src="/technicians.png" 
                 alt="HVAC Technicians" 
                 width={800} 
                 height={800} 
-                className="w-full aspect-square object-cover"
+                className="w-full aspect-square object-cover transition-transform duration-1000 group-hover:scale-105"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
       </Section>
 
       {/* Stats Section */}
-      <Section background="primary" className="py-20">
-         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center divide-x divide-white/10">
-            {STATS.map((stat, index) => (
-              <div key={index} className="space-y-2 animate-in fade-in zoom-in duration-700" style={{ animationDelay: `${index * 100}ms` }}>
-                <div className="text-4xl md:text-5xl font-extrabold">{stat.value}</div>
-                <div className="text-primary-fixed-dim text-xs md:text-sm uppercase tracking-widest font-bold">{stat.label}</div>
+      <Section background="primary" className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <motion.div 
+            animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+            transition={{ duration: 8, repeat: Infinity }}
+            className="absolute -top-1/2 -left-1/4 w-[800px] h-[800px] bg-white rounded-full blur-[120px]" 
+          />
+        </div>
+        
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.1 } }
+          }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center relative z-10"
+        >
+          {STATS.map((stat, index) => (
+            <motion.div 
+              key={index}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              className="space-y-2 border-r border-white/10 last:border-0"
+            >
+              <div className="text-4xl md:text-6xl font-black tracking-tighter">
+                <Counter value={stat.value} duration={2} delay={0.2 * index} />{stat.suffix}
               </div>
-            ))}
-         </div>
+              <div className="text-primary-fixed-dim text-[10px] md:text-xs uppercase tracking-[0.3em] font-black opacity-80">{stat.label}</div>
+            </motion.div>
+          ))}
+        </motion.div>
       </Section>
 
       {/* Core Values */}
       <Section background="surface">
-        <div className="text-center mb-20 space-y-4">
-          <h2 className="text-4xl font-bold text-on-surface">The Foundation of RBZ</h2>
-          <p className="text-on-surface-variant text-lg">Our core values drive every interaction and installation.</p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12 lg:mb-24 space-y-4"
+        >
+          <h2 className="text-3xl md:text-5xl font-black text-on-surface tracking-tight">The Foundation of RBZ</h2>
+          <p className="text-base md:text-lg text-on-surface-variant font-medium opacity-80 max-w-lg mx-auto">Our core values drive every interaction and installation.</p>
+        </motion.div>
+        
+        {/* Desktop Grid */}
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            visible: { transition: { staggerChildren: 0.1 } }
+          }}
+          className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-8"
+        >
           {VALUES.map((value, index) => (
-            <div 
-              key={index} 
-              className="p-10 bg-surface-container-lowest rounded-xl shadow-[0_12px_32px_rgba(0,17,168,0.04)] hover:shadow-[0_12px_32px_rgba(0,17,168,0.08)] hover:-translate-y-2 transition-all duration-300 animate-in fade-in slide-in-from-bottom duration-700"
-              style={{ animationDelay: `${index * 150}ms` }}
-            >
-              <div className="w-14 h-14 bg-primary-container rounded-lg flex items-center justify-center mb-6 text-primary">
-                <span className="material-symbols-outlined text-3xl">{value.icon}</span>
-              </div>
-              <h3 className="text-xl font-bold text-on-surface mb-3">{value.title}</h3>
-              <p className="text-on-surface-variant text-sm leading-relaxed">{value.desc}</p>
-            </div>
+             <AboutValueCard key={index} value={value} />
           ))}
+        </motion.div>
+
+        {/* Mobile Values Slideable Row */}
+        <div className="md:hidden relative -mx-4 px-4 mt-8">
+          <div className="flex gap-6 overflow-x-auto no-scrollbar pb-12 snap-x snap-mandatory">
+            {VALUES.map((value, index) => (
+              <div key={index} className="flex-shrink-0 w-[85vw] snap-center">
+                <AboutValueCard value={value} />
+              </div>
+            ))}
+          </div>
         </div>
       </Section>
 
       {/* Final CTA */}
-      <section className="py-24 px-8">
+      <section className="py-24 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-primary-dim rounded-[2.5rem] p-12 md:p-24 text-center relative overflow-hidden text-white shadow-2xl">
-            <div className="absolute inset-0 opacity-10">
-              <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
-                <path d="M0 100 Q 25 0 50 100 Q 75 200 100 100" fill="none" stroke="white" strokeWidth="0.1"></path>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="bg-blue-950 rounded-[2.5rem] md:rounded-[4rem] p-10 md:p-32 text-center relative overflow-hidden text-white shadow-2xl border border-white/5"
+          >
+            {/* Background design element */}
+            <motion.div 
+              animate={{ 
+                rotate: 360,
+                opacity: [0.05, 0.1, 0.05]
+              }}
+              transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-0 flex items-center justify-center pointer-events-none"
+            >
+              <svg className="w-[150%] h-[150%] animate-pulse-slow" viewBox="0 0 100 100">
+                <path d="M0 100 Q 25 0 50 100 Q 75 200 100 100" fill="none" stroke="white" strokeWidth="0.05" opacity="0.3"></path>
+                <path d="M0 50 Q 50 150 100 50" fill="none" stroke="white" strokeWidth="0.05" opacity="0.2"></path>
               </svg>
-            </div>
-            <div className="relative z-10 space-y-10 animate-in fade-in slide-in-from-bottom duration-1000">
-              <h2 className="text-4xl md:text-6xl font-bold mb-8">Ready to work with a team you can trust?</h2>
-              <p className="text-primary-fixed text-xl max-w-2xl mx-auto">
-                Contact us today for a diagnostic audit or to discuss your upcoming installation project. Expert care is just a click away.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6">
-                <Button variant="surface" size="xl" href="/contact">Book Service</Button>
-                <Button variant="outline" size="xl" className="text-white border-white/30 hover:bg-white/10" href="tel:+16472999648">Call Now</Button>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="relative z-10 space-y-10 md:space-y-12"
+            >
+              <div className="space-y-6">
+                <h2 className="text-3xl md:text-7xl font-black mb-8 tracking-tight leading-[1.1]">Ready to work with <br /> a team you can trust?</h2>
+                <p className="text-primary-fixed text-base md:text-2xl max-w-2xl mx-auto font-bold opacity-80 leading-relaxed">
+                  Contact us today for a diagnostic audit or to discuss your upcoming installation project. Expert care is just a click away.
+                </p>
               </div>
-            </div>
-          </div>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6 }}
+                className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-8 pt-4 md:pt-8"
+              >
+                <Button variant="surface" size="xl" href="/contact" fullWidth className="sm:w-auto shadow-2xl">Book Service Now</Button>
+                <motion.a 
+                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.05)" }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full sm:w-auto border-2 border-white/20 text-white px-10 py-5 rounded-2xl font-black text-xl transition-all flex items-center justify-center gap-3 backdrop-blur-sm" 
+                  href="tel:+16472999648"
+                >
+                  <span className="material-symbols-outlined text-2xl">phone_in_talk</span>
+                  Call Now
+                </motion.a>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -151,3 +336,29 @@ export default function AboutPage() {
     </main>
   );
 }
+
+const AboutValueCard = ({ value }: { value: any }) => (
+  <motion.div 
+    variants={{
+      hidden: { opacity: 0, scale: 0.9, y: 30 },
+      visible: { opacity: 1, scale: 1, y: 0 }
+    }}
+    whileHover={{ 
+      y: -10,
+      boxShadow: "0 30px 60px -12px rgba(0, 0, 0, 0.15)",
+      borderColor: "rgba(var(--primary), 0.2)"
+    }}
+    className="p-10 bg-white rounded-[2.5rem] shadow-sm border border-outline-variant/10 transition-all duration-500 overflow-hidden relative group h-full flex flex-col"
+  >
+    <div className="absolute inset-0 bg-primary/[0.02] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+    
+    <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 text-primary transition-transform relative z-10 flex-shrink-0">
+      <span className="material-symbols-outlined text-3xl font-black">{value.icon}</span>
+    </div>
+    
+    <div className="relative z-10 flex-grow">
+      <h3 className="text-2xl font-black text-on-surface mb-4 tracking-tight group-hover:text-primary transition-colors leading-tight">{value.title}</h3>
+      <p className="text-on-surface-variant text-sm leading-relaxed font-bold opacity-70 group-hover:opacity-100 transition-opacity">{value.desc}</p>
+    </div>
+  </motion.div>
+);

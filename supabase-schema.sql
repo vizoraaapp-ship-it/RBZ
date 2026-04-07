@@ -58,3 +58,24 @@ CREATE POLICY "Allow public reads on bookings" ON bookings FOR SELECT USING (tru
 CREATE POLICY "Allow public reads on contacts" ON contacts FOR SELECT USING (true);
 CREATE POLICY "Allow public reads on careers" ON careers FOR SELECT USING (true);
 CREATE POLICY "Allow public reads on visitors" ON visitors FOR SELECT USING (true);
+
+-- 5. Banners table (for Home Page Hero slider)
+CREATE TABLE IF NOT EXISTS banners (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  image_url TEXT NOT NULL,
+  file_path TEXT NOT NULL,
+  is_active BOOLEAN DEFAULT true,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  display_order INTEGER DEFAULT 0
+);
+
+-- Allow public to read active banners
+ALTER TABLE banners ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Allow public read on active banners" ON banners FOR SELECT USING (is_active = true);
+CREATE POLICY "Allow admin all on banners" ON banners FOR ALL USING (true);
+
+-- 6. Storage Bucket for Banners
+INSERT INTO storage.buckets (id, name, public) VALUES ('banners', 'banners', true) ON CONFLICT (id) DO NOTHING;
+CREATE POLICY "Public Access" ON storage.objects FOR SELECT USING (bucket_id = 'banners');
+CREATE POLICY "Admin Upload" ON storage.objects FOR INSERT WITH CHECK (bucket_id = 'banners');
+CREATE POLICY "Admin Delete" ON storage.objects FOR DELETE USING (bucket_id = 'banners');

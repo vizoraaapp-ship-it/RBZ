@@ -64,7 +64,7 @@ const CareerModal: React.FC<CareerModalProps> = ({ isOpen, onClose, jobTitle }) 
       return;
     }
     // Save to Supabase
-    await supabase.from('careers').insert({
+    const { error } = await supabase.from('careers').insert({
       full_name: form.fullName,
       age: Number(form.age),
       phone: form.phone,
@@ -73,6 +73,12 @@ const CareerModal: React.FC<CareerModalProps> = ({ isOpen, onClose, jobTitle }) 
       college: form.college || null,
       role: jobTitle,
     });
+    
+    if (error) {
+      alert(`Error submitting application: ${error.message}`);
+      console.error(error);
+      return;
+    }
     setSubmitted(true);
   };
 
@@ -224,15 +230,15 @@ const CareerModal: React.FC<CareerModalProps> = ({ isOpen, onClose, jobTitle }) 
           </div>
 
           {/* Submit */}
-          <div className="space-y-3 pt-2">
+          <div className="flex flex-col items-center md:items-start pt-2 gap-4">
             <button
               type="submit"
               disabled={!isValid}
-              className="w-full py-4 bg-primary text-white font-black text-base rounded-xl hover:bg-primary-dim transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+              className="w-full md:w-full py-3.5 bg-primary text-white font-black text-base rounded-xl hover:bg-primary-dim transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-lg hover:shadow-xl px-12 md:px-6"
             >
               Submit Application
             </button>
-            <p className="text-center text-xs text-on-surface-variant font-medium leading-relaxed">
+            <p className="text-center md:text-left text-xs text-on-surface-variant font-medium leading-relaxed">
               To share your resume, email us at{' '}
               <a
                 href="mailto:careers@company.com"

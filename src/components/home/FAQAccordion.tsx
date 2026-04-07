@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const FAQS_DATA = [
   {
@@ -29,34 +30,58 @@ const FAQAccordion = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-4">
+    <div className="max-w-4xl mx-auto space-y-6">
       {FAQS_DATA.map((faq, index) => (
-        <div 
+        <motion.div 
           key={index} 
-          className={`bg-white rounded-[2rem] border border-outline-variant/10 shadow-[0_8px_32px_rgba(0,17,168,0.03)] overflow-hidden transition-all duration-300 ${activeIndex === index ? 'ring-2 ring-primary/10 shadow-[0_12px_48px_rgba(0,17,168,0.08)]' : 'hover:bg-surface-container-lowest'}`}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.1, duration: 0.5 }}
+          className={`bg-white rounded-[2.5rem] border border-outline-variant/10 shadow-[0_8px_32px_rgba(0,17,168,0.03)] overflow-hidden transition-all duration-500 ${activeIndex === index ? 'ring-4 ring-primary/5 shadow-[0_20px_60px_rgba(0,17,168,0.12)] border-primary/20' : 'hover:bg-surface-container-lowest'}`}
         >
           <button 
-            className="w-full text-left p-8 md:p-10 flex justify-between items-center group outline-none"
+            className="w-full text-left p-10 md:p-12 flex justify-between items-center group outline-none"
             onClick={() => toggleAccordion(index)}
           >
-            <h3 className={`font-headline text-xl md:text-2xl font-bold transition-all duration-300 ${activeIndex === index ? 'text-primary' : 'text-on-background group-hover:text-primary/70'}`}>
+            <h3 className={`font-headline text-xl md:text-2xl font-black transition-all duration-300 pr-8 ${activeIndex === index ? 'text-primary' : 'text-on-background group-hover:text-primary/70'}`}>
               {faq.question}
             </h3>
-            <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 ease-in-out ${activeIndex === index ? 'bg-primary text-white rotate-180' : 'bg-surface-container text-primary group-hover:bg-primary/5'}`}>
-              <span className="material-symbols-outlined text-2xl font-bold">
-                {activeIndex === index ? 'expand_less' : 'expand_more'}
+            <motion.div 
+              animate={{ 
+                rotate: activeIndex === index ? 180 : 0,
+                backgroundColor: activeIndex === index ? "rgba(var(--primary), 1)" : "rgba(var(--surface-container), 1)"
+              }}
+              className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-shadow shadow-sm ${activeIndex === index ? 'text-white' : 'text-primary group-hover:bg-primary/10'}`}
+            >
+              <span className="material-symbols-outlined text-2xl font-black leading-none">
+                expand_more
               </span>
-            </div>
+            </motion.div>
           </button>
           
-          <div 
-            className={`transition-all duration-500 ease-in-out overflow-hidden ${activeIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
-          >
-            <div className="px-8 md:px-10 pb-10 pt-2 text-lg text-on-surface-variant font-medium leading-relaxed border-t border-outline-variant/5">
-              {faq.answer}
-            </div>
-          </div>
-        </div>
+          <AnimatePresence>
+            {activeIndex === index && (
+              <motion.div 
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <div className="px-10 md:px-12 pb-12 pt-0 text-lg text-on-surface-variant font-medium leading-relaxed border-t border-outline-variant/5">
+                  <motion.div 
+                    initial={{ y: -10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.2 }}
+                    className="opacity-80 pt-8"
+                  >
+                    {faq.answer}
+                  </motion.div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
       ))}
     </div>
   );

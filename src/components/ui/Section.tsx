@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface SectionProps {
   children: React.ReactNode;
@@ -31,11 +34,17 @@ const Section: React.FC<SectionProps> = ({
   return (
     <section 
       id={id}
-      className={`py-24 md:py-32 overflow-hidden ${backgrounds[background]} ${className}`}
+      className={`py-16 md:py-32 overflow-hidden ${backgrounds[background]} ${className}`}
     >
-      <div className={`${fullWidth ? 'w-full' : 'max-w-7xl mx-auto px-6 md:px-8'} ${containerClassName}`}>
+      <motion.div 
+        className={`${fullWidth ? 'w-full' : 'max-w-7xl mx-auto px-4 md:px-8'} ${containerClassName}`}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }} // Animated in when 10% visible
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} // Soft premium slide-up
+      >
         {children}
-      </div>
+      </motion.div>
     </section>
   );
 };

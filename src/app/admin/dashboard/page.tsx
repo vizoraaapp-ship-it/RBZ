@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import StatsCard from '@/components/admin/StatsCard';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function DashboardOverview() {
   const [stats, setStats] = useState({
@@ -21,46 +22,20 @@ export default function DashboardOverview() {
   const fetchAnalytics = async () => {
     setLoading(true);
     try {
-      // Fetch all visitors (for a real app, query ranges to avoid heavy loads)
       const { data, error } = await supabase.from('visitors').select('visited_at');
       if (error) throw error;
       
       const now = new Date();
       const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-      
-      // Calculate first day of the week (Sunday)
       const firstDayOfWeek = new Date(today);
       firstDayOfWeek.setDate(today.getDate() - today.getDay());
-      
-      // Calculate first day of the month
       const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
 
       let countToday = 0;
       let countWeek = 0;
       let countMonth = 0;
 
-      // Prepare charting data (last 7 days including today)
-      const last7DaysCount = new Array(7).fill(0);
       const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-
-      data.forEach((v) => {
-        const visitDate = new Date(v.visited_at);
-        if (visitDate >= today) countToday++;
-        if (visitDate >= firstDayOfWeek) countWeek++;
-        if (visitDate >= firstDayOfMonth) countMonth++;
-
-        // For last 7 days chart
-        const diffTime = Math.abs(today.getTime() - visitDate.getTime());
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
-        if (visitDate <= now && diffDays <= 7 && visitDate >= new Date(today.getTime() - 6 * 24 * 60 * 60 * 1000)) {
-           // It's within the last 7 days
-           const dayIdx = visitDate.getDay();
-           // Find relative day (0 = today, 1 = yesterday...)
-           // Easier way: map by actual date string
-        }
-      });
-
-      // Let's generate a proper array for the last 7 days
       const chartMap = new Map();
       for (let i = 6; i >= 0; i--) {
         const d = new Date(today.getTime() - i * 24 * 60 * 60 * 1000);
@@ -73,6 +48,11 @@ export default function DashboardOverview() {
       data.forEach((v) => {
         const visitDate = new Date(v.visited_at);
         const dateStr = new Date(visitDate.getFullYear(), visitDate.getMonth(), visitDate.getDate()).toDateString();
+        
+        if (visitDate >= today) countToday++;
+        if (visitDate >= firstDayOfWeek) countWeek++;
+        if (visitDate >= firstDayOfMonth) countMonth++;
+
         if (chartMap.has(dateStr)) {
           const entry = chartMap.get(dateStr);
           chartMap.set(dateStr, { ...entry, visitors: entry.visitors + 1 });
@@ -80,7 +60,6 @@ export default function DashboardOverview() {
       });
 
       setChartData(Array.from(chartMap.values()));
-
       setStats({
         today: countToday,
         week: countWeek,
@@ -95,56 +74,103 @@ export default function DashboardOverview() {
     }
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
+    }
+  };
+
   return (
-    <div className="space-y-8 animate-in fade-in duration-500">
-      <div>
-        <h1 className="text-3xl font-black text-on-surface">Dashboard Overview</h1>
-        <p className="text-on-surface-variant font-medium mt-1">Analytics and summary of website traffic.</p>
-      </div>
+    <div className="space-y-10">
+      <motion.div 
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <h1 className="text-4xl font-black text-on-surface tracking-tight">Dashboard Overview</h1>
+        <p className="text-on-surface-variant font-bold mt-2 opacity-60">Analytics and summary of website traffic.</p>
+      </motion.div>
 
       {/* Stats row */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <StatsCard title="Visitors Today" value={stats.today} icon="today" loading={loading} />
-        <StatsCard title="Visitors This Week" value={stats.week} icon="calendar_view_week" loading={loading} />
-        <StatsCard title="Visitors This Month" value={stats.month} icon="calendar_month" loading={loading} />
-        <StatsCard title="Total Visitors" value={stats.total} icon="public" loading={loading} />
-      </div>
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+      >
+        <motion.div variants={itemVariants}><StatsCard title="Visitors Today" value={stats.today} icon="today" loading={loading} /></motion.div>
+        <motion.div variants={itemVariants}><StatsCard title="Visitors This Week" value={stats.week} icon="calendar_view_week" loading={loading} /></motion.div>
+        <motion.div variants={itemVariants}><StatsCard title="Visitors This Month" value={stats.month} icon="calendar_month" loading={loading} /></motion.div>
+        <motion.div variants={itemVariants}><StatsCard title="Total Visitors" value={stats.total} icon="public" loading={loading} /></motion.div>
+      </motion.div>
 
       {/* Chart */}
-      <div className="bg-white p-6 rounded-3xl shadow-sm border border-outline-variant/20">
-        <h2 className="text-xl font-bold text-on-surface mb-6">Traffic (Last 7 Days)</h2>
-        <div className="h-80 w-full">
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        className="bg-white p-10 rounded-[2.5rem] shadow-sm border border-outline-variant/10 overflow-hidden relative group hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500"
+      >
+        <div className="absolute inset-0 bg-primary/[0.01] opacity-0 group-hover:opacity-100 transition-opacity" />
+        
+        <div className="flex justify-between items-center mb-10 relative z-10">
+          <h2 className="text-xl font-black text-on-surface tracking-tight uppercase tracking-widest text-xs opacity-60">Traffic (Last 7 Days)</h2>
+          <motion.div 
+            whileHover={{ scale: 1.1, rotate: 180 }}
+            className="w-10 h-10 rounded-full flex items-center justify-center text-primary/40 hover:text-primary transition-colors cursor-pointer"
+            onClick={fetchAnalytics}
+          >
+            <span className="material-symbols-outlined text-xl">refresh</span>
+          </motion.div>
+        </div>
+        
+        <div className="h-96 w-full relative z-10">
           {loading ? (
-            <div className="w-full h-full bg-surface-container-low rounded-xl animate-pulse" />
+            <div className="w-full h-full bg-surface-container-low rounded-3xl animate-pulse" />
           ) : (
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                 <defs>
                   <linearGradient id="colorVisitors" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#2563eb" stopOpacity={0.3}/>
+                    <stop offset="5%" stopColor="#2563eb" stopOpacity={0.2}/>
                     <stop offset="95%" stopColor="#2563eb" stopOpacity={0}/>
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
-                <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#64748b' }} dy={10} />
-                <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#64748b' }} />
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 11, fontWeight: 900, fill: '#64748b' }} dy={15} />
+                <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fontWeight: 900, fill: '#64748b' }} dx={-10} />
                 <Tooltip 
-                  contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-                  cursor={{ stroke: '#94a3b8', strokeWidth: 1, strokeDasharray: '4 4' }}
+                  contentStyle={{ borderRadius: '20px', border: 'none', boxShadow: '0 20px 40px -10px rgba(0,0,0,0.1)', padding: '15px' }}
+                  labelStyle={{ fontWeight: 900, color: '#1e293b', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '10px' }}
+                  itemStyle={{ fontWeight: 900, color: '#2563eb', fontSize: '14px' }}
+                  cursor={{ stroke: '#2563eb', strokeWidth: 1, strokeDasharray: '4 4' }}
                 />
                 <Area 
                   type="monotone" 
                   dataKey="visitors" 
                   stroke="#2563eb" 
-                  strokeWidth={3}
+                  strokeWidth={4}
                   fillOpacity={1} 
                   fill="url(#colorVisitors)" 
+                  animationBegin={800}
+                  animationDuration={2000}
                 />
               </AreaChart>
             </ResponsiveContainer>
           )}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
