@@ -12,7 +12,12 @@ const NAV_ITEMS = [
   { label: 'Careers', href: '/admin/dashboard/careers', icon: 'work' },
 ];
 
-export default function Sidebar() {
+interface SidebarProps {
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
+}
+
+export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -23,11 +28,19 @@ export default function Sidebar() {
 
   return (
     <motion.aside 
-      initial={{ x: -260 }}
-      animate={{ x: 0 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="w-64 bg-white border-r border-outline-variant/10 flex flex-col h-screen sticky top-0 shadow-sm"
+      className={`fixed md:sticky top-0 left-0 z-40 h-screen w-[280px] md:w-64 bg-white border-r border-outline-variant/10 flex flex-col shadow-2xl md:shadow-sm transition-transform duration-300 md:translate-x-0 ${
+        isOpen ? 'translate-x-0' : '-translate-x-full'
+      }`}
     >
+      {/* Mobile Close Button */}
+      <div className="md:hidden absolute top-4 right-4 z-50">
+        <button 
+          onClick={() => setIsOpen(false)}
+          className="w-10 h-10 flex items-center justify-center bg-surface-container rounded-xl text-on-surface-variant hover:text-error hover:bg-error/10 transition-colors"
+        >
+          <span className="material-symbols-outlined">close</span>
+        </button>
+      </div>
       {/* Brand */}
       <div className="h-24 flex items-center px-8 border-b border-outline-variant/10">
         <motion.div 

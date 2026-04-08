@@ -84,10 +84,10 @@ export default function DataTable<T extends Record<string, any>>({
   };
 
   return (
-    <div className="bg-white rounded-[2.5rem] shadow-sm border border-outline-variant/10 overflow-hidden flex flex-col h-full transition-all duration-500 hover:shadow-xl hover:shadow-primary/5">
+    <div className="bg-white rounded-3xl md:rounded-[2.5rem] shadow-sm border border-outline-variant/10 overflow-hidden flex flex-col h-full transition-all duration-500 hover:shadow-xl hover:shadow-primary/5">
       {/* Toolbar */}
-      <div className="p-8 border-b border-outline-variant/10 flex flex-col sm:flex-row justify-between items-center gap-6 bg-surface-container-low/30">
-        <div className="flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto flex-1">
+      <div className="p-4 md:p-8 border-b border-outline-variant/10 flex flex-col sm:flex-row justify-between items-center gap-4 md:gap-6 bg-surface-container-low/30">
+        <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 w-full sm:w-auto flex-1">
           <motion.div 
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
