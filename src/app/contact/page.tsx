@@ -63,7 +63,7 @@ export default function ContactPage() {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" as any } }
   };
 
   return (
@@ -81,7 +81,7 @@ export default function ContactPage() {
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1, ease: "easeOut" }}
           className="max-w-4xl mx-auto space-y-6 md:space-y-8 relative z-10"
         >
           <motion.h1 
@@ -177,7 +177,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
             className="bg-white p-6 md:p-20 rounded-[2.5rem] md:rounded-[4rem] shadow-2xl border border-outline-variant/10 h-fit"
           >
             <AnimatePresence mode="wait">

@@ -42,7 +42,7 @@ const Button: React.FC<ButtonProps> = ({
 
   const combinedClasses = `${baseStyles} ${variants[variant]} ${sizes[size]} ${fullWidth ? 'w-full' : ''} ${className}`;
 
-  const motionProps = {
+  const motionProps: any = {
     whileHover: { scale: 1.03, y: -2 },
     whileTap: { scale: 0.97 },
     transition: { type: "spring", stiffness: 400, damping: 10 }
@@ -56,7 +56,7 @@ const Button: React.FC<ButtonProps> = ({
   );
 
   if (href) {
-    const MotionLink = motion(Link);
+    const MotionLink = motion(Link as any) as any;
     return (
       <MotionLink href={href} className={combinedClasses} {...motionProps}>
         {content}

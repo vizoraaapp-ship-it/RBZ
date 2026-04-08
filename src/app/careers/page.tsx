@@ -239,7 +239,7 @@ export default function CareersPage() {
               key={job.id} 
               variants={{
                 hidden: { opacity: 0, scale: 0.95 },
-                visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+                visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as any } }
               }}
               whileHover={{ 
                 x: 10,
