@@ -7,17 +7,16 @@ import { motion } from 'framer-motion';
 
 const TESTIMONIALS = [
   {
-    name: 'David Thompson',
-    location: 'Scarborough, ON',
-    text: "RBZ Climate Solutions fixed our AC during the hottest week of the year. Their technician was professional, masked, and very knowledgeable.",
-    rating: 5,
-  },
-  {
     name: 'Sarah Chen',
     location: 'Markham, ON',
     text: "The best HVAC service in the GTA. They installed our new heat pump system efficiently and helped us navigate the government rebates.",
     rating: 5,
-    featured: true,
+  },
+  {
+    name: 'David Thompson',
+    location: 'Scarborough, ON',
+    text: "RBZ Climate Solutions fixed our AC during the hottest week of the year. Their technician was professional, masked, and very knowledgeable.",
+    rating: 5,
   },
   {
     name: 'Michael O Reilly',
@@ -25,63 +24,125 @@ const TESTIMONIALS = [
     text: "Fair pricing and honest advice. They didn't try to upsell me on a new furnace when a simple repair was all I needed.",
     rating: 5,
   },
+  {
+    name: 'Linda Rossi',
+    location: 'Hamilton, ON',
+    text: "Professional and punctual. They explain everything clearly and don't push for unnecessary replacements. Highly recommended for any HVAC needs.",
+    rating: 5,
+  },
+  {
+    name: 'Kevin Zhang',
+    location: 'Richmond Hill, ON',
+    text: "Great experience with their team. Very patient with my questions about ductwork. The installation was clean and efficient.",
+    rating: 5,
+  },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1
-    }
-  }
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.95 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    scale: 1,
-    transition: { type: "spring", stiffness: 200, damping: 18 }
-  }
-};
-
 const Testimonials = () => {
+  const [activeIndex, setActiveIndex] = React.useState(1);
+  const [isPaused, setIsPaused] = React.useState(false);
+  const [windowWidth, setWindowWidth] = React.useState(0);
+
+  const nextSlide = React.useCallback(() => {
+    setActiveIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+  }, []);
+
+  const prevSlide = React.useCallback(() => {
+    setActiveIndex((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
+  }, []);
+
+  React.useEffect(() => {
+    setWindowWidth(window.innerWidth);
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    
+    if (!isPaused) {
+      const timer = setInterval(prevSlide, 2000);
+      return () => {
+        clearInterval(timer);
+        window.removeEventListener('resize', handleResize);
+      };
+    }
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isPaused, prevSlide]);
+
   return (
-    <Section background="surface">
+    <Section background="surface" className="overflow-hidden py-24">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-16 space-y-4"
+        className="text-center mb-16 lg:mb-24 space-y-4"
       >
-        <h2 className="text-3xl md:text-5xl font-black text-on-background mb-4 tracking-tight">What Our Customers Say</h2>
-        <p className="text-base md:text-lg text-on-surface-variant max-w-lg mx-auto font-medium opacity-80">Exceptional service is the core of our business.</p>
+        <span className="text-primary font-black uppercase tracking-[0.3em] text-[10px] md:text-sm">Client Experiences</span>
+        <h2 className="text-3xl md:text-6xl font-black text-on-background mb-4 tracking-tighter">What Our Customers Say</h2>
+        <div className="w-20 h-1.5 bg-primary mx-auto rounded-full" />
       </motion.div>
 
-      {/* Desktop Grid */}
-      <motion.div 
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        className="hidden md:grid grid-cols-3 gap-8 items-stretch"
+      {/* 3D Pyramid Slider Container */}
+      <div 
+        className="relative h-[650px] md:h-[750px] flex flex-col items-center justify-start overflow-visible pt-10"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
       >
-        {TESTIMONIALS.map((t, index) => (
-          <TestimonialCard key={index} t={t} variants={cardVariants} />
-        ))}
-      </motion.div>
+        <div className="w-full max-w-7xl relative h-full">
+          {TESTIMONIALS.map((t, index) => {
+            // Calculate relative position to active index
+            let position = index - activeIndex;
+            
+            // Handle wrapping for circular feel
+            if (position < -2) position += TESTIMONIALS.length;
+            if (position > 2) position -= TESTIMONIALS.length;
 
-      {/* Mobile Testimonials Slideable Row */}
-      <div className="md:hidden relative -mx-4 px-4 mt-8">
-        <div className="flex gap-6 overflow-x-auto no-scrollbar pb-12 snap-x snap-mandatory">
-          {TESTIMONIALS.map((t, i) => (
-            <div key={i} className="flex-shrink-0 w-[85vw] snap-center">
-              <TestimonialCard t={t} />
-            </div>
+            const MathAbsPosition = Math.abs(position);
+            const isActive = position === 0;
+            const isVisible = MathAbsPosition <= 2;
+
+            if (!isVisible) return null;
+
+            // Define responsive offsets
+            const xOffset = windowWidth < 768 ? 160 : 400;
+            const yOffset = windowWidth < 768 ? 80 : 150;
+
+            return (
+              <motion.div
+                key={index}
+                initial={false}
+                animate={{
+                  // Center-Top alignment for active, below/side for others
+                  x: position * xOffset,
+                  y: MathAbsPosition * yOffset,
+                  scale: 1 - MathAbsPosition * 0.15,
+                  opacity: 1 - MathAbsPosition * 0.4,
+                  zIndex: 10 - MathAbsPosition,
+                  rotateY: position * -10,
+                  rotateX: MathAbsPosition * 10,
+                  filter: `blur(${MathAbsPosition * 4}px)`,
+                }}
+                transition={{ 
+                  type: "spring", 
+                  stiffness: 150, 
+                  damping: 25,
+                  mass: 0.8
+                }}
+                className="absolute left-1/2 -translate-x-1/2 w-[280px] md:w-[600px] cursor-pointer"
+                onClick={() => setActiveIndex(index)}
+              >
+                <TestimonialCard t={t} isActive={isActive} />
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Global Slide Navigation Dot Indicator (Optional for premium feel) */}
+        <div className="flex gap-3 justify-center mt-auto pb-10">
+          {TESTIMONIALS.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveIndex(i)}
+              className={`h-2 rounded-full transition-all duration-500 ${activeIndex === i ? 'w-10 bg-primary' : 'w-2 bg-primary/20 hover:bg-primary/40'}`}
+            />
           ))}
         </div>
       </div>
@@ -89,20 +150,14 @@ const Testimonials = () => {
   );
 };
 
-const TestimonialCard = ({ t, variants }: { t: any, variants?: any }) => (
-  <motion.div 
-    variants={variants}
-    whileHover={{ 
-      y: -10, 
-      scale: t.featured ? 1.08 : 1.03,
-      boxShadow: "0 25px 60px -15px rgba(0, 0, 0, 0.15)"
-    }}
-    className={`p-10 rounded-[2.5rem] border border-outline-variant/10 shadow-sm relative transition-all duration-500 overflow-hidden h-full flex flex-col ${t.featured ? 'bg-white z-10 ring-4 ring-primary/5' : 'bg-white/80 backdrop-blur-sm shadow-inner'}`}
+const TestimonialCard = ({ t, isActive }: { t: any, isActive: boolean }) => (
+  <div 
+    className={`p-10 rounded-[2.5rem] border border-outline-variant/10 shadow-sm relative transition-all duration-500 overflow-hidden h-full flex flex-col bg-white ${isActive ? 'ring-4 ring-primary/5 shadow-2xl' : 'shadow-inner'}`}
   >
     {/* Background design element */}
     <div className="absolute -top-12 -right-12 w-24 h-24 bg-primary/5 rounded-full blur-2xl" />
     
-    <div className="flex text-primary mb-6">
+    <div className="flex text-yellow-400 mb-6">
       {[...Array(t.rating)].map((_, i) => (
         <span 
           key={i} 
@@ -114,7 +169,7 @@ const TestimonialCard = ({ t, variants }: { t: any, variants?: any }) => (
       ))}
     </div>
     
-    <p className="italic text-on-surface-variant mb-10 leading-relaxed text-lg font-medium opacity-90 flex-grow">
+    <p className="italic text-on-surface-variant mb-10 leading-relaxed text-sm md:text-xl font-medium opacity-90 flex-grow">
       "{t.text}"
     </p>
     
@@ -127,7 +182,7 @@ const TestimonialCard = ({ t, variants }: { t: any, variants?: any }) => (
         <div className="text-[10px] text-on-surface-variant uppercase tracking-[0.2em] font-black opacity-60 mt-1">{t.location}</div>
       </div>
     </div>
-  </motion.div>
+  </div>
 );
 
 export default Testimonials;

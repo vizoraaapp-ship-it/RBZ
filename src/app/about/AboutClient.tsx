@@ -32,7 +32,7 @@ const VALUES = [
 ];
 
 const STATS = [
-  { label: 'Years Experience', value: 15, suffix: '+' },
+  { label: 'Years Experience', value: 10, suffix: '+' },
   { label: 'Skilled Technicians', value: 30, suffix: '+' },
   { label: 'Solutions Delivered', value: 5000, suffix: '+' },
   { label: 'Customer Trust', value: 98, suffix: '%' }
@@ -64,16 +64,8 @@ export default function AboutClient() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-20 max-w-4xl mx-auto px-6 md:px-8 text-center space-y-6 md:space-y-8"
+          className="relative z-20 max-w-7xl mx-auto px-6 md:px-8 text-left space-y-6 md:space-y-8 w-full"
         >
-          <motion.span 
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5 }}
-            className="inline-block px-5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-black text-[10px] md:text-xs tracking-[0.2em] uppercase shadow-xl"
-          >
-            Established 2009
-          </motion.span>
           <motion.h1 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -86,7 +78,7 @@ export default function AboutClient() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.9, duration: 0.8 }}
-            className="text-base md:text-2xl text-white/90 font-medium leading-relaxed max-w-2xl mx-auto drop-shadow-lg opacity-80"
+            className="text-base md:text-2xl text-white/90 font-medium leading-relaxed max-w-2xl text-left drop-shadow-lg opacity-80"
           >
             Trusted by homeowners and businesses across Ontario to deliver precise atmospheric mastery and mechanical reliability.
           </motion.p>
@@ -105,7 +97,7 @@ export default function AboutClient() {
             <h2 className="text-3xl md:text-6xl font-black tracking-tight text-on-surface leading-tight">Who We Are</h2>
             <div className="space-y-6 text-lg text-on-surface-variant font-medium leading-relaxed opacity-90">
               <p>
-                At RBZ Climate Solutions, we believe that the environment you live and work in dictates your quality of life. For over 15 years, our team has been the cornerstone of HVAC reliability throughout Ontario, blending technical expertise with white-glove service.
+                At RBZ Climate Solutions, we believe that the environment you live and work in dictates your quality of life. For over 10 years, our team has been the cornerstone of HVAC reliability throughout Ontario, blending technical expertise with white-glove service.
               </p>
               <p>
                 What started as a small family-focused repair shop has evolved into a leading architectural partner for environmental control. We don't just install units; we design sustainable systems that optimize comfort, air purity, and energy efficiency.
@@ -146,16 +138,16 @@ export default function AboutClient() {
                     </div>
                     
                     <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
-                       {[
-                         { icon: 'shield_lock', label: 'Safety Compliant' },
-                         { icon: 'verified_user', label: 'Licensed Professionals' },
-                         { icon: 'assignment_turned_in', label: 'Regulatory Approved' }
-                       ].map((indicator) => (
-                         <div key={indicator.label} className="flex items-center gap-2 px-3 py-1.5 bg-white rounded-full border border-outline-variant/10 shadow-sm transition-all hover:bg-primary/5 hover:border-primary/20">
-                            <span className="material-symbols-outlined text-primary text-sm font-black">{indicator.icon}</span>
-                            <span className="text-[10px] font-black uppercase tracking-wider text-on-surface-variant">{indicator.label}</span>
-                         </div>
-                       ))}
+                        {[
+                          { icon: 'shield_lock', label: 'Safety Compliant' },
+                          { icon: 'verified_user', label: 'Licensed Professionals' },
+                          { icon: 'assignment_turned_in', label: 'Regulatory Approved' }
+                        ].map((indicator) => (
+                          <div key={indicator.label} className="flex items-center gap-3 px-5 py-2.5 bg-white rounded-full border border-outline-variant/10 shadow-md transition-all hover:bg-primary/5 hover:border-primary/20 hover:scale-105">
+                             <span className="material-symbols-outlined text-primary text-lg font-black">{indicator.icon}</span>
+                             <span className="text-xs md:text-sm font-black uppercase tracking-widest text-on-surface-variant">{indicator.label}</span>
+                          </div>
+                        ))}
                     </div>
                   </div>
                 </div>
@@ -296,10 +288,16 @@ export default function AboutClient() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-8 pt-4 md:pt-8">
                 <Button variant="surface" size="xl" href="/contact" fullWidth className="sm:w-auto shadow-2xl">Book Service Now</Button>
                 <motion.a 
-                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.05)" }}
+                  initial={{ backgroundColor: "#22c55e" }}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    backgroundColor: "#16a34a",
+                    boxShadow: "0 0 25px rgba(34, 197, 94, 0.6)"
+                  }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full sm:w-auto border-2 border-white/20 text-white px-10 py-5 rounded-2xl font-black text-xl transition-all flex items-center justify-center gap-3 backdrop-blur-sm" 
+                  className="w-full sm:w-auto text-white px-10 py-5 rounded-2xl font-black text-xl transition-all flex items-center justify-center gap-3 shadow-2xl shadow-green-500/20" 
                   href="tel:+16472999648"
+                  style={{ backgroundColor: "#22c55e" }}
                 >
                   <span className="material-symbols-outlined text-2xl">phone_in_talk</span>
                   Call Now

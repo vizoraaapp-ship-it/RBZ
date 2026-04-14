@@ -13,7 +13,7 @@ const FAQ = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-center mb-20 space-y-4"
+        className="text-center mb-12 space-y-4"
       >
         <motion.span 
           initial={{ opacity: 0, scale: 0.8 }}

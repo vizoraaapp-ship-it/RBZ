@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Modal from '@/components/ui/Modal';
 import { supabase } from '@/lib/supabase';
+import { motion } from 'framer-motion';
 
 const INITIAL_STATE = {
   fullName: '',
@@ -90,42 +91,54 @@ const CareerModal: React.FC<CareerModalProps> = ({ isOpen, onClose, jobTitle }) 
   };
 
   const inputClass = (field: keyof typeof INITIAL_STATE) =>
-    `w-full px-4 py-3 rounded-xl border text-on-surface bg-surface-container-lowest placeholder:text-on-surface-variant/40 focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all text-sm font-medium ${
-      errors[field] ? 'border-error/60 bg-error/5' : 'border-outline-variant/30 hover:border-outline-variant/60'
+    `w-full px-5 py-4 rounded-2xl border text-base md:text-sm font-bold transition-all duration-300 outline-none ${
+      errors[field] 
+        ? 'border-error bg-error/5 text-error placeholder:text-error/40' 
+        : 'border-outline-variant/30 bg-surface-container-lowest text-on-surface hover:border-primary/50 focus:border-primary focus:ring-4 focus:ring-primary/10 placeholder:text-on-surface-variant/30'
     }`;
 
+  const labelClass = "text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-primary mb-2 block ml-1";
+
   return (
-    <Modal isOpen={isOpen} onClose={handleClose} title="Apply for Position">
+    <Modal isOpen={isOpen} onClose={handleClose} title="Join Our Team">
       {submitted ? (
-        <div className="py-16 flex flex-col items-center text-center gap-6 animate-in fade-in duration-500">
-          <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-            <span className="material-symbols-outlined text-4xl">check_circle</span>
-          </div>
-          <div className="space-y-2">
-            <h3 className="text-2xl font-black text-on-surface">Application Submitted!</h3>
-            <p className="text-on-surface-variant font-medium max-w-sm">
-              Thank you, {form.fullName}! We&apos;ve received your application for <strong>{jobTitle}</strong> and will be in touch soon.
+        <div className="py-20 flex flex-col items-center text-center gap-10 animate-in fade-in zoom-in duration-500">
+          <motion.div 
+            initial={{ scale: 0 }}
+            animate={{ scale: [0, 1.2, 1] }}
+            className="w-24 h-24 rounded-3xl bg-primary/10 flex items-center justify-center text-primary shadow-inner"
+          >
+            <span className="material-symbols-outlined text-5xl font-black">check_circle</span>
+          </motion.div>
+          <div className="space-y-4">
+            <h3 className="text-3xl font-black text-on-surface tracking-tight">Application Sent!</h3>
+            <p className="text-on-surface-variant font-bold text-lg leading-relaxed max-w-sm mx-auto opacity-70">
+              Thank you, {form.fullName}! We&apos;ve received your application for <strong>{jobTitle}</strong>. Our hiring team will contact you soon.
             </p>
           </div>
           <button
             onClick={handleClose}
-            className="mt-4 px-8 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary-dim transition-colors"
+            className="px-12 py-4 bg-primary text-white font-black rounded-2xl hover:bg-primary-dim transition-all shadow-xl shadow-primary/20 hover:scale-105 active:scale-95"
           >
-            Close
+            Finish
           </button>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} noValidate className="space-y-6">
-          <div className="inline-flex items-center gap-2 bg-primary/10 px-3 py-1.5 rounded-full">
-            <span className="material-symbols-outlined text-primary text-sm">work</span>
-            <span className="text-primary text-xs font-bold tracking-widest uppercase truncate max-w-[240px]">{jobTitle}</span>
+        <form onSubmit={handleSubmit} noValidate className="space-y-8 pb-10 md:pb-0">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-primary/5 p-6 rounded-2xl border border-primary/10 mb-8">
+            <div className="space-y-1">
+              <p className="text-on-surface-variant text-[10px] font-black uppercase tracking-widest opacity-60">Applying For</p>
+              <h4 className="text-primary font-black text-lg md:text-xl tracking-tight leading-tight">{jobTitle}</h4>
+            </div>
+            <div className="hidden md:flex w-12 h-12 bg-primary/10 rounded-xl items-center justify-center text-primary">
+              <span className="material-symbols-outlined text-2xl font-black">work</span>
+            </div>
           </div>
 
-          {/* 2-col grid on desktop */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8">
             {/* Full Name */}
-            <div className="space-y-1.5">
-              <label htmlFor="career-fullName" className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+            <div className="group">
+              <label htmlFor="career-fullName" className={labelClass}>
                 Full Name <span className="text-error">*</span>
               </label>
               <input
@@ -138,12 +151,12 @@ const CareerModal: React.FC<CareerModalProps> = ({ isOpen, onClose, jobTitle }) 
                 onChange={handleChange}
                 className={inputClass('fullName')}
               />
-              {errors.fullName && <p className="text-error text-xs font-semibold">{errors.fullName}</p>}
+              {errors.fullName && <p className="text-error text-[10px] font-black uppercase tracking-widest mt-2 ml-1">{errors.fullName}</p>}
             </div>
 
             {/* Age */}
-            <div className="space-y-1.5">
-              <label htmlFor="career-age" className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+            <div className="group">
+              <label htmlFor="career-age" className={labelClass}>
                 Age <span className="text-error">*</span>
               </label>
               <input
@@ -157,12 +170,12 @@ const CareerModal: React.FC<CareerModalProps> = ({ isOpen, onClose, jobTitle }) 
                 onChange={handleChange}
                 className={inputClass('age')}
               />
-              {errors.age && <p className="text-error text-xs font-semibold">{errors.age}</p>}
+              {errors.age && <p className="text-error text-[10px] font-black uppercase tracking-widest mt-2 ml-1">{errors.age}</p>}
             </div>
 
             {/* Phone */}
-            <div className="space-y-1.5">
-              <label htmlFor="career-phone" className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+            <div className="group">
+              <label htmlFor="career-phone" className={labelClass}>
                 Phone Number <span className="text-error">*</span>
               </label>
               <input
@@ -170,17 +183,17 @@ const CareerModal: React.FC<CareerModalProps> = ({ isOpen, onClose, jobTitle }) 
                 name="phone"
                 type="tel"
                 autoComplete="tel"
-                placeholder="+1 000 000 0000"
+                placeholder="+1 (000) 000-0000"
                 value={form.phone}
                 onChange={handleChange}
                 className={inputClass('phone')}
               />
-              {errors.phone && <p className="text-error text-xs font-semibold">{errors.phone}</p>}
+              {errors.phone && <p className="text-error text-[10px] font-black uppercase tracking-widest mt-2 ml-1">{errors.phone}</p>}
             </div>
 
             {/* Email */}
-            <div className="space-y-1.5">
-              <label htmlFor="career-email" className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+            <div className="group">
+              <label htmlFor="career-email" className={labelClass}>
                 Email Address <span className="text-error">*</span>
               </label>
               <input
@@ -193,12 +206,12 @@ const CareerModal: React.FC<CareerModalProps> = ({ isOpen, onClose, jobTitle }) 
                 onChange={handleChange}
                 className={inputClass('email')}
               />
-              {errors.email && <p className="text-error text-xs font-semibold">{errors.email}</p>}
+              {errors.email && <p className="text-error text-[10px] font-black uppercase tracking-widest mt-2 ml-1">{errors.email}</p>}
             </div>
 
             {/* University */}
-            <div className="space-y-1.5">
-              <label htmlFor="career-university" className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+            <div className="group">
+              <label htmlFor="career-university" className={labelClass}>
                 University Name
               </label>
               <input
@@ -213,8 +226,8 @@ const CareerModal: React.FC<CareerModalProps> = ({ isOpen, onClose, jobTitle }) 
             </div>
 
             {/* College */}
-            <div className="space-y-1.5">
-              <label htmlFor="career-college" className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+            <div className="group">
+              <label htmlFor="career-college" className={labelClass}>
                 College Name
               </label>
               <input
@@ -230,21 +243,28 @@ const CareerModal: React.FC<CareerModalProps> = ({ isOpen, onClose, jobTitle }) 
           </div>
 
           {/* Submit */}
-          <div className="flex flex-col items-center md:items-start pt-2 gap-4">
+          <div className="pt-6 flex flex-col gap-6">
             <button
               type="submit"
               disabled={!isValid}
-              className="w-full md:w-full py-3.5 bg-primary text-white font-black text-base rounded-xl hover:bg-primary-dim transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-lg hover:shadow-xl px-12 md:px-6"
+              className="w-full py-5 bg-primary text-white font-black text-lg rounded-2xl hover:bg-primary-dim transition-all duration-300 disabled:opacity-30 disabled:grayscale disabled:cursor-not-allowed shadow-2xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-1 active:translate-y-0"
             >
               Submit Application
             </button>
-            <p className="text-center md:text-left text-xs text-on-surface-variant font-medium leading-relaxed">
-              To share your resume, email us at{' '}
+            <div className="flex items-center gap-4 text-on-surface-variant/60">
+              <div className="h-px bg-current flex-grow opacity-10" />
+              <p className="text-center text-[10px] font-black uppercase tracking-[0.2em] whitespace-nowrap">
+                Resume Submission
+              </p>
+              <div className="h-px bg-current flex-grow opacity-10" />
+            </div>
+            <p className="text-center text-xs md:text-sm text-red-600 font-black leading-relaxed">
+              To share your resume or portfolio, please email us directly at{' '}
               <a
-                href="mailto:careers@company.com"
-                className="text-primary underline underline-offset-2 hover:text-primary-dim transition-colors"
+                href="mailto:careers@rbzclimate.ca"
+                className="text-red-600 hover:text-red-700 hover:underline underline-offset-4 decoration-2 transition-all"
               >
-                careers@company.com
+                careers@rbzclimate.ca
               </a>
             </p>
           </div>

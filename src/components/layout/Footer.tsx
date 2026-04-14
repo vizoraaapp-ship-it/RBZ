@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const Footer = () => {
@@ -38,17 +39,18 @@ const Footer = () => {
           
           {/* Brand & Info */}
           <motion.div variants={itemVariants} className="col-span-2 lg:col-span-1 space-y-6 md:space-y-8 flex flex-col items-start">
-            <Link href="/" className="text-2xl md:text-3xl font-black tracking-tighter text-on-surface font-headline flex items-center gap-2 group">
-              <motion.span 
-                whileHover={{ rotate: 180 }}
-                className="material-symbols-outlined text-primary text-3xl md:text-4xl"
-              >
-                ac_unit
-              </motion.span>
-              RBZ Climate
+            <Link href="/" className="block group">
+              <Image 
+                src="/logo.png" 
+                alt="RBZ Climate Solutions Logo" 
+                width={180} 
+                height={64} 
+                className="h-auto w-[140px] md:w-[180px] transition-all duration-300 group-hover:opacity-80"
+                priority
+              />
             </Link>
             <p className="text-on-surface-variant text-sm md:text-base font-bold opacity-60 leading-relaxed max-w-xs mx-auto md:mx-0">
-              Pioneering precision climate control for homes across Ontario. Quality you can feel in every breath. Licensed, insured, and 24/7 dedicated.
+              Pioneering precision climate control for homes across the GTA and Ontario. Quality you can feel in every breath. Licensed, insured, and 24/7 dedicated.
             </p>
             <div className="flex gap-4 pt-2 justify-center md:justify-start">
                {['facebook', 'share', 'language'].map((icon) => (
@@ -96,7 +98,7 @@ const Footer = () => {
           <motion.div variants={itemVariants} className="flex flex-col items-start">
             <h4 className="font-black text-on-surface mb-4 md:mb-10 uppercase tracking-[0.3em] text-[10px] md:text-[12px] opacity-40">Expertise</h4>
             <ul className="space-y-3 md:space-y-5 flex flex-col items-start">
-              {['Gas Furnace', 'Propane Furnace', 'Central Air', 'Duct Cleaning', 'Repair Services', 'Heat Pumps'].map((link) => (
+              {['Gas Furnace', 'Central Air', 'Heat Pumps', 'Small Commercial Kitchens', 'Barbeque Gas Lines', 'Pool Heaters', 'Duct Cleaning', 'Repair Services'].map((link) => (
                 <li key={link}>
                   <Link 
                     href="/services" 
@@ -118,14 +120,11 @@ const Footer = () => {
           <motion.div variants={itemVariants} className="col-span-2 lg:col-span-1 flex flex-col items-start pt-4 lg:pt-0 border-t border-outline-variant/10 lg:border-none">
             <h4 className="font-black text-on-surface mb-6 md:mb-10 uppercase tracking-[0.3em] text-[10px] md:text-[12px] opacity-40">Get In Touch</h4>
             <div className="space-y-6 md:space-y-8 flex flex-col items-start">
-              <div className="flex flex-row items-start gap-4 group cursor-pointer text-left">
-                <div className="w-10 h-10 bg-primary/5 rounded-xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors shrink-0">
-                  <span className="material-symbols-outlined text-xl font-black">location_on</span>
+              <div className="group cursor-pointer text-left">
+                <div className="text-[14px] md:text-base text-primary font-bold leading-tight flex flex-col gap-1">
+                  <span className="whitespace-nowrap">#220, 205 Morningside Avenue</span>
+                  <span className="whitespace-nowrap">Scarborough, Ontario, M1E 3E2</span>
                 </div>
-                <p className="text-xs md:text-sm text-on-surface-variant font-bold opacity-60 leading-relaxed group-hover:opacity-100 transition-opacity">
-                  #220, 205 Morningside Avenue<br />
-                  Scarborough, Ontario, M1E 3E2
-                </p>
               </div>
               <div className="flex flex-row items-center gap-4 group cursor-pointer">
                 <div className="w-10 h-10 bg-primary/5 rounded-xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors shrink-0">

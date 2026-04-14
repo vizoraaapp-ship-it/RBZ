@@ -13,34 +13,42 @@ const JOBS = [
   {
     id: 1,
     title: 'HVAC Service Technician',
-    type: 'Full-Time',
-    location: 'Scarborough / GTA',
+    type: 'Full-Time / Part-time / Interns / Volunteers',
+    location: 'Ontario/GTA',
     description: 'Seeking experienced technicians for diagnostic and repair services. TSSA certification required.',
     icon: 'build'
   },
   {
     id: 2,
     title: 'Lead HVAC Installer',
-    type: 'Full-Time',
-    location: 'Barrie / Simcoe County',
+    type: 'Full-Time / Part-time / Interns / Volunteers',
+    location: 'Ontario/GTA',
     description: 'Manage installation teams for residential and commercial heating and cooling systems.',
     icon: 'construction'
   },
   {
     id: 3,
     title: 'Sales & Estimation Specialist',
-    type: 'Full-Time / Commission',
-    location: 'Hybrid / GTA',
+    type: 'Full-Time / Part-time / Interns / Volunteers',
+    location: 'Ontario/GTA',
     description: 'Expert in HVAC systems to provide accurate quotes and energy-efficient solutions to clients.',
     icon: 'sell'
   },
   {
     id: 4,
     title: 'Customer Support Representative',
-    type: 'Part-Time',
-    location: 'Office (Scarborough)',
+    type: 'Full-Time / Part-time / Interns / Volunteers',
+    location: 'Ontario/GTA',
     description: 'Dedicated support for scheduling and client communications in a fast-paced environment.',
     icon: 'support_agent'
+  },
+  {
+    id: 5,
+    title: 'Content Creator & Social Media',
+    type: 'Full-Time / Part-time / Interns / Volunteers',
+    location: 'Ontario/GTA',
+    description: 'Seeking a creative professional to capture on-site content, manage social media presence, and elevate our digital brand Story.',
+    icon: 'video_camera_front'
   }
 ];
 
@@ -87,13 +95,13 @@ export default function CareersClient() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          className="relative z-20 max-w-4xl mx-auto px-6 md:px-8 text-center space-y-8 md:space-y-12"
+          className="relative z-20 max-w-7xl mx-auto px-6 md:px-8 text-left space-y-8 md:space-y-12 w-full"
         >
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4 }}
-            className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-2.5 rounded-full border border-white/20 mx-auto"
+            className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-2.5 rounded-full border border-white/20"
           >
             <motion.span 
               animate={{ y: [0, -4, 0] }}
@@ -126,7 +134,7 @@ export default function CareersClient() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className="text-base md:text-2xl text-white/90 font-bold leading-relaxed max-w-2xl mx-auto drop-shadow-lg opacity-80"
+            className="text-base md:text-2xl text-white/90 font-bold leading-relaxed max-w-2xl text-left drop-shadow-lg opacity-80"
           >
             Grow your skills at RBZ Climate Solutions. We're looking for dedicated technicians and professionals to help us redefine home comfort across Ontario.
           </motion.p>

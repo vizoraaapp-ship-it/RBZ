@@ -6,7 +6,8 @@ import { usePathname } from 'next/navigation';
 import Button from '../ui/Button';
 import Image from 'next/image';
 import BookingModal from '../ui/BookingModal';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform, useAnimation } from 'framer-motion';
+import { createPortal } from 'react-dom';
 
 const NAV_LINKS = [
   { name: 'Home', href: '/' },
@@ -90,6 +91,33 @@ const HVAC_CATEGORIES = [
       { name: 'Water System Repair', desc: 'Expert repair services for water treatment systems', icon: 'plumbing' },
     ]
   },
+  { 
+    name: 'Commercial', 
+    icon: 'kitchen', 
+    href: '/services/commercial-kitchen',
+    subItems: [
+      { name: 'Commercial Kitchens', desc: 'HVAC solutions for small commercial kitchen environments', icon: 'kitchen' },
+      { name: 'Ventilation', desc: 'Professional kitchen exhaust and ventilation systems', icon: 'air' },
+    ]
+  },
+  { 
+    name: 'Gas Lines', 
+    icon: 'outdoor_grill', 
+    href: '/services/gas-lines',
+    subItems: [
+      { name: 'BBQ Gas Lines', desc: 'Professional installation of outdoor BBQ gas lines', icon: 'outdoor_grill' },
+      { name: 'Gas Appliances', desc: 'Safe connections for all gas-powered home appliances', icon: 'settings_input_component' },
+    ]
+  },
+  { 
+    name: 'Pool Heaters', 
+    icon: 'pool', 
+    href: '/services/pool-heaters',
+    subItems: [
+      { name: 'Pool Heating', desc: 'Efficient gas and heat pump pool heating solutions', icon: 'pool' },
+      { name: 'Maintenance', desc: 'Seasonal maintenance and repair for pool heaters', icon: 'build' },
+    ]
+  },
 ];
 
 const Navbar = () => {
@@ -99,14 +127,48 @@ const Navbar = () => {
   const pathname = usePathname();
   const { scrollY } = useScroll();
 
-  const logoScale = useTransform(scrollY, [0, 50], [0.9, 0.8]);
-  const headerHeight = useTransform(scrollY, [0, 50], [72, 64]);
-  const headerPadding = useTransform(scrollY, [0, 50], [8, 4]);
+  const logoScale = useTransform(scrollY, [0, 50], [1.1, 0.9]);
+  const headerHeight = useTransform(scrollY, [0, 50], [104, 80]);
+
+  const [mounted, setMounted] = useState(false);
+  const [dropdownPos, setDropdownPos] = useState({ top: 0, left: 0, width: 0 });
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const handleMouseEnter = (e: React.MouseEvent, categoryName: string, index: number) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    // Use fixed positions for the portal
+    setDropdownPos({ 
+      top: rect.bottom, 
+      left: rect.left,
+      width: rect.width
+    });
+    setActiveCategory(categoryName + index);
+  };
 
   const isActive = (path: string) => {
     if (path === '/' && pathname !== '/') return false;
     return pathname.startsWith(path);
   };
+
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (activeCategory) {
+      controls.stop();
+    } else {
+      controls.start({
+        x: ["0%", "-50%"],
+        transition: { 
+          duration: 50, 
+          repeat: Infinity, 
+          ease: "linear" 
+        }
+      });
+    }
+  }, [activeCategory, controls]);
 
   return (
     <header className="fixed top-0 w-full z-50">
@@ -127,7 +189,7 @@ const Navbar = () => {
                 alt="RBZ Climate Solutions Logo" 
                 width={224} 
                 height={80} 
-                className="h-auto w-[170px] md:w-56 transition-all duration-300"
+                className="h-auto w-[170px] md:w-64 transition-all duration-300"
                 priority
               />
             </motion.div>
@@ -169,86 +231,82 @@ const Navbar = () => {
         </div>
       </motion.nav>
 
-      {/* Secondary Category Bar (Desktop) */}
       <motion.div 
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="hidden md:block w-full bg-primary border-t border-white/5 shadow-2xl relative"
+        className="hidden md:block w-full relative z-[45]"
       >
-        <div className="max-w-7xl mx-auto px-6 flex justify-start items-stretch font-headline text-[11px] font-black uppercase tracking-[0.15em] h-[52px]">
-          {HVAC_CATEGORIES.map((category, index) => (
-            <div 
-              key={category.name} 
-              className="relative flex items-center"
-              onMouseEnter={() => setActiveCategory(category.name)}
-              onMouseLeave={() => setActiveCategory(null)}
-            >
-              <button 
-                className={`flex items-center gap-3 px-6 h-full text-white transition-all duration-300 border-r border-white/10 last:border-r-0 ${activeCategory === category.name ? 'bg-white/10' : 'hover:bg-white/5'}`}
+        <div className="w-full h-[52px] bg-primary shadow-xl rounded-b-2xl overflow-hidden relative">
+          <motion.div 
+            className="flex items-stretch h-full w-max"
+            animate={controls}
+          >
+            {[...HVAC_CATEGORIES, ...HVAC_CATEGORIES].map((category, index) => (
+              <div 
+                key={`${category.name}-${index}`} 
+                className="relative flex items-center flex-shrink-0"
+                onMouseEnter={(e) => handleMouseEnter(e, category.name, index)}
+                onMouseLeave={() => setActiveCategory(null)}
               >
-                <span className="material-symbols-outlined text-lg">{category.icon}</span>
-                {category.name}
-                <motion.span 
-                  animate={{ rotate: activeCategory === category.name ? 180 : 0 }}
-                  className="material-symbols-outlined text-sm font-black"
+                <button 
+                  className={`flex items-center gap-3 px-10 h-full text-white transition-all duration-300 border-r border-white/10 last:border-r-0 ${activeCategory === category.name + index ? 'bg-white/10' : 'hover:bg-white/5'}`}
                 >
-                  expand_more
-                </motion.span>
-              </button>
+                  <span className="material-symbols-outlined text-lg">{category.icon}</span>
+                  <span className="whitespace-nowrap">{category.name}</span>
+                  <span className="material-symbols-outlined text-sm font-black transition-transform duration-300" style={{ transform: activeCategory === category.name + index ? 'rotate(180deg)' : 'none' }}>expand_more</span>
+                </button>
 
-              {/* Localized Dropdown Card */}
-              <AnimatePresence>
-                {activeCategory === category.name && (
+                {/* Dropdown via Portal to avoid overflow clipping */}
+                {mounted && activeCategory === category.name + index && typeof document !== 'undefined' && createPortal(
                   <motion.div 
-                    initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 10, scale: 0.98 }}
-                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className={`absolute top-full w-85 z-50 p-4 ${index > 4 ? 'right-0' : 'left-0'}`}
+                    exit={{ opacity: 0, y: 5, scale: 0.98 }}
+                    transition={{ duration: 0.2 }}
+                    className="fixed z-[9999] p-4 pointer-events-auto"
+                    style={{ 
+                      top: dropdownPos.top, 
+                      left: index % HVAC_CATEGORIES.length > 6 ? dropdownPos.left - 300 + dropdownPos.width : dropdownPos.left,
+                      minWidth: '340px'
+                    }}
+                    onMouseEnter={() => setActiveCategory(category.name + index)}
+                    onMouseLeave={() => setActiveCategory(null)}
                   >
-                    <div className="bg-white rounded-[2.5rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.25)] overflow-hidden border border-outline-variant/10">
+                    <div className="bg-white rounded-[2.5rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.3)] overflow-hidden border border-outline-variant/10">
                       <div className="bg-primary p-6 flex items-center gap-4 text-white">
-                        <motion.div 
-                          initial={{ scale: 0, rotate: -20 }}
-                          animate={{ scale: 1, rotate: 0 }}
-                          className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center"
-                        >
+                        <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center">
                           <span className="material-symbols-outlined text-2xl font-black">{category.icon}</span>
-                        </motion.div>
+                        </div>
                         <div>
                           <span className="font-black text-xl tracking-tight leading-none block mb-1">{category.name} Solutions</span>
                           <span className="text-[9px] font-black uppercase tracking-[0.2em] opacity-60">Expert Installation & Repair</span>
                         </div>
                       </div>
-                      <div className="p-3 bg-surface-container-lowest/50">
-                        {category.subItems.map((sub, idx) => (
-                          <motion.div
+                      <div className="p-3 bg-white">
+                        {category.subItems.map((sub) => (
+                          <Link 
                             key={sub.name}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: idx * 0.05 }}
+                            href="/services" 
+                            className="flex items-start gap-4 p-4 rounded-3xl hover:bg-primary/5 transition-all group/item mb-1 last:mb-0"
+                            onClick={() => setActiveCategory(null)}
                           >
-                            <Link 
-                              href="/services" 
-                              className="flex items-start gap-4 p-4 rounded-3xl hover:bg-white hover:shadow-xl hover:shadow-primary/5 transition-all group/item mb-1 last:mb-0 border border-transparent hover:border-outline-variant/10"
-                            >
-                              <div className="w-12 h-12 rounded-2xl bg-primary/5 flex items-center justify-center text-primary group-hover/item:bg-primary group-hover/item:text-white transition-all duration-500 shadow-sm">
-                                <span className="material-symbols-outlined text-2xl font-black">{sub.icon}</span>
-                              </div>
-                              <div className="space-y-1">
-                                <h4 className="font-black text-on-surface text-base group-hover/item:text-primary transition-colors tracking-tight">{sub.name}</h4>
-                                <p className="text-[11px] font-bold leading-relaxed text-on-surface-variant/60 group-hover/item:text-on-surface-variant transition-colors">{sub.desc}</p>
-                              </div>
-                            </Link>
-                          </motion.div>
+                            <div className="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center text-primary group-hover/item:bg-primary group-hover/item:text-white transition-all shadow-sm">
+                              <span className="material-symbols-outlined text-xl font-black">{sub.icon}</span>
+                            </div>
+                            <div className="space-y-0.5">
+                              <h4 className="font-black text-on-surface text-sm group-hover/item:text-primary transition-colors tracking-tight">{sub.name}</h4>
+                              <p className="text-[10px] font-bold leading-tight text-on-surface-variant/60">{sub.desc}</p>
+                            </div>
+                          </Link>
                         ))}
                       </div>
                     </div>
-                  </motion.div>
+                  </motion.div>,
+                  document.body
                 )}
-              </AnimatePresence>
-            </div>
-          ))}
+              </div>
+            ))}
+          </motion.div>
         </div>
       </motion.div>
 

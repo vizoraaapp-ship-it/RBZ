@@ -17,13 +17,13 @@ const Brands = () => {
   const brandsLoop = [...BRANDS, ...BRANDS, ...BRANDS];
 
   return (
-    <Section background="surface" className="py-20 overflow-hidden">
+    <Section background="surface" className="overflow-hidden">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="text-center mb-16"
+        transition={{ duration: 0.6 }}
+        className="text-center mb-10 lg:mb-14 space-y-4"
       >
         <h2 className="text-4xl md:text-5xl font-black text-on-background tracking-tight">Brands We Carry</h2>
         <div className="w-20 h-1.5 bg-primary/20 mx-auto mt-6 rounded-full" />
@@ -46,6 +46,7 @@ const Brands = () => {
                 alt={`${brand.name} logo`} 
                 fill 
                 className="object-contain p-2"
+                sizes="(max-width: 768px) 50vw, 25vw"
               />
             </div>
           </motion.div>

@@ -11,7 +11,7 @@ import Counter from '../ui/Counter';
 const Statistics = () => {
   return (
     <Section background="high" className="overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Left column: Image + Badge */}
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
@@ -77,7 +77,7 @@ const Statistics = () => {
               className="text-4xl lg:text-6xl font-black text-on-background leading-[1.1] tracking-tight"
             >
               Trust and Reliability <br />
-              <span className="text-primary">in Every Ontario Home</span>
+              <span className="text-primary">in GTA and Ontario</span>
             </motion.h2>
             
             <motion.p 
@@ -87,7 +87,7 @@ const Statistics = () => {
               transition={{ delay: 0.4 }}
               className="text-xl text-on-surface-variant font-medium leading-relaxed max-w-xl"
             >
-              For over 15 years, RBZ Climate Solutions has been the leading provider of premium HVAC services across the Greater Toronto Area and Simcoe County.
+              For over 10 years, RBZ Climate Solutions has been the leading provider of premium HVAC services across the Greater Toronto Area and Ontario.
             </motion.p>
           </div>
           
@@ -112,7 +112,7 @@ const Statistics = () => {
               className="space-y-5 pt-4"
             >
               {[
-                'Serving GTA & Simcoe County',
+                'Serving GTA and Ontario',
                 'Licensed & Fully Insured Technicians',
                 'Energy-Saving Solutions Experts',
                 '24/7 Emergency Response'
@@ -142,7 +142,7 @@ const Statistics = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.8, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-10 p-6 bg-surface-container rounded-3xl border border-outline-variant/10 shadow-sm relative overflow-hidden group"
+              className="mt-6 p-6 bg-surface-container rounded-3xl border border-outline-variant/10 shadow-sm relative overflow-hidden group"
             >
               <div className="absolute inset-0 bg-primary/[0.01] opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="flex items-center gap-6 relative z-10">
@@ -155,16 +155,16 @@ const Statistics = () => {
                     className="w-full h-auto object-contain"
                   />
                 </div>
-                <div className="space-y-1">
-                  <h4 className="text-base font-black text-on-surface tracking-tight">TSSA Certified & Verified</h4>
-                  <div className="flex flex-wrap gap-3">
+                <div className="space-y-2">
+                  <h4 className="text-lg md:text-2xl font-black text-on-surface tracking-tight leading-none mb-2">TSSA Certified & Verified</h4>
+                  <div className="flex flex-wrap gap-4">
                     {[
                       { icon: 'shield', label: 'Safety Compliant' },
                       { icon: 'verified', label: 'Registered Mechanical Service' }
                     ].map((badge) => (
-                      <div key={badge.label} className="flex items-center gap-1.5 opacity-60">
-                        <span className="material-symbols-outlined text-[14px] text-primary font-black">{badge.icon}</span>
-                        <span className="text-[9px] font-black uppercase tracking-widest text-on-surface-variant">{badge.label}</span>
+                      <div key={badge.label} className="flex items-center gap-2.5 opacity-80 group-hover:opacity-100 transition-opacity">
+                        <span className="material-symbols-outlined text-xl text-primary font-black">{badge.icon}</span>
+                        <span className="text-xs md:text-sm font-black uppercase tracking-widest text-on-surface-variant">{badge.label}</span>
                       </div>
                     ))}
                   </div>

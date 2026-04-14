@@ -56,7 +56,7 @@ const Button: React.FC<ButtonProps> = ({
   );
 
   if (href) {
-    const MotionLink = motion(Link as any) as any;
+    const MotionLink = motion.create(Link as any);
     return (
       <MotionLink href={href} className={combinedClasses} {...motionProps}>
         {content}

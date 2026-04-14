@@ -7,52 +7,66 @@ import AutoSlider from '../ui/AutoSlider';
 
 const VALUES = [
   {
-    title: "Genuine Second Opinion",
-    description: "Honest, unbiased advice to help you make the right HVAC decisions. We prioritize your needs over sales targets.",
-    icon: "verified_user",
+    title: "Leading Manufacturers",
+    description: "Quality work from leading manufacturers.",
+    icon: "precision_manufacturing",
     color: "bg-blue-50 text-blue-600"
   },
   {
-    title: "No Gender Discrimination Policy",
-    description: "Equal respect and opportunities for everyone, without bias. We foster an inclusive environment for our team and clients.",
-    icon: "diversity_3",
-    color: "bg-purple-50 text-purple-600"
+    title: "Best Solutions",
+    description: "Expert advice and best suited solutions.",
+    icon: "home_repair_service",
+    color: "bg-blue-50 text-blue-600"
+  },
+  {
+    title: "No Surprises",
+    description: "The price we quote is the price you pay.",
+    icon: "verified",
+    color: "bg-blue-50 text-blue-600"
+  },
+  {
+    title: "Budget Friendly",
+    description: "Payment, rental or financing options.",
+    icon: "payments",
+    color: "bg-blue-50 text-blue-600"
+  },
+  {
+    title: "Proudly Canadian",
+    description: "Experts for over 10 years.",
+    icon: "maple_leaf",
+    color: "bg-red-50 text-red-600"
   }
 ];
 
 const OurValues = () => {
   return (
     <Section background="surface">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4 text-center">
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8 }}
+          className="mb-12 md:mb-20"
         >
-          <h2 className="font-headline text-3xl md:text-5xl font-black text-on-surface mb-4 tracking-tight">Our Core Values</h2>
-          <p className="text-on-surface-variant text-base md:text-lg max-w-2xl mx-auto font-medium leading-relaxed opacity-80">
-            More than just a service provider, we are committed to integrity, equality, and professional honesty in everything we do.
+          <h2 className="text-3xl md:text-5xl font-black text-on-background mb-4 tracking-tight">Experience Global Standards <br className="hidden md:block" /> <span className="text-primary">with Local Care</span></h2>
+          <p className="text-on-surface-variant text-base md:text-xl max-w-2xl mx-auto font-medium opacity-80">
+            RBZ Climate Solutions is built on trust, precision, and a commitment to your comfort.
           </p>
         </motion.div>
 
-        {/* Desktop Grid */}
-        <div className="hidden md:grid grid-cols-2 gap-8">
+        {/* Desktop Grid: 5 Square Boxes */}
+        <div className="hidden md:grid grid-cols-5 gap-4 lg:gap-8">
           {VALUES.map((val, index) => (
             <ValueCard key={index} val={val} index={index} />
           ))}
         </div>
 
-        {/* Mobile Slideable Row */}
-        <div className="md:hidden relative -mx-4 px-4 mt-8">
-          <div className="flex gap-6 overflow-x-auto no-scrollbar pb-12 snap-x snap-mandatory">
-            {VALUES.map((val, i) => (
-              <div key={i} className="flex-shrink-0 w-[85vw] snap-center">
-                <ValueCard val={val} index={i} />
-              </div>
-            ))}
-          </div>
+        {/* Mobile Grid: 2 columns for space efficiency */}
+        <div className="md:hidden grid grid-cols-2 gap-4 pb-8">
+          {VALUES.map((val, i) => (
+            <ValueCard key={i} val={val} index={i} />
+          ))}
         </div>
       </div>
     </Section>
@@ -61,29 +75,26 @@ const OurValues = () => {
 
 const ValueCard = ({ val, index = 0 }: { val: any, index?: number }) => (
   <motion.div 
-    initial={{ opacity: 0, y: 40 }}
+    initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.2 }}
-    transition={{ 
-      duration: 0.8, 
-      delay: index * 0.15,
-      ease: [0.16, 1, 0.3, 1] 
-    }}
-    whileHover={{ 
-      y: -10, 
-      transition: { type: "spring", stiffness: 300, damping: 15 } 
-    }}
-    className="group p-8 md:p-12 bg-white rounded-[2.5rem] shadow-[0_12px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_24px_48px_rgba(43,91,181,0.08)] border border-outline-variant/10 hover:border-primary/20 transition-all duration-500 h-full flex flex-col"
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+    whileHover={{ y: -8, scale: 1.02 }}
+    className="bg-white aspect-square rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-outline-variant/5 p-6 md:p-8 flex flex-col items-center justify-center text-center transition-all duration-300 group hover:shadow-[0_20px_50px_rgba(0,17,168,0.08)] hover:border-primary/10"
   >
-    <div className={`w-16 h-16 ${val.color} rounded-2xl flex items-center justify-center mb-8 shadow-sm flex-shrink-0`}>
-      <span className="material-symbols-outlined text-3xl font-black">{val.icon}</span>
+    <div className={`w-14 h-14 md:w-20 md:h-20 ${val.color} rounded-2xl flex items-center justify-center mb-6 shadow-sm transition-transform group-hover:scale-105`}>
+      {val.icon === 'maple_leaf' ? (
+        <span className="text-4xl md:text-6xl select-none">🍁</span>
+      ) : (
+        <span className="material-symbols-outlined text-3xl md:text-5xl font-black">{val.icon}</span>
+      )}
     </div>
     
-    <h3 className="font-headline text-2xl md:text-3xl font-black text-on-surface mb-6 group-hover:text-primary transition-colors tracking-tight leading-tight">
+    <h3 className="font-headline text-lg md:text-2xl font-black text-[#0011A8] mb-3 tracking-tight leading-tight group-hover:text-primary transition-colors">
       {val.title}
     </h3>
     
-    <p className="font-body text-base md:text-lg text-on-surface-variant leading-relaxed font-semibold opacity-70 group-hover:opacity-100 transition-opacity">
+    <p className="font-body text-xs md:text-base text-[#2B5BB5] leading-relaxed font-bold opacity-70 group-hover:opacity-100 italic">
       {val.description}
     </p>
   </motion.div>

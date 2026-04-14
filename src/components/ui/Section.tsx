@@ -34,7 +34,7 @@ const Section: React.FC<SectionProps> = ({
   return (
     <section 
       id={id}
-      className={`py-16 md:py-32 overflow-hidden ${backgrounds[background]} ${className}`}
+      className={`py-12 md:py-20 overflow-hidden ${backgrounds[background]} ${className}`}
     >
       <motion.div 
         className={`${fullWidth ? 'w-full' : 'max-w-7xl mx-auto px-4 md:px-8'} ${containerClassName}`}

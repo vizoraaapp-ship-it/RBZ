@@ -14,6 +14,9 @@ const SERVICES = [
   { name: 'Boiler', icon: 'hvac', desc: 'Radiant heating expertise for ultimate comfort.', color: 'bg-blue-50' },
   { name: 'Repair', icon: 'build', desc: 'Fast diagnostic and repair services 24/7.', color: 'bg-blue-100/50' },
   { name: 'Accessories', icon: 'settings', desc: 'Filters, parts, and specialized add-ons.', color: 'bg-blue-50' },
+  { name: 'Commercial', icon: 'kitchen', desc: 'Specialized HVAC for small commercial kitchens.', color: 'bg-blue-100/50' },
+  { name: 'Gas Lines', icon: 'outdoor_grill', desc: 'Professional installation for BBQ and appliances.', color: 'bg-blue-50' },
+  { name: 'Pool Heaters', icon: 'pool', desc: 'Efficient solutions for year-round swimming comfort.', color: 'bg-blue-100/50' },
 ];
 
 const containerVariants = {
@@ -38,14 +41,14 @@ const itemVariants = {
 };
 
 const ServicesBento = () => {
-  // Triple the services for each row to ensure seamless infinite loop
-  const row1 = [...SERVICES.slice(0, 4), ...SERVICES.slice(0, 4), ...SERVICES.slice(0, 4)];
-  const row2 = [...SERVICES.slice(4, 8), ...SERVICES.slice(4, 8), ...SERVICES.slice(4, 8)];
+  // Update rows to include new services
+  const row1 = [...SERVICES.slice(0, 5), ...SERVICES.slice(0, 5), ...SERVICES.slice(0, 5)];
+  const row2 = [...SERVICES.slice(5, 11), ...SERVICES.slice(5, 11), ...SERVICES.slice(5, 11)];
 
   return (
     <Section id="services" background="surface">
       <motion.div 
-        className="text-center mb-12 lg:mb-16 space-y-4"
+        className="text-center mb-10 lg:mb-12 space-y-4"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -54,35 +57,22 @@ const ServicesBento = () => {
         <p className="text-base lg:text-xl text-on-surface-variant max-w-2xl mx-auto opacity-80">Providing master-level environmental control for every corner of your living space.</p>
       </motion.div>
       
-      {/* Desktop Grid */}
-      <motion.div 
-        className="hidden md:grid md:grid-cols-3 lg:grid-cols-4 gap-6"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-      >
-        {SERVICES.map((service, index) => (
-          <BentoServiceCard key={index} service={service} variants={itemVariants} />
-        ))}
-      </motion.div>
-
-      {/* Mobile Independent Horizontal Slideable Rows (Infinite Marquee) */}
-      <div className="md:hidden mt-12 space-y-10 py-4 relative overflow-hidden">
-          {/* Row 1: Left to Right */}
+      {/* Services Infinite Marquee */}
+      <div className="mt-12 space-y-6 md:space-y-10 py-4 relative overflow-hidden">
+        {/* Row 1: Left to Right */}
         <div className="relative">
           <motion.div 
-            className="flex gap-4 w-max"
+            className="flex gap-4 md:gap-6 w-max"
             animate={{ x: ["-50%", "0%"] }}
             transition={{ 
-              duration: 25, 
+              duration: 35, 
               repeat: Infinity, 
               ease: "linear" 
             }}
           >
             {row1.map((service, index) => (
-              <div key={`r1-${index}`} className="flex-shrink-0 w-[60vw]">
-                <BentoServiceCard service={service} isSmall />
+              <div key={`r1-${index}`} className="flex-shrink-0 w-[60vw] md:w-[35vw] lg:w-[25vw]">
+                <BentoServiceCard service={service} />
               </div>
             ))}
           </motion.div>
@@ -91,17 +81,17 @@ const ServicesBento = () => {
         {/* Row 2: Right to Left */}
         <div className="relative">
           <motion.div 
-            className="flex gap-4 w-max"
+            className="flex gap-4 md:gap-6 w-max"
             animate={{ x: ["0%", "-50%"] }}
             transition={{ 
-              duration: 30, 
+              duration: 40, 
               repeat: Infinity, 
               ease: "linear" 
             }}
           >
             {row2.map((service, index) => (
-              <div key={`r2-${index}`} className="flex-shrink-0 w-[60vw]">
-                <BentoServiceCard service={service} isSmall />
+              <div key={`r2-${index}`} className="flex-shrink-0 w-[60vw] md:w-[35vw] lg:w-[25vw]">
+                <BentoServiceCard service={service} />
               </div>
             ))}
           </motion.div>
@@ -111,7 +101,7 @@ const ServicesBento = () => {
   );
 };
 
-const BentoServiceCard = ({ service, variants, isSmall }: { service: any, variants?: any, isSmall?: boolean }) => (
+const BentoServiceCard = ({ service, variants }: { service: any, variants?: any }) => (
   <motion.div 
     variants={variants}
     whileHover={{ 
@@ -119,17 +109,17 @@ const BentoServiceCard = ({ service, variants, isSmall }: { service: any, varian
       boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)",
       borderColor: "rgba(var(--primary), 0.2)"
     }}
-    className={`bg-white rounded-[1.5rem] md:rounded-[2.5rem] transition-all group border border-outline-variant/10 shadow-sm relative overflow-hidden h-full flex flex-col ${isSmall ? 'p-5' : 'p-8 md:p-10'}`}
+    className="bg-white rounded-[1.5rem] md:rounded-[2.5rem] transition-all group border border-outline-variant/10 shadow-sm relative overflow-hidden h-full flex flex-col p-6 md:p-10"
   >
     <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/[0.02] transition-colors pointer-events-none" />
     
-    <div className={`${isSmall ? 'w-10 h-10 mb-4' : 'w-12 h-12 mb-6'} bg-primary/10 rounded-xl md:rounded-2xl flex items-center justify-center text-primary transition-transform relative z-10`}>
-      <span className={`material-symbols-outlined ${isSmall ? 'text-2xl' : 'text-3xl'} font-black`}>{service.icon}</span>
+    <div className="w-12 h-12 md:w-16 md:h-16 mb-4 md:mb-6 bg-primary/10 rounded-xl md:rounded-2xl flex items-center justify-center text-primary transition-transform relative z-10">
+      <span className="material-symbols-outlined text-2xl md:text-3xl font-black">{service.icon}</span>
     </div>
     
     <div className="relative z-10 flex-grow">
-      <h3 className={`font-black ${isSmall ? 'text-sm mb-1' : 'text-xl mb-3'} text-on-surface group-hover:text-primary transition-colors tracking-tight`}>{service.name}</h3>
-      <p className={`${isSmall ? 'text-[10px] leading-snug' : 'text-sm leading-relaxed'} text-on-surface-variant opacity-70 group-hover:opacity-100 transition-opacity font-bold`}>
+      <h3 className="font-black text-lg md:text-2xl mb-1 md:mb-3 text-on-surface group-hover:text-primary transition-colors tracking-tight">{service.name}</h3>
+      <p className="text-xs md:text-base leading-snug md:leading-relaxed text-on-surface-variant opacity-70 group-hover:opacity-100 transition-opacity font-bold">
         {service.desc}
       </p>
     </div>

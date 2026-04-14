@@ -51,7 +51,13 @@ export default function ContactClient() {
   };
 
   const inp = (id: keyof typeof INITIAL) =>
-    `w-full bg-surface-container-lowest border rounded-2xl px-6 py-4 font-bold text-on-surface focus:ring-8 focus:ring-primary/5 focus:border-primary outline-none transition-all placeholder:text-on-surface-variant/30 ${errors[id] ? 'border-error/60' : 'border-outline-variant/20'}`;
+    `w-full px-6 py-4 rounded-2xl border text-base md:text-sm font-bold transition-all duration-300 outline-none ${
+      errors[id] 
+        ? 'border-error bg-error/5 text-error placeholder:text-error/40' 
+        : 'border-outline-variant/30 bg-surface-container-lowest text-on-surface hover:border-primary/50 focus:border-primary focus:ring-4 focus:ring-primary/10 placeholder:text-on-surface-variant/30'
+    }`;
+
+  const labelStyle = "text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-primary mb-3 block ml-1";
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -70,7 +76,7 @@ export default function ContactClient() {
     <main className="min-h-screen bg-surface">
       <Navbar />
       
-      <header className="w-full bg-gradient-to-b from-primary-container/20 to-surface py-24 md:py-56 px-6 text-center relative overflow-hidden">
+      <header className="w-full bg-gradient-to-b from-primary-container/20 to-surface py-24 md:py-56 px-6 text-left relative overflow-hidden">
         <motion.div 
           animate={{ rotate: 360 }}
           transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
@@ -81,13 +87,13 @@ export default function ContactClient() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="max-w-4xl mx-auto space-y-6 md:space-y-8 relative z-10"
+          className="max-w-7xl mx-auto space-y-6 md:space-y-8 relative z-10"
         >
           <motion.h1 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="font-headline text-3xl md:text-8xl font-black tracking-tight text-on-surface leading-tight"
+            className="font-headline text-4xl md:text-8xl font-black tracking-tight text-on-surface leading-tight"
           >
             Get in Touch
           </motion.h1>
@@ -95,7 +101,7 @@ export default function ContactClient() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="font-body text-base md:text-2xl text-on-surface-variant max-w-2xl mx-auto font-bold opacity-80"
+            className="font-body text-base md:text-2xl text-on-surface-variant max-w-2xl font-bold opacity-80"
           >
             Ready to schedule a service or get a free estimate? Our team is available 24/7 for all your comfort needs.
           </motion.p>
@@ -149,7 +155,7 @@ export default function ContactClient() {
             <motion.div 
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
-              className="w-full h-96 bg-surface-container rounded-[3rem] overflow-hidden relative shadow-2xl group border border-outline-variant/10"
+              className="w-full h-80 md:h-96 bg-surface-container rounded-[2.5rem] md:rounded-[3rem] overflow-hidden relative shadow-2xl group border border-outline-variant/10"
             >
               <div className="absolute inset-0 bg-primary/5 backdrop-blur-sm flex items-center justify-center">
                 <motion.span 
@@ -171,7 +177,7 @@ export default function ContactClient() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-            className="bg-white p-6 md:p-20 rounded-[2.5rem] md:rounded-[4rem] shadow-2xl border border-outline-variant/10 h-fit"
+            className="bg-white p-6 md:p-16 xl:p-20 rounded-[2.5rem] md:rounded-[4rem] shadow-2xl border border-outline-variant/10 h-fit"
           >
             <AnimatePresence mode="wait">
               {submitted ? (
@@ -180,7 +186,7 @@ export default function ContactClient() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  className="flex flex-col items-center text-center gap-8 py-20"
+                  className="flex flex-col items-center text-center gap-10 py-20"
                 >
                   <motion.div 
                     initial={{ scale: 0 }}
@@ -202,52 +208,57 @@ export default function ContactClient() {
                 </motion.div>
               ) : (
                 <motion.div key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                  <div className="mb-8 md:mb-12 text-center md:text-left">
-                    <h2 className="text-2xl md:text-4xl font-black mb-3 md:mb-4 text-on-surface tracking-tight">Request a Consultation</h2>
-                    <p className="text-on-surface-variant font-bold opacity-60 text-sm">Fill out the form below and we'll reach out to you shortly.</p>
+                  <div className="mb-10 md:mb-16 text-center md:text-left">
+                    <h2 className="text-3xl md:text-5xl font-black mb-4 text-on-surface tracking-tight">Request a Consultation</h2>
+                    <p className="text-on-surface-variant font-bold opacity-60 text-sm md:text-base leading-relaxed">Fill out the form below and we'll reach out to you shortly to discuss your home comfort needs.</p>
                   </div>
                   
-                  <form className="space-y-10" onSubmit={handleSubmit} noValidate>
+                  <form className="space-y-8" onSubmit={handleSubmit} noValidate>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                      <div className="space-y-3">
-                        <label htmlFor="name" className="text-[10px] font-black uppercase tracking-[0.3em] text-primary ml-1">Full Name *</label>
+                      <div className="group">
+                        <label htmlFor="name" className={labelStyle}>Full Name *</label>
                         <input type="text" id="name" value={form.name} onChange={handleChange} className={inp('name')} placeholder="Your Name" />
-                        {errors.name && <motion.p initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="text-error text-[10px] font-black uppercase tracking-widest ml-1">{errors.name}</motion.p>}
+                        {errors.name && <motion.p initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="text-error text-[10px] font-black uppercase tracking-widest mt-2 ml-1">{errors.name}</motion.p>}
                       </div>
-                      <div className="space-y-3">
-                        <label htmlFor="email" className="text-[10px] font-black uppercase tracking-[0.3em] text-primary ml-1">Email *</label>
+                      <div className="group">
+                        <label htmlFor="email" className={labelStyle}>Email *</label>
                         <input type="email" id="email" value={form.email} onChange={handleChange} className={inp('email')} placeholder="email@example.com" />
-                        {errors.email && <motion.p initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="text-error text-[10px] font-black uppercase tracking-widest ml-1">{errors.email}</motion.p>}
+                        {errors.email && <motion.p initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="text-error text-[10px] font-black uppercase tracking-widest mt-2 ml-1">{errors.email}</motion.p>}
                       </div>
                     </div>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                      <div className="space-y-3">
-                        <label htmlFor="phone" className="text-[10px] font-black uppercase tracking-[0.3em] text-primary ml-1">Phone *</label>
-                        <input type="tel" id="phone" value={form.phone} onChange={handleChange} className={inp('phone')} placeholder="+1 000 000 0000" />
-                        {errors.phone && <motion.p initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="text-error text-[10px] font-black uppercase tracking-widest ml-1">{errors.phone}</motion.p>}
+                      <div className="group">
+                        <label htmlFor="phone" className={labelStyle}>Phone *</label>
+                        <input type="tel" id="phone" value={form.phone} onChange={handleChange} className={inp('phone')} placeholder="+1 (000) 000-0000" />
+                        {errors.phone && <motion.p initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="text-error text-[10px] font-black uppercase tracking-widest mt-2 ml-1">{errors.phone}</motion.p>}
                       </div>
-                      <div className="space-y-3">
-                        <label htmlFor="subject" className="text-[10px] font-black uppercase tracking-[0.3em] text-primary ml-1">Topic</label>
-                        <select id="subject" value={form.subject} onChange={handleChange} className={inp('subject')}>
-                          <option value="">Select a topic...</option>
-                          <option>Air Conditioning</option>
-                          <option>Furnace / Heating</option>
-                          <option>Heat Pump</option>
-                          <option>Water Systems</option>
-                          <option>Emergency Repair</option>
-                          <option>Other</option>
-                        </select>
+                      <div className="group">
+                        <label htmlFor="subject" className={labelStyle}>Topic</label>
+                        <div className="relative">
+                          <select id="subject" value={form.subject} onChange={handleChange} className={`${inp('subject')} appearance-none cursor-pointer`}>
+                            <option value="">Select a topic...</option>
+                            <option>Air Conditioning</option>
+                            <option>Furnace / Heating</option>
+                            <option>Heat Pump</option>
+                            <option>Water Systems</option>
+                            <option>Emergency Repair</option>
+                            <option>Other</option>
+                          </select>
+                          <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant/50">
+                            <span className="material-symbols-outlined font-black">unfold_more</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     
-                    <div className="space-y-3">
-                      <label htmlFor="message" className="text-[10px] font-black uppercase tracking-[0.3em] text-primary ml-1">Your Message</label>
-                      <textarea id="message" rows={5} value={form.message} onChange={handleChange} className={`${inp('message')} resize-none`} placeholder="Tell us how we can help..." />
+                    <div className="group">
+                      <label htmlFor="message" className={labelStyle}>Your Message</label>
+                      <textarea id="message" rows={5} value={form.message} onChange={handleChange} className={`${inp('message')} resize-none min-h-[140px]`} placeholder="Tell us how we can help..." />
                     </div>
                     
-                    <div className="pt-4 flex justify-center md:justify-start">
-                      <Button size="md" type="submit" disabled={!isValid || loading} className="w-auto px-12 md:px-16 shadow-2xl shadow-primary/20">
+                    <div className="pt-6">
+                      <Button size="xl" type="submit" disabled={!isValid || loading} className="w-full md:w-auto px-16 shadow-2xl shadow-primary/20">
                         {loading ? 'Processing...' : 'Submit Request'}
                       </Button>
                     </div>

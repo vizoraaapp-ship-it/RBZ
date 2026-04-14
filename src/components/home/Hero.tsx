@@ -5,29 +5,97 @@ import Button from '../ui/Button';
 import { supabase } from '@/lib/supabase';
 import { motion, AnimatePresence } from 'framer-motion';
 
-interface Banner {
+interface ExtendedBanner {
   id: string;
   image_url: string;
+  banner_type: 'image_only' | 'with_text';
+  badge: string;
+  title: string;
+  description: string;
+  cta_text: string;
+  cta_link: string;
+  secondary_cta_text: string;
+  secondary_cta_link: string;
+  stats: { v: string; l: string }[];
+  accent_color: string;
 }
 
+const DEFAULT_BANNERS: ExtendedBanner[] = [
+  {
+    id: 'furnace',
+    image_url: '/hero-furnace.png',
+    banner_type: 'with_text',
+    badge: '#1 Rated HVAC Service in GTA and Ontario',
+    title: 'Install, Repair \nand Maintenance',
+    description: 'Precision climate control solutions for your home and business. Delivering excellence and comfort for over 10 years.',
+    cta_text: 'Get a Free Quote',
+    cta_link: '/contact',
+    secondary_cta_text: 'Explore Services',
+    secondary_cta_link: '/services',
+    stats: [{v: '10+', l: 'Years Exp.'}, {v: '5k+', l: 'Happy Clients'}, {v: '24/7', l: 'Emergency'}],
+    accent_color: 'from-primary to-primary-dim'
+  },
+  {
+    id: 'kitchen',
+    image_url: '/service-hero.png',
+    banner_type: 'with_text',
+    badge: 'New Professional Service',
+    title: 'Commercial \nKitchen Excellence',
+    description: 'Expert ventilation and climate solutions for professional kitchens. Ensure peak performance and safety.',
+    cta_text: 'View Commercial',
+    cta_link: '/services/commercial-kitchens',
+    secondary_cta_text: 'Contact Us',
+    secondary_cta_link: '/contact',
+    stats: [{v: '100%', l: 'Compliance'}, {v: 'Fast', l: 'Install'}, {v: 'Pro', l: 'Grade'}],
+    accent_color: 'from-slate-900 to-primary-dim'
+  },
+  {
+    id: 'gasline',
+    image_url: '/service-ac.png',
+    banner_type: 'with_text',
+    badge: 'Certified Gas Experts',
+    title: 'Barbeque & Gas \nLine Installations',
+    description: 'Safe and certified gas line installations for your home, BBQ, or pool heaters. Reliable energy solutions.',
+    cta_text: 'Book Inspection',
+    cta_link: '/contact',
+    secondary_cta_text: 'Our Expertise',
+    secondary_cta_link: '/services',
+    stats: [{v: 'Safe', l: 'Certified'}, {v: 'Clean', l: 'Work'}, {v: 'All', l: 'Seasons'}],
+    accent_color: 'from-primary-dim to-slate-800'
+  }
+];
+
 const Hero = () => {
-  const [banners, setBanners] = useState<Banner[]>([]);
+  const [banners, setBanners] = useState<ExtendedBanner[]>(DEFAULT_BANNERS);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
   useEffect(() => {
     const fetchBanners = async () => {
       const { data, error } = await supabase
         .from('banners')
-        .select('id, image_url')
+        .select('*')
         .eq('is_active', true)
         .order('display_order', { ascending: true })
         .order('created_at', { ascending: false });
 
       if (!error && data && data.length > 0) {
-        setBanners(data);
-      } else {
-        // Fallback default image if no active banners exist in DB yet
-        setBanners([{ id: 'default', image_url: '/hero-furnace.png' }]);
+        // Map DB banners to our ExtendedBanner structure
+        const mappedBanners: ExtendedBanner[] = data.map(d => ({
+          id: d.id,
+          image_url: d.image_url,
+          banner_type: d.banner_type || 'with_text',
+          badge: d.badge || DEFAULT_BANNERS[0].badge,
+          title: d.title || 'Welcome to RBZ',
+          description: d.description || '',
+          cta_text: d.cta_text || 'Contact Us',
+          cta_link: d.cta_link || '/contact',
+          secondary_cta_text: d.secondary_cta_text || 'View Services',
+          secondary_cta_link: d.secondary_cta_link || '/services',
+          stats: DEFAULT_BANNERS[0].stats, // Default stats for now
+          accent_color: d.accent_color || 'from-primary to-primary-dim'
+        }));
+        setBanners(mappedBanners);
       }
     };
 
@@ -36,160 +104,192 @@ const Hero = () => {
 
   useEffect(() => {
     if (banners.length <= 1) return;
-
     const interval = setInterval(() => {
+      setDirection(1);
       setCurrentIndex((prev) => (prev + 1) % banners.length);
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [banners.length]);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? '100%' : '-100%',
+      scale: 1.1,
+      opacity: 0,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      scale: 1,
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3
+        x: { type: "spring", stiffness: 300, damping: 30 },
+        scale: { duration: 0.8, ease: "easeOut" },
+        opacity: { duration: 0.4 }
       }
-    }
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? '100%' : '-100%',
+      scale: 0.9,
+      opacity: 0,
+      transition: {
+        x: { type: "spring", stiffness: 300, damping: 30 },
+        scale: { duration: 0.8, ease: "easeIn" },
+        opacity: { duration: 0.4 }
+      }
+    })
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as any } 
-    }
-  };
+  const currentBanner = banners[currentIndex];
 
   return (
-    <section className="relative pt-32 pb-16 lg:pt-60 lg:pb-36 bg-gradient-to-br from-primary to-primary-dim text-white overflow-hidden">
-      {/* Background patterns */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-white/20 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary blur-[100px] rounded-full -translate-x-1/2 translate-y-1/2" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
-        <motion.div 
-          className="space-y-8 lg:space-y-12 text-center lg:text-left"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
+    <section className="relative h-[90vh] lg:h-screen min-h-[700px] overflow-hidden bg-slate-950 text-white">
+      <AnimatePresence initial={false} custom={direction} mode="popLayout">
+        <motion.div
+          key={currentIndex}
+          custom={direction}
+          variants={slideVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          className="absolute inset-0 w-full h-full"
         >
-          <motion.div 
-            variants={itemVariants}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-xl mx-auto lg:mx-0"
-          >
-            <span className="material-symbols-outlined text-secondary-fixed fill-1 text-sm md:text-base" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
-            <span className="text-[10px] md:text-sm font-black tracking-widest uppercase">#1 Rated HVAC Service in Ontario</span>
-          </motion.div>
-          
-          <div className="space-y-4 lg:space-y-6">
-            <motion.h1 
-              variants={itemVariants}
-              className="text-[2.2rem] md:text-8xl font-black tracking-tight leading-[1] md:leading-[0.95]"
-            >
-              Install, Repair <br />
-              <span className="text-primary-fixed block mt-2 text-[1.8rem] md:text-8xl">and Maintenance</span>
-            </motion.h1>
-            
-            <motion.p 
-              variants={itemVariants}
-              className="text-base md:text-2xl text-primary-fixed/90 max-w-xl lg:mx-0 mx-auto leading-relaxed font-bold opacity-80"
-            >
-              Precision climate control solutions for your home and business. Delivering excellence and comfort with over 9 years of technical mastery.
-            </motion.p>
+          {/* Background Image Layer */}
+          <div className="absolute top-[104px] md:top-[156px] inset-x-0 bottom-0 z-0 overflow-hidden bg-slate-950">
+            <Image
+              src={currentBanner.image_url}
+              alt=""
+              fill
+              className="object-cover blur-3xl opacity-30 scale-110"
+              priority
+              quality={10}
+              sizes="100vw"
+            />
+            <Image
+              src={currentBanner.image_url}
+              alt="RBZ Premium Service"
+              fill
+              className="object-cover"
+              priority
+              quality={90}
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/40 to-transparent z-10" />
+            <div className="absolute inset-0 bg-slate-950/10 z-10" />
           </div>
-          
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-            <Button variant="surface" size="xl" href="/contact" fullWidth className="sm:w-auto">Get a Free Quote</Button>
-            <Button variant="outline" size="xl" className="text-white border-white/30 hover:bg-white/10 sm:w-auto" fullWidth href="/services">Explore Services</Button>
-          </motion.div>
-          
-          <motion.div variants={itemVariants} className="pt-8 lg:pt-10 flex justify-center lg:justify-start gap-8 lg:gap-12 border-t border-white/10">
-            {[{v: '9+', l: 'Years Exp.'}, {v: '5k+', l: 'Happy Clients'}, {v: '24/7', l: 'Emergency'}].map((stat, i) => (
-              <div key={i}>
-                <div className="text-2xl md:text-4xl font-black">{stat.v}</div>
-                <div className="text-[9px] md:text-xs text-primary-fixed/70 uppercase tracking-widest font-bold mt-1">{stat.l}</div>
-              </div>
-            ))}
-          </motion.div>
-        </motion.div>
 
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9, rotate: 0 }}
-          animate={{ opacity: 1, scale: 1, rotate: 3 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-          className="relative group lg:block"
-        >
-          <div className="absolute -inset-8 bg-white/10 rounded-[3rem] blur-3xl group-hover:bg-white/20 transition-all duration-700" />
-          <motion.div 
-            whileHover={{ rotate: 0, scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 300, damping: 15 }}
-            className="relative bg-white/95 backdrop-blur-sm p-4 md:p-6 rounded-[3rem] shadow-2xl border border-white/20"
-          >
-            <div className="rounded-[2rem] overflow-hidden aspect-square relative bg-slate-100 shadow-inner">
-              <AnimatePresence mode="wait">
-                {banners.map((banner, index) => (
-                  index === currentIndex && (
-                    <motion.div 
-                      key={banner.id}
-                      initial={{ opacity: 0, scale: 1.1 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.95 }}
-                      transition={{ duration: 1, ease: "easeInOut" }}
-                      className="absolute inset-0"
+          {/* Content Layer (Conditional) */}
+          {currentBanner.banner_type === 'with_text' && (
+            <div className="relative z-20 h-full flex items-center pt-[180px] md:pt-[240px]">
+              <div className="max-w-7xl mx-auto px-6 md:px-8 w-full">
+                <div className="max-w-3xl">
+                  {/* Badge */}
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-2xl mb-8"
+                  >
+                    <span className="material-symbols-outlined text-secondary-fixed text-sm md:text-base animate-pulse" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
+                    <span className="text-[10px] md:text-xs font-black tracking-[0.2em] uppercase">{currentBanner.badge}</span>
+                  </motion.div>
+
+                  {/* Text Content */}
+                  <div className="space-y-6">
+                    <motion.h1 
+                      initial={{ opacity: 0, x: -30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.5, duration: 0.8 }}
+                      className="text-[2.8rem] md:text-[6.3rem] font-black tracking-tighter leading-[0.9] text-white whitespace-pre-line"
                     >
-                      <Image 
-                        src={banner.image_url} 
-                        alt="Premium HVAC Hero Image" 
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                        priority={index === 0}
-                      />
-                    </motion.div>
-                  )
-                ))}
-              </AnimatePresence>
-            </div>
-            
-            {/* Dots Indicator */}
-            {banners.length > 1 && (
-              <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-black/40 backdrop-blur-md px-4 py-2.5 rounded-full border border-white/10">
-                {banners.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentIndex(index)}
-                    className={`h-1.5 rounded-full transition-all duration-500 ${index === currentIndex ? 'bg-white w-8' : 'bg-white/30 hover:bg-white/60 w-1.5'}`}
-                    aria-label={`Go to slide ${index + 1}`}
-                  />
-                ))}
-              </div>
-            )}
-          </motion.div>
-          
-          {/* Floating Badge */}
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1, duration: 1 }}
-            className="absolute -bottom-8 -left-8 bg-white p-8 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] z-30 hidden md:block border border-outline-variant/10"
-          >
-             <div className="text-primary font-black text-5xl tracking-tighter">98%</div>
-             <div className="text-on-surface-variant text-xs font-black uppercase tracking-widest mt-1">Referral Rate</div>
-          </motion.div>
-        </motion.div>
-      </div>
+                      {currentBanner.title}
+                    </motion.h1>
+                    
+                    <motion.p 
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.7 }}
+                      className="text-lg md:text-2xl text-slate-100/90 max-w-xl leading-relaxed font-bold"
+                    >
+                      {currentBanner.description}
+                    </motion.p>
+                  </div>
 
-      {/* Wave Footer */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
-        <svg className="relative block w-full h-[60px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C58.47,88.75,117.05,82.34,175.75,82.34,228.61,82.34,281,89.5,321.39,56.44Z" fill="#fbf8ff"></path>
-        </svg>
+                  {/* Action Buttons */}
+                  <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8 }}
+                    className="flex flex-col sm:flex-row gap-4 mt-12"
+                  >
+                    <Button variant="surface" size="xl" href={currentBanner.cta_link} className="h-16 px-10 text-lg">
+                      {currentBanner.cta_text}
+                    </Button>
+                    <Button variant="outline" size="xl" className="h-16 px-10 text-lg text-white border-white/30" href={currentBanner.secondary_cta_link}>
+                      {currentBanner.secondary_cta_text}
+                    </Button>
+                  </motion.div>
+
+                  {/* Quick Stats Overlay (Only for default or high-fidelity banners) */}
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1 }}
+                    className="pt-12 mt-12 flex gap-8 md:gap-16 border-t border-white/10"
+                  >
+                    {currentBanner.stats.map((stat, i) => (
+                      <div key={i} className="group">
+                        <div className="text-3xl md:text-5xl font-black group-hover:text-secondary-fixed transition-colors duration-300">{stat.v}</div>
+                        <div className="text-[10px] md:text-xs text-slate-300 uppercase tracking-[0.2em] font-black mt-2">{stat.l}</div>
+                      </div>
+                    ))}
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+          )}
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Side Indicators */}
+      {banners.length > 1 && (
+        <div className="absolute right-8 md:right-12 top-[60%] -translate-y-1/2 z-40 flex flex-col gap-6">
+          {banners.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setDirection(index > currentIndex ? 1 : -1);
+                setCurrentIndex(index);
+              }}
+              className="group flex items-center justify-end gap-4"
+            >
+              <span className={`text-[10px] font-black tracking-widest uppercase transition-all duration-500 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 ${index === currentIndex ? 'text-white opacity-100 translate-x-0' : 'text-slate-400'}`}>
+                0{index + 1}
+              </span>
+              <div className={`relative h-12 w-1 transition-all duration-500 rounded-full overflow-hidden ${index === currentIndex ? 'h-20 bg-white/20' : 'bg-white/40 group-hover:bg-white/60'}`}>
+                {index === currentIndex && (
+                  <motion.div 
+                    initial={{ height: 0 }}
+                    animate={{ height: "100%" }}
+                    transition={{ duration: 5, ease: "linear" }}
+                    className="absolute top-0 left-0 right-0 bg-secondary-fixed"
+                  />
+                )}
+              </div>
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* Bottom Wave */}
+      <div className="absolute bottom-0 left-0 w-full z-30">
+        <div className="relative h-[60px] overflow-hidden pointer-events-none">
+          <svg className="absolute bottom-0 left-0 w-full h-full" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C58.47,88.75,117.05,82.34,175.75,82.34,228.61,82.34,281,89.5,321.39,56.44Z" fill="#fbf8ff"></path>
+          </svg>
+        </div>
       </div>
     </section>
   );
