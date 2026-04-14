@@ -23,7 +23,7 @@ interface Banner {
 }
 
 const INITIAL_FORM_STATE = {
-  banner_type: 'with_text' as const,
+  banner_type: 'with_text' as 'image_only' | 'with_text',
   badge: '',
   title: '',
   description: '',
