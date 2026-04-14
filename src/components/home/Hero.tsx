@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Button from '../ui/Button';
 import { supabase } from '@/lib/supabase';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 
 interface ExtendedBanner {
   id: string;
@@ -112,7 +112,7 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, [banners.length]);
 
-  const slideVariants = {
+  const slideVariants: Variants = {
     enter: (direction: number) => ({
       x: direction > 0 ? '100%' : '-100%',
       scale: 1.1,
