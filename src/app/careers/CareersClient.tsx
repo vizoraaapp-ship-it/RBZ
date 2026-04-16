@@ -87,6 +87,7 @@ export default function CareersClient() {
             fill 
             className="object-cover"
             priority
+            unoptimized
           />
           <div className="absolute inset-0 bg-black/60 z-10" />
         </motion.div>
@@ -124,7 +125,7 @@ export default function CareersClient() {
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.8 }}
-              className="text-primary-fixed-dim"
+              className="text-secondary"
             >
               Your Career
             </motion.span>
@@ -210,7 +211,7 @@ export default function CareersClient() {
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-black text-[10px] tracking-[0.3em] uppercase"
+            className="inline-block px-4 py-1.5 rounded-full bg-secondary/10 text-secondary font-black text-[10px] tracking-[0.3em] uppercase"
           >
             Open Positions
           </motion.span>
@@ -244,14 +245,14 @@ export default function CareersClient() {
               <div className="flex flex-col md:flex-row gap-8 md:gap-10 items-center md:items-start w-full">
                  <motion.div 
                   whileHover={{ rotate: 15, scale: 1.1 }}
-                  className="w-20 h-20 bg-primary/10 rounded-[1.75rem] flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm shrink-0"
+                  className="w-14 h-14 bg-secondary/10 rounded-xl overflow-visible flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all duration-500 shadow-sm shrink-0"
                  >
-                    <span className="material-symbols-outlined text-4xl">{job.icon}</span>
+                    <span className="material-symbols-outlined" style={{ fontSize: '5rem', lineHeight: 1 }}>{job.icon}</span>
                  </motion.div>
                  <div className="space-y-4 flex-grow">
-                    <h3 className="text-2xl md:text-3xl font-black tracking-tight group-hover:text-primary transition-colors leading-tight">{job.title}</h3>
-                    <div className="flex flex-wrap justify-center xl:justify-start gap-x-4 gap-y-3 text-[10px] font-black uppercase tracking-[0.2em] text-primary/60">
-                      <span className="flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10">
+                    <h3 className="text-2xl md:text-3xl font-black tracking-tight group-hover:text-secondary transition-colors leading-tight">{job.title}</h3>
+                    <div className="flex flex-wrap justify-center xl:justify-start gap-x-4 gap-y-3 text-[10px] font-black uppercase tracking-[0.2em] text-secondary/60">
+                      <span className="flex items-center gap-2 px-4 py-2 bg-secondary/5 rounded-full border border-secondary/10">
                         <span className="material-symbols-outlined text-base">work</span> {job.type}
                       </span>
                       <span className="flex items-center gap-2 px-4 py-2 bg-surface-container rounded-full border border-outline-variant/10 text-on-surface-variant">
@@ -301,11 +302,11 @@ const BenefitCard = ({ item }: { item: any }) => (
     }}
     className="p-8 md:p-10 bg-white rounded-[2rem] md:rounded-[2.5rem] border border-outline-variant/10 shadow-sm transition-all duration-500 overflow-hidden relative group h-full flex flex-col"
   >
-    <div className="absolute -top-12 -right-12 w-24 h-24 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors" />
-    <div className="text-primary mb-6 md:mb-8 relative z-10 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 flex-shrink-0">
-      <span className="material-symbols-outlined text-4xl md:text-5xl font-black">{item.icon}</span>
+    <div className="absolute -top-12 -right-12 w-24 h-24 bg-secondary/5 rounded-full blur-2xl group-hover:bg-secondary/10 transition-colors" />
+    <div className="text-secondary mb-6 md:mb-8 relative z-10 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 flex-shrink-0">
+      <span className="material-symbols-outlined" style={{ fontSize: '6rem', lineHeight: 1 }}>{item.icon}</span>
     </div>
-    <h3 className="text-xl md:text-2xl font-black mb-3 md:mb-4 tracking-tight group-hover:text-primary transition-colors leading-tight">{item.title}</h3>
+    <h3 className="text-xl md:text-2xl font-black mb-3 md:mb-4 tracking-tight group-hover:text-secondary transition-colors leading-tight">{item.title}</h3>
     <p className="text-on-surface-variant text-sm md:text-base leading-relaxed font-bold opacity-70 group-hover:opacity-100 transition-opacity flex-grow">{item.desc}</p>
   </motion.div>
 );

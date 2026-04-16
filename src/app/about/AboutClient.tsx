@@ -111,23 +111,17 @@ export default function AboutClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="mt-12 p-8 bg-surface-container-low rounded-[2rem] border border-outline-variant/10 shadow-xl overflow-hidden relative group"
+                className="mt-10"
               >
-                <div className="absolute inset-0 bg-primary/[0.02] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                
-                <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
-                  <motion.div 
-                    whileHover={{ scale: 1.05 }}
-                    className="w-32 h-32 md:w-40 md:h-40 bg-white rounded-2xl flex items-center justify-center p-4 shadow-sm shrink-0 transition-transform duration-500"
-                  >
-                    <Image 
-                      src="/tssa.png" 
-                      alt="TSSA Certification Logo" 
-                      width={140} 
-                      height={140} 
-                      className="w-full h-auto object-contain"
-                    />
-                  </motion.div>
+                <div className="flex flex-col md:flex-row items-center gap-8">
+                  <Image 
+                    src="/tssa.png" 
+                    alt="TSSA Certification Logo" 
+                    width={160} 
+                    height={160} 
+                    className="w-28 h-28 md:w-36 md:h-36 object-contain shrink-0"
+                    unoptimized
+                  />
 
                   <div className="space-y-4 text-center md:text-left">
                     <div className="space-y-2">
@@ -288,16 +282,16 @@ export default function AboutClient() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-8 pt-4 md:pt-8">
                 <Button variant="surface" size="xl" href="/contact" fullWidth className="sm:w-auto shadow-2xl">Book Service Now</Button>
                 <motion.a 
-                  initial={{ backgroundColor: "#22c55e" }}
+                  initial={{ backgroundColor: "#FF6B00" }}
                   whileHover={{ 
                     scale: 1.05, 
-                    backgroundColor: "#16a34a",
-                    boxShadow: "0 0 25px rgba(34, 197, 94, 0.6)"
+                    backgroundColor: "#E65C00",
+                    boxShadow: "0 0 25px rgba(255, 107, 0, 0.6)"
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full sm:w-auto text-white px-10 py-5 rounded-2xl font-black text-xl transition-all flex items-center justify-center gap-3 shadow-2xl shadow-green-500/20" 
+                  className="w-full sm:w-auto text-white px-10 py-5 rounded-2xl font-black text-xl transition-all flex items-center justify-center gap-3 shadow-2xl shadow-accent/20" 
                   href="tel:+16472999648"
-                  style={{ backgroundColor: "#22c55e" }}
+                  style={{ backgroundColor: "#FF6B00" }}
                 >
                   <span className="material-symbols-outlined text-2xl">phone_in_talk</span>
                   Call Now

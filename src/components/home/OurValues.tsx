@@ -10,25 +10,25 @@ const VALUES = [
     title: "Leading Manufacturers",
     description: "Quality work from leading manufacturers.",
     icon: "precision_manufacturing",
-    color: "bg-blue-50 text-blue-600"
+    color: "bg-secondary/10 text-secondary"
   },
   {
     title: "Best Solutions",
     description: "Expert advice and best suited solutions.",
     icon: "home_repair_service",
-    color: "bg-blue-50 text-blue-600"
+    color: "bg-secondary/10 text-secondary"
   },
   {
     title: "No Surprises",
     description: "The price we quote is the price you pay.",
     icon: "verified",
-    color: "bg-blue-50 text-blue-600"
+    color: "bg-secondary/10 text-secondary"
   },
   {
     title: "Budget Friendly",
     description: "Payment, rental or financing options.",
     icon: "payments",
-    color: "bg-blue-50 text-blue-600"
+    color: "bg-secondary/10 text-secondary"
   },
   {
     title: "Proudly Canadian",
@@ -80,7 +80,7 @@ const ValueCard = ({ val, index = 0 }: { val: any, index?: number }) => (
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay: index * 0.1 }}
     whileHover={{ y: -8, scale: 1.02 }}
-    className="bg-white aspect-square rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-outline-variant/5 p-6 md:p-8 flex flex-col items-center justify-center text-center transition-all duration-300 group hover:shadow-[0_20px_50px_rgba(0,17,168,0.08)] hover:border-primary/10"
+    className="bg-white aspect-square rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-outline-variant/5 p-6 md:p-8 flex flex-col items-center justify-center text-center transition-all duration-300 group hover:shadow-[0_20px_50px_rgba(10,37,64,0.08)] hover:border-primary/10"
   >
     <div className={`w-14 h-14 md:w-20 md:h-20 ${val.color} rounded-2xl flex items-center justify-center mb-6 shadow-sm transition-transform group-hover:scale-105`}>
       {val.icon === 'maple_leaf' ? (
@@ -90,11 +90,11 @@ const ValueCard = ({ val, index = 0 }: { val: any, index?: number }) => (
       )}
     </div>
     
-    <h3 className="font-headline text-lg md:text-2xl font-black text-[#0011A8] mb-3 tracking-tight leading-tight group-hover:text-primary transition-colors">
+    <h3 className="font-headline text-lg md:text-2xl font-black text-primary mb-3 tracking-tight leading-tight group-hover:text-secondary transition-colors">
       {val.title}
     </h3>
     
-    <p className="font-body text-xs md:text-base text-[#2B5BB5] leading-relaxed font-bold opacity-70 group-hover:opacity-100 italic">
+    <p className="font-body text-xs md:text-base text-on-surface-variant leading-relaxed font-bold opacity-70 group-hover:opacity-100 italic">
       {val.description}
     </p>
   </motion.div>

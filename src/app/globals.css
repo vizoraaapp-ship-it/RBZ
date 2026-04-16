@@ -1,22 +1,23 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #2B5BB5;
-  --color-primary-dim: #1A4EA8;
-  --color-secondary: #00639F;
-  --color-background: #FBF8FF;
-  --color-on-background: #0011A8;
-  --color-surface: #FBF8FF;
-  --color-on-surface: #0011A8;
+  --color-primary: #4B61D1;
+  --color-primary-dim: #32449E;
+  --color-secondary: #3FA9F5;
+  --color-accent: #FF6B00;
+  --color-background: #FFFFFF;
+  --color-on-background: #1A1A1A;
+  --color-surface: #FFFFFF;
+  --color-on-surface: #1A1A1A;
   --color-surface-container-lowest: #FFFFFF;
-  --color-surface-container-low: #F4F2FF;
-  --color-surface-container: #EDECFF;
-  --color-surface-container-high: #E6E6FF;
-  --color-surface-container-highest: #E0E0FF;
-  --color-on-surface-variant: #2D40FF;
-  --color-outline: #5B6AFF;
-  --color-outline-variant: #A4ACFF;
-  --color-error: #9F403D;
+  --color-surface-container-low: #F5F7FA;
+  --color-surface-container: #E5E7EB;
+  --color-surface-container-high: #D1D5DB;
+  --color-surface-container-highest: #9CA3AF;
+  --color-on-surface-variant: #6B7280;
+  --color-outline: #3FA9F5;
+  --color-outline-variant: #9CA3AF;
+  --color-error: #EF4444;
 
   --font-headline: "Manrope", sans-serif;
   --font-body: "Inter", sans-serif;
@@ -68,10 +69,10 @@
     @apply transition-all duration-300 ease-in-out;
   }
   .atmospheric-shadow {
-    box-shadow: 0 12px 32px -4px rgba(0, 17, 168, 0.06);
+    box-shadow: 0 12px 32px -4px rgba(75, 97, 209, 0.15);
   }
   .atmospheric-shadow-hover:hover {
-    box-shadow: 0 20px 48px -8px rgba(0, 17, 168, 0.12);
+    box-shadow: 0 20px 48px -8px rgba(63, 169, 245, 0.25);
   }
 
   /* Global Mobile Scrollbar Hiding */

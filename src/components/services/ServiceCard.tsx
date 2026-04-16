@@ -59,23 +59,23 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             />
             {/* Desktop Icon Badge */}
-            <div className="hidden md:flex absolute top-6 left-6 bg-primary/95 text-white p-3 rounded-2xl shadow-xl z-20">
+            <div className="hidden md:flex absolute top-6 left-6 bg-secondary/95 text-white p-3 rounded-2xl shadow-xl z-20">
               <span className="material-symbols-outlined text-2xl">{icon}</span>
             </div>
             
             {/* Desktop Hover Glow effect overlay */}
-            <div className="hidden md:block absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+            <div className="hidden md:block absolute inset-0 bg-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
           </div>
           
           {/* Text Content Directly Below Image on Mobile */}
           <div className="p-0 md:p-8 flex flex-col flex-grow relative pt-1.5 md:pt-8 w-full">
-            <h3 className="font-headline text-[13px] md:text-2xl font-black mb-0 md:mb-3 text-[#1a1a1a] md:text-on-surface group-hover:text-primary transition-colors tracking-tight line-clamp-1 md:line-clamp-none leading-tight">{title}</h3>
+            <h3 className="font-headline text-[13px] md:text-2xl font-black mb-0 md:mb-3 text-primary group-hover:text-secondary transition-colors tracking-tight line-clamp-1 md:line-clamp-none leading-tight">{title}</h3>
             
             <p className="hidden md:block text-on-surface-variant mb-6 leading-relaxed flex-grow text-sm font-medium opacity-80">{description}</p>
             
             <motion.div 
               whileHover={{ x: 5 }}
-              className="text-blue-600 font-bold flex items-center gap-0.5 mt-auto transition-colors text-[10px] md:text-sm md:uppercase md:tracking-widest"
+              className="text-secondary font-bold flex items-center gap-0.5 mt-auto transition-colors text-[10px] md:text-sm md:uppercase md:tracking-widest"
             >
               <span className="hidden md:inline">Explore Details</span>
               <span className="md:hidden">Explore Service</span>
@@ -91,7 +91,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         >
           <div className="flex items-center justify-between mb-6 pb-6 border-b border-outline-variant/10">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
+              <div className="w-12 h-12 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary">
                 <span className="material-symbols-outlined text-2xl">{icon}</span>
               </div>
               <h3 className="font-headline text-2xl font-black text-primary tracking-tight">{title}</h3>
@@ -112,7 +112,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             </p>
             
             <div className="space-y-4">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Key Features</h4>
+              <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-secondary">Key Features</h4>
               <ul className="space-y-3">
                 {features.map((feature, idx) => (
                   <motion.li 
@@ -122,7 +122,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                     transition={{ delay: 0.4 + idx * 0.05 }}
                     className="flex items-start gap-3 text-sm text-on-surface-variant font-bold"
                   >
-                    <span className="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
+                    <span className="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span>
                     <span className="leading-snug">{feature}</span>
                   </motion.li>
                 ))}
@@ -135,7 +135,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={onBook}
-              className="w-full py-4 bg-primary text-white font-black rounded-2xl hover:bg-primary-dim transition-all flex items-center justify-center gap-3 shadow-xl shadow-primary/20 text-lg"
+              className="w-full py-4 bg-accent text-white font-black rounded-2xl hover:bg-accent/90 transition-all flex items-center justify-center gap-3 shadow-xl shadow-accent/20 text-lg"
             >
               <span className="material-symbols-outlined text-xl">calendar_month</span>
               Book This Service

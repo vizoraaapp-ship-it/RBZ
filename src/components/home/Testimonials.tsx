@@ -75,9 +75,15 @@ const Testimonials = () => {
         transition={{ duration: 0.6 }}
         className="text-center mb-16 lg:mb-24 space-y-4"
       >
-        <span className="text-primary font-black uppercase tracking-[0.3em] text-[10px] md:text-sm">Client Experiences</span>
+        <motion.span 
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="inline-block px-4 py-1.5 rounded-full bg-secondary/10 text-secondary font-black text-xs tracking-[0.2em] uppercase shadow-sm"
+        >Client Experiences</motion.span>
         <h2 className="text-3xl md:text-6xl font-black text-on-background mb-4 tracking-tighter">What Our Customers Say</h2>
-        <div className="w-20 h-1.5 bg-primary mx-auto rounded-full" />
+        <div className="w-20 h-1.5 bg-secondary mx-auto rounded-full" />
       </motion.div>
 
       {/* 3D Pyramid Slider Container */}
@@ -141,7 +147,7 @@ const Testimonials = () => {
             <button
               key={i}
               onClick={() => setActiveIndex(i)}
-              className={`h-2 rounded-full transition-all duration-500 ${activeIndex === i ? 'w-10 bg-primary' : 'w-2 bg-primary/20 hover:bg-primary/40'}`}
+              className={`h-2 rounded-full transition-all duration-500 ${activeIndex === i ? 'w-10 bg-secondary' : 'w-2 bg-secondary/20 hover:bg-secondary/40'}`}
             />
           ))}
         </div>
@@ -152,10 +158,10 @@ const Testimonials = () => {
 
 const TestimonialCard = ({ t, isActive }: { t: any, isActive: boolean }) => (
   <div 
-    className={`p-10 rounded-[2.5rem] border border-outline-variant/10 shadow-sm relative transition-all duration-500 overflow-hidden h-full flex flex-col bg-white ${isActive ? 'ring-4 ring-primary/5 shadow-2xl' : 'shadow-inner'}`}
+    className={`p-10 rounded-[2.5rem] border border-outline-variant/10 shadow-sm relative transition-all duration-500 overflow-hidden h-full flex flex-col bg-white ${isActive ? 'ring-4 ring-secondary/5 shadow-2xl' : 'shadow-inner'}`}
   >
     {/* Background design element */}
-    <div className="absolute -top-12 -right-12 w-24 h-24 bg-primary/5 rounded-full blur-2xl" />
+    <div className="absolute -top-12 -right-12 w-24 h-24 bg-secondary/5 rounded-full blur-2xl" />
     
     <div className="flex text-yellow-400 mb-6">
       {[...Array(t.rating)].map((_, i) => (
@@ -174,7 +180,7 @@ const TestimonialCard = ({ t, isActive }: { t: any, isActive: boolean }) => (
     </p>
     
     <div className="flex items-center gap-4 pt-6 border-t border-outline-variant/10">
-      <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary font-black text-xl shadow-inner">
+      <div className="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary font-black text-xl shadow-inner">
         {t.name.charAt(0)}
       </div>
       <div>

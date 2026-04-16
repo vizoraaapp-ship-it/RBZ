@@ -35,6 +35,7 @@ const Statistics = () => {
               width={600} 
               height={600}
               className="w-full object-cover aspect-square group-hover:scale-105 transition-transform duration-1000"
+              unoptimized
             />
             {/* Subtle overlay on hover */}
             <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -77,7 +78,7 @@ const Statistics = () => {
               className="text-4xl lg:text-6xl font-black text-on-background leading-[1.1] tracking-tight"
             >
               Trust and Reliability <br />
-              <span className="text-primary">in GTA and Ontario</span>
+              <span className="text-secondary">in GTA and Ontario</span>
             </motion.h2>
             
             <motion.p 
@@ -127,7 +128,7 @@ const Statistics = () => {
                 >
                   <motion.div 
                     whileHover={{ scale: 1.2, rotate: 10 }}
-                    className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary"
+                    className="w-6 h-6 rounded-full bg-secondary/10 flex items-center justify-center text-secondary"
                   >
                     <span className="material-symbols-outlined text-base fill-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
                   </motion.div>
@@ -146,13 +147,14 @@ const Statistics = () => {
             >
               <div className="absolute inset-0 bg-primary/[0.01] opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="flex items-center gap-6 relative z-10">
-                <div className="w-20 h-20 bg-white rounded-xl flex items-center justify-center p-2 shadow-sm shrink-0">
+                <div className="w-32 h-32 shrink-0 flex items-center justify-center rounded-full overflow-hidden bg-white mix-blend-multiply border-2 border-white shadow-sm hover:scale-105 transition-transform duration-500">
                   <Image 
                     src="/tssa.png" 
                     alt="TSSA Logo" 
-                    width={64} 
-                    height={64} 
-                    className="w-full h-auto object-contain"
+                    width={160} 
+                    height={160} 
+                    className="w-[110%] h-[110%] object-cover scale-[1.05]"
+                    unoptimized
                   />
                 </div>
                 <div className="space-y-2">
@@ -163,7 +165,7 @@ const Statistics = () => {
                       { icon: 'verified', label: 'Registered Mechanical Service' }
                     ].map((badge) => (
                       <div key={badge.label} className="flex items-center gap-2.5 opacity-80 group-hover:opacity-100 transition-opacity">
-                        <span className="material-symbols-outlined text-xl text-primary font-black">{badge.icon}</span>
+                        <span className="material-symbols-outlined text-xl text-secondary font-black">{badge.icon}</span>
                         <span className="text-xs md:text-sm font-black uppercase tracking-widest text-on-surface-variant">{badge.label}</span>
                       </div>
                     ))}

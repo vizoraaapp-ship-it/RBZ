@@ -247,16 +247,16 @@ export default function ServicesClient() {
             <div className="flex flex-col sm:flex-row justify-center items-center gap-6 md:gap-8 pt-4 md:pt-8">
               <Button size="xl" fullWidth className="sm:w-auto" onClick={() => setIsBookingOpen(true)}>Book Service Now</Button>
               <motion.a 
-                initial={{ backgroundColor: "#22c55e" }}
+                initial={{ backgroundColor: "#FF6B00" }}
                 whileHover={{ 
                   scale: 1.05, 
-                  backgroundColor: "#16a34a",
-                  boxShadow: "0 0 25px rgba(34, 197, 94, 0.6)"
+                  backgroundColor: "#E65C00",
+                  boxShadow: "0 0 25px rgba(255, 107, 0, 0.6)"
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto text-white px-10 py-5 rounded-2xl font-black text-xl transition-all flex items-center justify-center gap-3 shadow-2xl shadow-green-500/20" 
+                className="w-full sm:w-auto text-white px-10 py-5 rounded-2xl font-black text-xl transition-all flex items-center justify-center gap-3 shadow-2xl shadow-accent/20" 
                 href="tel:+16472999648"
-                style={{ backgroundColor: "#22c55e" }}
+                style={{ backgroundColor: "#FF6B00" }}
               >
                 <span className="material-symbols-outlined text-2xl group-hover:rotate-12 transition-transform">phone_in_talk</span>
                 Call Now

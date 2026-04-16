@@ -4,6 +4,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Section from '@/components/ui/Section';
 import Button from '@/components/ui/Button';
+import Image from 'next/image';
 import { supabase } from '@/lib/supabase';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -76,37 +77,49 @@ export default function ContactClient() {
     <main className="min-h-screen bg-surface">
       <Navbar />
       
-      <header className="w-full bg-gradient-to-b from-primary-container/20 to-surface py-24 md:py-56 px-6 text-left relative overflow-hidden">
+      <header className="relative w-full h-[60vh] min-h-[500px] md:h-screen md:min-h-[800px] flex items-center justify-center overflow-hidden">
         <motion.div 
-          animate={{ rotate: 360 }}
-          transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-1/2 -left-1/4 w-[1000px] h-[1000px] border border-primary/5 rounded-full pointer-events-none" 
-        />
-        
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="absolute inset-0 z-0"
+        >
+          <Image 
+            src="/contact-hero.png" 
+            alt="Contact RBZ Climate Solutions" 
+            fill 
+            className="object-cover"
+            priority
+            unoptimized
+          />
+          <div className="absolute inset-0 bg-black/60 z-10" />
+        </motion.div>
+
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="max-w-7xl mx-auto space-y-6 md:space-y-8 relative z-10"
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          className="relative z-20 max-w-7xl mx-auto px-6 md:px-8 text-left space-y-6 md:space-y-8 w-full"
         >
           <motion.h1 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="font-headline text-4xl md:text-8xl font-black tracking-tight text-on-surface leading-tight"
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="font-headline text-4xl md:text-8xl font-black tracking-tight text-white leading-tight drop-shadow-2xl"
           >
             Get in Touch
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="font-body text-base md:text-2xl text-on-surface-variant max-w-2xl font-bold opacity-80"
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="font-body text-base md:text-2xl text-white/90 font-bold leading-relaxed max-w-2xl text-left drop-shadow-lg opacity-80"
           >
             Ready to schedule a service or get a free estimate? Our team is available 24/7 for all your comfort needs.
           </motion.p>
         </motion.div>
       </header>
+
 
       <Section className="py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 relative">
@@ -127,7 +140,7 @@ export default function ContactClient() {
             <div className="space-y-8 md:space-y-12">
               {[
                 { icon: 'location_on', title: 'Our Office', content: '#220, 205 Morningside Avenue\nScarborough, Ontario, M1E 3E2' },
-                { icon: 'phone_in_talk', title: 'Contact Details', content: 'Main: +1 647 299 9648\nEmail: info@rbzclimate.ca' },
+                { icon: 'phone_in_talk', title: 'Contact Details', content: 'Main: +1 647 299 9648\nEmail: info@rbzclimatesolutions.com' },
                 { icon: 'schedule', title: 'Business Hours', content: 'Mon - Fri: 8:00 AM - 6:00 PM\n24/7 Support Available' },
               ].map((item, idx) => (
                 <motion.div 

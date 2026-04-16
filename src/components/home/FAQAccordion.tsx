@@ -38,21 +38,21 @@ const FAQAccordion = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: index * 0.1, duration: 0.5 }}
-          className={`bg-white rounded-[2.5rem] border border-outline-variant/10 shadow-[0_8px_32px_rgba(0,17,168,0.03)] overflow-hidden transition-all duration-500 ${activeIndex === index ? 'ring-4 ring-primary/5 shadow-[0_20px_60px_rgba(0,17,168,0.12)] border-primary/20' : 'hover:bg-surface-container-lowest'}`}
+          className={`bg-white rounded-[2.5rem] border border-outline-variant/10 shadow-[0_8px_32_rgba(0,17,168,0.03)] overflow-hidden transition-all duration-500 ${activeIndex === index ? 'ring-4 ring-secondary/5 shadow-[0_20px_60px_rgba(0,17,168,0.12)] border-secondary/20' : 'hover:bg-secondary/5'}`}
         >
           <button 
             className="w-full text-left p-6 md:p-8 flex justify-between items-center group outline-none"
             onClick={() => toggleAccordion(index)}
           >
-            <h3 className={`font-headline text-2xl md:text-3xl font-black transition-all duration-300 pr-8 ${activeIndex === index ? 'text-primary' : 'text-on-background group-hover:text-primary/70'}`}>
+            <h3 className={`font-headline text-2xl md:text-3xl font-black transition-all duration-300 pr-8 ${activeIndex === index ? 'text-primary' : 'text-on-background group-hover:text-secondary'}`}>
               {faq.question}
             </h3>
             <motion.div 
               animate={{ 
                 rotate: activeIndex === index ? 180 : 0,
-                backgroundColor: activeIndex === index ? "#2B5BB5" : "#EDECFF"
+                backgroundColor: activeIndex === index ? "#FF6B00" : "#E0F2FE"
               }}
-              className={`w-12 h-12 rounded-xl flex items-center justify-center transition-shadow shadow-sm shrink-0 ${activeIndex === index ? 'text-white' : 'text-primary group-hover:bg-primary/10'}`}
+              className={`w-12 h-12 rounded-xl flex items-center justify-center transition-shadow shadow-sm shrink-0 ${activeIndex === index ? 'text-white' : 'text-secondary group-hover:bg-secondary/10'}`}
             >
               <span className="material-symbols-outlined text-2xl font-black leading-none">
                 expand_more

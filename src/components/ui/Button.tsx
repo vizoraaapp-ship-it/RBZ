@@ -25,12 +25,12 @@ const Button: React.FC<ButtonProps> = ({
   const baseStyles = 'inline-flex items-center justify-center font-bold transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none gap-2 rounded-xl';
   
   const variants = {
-    primary: 'bg-primary text-surface-container-lowest hover:bg-primary-dim shadow-lg shadow-primary/20',
-    secondary: 'bg-secondary text-surface-container-lowest hover:opacity-90 shadow-lg shadow-secondary/10',
+    primary: 'bg-accent text-white hover:brightness-90 shadow-lg shadow-accent/20',
+    secondary: 'border-2 border-secondary text-secondary bg-transparent hover:bg-secondary/10',
     outline: 'border-2 border-primary/30 text-primary hover:bg-primary/5',
     ghost: 'text-primary hover:bg-primary/5',
-    tonal: 'bg-primary-container text-on-primary-container hover:bg-primary-fixed-dim',
-    surface: 'bg-surface-container-lowest text-primary hover:bg-secondary-container shadow-xl',
+    tonal: 'bg-secondary/10 text-secondary hover:bg-secondary/20',
+    surface: 'bg-surface-container-lowest text-primary hover:bg-surface-container-low shadow-xl',
   };
 
   const sizes = {

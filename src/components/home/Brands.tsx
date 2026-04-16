@@ -26,7 +26,7 @@ const Brands = () => {
         className="text-center mb-10 lg:mb-14 space-y-4"
       >
         <h2 className="text-4xl md:text-5xl font-black text-on-background tracking-tight">Brands We Carry</h2>
-        <div className="w-20 h-1.5 bg-primary/20 mx-auto mt-6 rounded-full" />
+        <div className="w-20 h-1.5 bg-secondary/20 mx-auto mt-6 rounded-full" />
       </motion.div>
 
       {/* Desktop Layout: Static Grid */}
@@ -38,7 +38,7 @@ const Brands = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             whileHover={{ scale: 1.1 }}
-            className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer p-6 bg-surface-container-low rounded-[2.5rem] border border-outline-variant/5 shadow-sm hover:shadow-xl hover:border-primary/10"
+            className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer p-6 bg-surface-container-low rounded-[2.5rem] border border-outline-variant/5 shadow-sm hover:shadow-xl hover:border-secondary/10"
           >
             <div className="relative w-full h-32 md:h-40">
               <Image 

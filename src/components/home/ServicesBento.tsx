@@ -113,12 +113,12 @@ const BentoServiceCard = ({ service, variants }: { service: any, variants?: any 
   >
     <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/[0.02] transition-colors pointer-events-none" />
     
-    <div className="w-12 h-12 md:w-16 md:h-16 mb-4 md:mb-6 bg-primary/10 rounded-xl md:rounded-2xl flex items-center justify-center text-primary transition-transform relative z-10">
+    <div className="w-12 h-12 md:w-16 md:h-16 mb-4 md:mb-6 bg-blue-100 rounded-xl md:rounded-2xl flex items-center justify-center text-blue-600 transition-transform relative z-10">
       <span className="material-symbols-outlined text-2xl md:text-3xl font-black">{service.icon}</span>
     </div>
     
     <div className="relative z-10 flex-grow">
-      <h3 className="font-black text-lg md:text-2xl mb-1 md:mb-3 text-on-surface group-hover:text-primary transition-colors tracking-tight">{service.name}</h3>
+      <h3 className="font-black text-lg md:text-2xl mb-1 md:mb-3 text-primary tracking-tight">{service.name}</h3>
       <p className="text-xs md:text-base leading-snug md:leading-relaxed text-on-surface-variant opacity-70 group-hover:opacity-100 transition-opacity font-bold">
         {service.desc}
       </p>

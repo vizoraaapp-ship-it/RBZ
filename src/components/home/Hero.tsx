@@ -61,7 +61,7 @@ const DEFAULT_BANNERS: ExtendedBanner[] = [
     secondary_cta_text: 'Our Expertise',
     secondary_cta_link: '/services',
     stats: [{v: 'Safe', l: 'Certified'}, {v: 'Clean', l: 'Work'}, {v: 'All', l: 'Seasons'}],
-    accent_color: 'from-primary-dim to-slate-800'
+    accent_color: 'from-primary to-primary-dim'
   }
 ];
 
@@ -145,7 +145,7 @@ const Hero = () => {
   const currentBanner = banners[currentIndex];
 
   return (
-    <section className="relative h-[90vh] lg:h-screen min-h-[700px] overflow-hidden bg-slate-950 text-white">
+    <section className="relative h-[90vh] lg:h-screen min-h-[700px] overflow-hidden bg-primary text-white">
       <AnimatePresence initial={false} custom={direction} mode="popLayout">
         <motion.div
           key={currentIndex}
@@ -157,7 +157,7 @@ const Hero = () => {
           className="absolute inset-0 w-full h-full"
         >
           {/* Background Image Layer */}
-          <div className="absolute top-[104px] md:top-[156px] inset-x-0 bottom-0 z-0 overflow-hidden bg-slate-950">
+          <div className="absolute top-[104px] md:top-[156px] inset-x-0 bottom-0 z-0 overflow-hidden bg-primary">
             <Image
               src={currentBanner.image_url}
               alt=""
@@ -176,8 +176,8 @@ const Hero = () => {
               quality={90}
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/40 to-transparent z-10" />
-            <div className="absolute inset-0 bg-slate-950/10 z-10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent z-10" />
+            <div className="absolute inset-0 bg-black/50 z-10" />
           </div>
 
           {/* Content Layer (Conditional) */}
@@ -185,16 +185,7 @@ const Hero = () => {
             <div className="relative z-20 h-full flex items-center pt-[180px] md:pt-[240px]">
               <div className="max-w-7xl mx-auto px-6 md:px-8 w-full">
                 <div className="max-w-3xl">
-                  {/* Badge */}
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 }}
-                    className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-2xl mb-8"
-                  >
-                    <span className="material-symbols-outlined text-secondary-fixed text-sm md:text-base animate-pulse" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
-                    <span className="text-[10px] md:text-xs font-black tracking-[0.2em] uppercase">{currentBanner.badge}</span>
-                  </motion.div>
+                  {/* Badge Removed per user request */}
 
                   {/* Text Content */}
                   <div className="space-y-6">
@@ -211,7 +202,7 @@ const Hero = () => {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.7 }}
-                      className="text-lg md:text-2xl text-slate-100/90 max-w-xl leading-relaxed font-bold"
+                      className="text-lg md:text-2xl text-white/90 max-w-xl leading-relaxed font-bold"
                     >
                       {currentBanner.description}
                     </motion.p>
@@ -237,12 +228,12 @@ const Hero = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
-                    className="pt-12 mt-12 flex gap-8 md:gap-16 border-t border-white/10"
+                    className="pt-8 mt-8 md:pt-12 md:mt-12 flex flex-wrap gap-4 sm:gap-8 md:gap-16 border-t border-white/10"
                   >
                     {currentBanner.stats.map((stat, i) => (
-                      <div key={i} className="group">
-                        <div className="text-3xl md:text-5xl font-black group-hover:text-secondary-fixed transition-colors duration-300">{stat.v}</div>
-                        <div className="text-[10px] md:text-xs text-slate-300 uppercase tracking-[0.2em] font-black mt-2">{stat.l}</div>
+                      <div key={i} className="group flex-1 min-w-[25%] sm:min-w-0">
+                        <div className="text-xl sm:text-3xl md:text-5xl font-black group-hover:text-secondary transition-colors duration-300 break-words">{stat.v}</div>
+                        <div className="text-[8px] sm:text-[10px] md:text-xs text-white/70 uppercase tracking-[0.1em] md:tracking-[0.2em] font-black mt-1 md:mt-2 leading-tight break-words">{stat.l}</div>
                       </div>
                     ))}
                   </motion.div>
@@ -265,7 +256,7 @@ const Hero = () => {
               }}
               className="group flex items-center justify-end gap-4"
             >
-              <span className={`text-[10px] font-black tracking-widest uppercase transition-all duration-500 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 ${index === currentIndex ? 'text-white opacity-100 translate-x-0' : 'text-slate-400'}`}>
+              <span className={`text-[10px] font-black tracking-widest uppercase transition-all duration-500 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 ${index === currentIndex ? 'text-white opacity-100 translate-x-0' : 'text-white/40'}`}>
                 0{index + 1}
               </span>
               <div className={`relative h-12 w-1 transition-all duration-500 rounded-full overflow-hidden ${index === currentIndex ? 'h-20 bg-white/20' : 'bg-white/40 group-hover:bg-white/60'}`}>
@@ -274,7 +265,7 @@ const Hero = () => {
                     initial={{ height: 0 }}
                     animate={{ height: "100%" }}
                     transition={{ duration: 5, ease: "linear" }}
-                    className="absolute top-0 left-0 right-0 bg-secondary-fixed"
+                    className="absolute top-0 left-0 right-0 bg-secondary"
                   />
                 )}
               </div>
@@ -284,10 +275,10 @@ const Hero = () => {
       )}
 
       {/* Bottom Wave */}
-      <div className="absolute bottom-0 left-0 w-full z-30">
+      <div className="absolute bottom-0 left-0 w-full z-30 hidden md:block">
         <div className="relative h-[60px] overflow-hidden pointer-events-none">
           <svg className="absolute bottom-0 left-0 w-full h-full" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C58.47,88.75,117.05,82.34,175.75,82.34,228.61,82.34,281,89.5,321.39,56.44Z" fill="#fbf8ff"></path>
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C58.47,88.75,117.05,82.34,175.75,82.34,228.61,82.34,281,89.5,321.39,56.44Z" fill="#FFFFFF"></path>
           </svg>
         </div>
       </div>

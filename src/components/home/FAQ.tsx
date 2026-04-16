@@ -20,7 +20,7 @@ const FAQ = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-black text-xs tracking-[0.2em] uppercase shadow-sm"
+          className="inline-block px-4 py-1.5 rounded-full bg-[#FF6B00]/10 text-[#FF6B00] font-black text-xs tracking-[0.2em] uppercase shadow-sm"
         >
           Expert Answers
         </motion.span>

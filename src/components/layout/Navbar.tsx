@@ -174,12 +174,11 @@ const Navbar = () => {
     <header className="fixed top-0 w-full z-50">
       <motion.nav 
         style={{ 
-          backgroundColor: useTransform(scrollY, [0, 50], ["rgba(255, 255, 255, 0.8)", "rgba(255, 255, 255, 0.96)"]),
-          backdropFilter: "blur(12px)",
+          backgroundColor: "var(--color-primary)",
           height: headerHeight,
-          boxShadow: useTransform(scrollY, [0, 50], ["none", "0 10px 15px -3px rgb(0 0 0 / 0.1)"])
+          boxShadow: useTransform(scrollY, [0, 50], ["none", "0 10px 15px -3px rgb(0 0 0 / 0.3)"])
         }}
-        className="w-full transition-shadow duration-300 border-b border-outline-variant/10 flex items-center"
+        className="w-full transition-shadow duration-300 border-b border-white/5 flex items-center shadow-lg shadow-black/20"
       >
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex justify-between items-center w-full">
           <Link href="/" className="flex items-center">
@@ -189,7 +188,7 @@ const Navbar = () => {
                 alt="RBZ Climate Solutions Logo" 
                 width={224} 
                 height={80} 
-                className="h-auto w-[170px] md:w-64 transition-all duration-300"
+                className="h-auto w-[120px] sm:w-[170px] md:w-64 transition-all duration-300"
                 priority
               />
             </motion.div>
@@ -200,16 +199,16 @@ const Navbar = () => {
               <Link 
                 key={link.name} 
                 href={link.href} 
-                className="relative group transition-all font-black py-1 text-on-surface-variant hover:text-primary tracking-[0.08em] uppercase text-[12px] md:text-[13px]"
+                className={`relative group transition-all font-black py-1 tracking-[0.08em] uppercase text-[12px] md:text-[13px] ${isActive(link.href) ? 'text-white' : 'text-white/70 hover:text-white'}`}
               >
                 {link.name}
                 {isActive(link.href) ? (
                   <motion.div 
                     layoutId="nav-underline" 
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" 
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full" 
                   />
                 ) : (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary/30 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent/50 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
                 )}
               </Link>
             ))}
@@ -220,7 +219,7 @@ const Navbar = () => {
             
             <motion.button 
               whileTap={{ scale: 0.9 }}
-              className="md:hidden text-primary p-2 flex items-center justify-center bg-surface-container/50 rounded-lg scale-90"
+              className="md:hidden text-white p-2 flex items-center justify-center bg-white/10 rounded-lg scale-90"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               <span className="material-symbols-outlined text-3xl">
@@ -273,7 +272,7 @@ const Navbar = () => {
                     onMouseLeave={() => setActiveCategory(null)}
                   >
                     <div className="bg-white rounded-[2.5rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.3)] overflow-hidden border border-outline-variant/10">
-                      <div className="bg-primary p-6 flex items-center gap-4 text-white">
+                      <div className="bg-primary-dim p-6 flex items-center gap-4 text-white">
                         <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center">
                           <span className="material-symbols-outlined text-2xl font-black">{category.icon}</span>
                         </div>
@@ -287,15 +286,15 @@ const Navbar = () => {
                           <Link 
                             key={sub.name}
                             href="/services" 
-                            className="flex items-start gap-4 p-4 rounded-3xl hover:bg-primary/5 transition-all group/item mb-1 last:mb-0"
+                            className="flex items-start gap-4 p-4 rounded-3xl hover:bg-secondary/5 transition-all group/item mb-1 last:mb-0"
                             onClick={() => setActiveCategory(null)}
                           >
-                            <div className="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center text-primary group-hover/item:bg-primary group-hover/item:text-white transition-all shadow-sm">
+                            <div className="w-10 h-10 rounded-xl bg-secondary/5 flex items-center justify-center text-secondary group-hover/item:bg-secondary group-hover:text-white transition-all shadow-sm">
                               <span className="material-symbols-outlined text-xl font-black">{sub.icon}</span>
                             </div>
                             <div className="space-y-0.5">
-                              <h4 className="font-black text-on-surface text-sm group-hover/item:text-primary transition-colors tracking-tight">{sub.name}</h4>
-                              <p className="text-[10px] font-bold leading-tight text-on-surface-variant/60">{sub.desc}</p>
+                              <h4 className="font-black text-primary text-sm group-hover/item:text-secondary transition-colors tracking-tight">{sub.name}</h4>
+                              <p className="text-[10px] font-bold leading-tight text-primary/60">{sub.desc}</p>
                             </div>
                           </Link>
                         ))}

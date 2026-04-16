@@ -261,10 +261,10 @@ const CareerModal: React.FC<CareerModalProps> = ({ isOpen, onClose, jobTitle }) 
             <p className="text-center text-xs md:text-sm text-red-600 font-black leading-relaxed">
               To share your resume or portfolio, please email us directly at{' '}
               <a
-                href="mailto:careers@rbzclimate.ca"
+                href="mailto:careers@rbzclimatesolutions.com"
                 className="text-red-600 hover:text-red-700 hover:underline underline-offset-4 decoration-2 transition-all"
               >
-                careers@rbzclimate.ca
+                careers@rbzclimatesolutions.com
               </a>
             </p>
           </div>

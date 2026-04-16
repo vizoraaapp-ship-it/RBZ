@@ -75,10 +75,16 @@ const ContactCTA = () => {
             </Button>
             
             <motion.a
-              whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+              initial={{ backgroundColor: "#FF6B00" }}
+              whileHover={{ 
+                scale: 1.05, 
+                backgroundColor: "#E65C00",
+                boxShadow: "0 0 25px rgba(255, 107, 0, 0.6)"
+              }}
               whileTap={{ scale: 0.95 }}
-              className="border-2 border-white/30 text-white px-10 py-5 rounded-[1.5rem] font-black text-xl transition-colors flex items-center justify-center gap-3 shadow-xl group"
+              className="text-white px-10 py-5 rounded-2xl font-black text-xl transition-all flex items-center justify-center gap-3 shadow-2xl shadow-accent/20"
               href="tel:+16472999648"
+              style={{ backgroundColor: "#FF6B00" }}
             >
               <motion.span 
                 animate={{ rotate: [0, -10, 10, -10, 10, 0] }}
