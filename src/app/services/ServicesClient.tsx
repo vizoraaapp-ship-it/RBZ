@@ -17,7 +17,7 @@ const SERVICES_DATA = [
     description: "Advanced cooling solutions featuring precision multi-stage cooling for optimal energy efficiency and humidity control.",
     detailedDescription: "Our comprehensive Air Conditioning solutions keep your home perfectly chilled during the hottest months. We provide end-to-end services from new installations of high-SEER systems to routine maintenance and emergency repairs.",
     features: ["Install", "Repair", "Maintenance"],
-    image: "/service-ac.png",
+    image: "/service/airconditioner.jfif",
     icon: "ac_unit"
   },
   {
@@ -26,7 +26,7 @@ const SERVICES_DATA = [
     description: "Installation and maintenance of high-efficiency gas and electric heating systems designed for maximum reliability.",
     detailedDescription: "Stay warm all winter with our expert furnace services. We specialize in ultra-efficient gas and electric furnace installations, promising lower utility bills and reliable comfort throughout the freezing season.",
     features: ["Install", "Repair", "Maintenance"],
-    image: "/service-furnace.png",
+    image: "/service/furnace.jfif",
     icon: "mode_fan"
   },
   {
@@ -35,7 +35,7 @@ const SERVICES_DATA = [
     description: "Eco-friendly heating and cooling hybrids that leverage sustainable technology to reduce your carbon footprint.",
     detailedDescription: "Heat pumps offer an incredibly energy-efficient alternative to traditional HVAC systems. Running on electricity, they extract ambient heat to warm your home, and reverse the process to chill it during summer.",
     features: ["Install", "Repair", "Maintenance"],
-    image: "/service-heatpump.png",
+    image: "/service/heatpump.jfif",
     icon: "thermostat"
   },
   {
@@ -44,7 +44,7 @@ const SERVICES_DATA = [
     description: "Premium water storage tank systems engineered for thermal retention and long-term durability in any home.",
     detailedDescription: "Ensure your home never runs out of hot water with our premium storage tanks. We provide fast replacements and reliable maintenance to ensure optimal pressure, heating recovery time, and rust prevention.",
     features: ["Install", "Repair", "Maintenance"],
-    image: "/service-watertank.png",
+    image: "/service/watertank.jfif",
     icon: "water_heater"
   },
   {
@@ -62,7 +62,7 @@ const SERVICES_DATA = [
     description: "Professional cleaning and airtight sealing services to ensure your air quality and system efficiency remain peaked.",
     detailedDescription: "Leaky or dirty ducts can reduce your HVAC efficiency by up to 30%. We design, install, repair, and clean custom ductwork to perfectly balance airflow throughout every room in your home.",
     features: ["Install", "Repair", "Maintenance"],
-    image: "/technicians.png",
+    image: "/service/duckwork.jfif",
     icon: "air"
   },
   {
@@ -71,7 +71,7 @@ const SERVICES_DATA = [
     description: "Expert repair services for all major brands, utilizing genuine parts and advanced diagnostic equipment.",
     detailedDescription: "HVAC emergencies don't wait for convenient times. Our rapid-response repair teams arrive with fully stocked trucks, ready to diagnose and restore your comfort systems 24/7.",
     features: ["Install", "Repair", "Maintenance"],
-    image: "/service-ac.png",
+    image: "/service/repair.jfif",
     icon: "build"
   },
   {
@@ -80,7 +80,7 @@ const SERVICES_DATA = [
     description: "Essential accessories and components for HVAC and water systems.",
     detailedDescription: "Enhance your existing systems with our collection of high-quality accessories, from advanced filtration media to UV purifiers, ensuring maximum operational efficiency and air quality.",
     features: ["Install", "Repair", "Maintenance"],
-    image: "/service-watertank.png",
+    image: "/service/accessories.jfif",
     icon: "settings"
   },
   {
@@ -89,7 +89,7 @@ const SERVICES_DATA = [
     description: "Smart home automation integration for intelligent temperature scheduling and remote climate control.",
     detailedDescription: "Take total control of your home's ecosystem. We install and configure top-tier smart thermostats that learn your routine, allowing remote control and maximizing energy efficiency.",
     features: ["Install", "Repair", "Maintenance"],
-    image: "/hero-furnace.png",
+    image: "/service/smarthome.jfif",
     icon: "smart_home"
   },
   {
@@ -98,7 +98,7 @@ const SERVICES_DATA = [
     description: "Ductless mini-split systems for efficient heating and cooling without ductwork.",
     detailedDescription: "Perfect for additions, sunrooms, or older homes, our ductless mini-split systems provide hyper-efficient, whisper-quiet zoning without the need to tear open walls for ductwork.",
     features: ["Install", "Repair", "Maintenance"],
-    image: "/service-heatpump.png",
+    image: "/service/ducklessheatpump.jfif",
     icon: "heat_pump"
   },
   {
@@ -107,7 +107,7 @@ const SERVICES_DATA = [
     description: "Whole-home humidifiers and air quality solutions for improved indoor comfort and health.",
     detailedDescription: "Indoor air can be 5x more polluted than outside air. We deploy whole-home humidifiers and HEPA filtration systems to eliminate dry winter air, allergens, and airborne pathogens.",
     features: ["Install", "Repair", "Maintenance"],
-    image: "/service-ac.png",
+    image: "/service/humidifier.jfif",
     icon: "air_purifier"
   },
   {

@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #4B61D1;
-  --color-primary-dim: #32449E;
-  --color-secondary: #3FA9F5;
+  --color-primary: #00B4D8;
+  --color-primary-dim: #0096B4;
+  --color-secondary: #48CAE4;
   --color-accent: #FF6B00;
-  --color-background: #FFFFFF;
+  --color-background: #F0F7FF;
   --color-on-background: #1A1A1A;
-  --color-surface: #FFFFFF;
+  --color-surface: #F0F7FF;
   --color-on-surface: #1A1A1A;
   --color-surface-container-lowest: #FFFFFF;
-  --color-surface-container-low: #F5F7FA;
-  --color-surface-container: #E5E7EB;
-  --color-surface-container-high: #D1D5DB;
-  --color-surface-container-highest: #9CA3AF;
+  --color-surface-container-low: #F5FAFF;
+  --color-surface-container: #EBF5FF;
+  --color-surface-container-high: #D1E9FF;
+  --color-surface-container-highest: #B8DFFF;
   --color-on-surface-variant: #6B7280;
   --color-outline: #3FA9F5;
   --color-outline-variant: #9CA3AF;
@@ -69,10 +69,10 @@
     @apply transition-all duration-300 ease-in-out;
   }
   .atmospheric-shadow {
-    box-shadow: 0 12px 32px -4px rgba(75, 97, 209, 0.15);
+    box-shadow: 0 12px 32px -4px rgba(0, 180, 216, 0.15);
   }
   .atmospheric-shadow-hover:hover {
-    box-shadow: 0 20px 48px -8px rgba(63, 169, 245, 0.25);
+    box-shadow: 0 20px 48px -8px rgba(0, 180, 216, 0.25);
   }
 
   /* Global Mobile Scrollbar Hiding */

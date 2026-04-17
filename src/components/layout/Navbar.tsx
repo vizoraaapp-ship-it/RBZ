@@ -176,9 +176,9 @@ const Navbar = () => {
         style={{ 
           backgroundColor: "var(--color-primary)",
           height: headerHeight,
-          boxShadow: useTransform(scrollY, [0, 50], ["none", "0 10px 15px -3px rgb(0 0 0 / 0.3)"])
+          boxShadow: useTransform(scrollY, [0, 50], ["none", "0 10px 15px -3px rgb(0 0 0 / 0.2)"])
         }}
-        className="w-full transition-shadow duration-300 border-b border-white/5 flex items-center shadow-lg shadow-black/20"
+        className="w-full transition-shadow duration-300 border-b border-white/10 flex items-center shadow-md"
       >
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex justify-between items-center w-full">
           <Link href="/" className="flex items-center">
@@ -215,7 +215,7 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-2 md:gap-4">
-            <Button size="sm" className="xs:inline-flex sm:inline-flex shadow-xl shadow-primary/10 text-[10px] sm:text-base px-3 sm:px-6 py-2" onClick={() => setBookingOpen(true)}>Book Service</Button>
+            <Button size="sm" className="xs:inline-flex sm:inline-flex shadow-lg text-[10px] sm:text-base px-3 sm:px-6 py-2" onClick={() => setBookingOpen(true)}>Book Service</Button>
             
             <motion.button 
               whileTap={{ scale: 0.9 }}
@@ -235,7 +235,7 @@ const Navbar = () => {
         animate={{ y: 0, opacity: 1 }}
         className="hidden md:block w-full relative z-[45]"
       >
-        <div className="w-full h-[52px] bg-primary shadow-xl rounded-b-2xl overflow-hidden relative">
+        <div className="w-full h-[52px] bg-primary shadow-md rounded-b-2xl overflow-hidden relative border-t border-white/5">
           <motion.div 
             className="flex items-stretch h-full w-max"
             animate={controls}
@@ -248,10 +248,10 @@ const Navbar = () => {
                 onMouseLeave={() => setActiveCategory(null)}
               >
                 <button 
-                  className={`flex items-center gap-3 px-10 h-full text-white transition-all duration-300 border-r border-white/10 last:border-r-0 ${activeCategory === category.name + index ? 'bg-white/10' : 'hover:bg-white/5'}`}
+                  className={`flex items-center gap-3 px-10 h-full text-white font-bold transition-all duration-300 border-r border-white/10 last:border-r-0 ${activeCategory === category.name + index ? 'bg-white/10' : 'hover:bg-white/5'}`}
                 >
                   <span className="material-symbols-outlined text-lg">{category.icon}</span>
-                  <span className="whitespace-nowrap">{category.name}</span>
+                  <span className="whitespace-nowrap tracking-tight">{category.name}</span>
                   <span className="material-symbols-outlined text-sm font-black transition-transform duration-300" style={{ transform: activeCategory === category.name + index ? 'rotate(180deg)' : 'none' }}>expand_more</span>
                 </button>
 
@@ -272,7 +272,7 @@ const Navbar = () => {
                     onMouseLeave={() => setActiveCategory(null)}
                   >
                     <div className="bg-white rounded-[2.5rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.3)] overflow-hidden border border-outline-variant/10">
-                      <div className="bg-primary-dim p-6 flex items-center gap-4 text-white">
+                      <div className="bg-primary p-6 flex items-center gap-4 text-white">
                         <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center">
                           <span className="material-symbols-outlined text-2xl font-black">{category.icon}</span>
                         </div>
@@ -286,10 +286,10 @@ const Navbar = () => {
                           <Link 
                             key={sub.name}
                             href="/services" 
-                            className="flex items-start gap-4 p-4 rounded-3xl hover:bg-secondary/5 transition-all group/item mb-1 last:mb-0"
+                            className="flex items-start gap-4 p-4 rounded-3xl hover:bg-primary/5 transition-all group/item mb-1 last:mb-0"
                             onClick={() => setActiveCategory(null)}
                           >
-                            <div className="w-10 h-10 rounded-xl bg-secondary/5 flex items-center justify-center text-secondary group-hover/item:bg-secondary group-hover:text-white transition-all shadow-sm">
+                            <div className="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center text-primary group-hover/item:bg-primary group-hover/item:text-white transition-all shadow-sm">
                               <span className="material-symbols-outlined text-xl font-black">{sub.icon}</span>
                             </div>
                             <div className="space-y-0.5">
@@ -319,7 +319,7 @@ const Navbar = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] md:hidden"
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] md:hidden"
             />
             
             {/* Slide-in Drawer (From Right) */}
@@ -328,17 +328,17 @@ const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 w-[85%] max-w-[320px] h-full bg-white z-[70] md:hidden shadow-2xl flex flex-col pt-24 pb-8 px-6 overflow-y-auto"
+              className="fixed top-0 right-0 w-[85%] max-w-[320px] h-full bg-primary z-[70] md:hidden shadow-2xl flex flex-col pt-24 pb-8 px-6 overflow-y-auto"
             >
               {/* Close Button Header */}
               <div className="absolute top-6 right-6">
-                 <button onClick={() => setIsMobileMenuOpen(false)} className="w-12 h-12 flex items-center justify-center bg-primary/5 rounded-xl text-primary">
+                 <button onClick={() => setIsMobileMenuOpen(false)} className="w-12 h-12 flex items-center justify-center bg-white/10 rounded-xl text-white">
                     <span className="material-symbols-outlined text-3xl font-black">close</span>
                  </button>
               </div>
 
               <div className="flex flex-col gap-2">
-                <div className="text-[10px] font-black uppercase tracking-[0.3em] text-primary mb-4 opacity-60 px-4">Navigation</div>
+                <div className="text-[10px] font-black uppercase tracking-[0.3em] text-white/60 mb-4 px-4">Navigation</div>
                 {NAV_LINKS.map((link, idx) => (
                   <motion.div
                     key={link.name}
@@ -350,8 +350,8 @@ const Navbar = () => {
                       href={link.href} 
                       className={`h-[56px] flex items-center px-4 rounded-2xl font-black text-xl tracking-tight transition-all ${
                         isActive(link.href) 
-                        ? 'bg-primary text-white shadow-lg shadow-primary/20' 
-                        : 'text-on-surface-variant hover:bg-primary/5'
+                        ? 'bg-white text-primary shadow-lg' 
+                        : 'text-white hover:bg-white/10'
                       }`}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
@@ -362,7 +362,7 @@ const Navbar = () => {
               </div>
               
               <div className="mt-12 space-y-6">
-                <div className="text-[10px] font-black uppercase tracking-[0.3em] text-primary mb-4 opacity-60 px-4">Our Services</div>
+                <div className="text-[10px] font-black uppercase tracking-[0.3em] text-white/60 mb-4 px-4">Our Services</div>
                 <div className="grid grid-cols-1 gap-2">
                    {HVAC_CATEGORIES.map((cat, idx) => (
                      <motion.div 
@@ -373,21 +373,21 @@ const Navbar = () => {
                      >
                        <Link 
                          href="/services" 
-                         className="h-[52px] flex items-center gap-4 px-4 rounded-2xl hover:bg-primary/5 group"
+                         className="h-[52px] flex items-center gap-4 px-4 rounded-2xl hover:bg-white/10 group"
                          onClick={() => setIsMobileMenuOpen(false)}
                        >
-                         <div className="w-10 h-10 bg-primary/5 rounded-xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                         <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-white group-hover:bg-white group-hover:text-primary transition-colors">
                            <span className="material-symbols-outlined text-xl font-black">{cat.icon}</span>
                          </div>
-                         <span className="font-black text-on-surface tracking-tight">{cat.name}</span>
+                         <span className="font-black text-white tracking-tight">{cat.name}</span>
                        </Link>
                      </motion.div>
                    ))}
                 </div>
               </div>
               
-              <div className="mt-auto pt-10 border-t border-outline-variant/10">
-                 <Button fullWidth size="xl" onClick={() => { setBookingOpen(true); setIsMobileMenuOpen(false); }}>Book Service</Button>
+              <div className="mt-auto pt-10 border-t border-white/10">
+                 <Button fullWidth variant="surface" size="xl" onClick={() => { setBookingOpen(true); setIsMobileMenuOpen(false); }}>Book Service</Button>
               </div>
             </motion.div>
           </>

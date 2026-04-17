@@ -145,102 +145,105 @@ const Hero = () => {
   const currentBanner = banners[currentIndex];
 
   return (
-    <section className="relative h-[90vh] lg:h-screen min-h-[700px] overflow-hidden bg-primary text-white">
-      <AnimatePresence initial={false} custom={direction} mode="popLayout">
+    <section className="relative h-[90vh] lg:h-screen min-h-[700px] overflow-hidden bg-neutral-950 text-white">
+      {/* Background Image Layer (Cross-fade for seamless transitions) */}
+      <AnimatePresence initial={false} mode="popLayout">
         <motion.div
-          key={currentIndex}
+          key={`bg-${currentIndex}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+          className="absolute top-[104px] md:top-[156px] inset-x-0 bottom-0 z-0 overflow-hidden"
+        >
+          <Image
+            src={currentBanner.image_url}
+            alt=""
+            fill
+            className="object-cover blur-3xl opacity-30 scale-110"
+            priority
+            quality={10}
+            sizes="100vw"
+          />
+          <Image
+            src={currentBanner.image_url}
+            alt="RBZ Premium Service"
+            fill
+            className="object-cover"
+            priority
+            quality={90}
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent z-10" />
+          <div className="absolute inset-0 bg-black/50 z-10" />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Content Layer (Slide transition for text and buttons) */}
+      <AnimatePresence initial={false} custom={direction} mode="wait">
+        <motion.div
+          key={`content-${currentIndex}`}
           custom={direction}
           variants={slideVariants}
           initial="enter"
           animate="center"
           exit="exit"
-          className="absolute inset-0 w-full h-full"
+          className="relative z-20 h-full flex items-center pt-[180px] md:pt-[240px]"
         >
-          {/* Background Image Layer */}
-          <div className="absolute top-[104px] md:top-[156px] inset-x-0 bottom-0 z-0 overflow-hidden bg-primary">
-            <Image
-              src={currentBanner.image_url}
-              alt=""
-              fill
-              className="object-cover blur-3xl opacity-30 scale-110"
-              priority
-              quality={10}
-              sizes="100vw"
-            />
-            <Image
-              src={currentBanner.image_url}
-              alt="RBZ Premium Service"
-              fill
-              className="object-cover"
-              priority
-              quality={90}
-              sizes="100vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent z-10" />
-            <div className="absolute inset-0 bg-black/50 z-10" />
-          </div>
-
-          {/* Content Layer (Conditional) */}
-          {currentBanner.banner_type === 'with_text' && (
-            <div className="relative z-20 h-full flex items-center pt-[180px] md:pt-[240px]">
-              <div className="max-w-7xl mx-auto px-6 md:px-8 w-full">
-                <div className="max-w-3xl">
-                  {/* Badge Removed per user request */}
-
-                  {/* Text Content */}
-                  <div className="space-y-6">
-                    <motion.h1 
-                      initial={{ opacity: 0, x: -30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.5, duration: 0.8 }}
-                      className="text-[2.8rem] md:text-[6.3rem] font-black tracking-tighter leading-[0.9] text-white whitespace-pre-line"
-                    >
-                      {currentBanner.title}
-                    </motion.h1>
-                    
-                    <motion.p 
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.7 }}
-                      className="text-lg md:text-2xl text-white/90 max-w-xl leading-relaxed font-bold"
-                    >
-                      {currentBanner.description}
-                    </motion.p>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.8 }}
-                    className="flex flex-col sm:flex-row gap-4 mt-12"
-                  >
-                    <Button variant="surface" size="xl" href={currentBanner.cta_link} className="h-16 px-10 text-lg">
-                      {currentBanner.cta_text}
-                    </Button>
-                    <Button variant="outline" size="xl" className="h-16 px-10 text-lg text-white border-white/30" href={currentBanner.secondary_cta_link}>
-                      {currentBanner.secondary_cta_text}
-                    </Button>
-                  </motion.div>
-
-                  {/* Quick Stats Overlay (Only for default or high-fidelity banners) */}
-                  <motion.div 
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1 }}
-                    className="pt-8 mt-8 md:pt-12 md:mt-12 flex flex-wrap gap-4 sm:gap-8 md:gap-16 border-t border-white/10"
-                  >
-                    {currentBanner.stats.map((stat, i) => (
-                      <div key={i} className="group flex-1 min-w-[25%] sm:min-w-0">
-                        <div className="text-xl sm:text-3xl md:text-5xl font-black group-hover:text-secondary transition-colors duration-300 break-words">{stat.v}</div>
-                        <div className="text-[8px] sm:text-[10px] md:text-xs text-white/70 uppercase tracking-[0.1em] md:tracking-[0.2em] font-black mt-1 md:mt-2 leading-tight break-words">{stat.l}</div>
-                      </div>
-                    ))}
-                  </motion.div>
-                </div>
+          <div className="max-w-7xl mx-auto px-6 md:px-8 w-full">
+            <div className="max-w-3xl">
+              {/* Text Content */}
+              <div className="space-y-6">
+                <motion.h1 
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2, duration: 0.8 }}
+                  className="text-[2.8rem] md:text-[6.3rem] font-black tracking-tighter leading-[0.9] text-white whitespace-pre-line"
+                >
+                  {currentBanner.title}
+                </motion.h1>
+                
+                <motion.p 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                  className="text-lg md:text-2xl text-white/90 max-w-xl leading-relaxed font-bold"
+                >
+                  {currentBanner.description}
+                </motion.p>
               </div>
+
+              {/* Action Buttons */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="flex flex-col sm:flex-row gap-4 mt-12"
+              >
+                <Button variant="surface" size="xl" href={currentBanner.cta_link} className="h-16 px-10 text-lg">
+                  {currentBanner.cta_text}
+                </Button>
+                <Button variant="outline" size="xl" className="h-16 px-10 text-lg text-white border-white/30" href={currentBanner.secondary_cta_link}>
+                  {currentBanner.secondary_cta_text}
+                </Button>
+              </motion.div>
+
+              {/* Quick Stats Overlay */}
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                className="pt-8 mt-8 md:pt-12 md:mt-12 flex flex-wrap gap-4 sm:gap-8 md:gap-16 border-t border-white/10"
+              >
+                {currentBanner.stats.map((stat, i) => (
+                  <div key={i} className="group flex-1 min-w-[25%] sm:min-w-0">
+                    <div className="text-xl sm:text-3xl md:text-5xl font-black group-hover:text-secondary transition-colors duration-300 break-words">{stat.v}</div>
+                    <div className="text-[8px] sm:text-[10px] md:text-xs text-white/70 uppercase tracking-[0.1em] md:tracking-[0.2em] font-black mt-1 md:mt-2 leading-tight break-words">{stat.l}</div>
+                  </div>
+                ))}
+              </motion.div>
             </div>
-          )}
+          </div>
         </motion.div>
       </AnimatePresence>
 
@@ -278,7 +281,7 @@ const Hero = () => {
       <div className="absolute bottom-0 left-0 w-full z-30 hidden md:block">
         <div className="relative h-[60px] overflow-hidden pointer-events-none">
           <svg className="absolute bottom-0 left-0 w-full h-full" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C58.47,88.75,117.05,82.34,175.75,82.34,228.61,82.34,281,89.5,321.39,56.44Z" fill="#FFFFFF"></path>
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C58.47,88.75,117.05,82.34,175.75,82.34,228.61,82.34,281,89.5,321.39,56.44Z" fill="#F0F7FF"></path>
           </svg>
         </div>
       </div>
