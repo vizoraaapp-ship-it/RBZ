@@ -8,6 +8,7 @@ import Brands from '@/components/home/Brands';
 import Testimonials from '@/components/home/Testimonials';
 import FAQ from '@/components/home/FAQ';
 import OurValues from '@/components/home/OurValues';
+import Financing from '@/components/home/Financing';
 import ContactCTA from '@/components/home/ContactCTA';
 
 export default function Home() {
@@ -71,6 +72,7 @@ export default function Home() {
       <Brands />
       <Testimonials />
       <FAQ />
+      <Financing />
       <OurValues />
       <ContactCTA />
       <Footer />

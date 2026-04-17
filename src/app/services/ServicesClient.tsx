@@ -9,6 +9,7 @@ import BookingModal from '@/components/ui/BookingModal';
 import Button from '@/components/ui/Button';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import ContactCTA from '@/components/home/ContactCTA';
 
 const SERVICES_DATA = [
   {
@@ -219,52 +220,7 @@ export default function ServicesClient() {
         </div>
       </Section>
 
-      <Section background="none" className="py-0 px-0">
-        <section className="w-full bg-blue-950 py-24 md:py-36 px-8 text-white relative overflow-hidden">
-          <motion.div 
-            animate={{ 
-              scale: [1, 1.1, 1],
-              opacity: [0.05, 0.15, 0.05]
-            }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary rounded-full blur-[120px] pointer-events-none" 
-          />
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-5xl mx-auto text-center space-y-10 md:space-y-12 relative z-10"
-          >
-            <div className="space-y-6">
-              <h2 className="font-headline text-3xl md:text-7xl font-black mb-6 tracking-tight leading-[1.1]">Ready to improve <br /> your home comfort?</h2>
-              <p className="text-blue-100/70 text-base md:text-2xl max-w-2xl mx-auto font-bold opacity-80 leading-relaxed">
-                Our expert technicians are ready to help with all your heating and cooling needs. Experience the RBZ difference today.
-              </p>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-6 md:gap-8 pt-4 md:pt-8">
-              <Button size="xl" fullWidth className="sm:w-auto" onClick={() => setIsBookingOpen(true)}>Book Service Now</Button>
-              <motion.a 
-                initial={{ backgroundColor: "#FF6B00" }}
-                whileHover={{ 
-                  scale: 1.05, 
-                  backgroundColor: "#E65C00",
-                  boxShadow: "0 0 25px rgba(255, 107, 0, 0.6)"
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto text-white px-10 py-5 rounded-2xl font-black text-xl transition-all flex items-center justify-center gap-3 shadow-2xl shadow-accent/20" 
-                href="tel:+16472999648"
-                style={{ backgroundColor: "#FF6B00" }}
-              >
-                <span className="material-symbols-outlined text-2xl group-hover:rotate-12 transition-transform">phone_in_talk</span>
-                Call Now
-              </motion.a>
-            </div>
-          </motion.div>
-        </section>
-      </Section>
+      <ContactCTA />
 
       <Footer />
 

@@ -62,25 +62,27 @@ const OurValues = () => {
           ))}
         </div>
 
-        {/* Mobile Grid: 2 columns for space efficiency */}
-        <div className="md:hidden grid grid-cols-2 gap-4 pb-8">
-          {VALUES.map((val, i) => (
-            <ValueCard key={i} val={val} index={i} />
-          ))}
+        {/* Mobile Slider: Auto sliding with 3-second delay */}
+        <div className="md:hidden w-full pb-8 -mx-4">
+          <AutoSlider interval={3000}>
+            {VALUES.map((val, index) => (
+              <ValueCard key={`mobile-${index}`} val={val} index={index} isMobile />
+            ))}
+          </AutoSlider>
         </div>
       </div>
     </Section>
   );
 };
 
-const ValueCard = ({ val, index = 0 }: { val: any, index?: number }) => (
+const ValueCard = ({ val, index = 0, isMobile = false }: { val: any, index?: number, isMobile?: boolean }) => (
   <motion.div 
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
+    initial={isMobile ? {} : { opacity: 0, y: 20 }}
+    whileInView={isMobile ? {} : { opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay: index * 0.1 }}
-    whileHover={{ y: -8, scale: 1.02 }}
-    className="bg-white aspect-square rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-outline-variant/5 p-6 md:p-8 flex flex-col items-center justify-center text-center transition-all duration-300 group hover:shadow-[0_20px_50px_rgba(10,37,64,0.08)] hover:border-primary/10"
+    whileHover={isMobile ? {} : { y: -8, scale: 1.02 }}
+    className={`bg-white rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-outline-variant/5 p-6 md:p-8 flex flex-col items-center justify-center text-center transition-all duration-300 group ${isMobile ? 'mx-2 h-full min-h-[250px]' : 'aspect-square hover:shadow-[0_20px_50px_rgba(10,37,64,0.08)] hover:border-primary/10'}`}
   >
     <div className={`w-14 h-14 md:w-20 md:h-20 ${val.color} rounded-2xl flex items-center justify-center mb-6 shadow-sm transition-transform group-hover:scale-105`}>
       {val.icon === 'maple_leaf' ? (

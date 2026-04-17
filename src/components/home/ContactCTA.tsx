@@ -11,12 +11,12 @@ const ContactCTA = () => {
 
   return (
     <>
-      <Section background="primary" className="py-32 text-center relative overflow-hidden">
+      <Section background="high" className="py-32 text-center relative overflow-hidden">
         {/* Animated background highlights */}
         <motion.div 
           animate={{ 
             scale: [1, 1.2, 1],
-            opacity: [0.1, 0.2, 0.1]
+            opacity: [0.3, 0.5, 0.3]
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-0 left-0 w-[500px] h-[500px] bg-white rounded-full blur-[120px] pointer-events-none" 
@@ -24,10 +24,10 @@ const ContactCTA = () => {
         <motion.div 
           animate={{ 
             scale: [1.2, 1, 1.2],
-            opacity: [0.05, 0.15, 0.05]
+            opacity: [0.1, 0.2, 0.1]
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-secondary rounded-full blur-[100px] pointer-events-none" 
+          className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary/20 rounded-full blur-[100px] pointer-events-none" 
         />
 
         <motion.div 
@@ -43,7 +43,7 @@ const ContactCTA = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-4xl md:text-6xl font-black mb-6 tracking-tight leading-tight"
+              className="text-4xl md:text-6xl font-black mb-6 tracking-tight leading-tight text-on-background"
             >
               Ready to improve <br className="hidden md:block" /> your home comfort?
             </motion.h2>
@@ -52,7 +52,7 @@ const ContactCTA = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-xl md:text-2xl text-primary-fixed max-w-2xl mx-auto mb-10 font-medium opacity-90 leading-relaxed"
+              className="text-xl md:text-2xl text-on-surface-variant max-w-2xl mx-auto mb-10 font-medium opacity-90 leading-relaxed"
             >
               Our expert technicians are ready to help with all your heating and cooling needs. Experience the RBZ difference today.
             </motion.p>
