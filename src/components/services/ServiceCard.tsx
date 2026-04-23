@@ -56,7 +56,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               alt={title} 
               fill 
               sizes="(max-width: 768px) 50vw, 33vw"
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
             />
             {/* Desktop Icon Badge */}
             <div className="hidden md:flex absolute top-6 left-6 bg-secondary/95 text-white p-3 rounded-2xl shadow-xl z-20">
@@ -111,22 +111,22 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               {detailedDescription}
             </p>
             
-            <div className="space-y-4">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-secondary">Key Features</h4>
-              <ul className="space-y-3">
+            <div className="space-y-3">
+              <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-secondary">Service</h4>
+              <div className="flex flex-wrap gap-x-4 gap-y-2 items-center">
                 {features.map((feature, idx) => (
-                  <motion.li 
+                  <motion.div 
                     key={idx} 
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.4 + idx * 0.05 }}
-                    className="flex items-start gap-3 text-sm text-on-surface-variant font-bold"
+                    className="flex items-center gap-2 text-sm text-on-surface-variant font-bold"
                   >
-                    <span className="material-symbols-outlined text-secondary text-xl shrink-0">check_circle</span>
-                    <span className="leading-snug">{feature}</span>
-                  </motion.li>
+                    <span className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" />
+                    <span>{feature}</span>
+                  </motion.div>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
 

@@ -41,7 +41,7 @@ const FAQAccordion = () => {
           className={`bg-white rounded-[2.5rem] border border-outline-variant/10 shadow-[0_8px_32_rgba(0,17,168,0.03)] overflow-hidden transition-all duration-500 ${activeIndex === index ? 'ring-4 ring-secondary/5 shadow-[0_20px_60px_rgba(0,17,168,0.12)] border-secondary/20' : 'hover:bg-secondary/5'}`}
         >
           <button 
-            className="w-full text-left p-6 md:p-8 flex justify-between items-center group outline-none"
+            className={`w-full text-left px-6 md:px-8 pt-4 md:pt-6 flex justify-between items-center group outline-none transition-all duration-300 ${activeIndex === index ? 'pb-2 md:pb-2' : 'pb-4 md:pb-6'}`}
             onClick={() => toggleAccordion(index)}
           >
             <h3 className={`font-headline text-2xl md:text-3xl font-black transition-all duration-300 pr-8 ${activeIndex === index ? 'text-primary' : 'text-on-background group-hover:text-secondary'}`}>
@@ -68,12 +68,12 @@ const FAQAccordion = () => {
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               >
-                <div className="px-6 md:px-8 pb-8 pt-0 text-xl md:text-2xl text-on-surface-variant font-medium leading-relaxed border-t border-outline-variant/5">
+                <div className="px-6 md:px-8 pb-4 md:pb-6 pt-0 text-xl md:text-2xl text-on-surface-variant font-medium leading-relaxed border-t border-outline-variant/5">
                   <motion.div 
                     initial={{ y: -10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2 }}
-                    className="opacity-90 pt-4"
+                    className="opacity-90"
                   >
                     {faq.answer}
                   </motion.div>

@@ -145,7 +145,7 @@ const Hero = () => {
   const currentBanner = banners[currentIndex];
 
   return (
-    <section className="relative h-[90vh] lg:h-screen min-h-[700px] overflow-hidden bg-neutral-950 text-white">
+    <section className="relative h-[90vh] lg:h-[calc(100vh-156px)] min-h-[600px] overflow-hidden bg-neutral-950 text-white mt-[104px] md:mt-[156px]">
       {/* Background Image Layer (Cross-fade for seamless transitions) */}
       <AnimatePresence initial={false} mode="popLayout">
         <motion.div
@@ -154,7 +154,7 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
-          className="absolute top-[104px] md:top-[156px] inset-x-0 bottom-0 z-0 overflow-hidden"
+          className="absolute inset-0 z-0 overflow-hidden"
         >
           <Image
             src={currentBanner.image_url}
@@ -188,17 +188,17 @@ const Hero = () => {
           initial="enter"
           animate="center"
           exit="exit"
-          className="relative z-20 h-full flex items-center pt-[180px] md:pt-[240px]"
+          className="relative z-20 h-full flex items-center pt-[80px] md:pt-0"
         >
           <div className="max-w-7xl mx-auto px-6 md:px-8 w-full">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl mx-auto lg:mx-0 text-center lg:text-left">
               {/* Text Content */}
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 <motion.h1 
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2, duration: 0.8 }}
-                  className="text-[2.8rem] md:text-[6.3rem] font-black tracking-tighter leading-[0.9] text-white whitespace-pre-line"
+                  className="text-3xl md:text-5xl lg:text-7xl font-black tracking-tighter leading-[1.1] text-white whitespace-pre-line"
                 >
                   {currentBanner.title}
                 </motion.h1>
@@ -207,7 +207,7 @@ const Hero = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4 }}
-                  className="text-lg md:text-2xl text-white/90 max-w-xl leading-relaxed font-bold"
+                  className="text-base md:text-xl text-white/90 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium"
                 >
                   {currentBanner.description}
                 </motion.p>
@@ -218,12 +218,12 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="flex flex-col sm:flex-row gap-4 mt-12"
+                className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mt-8 md:mt-10"
               >
-                <Button variant="surface" size="xl" href={currentBanner.cta_link} className="h-16 px-10 text-lg">
+                <Button variant="surface" size="lg" href={currentBanner.cta_link} className="h-14 px-8 text-base">
                   {currentBanner.cta_text}
                 </Button>
-                <Button variant="outline" size="xl" className="h-16 px-10 text-lg text-white border-white/30" href={currentBanner.secondary_cta_link}>
+                <Button variant="outline" size="lg" className="h-14 px-8 text-base text-white border-white/30" href={currentBanner.secondary_cta_link}>
                   {currentBanner.secondary_cta_text}
                 </Button>
               </motion.div>
@@ -233,12 +233,12 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
-                className="pt-8 mt-8 md:pt-12 md:mt-12 flex flex-wrap gap-4 sm:gap-8 md:gap-16 border-t border-white/10"
+                className="pt-8 mt-8 md:pt-12 md:mt-12 flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-8 md:gap-16 border-t border-white/10"
               >
                 {currentBanner.stats.map((stat, i) => (
-                  <div key={i} className="group flex-1 min-w-[25%] sm:min-w-0">
-                    <div className="text-xl sm:text-3xl md:text-5xl font-black group-hover:text-secondary transition-colors duration-300 break-words">{stat.v}</div>
-                    <div className="text-[8px] sm:text-[10px] md:text-xs text-white/70 uppercase tracking-[0.1em] md:tracking-[0.2em] font-black mt-1 md:mt-2 leading-tight break-words">{stat.l}</div>
+                  <div key={i} className="group flex-1 min-w-[25%] sm:min-w-0 text-center lg:text-left">
+                    <div className="text-lg sm:text-xl md:text-3xl font-black group-hover:text-secondary transition-colors duration-300 break-words">{stat.v}</div>
+                    <div className="text-[8px] sm:text-[9px] md:text-[10px] text-white/70 uppercase tracking-[0.1em] md:tracking-[0.2em] font-black mt-1 md:mt-2 leading-tight break-words">{stat.l}</div>
                   </div>
                 ))}
               </motion.div>
@@ -277,14 +277,6 @@ const Hero = () => {
         </div>
       )}
 
-      {/* Bottom Wave */}
-      <div className="absolute bottom-0 left-0 w-full z-30 hidden md:block">
-        <div className="relative h-[60px] overflow-hidden pointer-events-none">
-          <svg className="absolute bottom-0 left-0 w-full h-full" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C58.47,88.75,117.05,82.34,175.75,82.34,228.61,82.34,281,89.5,321.39,56.44Z" fill="#F0F7FF"></path>
-          </svg>
-        </div>
-      </div>
     </section>
   );
 };

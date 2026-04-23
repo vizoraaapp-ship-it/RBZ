@@ -14,6 +14,7 @@ interface DataTableProps<T> {
   searchPlaceholder?: string;
   searchKeys?: Extract<keyof T, string>[];
   filters?: React.ReactNode;
+  onRowClick?: (item: T) => void;
 }
 
 export default function DataTable<T extends Record<string, any>>({
@@ -22,6 +23,7 @@ export default function DataTable<T extends Record<string, any>>({
   searchPlaceholder = 'Search...',
   searchKeys = [],
   filters,
+  onRowClick,
 }: DataTableProps<T>) {
   const [query, setQuery] = useState('');
   const [sortKey, setSortKey] = useState<Extract<keyof T, string> | null>(null);
@@ -156,7 +158,8 @@ export default function DataTable<T extends Record<string, any>>({
                     variants={rowVariants}
                     layout
                     whileHover={{ backgroundColor: "rgba(var(--primary), 0.02)" }}
-                    className="group"
+                    onClick={() => onRowClick?.(row)}
+                    className={`group ${onRowClick ? 'cursor-pointer' : ''}`}
                   >
                     {columns.map((col) => (
                       <td key={col.key} className="px-8 py-5 text-sm font-bold text-on-surface group-hover:text-primary transition-colors">

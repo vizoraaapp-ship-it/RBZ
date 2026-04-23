@@ -24,6 +24,9 @@ const INITIAL_STATE = {
   email: '',
   phone: '',
   serviceType: '',
+  serviceCategory: '',
+  bookingDate: '',
+  bookingTime: '',
   message: '',
 };
 
@@ -47,6 +50,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
     }
     if (!form.phone.trim()) newErrors.phone = 'Phone number is required';
     if (!form.serviceType) newErrors.serviceType = 'Please select a service type';
+    // Date, Time, and Category are now optional
     return newErrors;
   };
 
@@ -77,6 +81,9 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
       email: form.email,
       phone: form.phone,
       service_type: form.serviceType,
+      service_category: form.serviceCategory || null,
+      booking_date: form.bookingDate || null,
+      booking_time: form.bookingTime || null,
       message: form.message || null,
     });
     
@@ -148,7 +155,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
                 type="text"
                 autoComplete="name"
                 placeholder="John Doe"
-                value={form.fullName}
+                value={form.fullName || ''}
                 onChange={handleChange}
                 className={inputClass('fullName')}
               />
@@ -166,7 +173,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
                 type="email"
                 autoComplete="email"
                 placeholder="john@example.com"
-                value={form.email}
+                value={form.email || ''}
                 onChange={handleChange}
                 className={inputClass('email')}
               />
@@ -184,7 +191,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
                 type="tel"
                 autoComplete="tel"
                 placeholder="+1 (000) 000-0000"
-                value={form.phone}
+                value={form.phone || ''}
                 onChange={handleChange}
                 className={inputClass('phone')}
               />
@@ -200,7 +207,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
                 <select
                   id="booking-serviceType"
                   name="serviceType"
-                  value={form.serviceType}
+                  value={form.serviceType || ''}
                   onChange={handleChange}
                   className={`${inputClass('serviceType')} cursor-pointer appearance-none`}
                 >
@@ -215,6 +222,63 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
               </div>
               {errors.serviceType && <p className="text-error text-[10px] font-black uppercase tracking-widest mt-2 ml-1">{errors.serviceType}</p>}
             </div>
+
+            {/* Service Category */}
+            <div className="group">
+              <label htmlFor="booking-serviceCategory" className={labelClass}>
+                What Service <span className="text-[9px] opacity-50 lowercase">(Optional)</span>
+              </label>
+              <div className="relative">
+                <select
+                  id="booking-serviceCategory"
+                  name="serviceCategory"
+                  value={form.serviceCategory || ''}
+                  onChange={handleChange}
+                  className={`${inputClass('serviceCategory')} cursor-pointer appearance-none`}
+                >
+                  <option value="">Select category...</option>
+                  <option value="Install">Install</option>
+                  <option value="Repair">Repair</option>
+                  <option value="Maintenance">Maintenance</option>
+                  <option value="Opinion">Opinion</option>
+                </select>
+                <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant/50">
+                   <span className="material-symbols-outlined font-black">unfold_more</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Booking Date */}
+            <div className="group">
+              <label htmlFor="booking-date" className={labelClass}>
+                Preferred Date <span className="text-[9px] opacity-50 lowercase">(Optional)</span>
+              </label>
+              <input
+                id="booking-date"
+                name="bookingDate"
+                type="date"
+                value={form.bookingDate || ''}
+                onChange={handleChange}
+                className={inputClass('bookingDate')}
+              />
+              {errors.bookingDate && <p className="text-error text-[10px] font-black uppercase tracking-widest mt-2 ml-1">{errors.bookingDate}</p>}
+            </div>
+
+            {/* Booking Time */}
+            <div className="group">
+              <label htmlFor="booking-time" className={labelClass}>
+                Preferred Time (24h) <span className="text-[9px] opacity-50 lowercase">(Optional)</span>
+              </label>
+              <input
+                id="booking-time"
+                name="bookingTime"
+                type="time"
+                value={form.bookingTime || ''}
+                onChange={handleChange}
+                className={inputClass('bookingTime')}
+              />
+              {errors.bookingTime && <p className="text-error text-[10px] font-black uppercase tracking-widest mt-2 ml-1">{errors.bookingTime}</p>}
+            </div>
           </div>
 
           {/* Message */}
@@ -227,7 +291,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
               name="message"
               rows={4}
               placeholder="Tell us more about your requirements..."
-              value={form.message}
+              value={form.message || ''}
               onChange={handleChange}
               className={`${inputClass('message')} resize-none min-h-[120px]`}
             />

@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const NAV_ITEMS = [
   { label: 'Overview', href: '/admin/dashboard', icon: 'dashboard' },
+  { label: 'Schedule', href: '/admin/dashboard/calendar', icon: 'event' },
   { label: 'Banners', href: '/admin/dashboard/banners', icon: 'view_carousel' },
   { label: 'Bookings', href: '/admin/dashboard/bookings', icon: 'calendar_month' },
   { label: 'Contact Us', href: '/admin/dashboard/contacts', icon: 'forum' },

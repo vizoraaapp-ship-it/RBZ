@@ -41,6 +41,8 @@ const itemVariants = {
 };
 
 const ServicesBento = () => {
+  const [isPausedRow1, setIsPausedRow1] = React.useState(false);
+  const [isPausedRow2, setIsPausedRow2] = React.useState(false);
   // Update rows to include new services
   const row1 = [...SERVICES.slice(0, 5), ...SERVICES.slice(0, 5), ...SERVICES.slice(0, 5)];
   const row2 = [...SERVICES.slice(5, 11), ...SERVICES.slice(5, 11), ...SERVICES.slice(5, 11)];
@@ -60,41 +62,45 @@ const ServicesBento = () => {
       {/* Services Infinite Marquee */}
       <div className="mt-12 space-y-6 md:space-y-10 py-4 relative overflow-hidden">
         {/* Row 1: Left to Right */}
-        <div className="relative">
-          <motion.div 
-            className="flex gap-4 md:gap-6 w-max"
-            animate={{ x: ["-50%", "0%"] }}
-            transition={{ 
-              duration: 35, 
-              repeat: Infinity, 
-              ease: "linear" 
-            }}
-          >
+        <div 
+          className="relative"
+          onMouseEnter={() => setIsPausedRow1(true)}
+          onMouseLeave={() => setIsPausedRow1(false)}
+          onTouchStart={() => setIsPausedRow1(true)}
+          onTouchEnd={() => setIsPausedRow1(false)}
+        >
+          <div className={`flex gap-4 md:gap-6 w-max animate-marquee-left ${isPausedRow1 ? 'pause-animation' : ''}`}>
             {row1.map((service, index) => (
-              <div key={`r1-${index}`} className="flex-shrink-0 w-[60vw] md:w-[35vw] lg:w-[25vw]">
+              <div 
+                key={`r1-${index}`} 
+                className="flex-shrink-0 w-[280px] md:w-[350px]"
+                onClick={() => setIsPausedRow1(true)}
+              >
                 <BentoServiceCard service={service} />
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
         {/* Row 2: Right to Left */}
-        <div className="relative">
-          <motion.div 
-            className="flex gap-4 md:gap-6 w-max"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ 
-              duration: 40, 
-              repeat: Infinity, 
-              ease: "linear" 
-            }}
-          >
+        <div 
+          className="relative"
+          onMouseEnter={() => setIsPausedRow2(true)}
+          onMouseLeave={() => setIsPausedRow2(false)}
+          onTouchStart={() => setIsPausedRow2(true)}
+          onTouchEnd={() => setIsPausedRow2(false)}
+        >
+          <div className={`flex gap-4 md:gap-6 w-max animate-marquee-right ${isPausedRow2 ? 'pause-animation' : ''}`}>
             {row2.map((service, index) => (
-              <div key={`r2-${index}`} className="flex-shrink-0 w-[60vw] md:w-[35vw] lg:w-[25vw]">
+              <div 
+                key={`r2-${index}`} 
+                className="flex-shrink-0 w-[280px] md:w-[350px]"
+                onClick={() => setIsPausedRow2(true)}
+              >
                 <BentoServiceCard service={service} />
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </Section>
@@ -105,21 +111,21 @@ const BentoServiceCard = ({ service, variants }: { service: any, variants?: any 
   <motion.div 
     variants={variants}
     whileHover={{ 
-      y: -8, 
-      boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)",
-      borderColor: "rgba(var(--primary), 0.2)"
+      y: -5, 
+      boxShadow: "0 15px 35px -10px rgba(0, 0, 0, 0.1)",
+      borderColor: "rgba(var(--primary), 0.15)"
     }}
-    className="bg-white rounded-[1.5rem] md:rounded-[2.5rem] transition-all group border border-outline-variant/10 shadow-sm relative overflow-hidden h-full flex flex-col p-6 md:p-10"
+    className="bg-white rounded-2xl md:rounded-3xl transition-all group border border-outline-variant/10 shadow-sm relative overflow-hidden flex items-center gap-4 p-4 md:p-6 h-[100px] md:h-[120px]"
   >
-    <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/[0.02] transition-colors pointer-events-none" />
+    <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/[0.01] transition-colors pointer-events-none" />
     
-    <div className="w-12 h-12 md:w-16 md:h-16 mb-4 md:mb-6 bg-blue-100 rounded-xl md:rounded-2xl flex items-center justify-center text-blue-600 transition-transform relative z-10">
+    <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-100 rounded-xl md:rounded-2xl flex items-center justify-center text-blue-600 transition-transform relative z-10 shrink-0">
       <span className="material-symbols-outlined text-2xl md:text-3xl font-black">{service.icon}</span>
     </div>
     
-    <div className="relative z-10 flex-grow">
-      <h3 className="font-black text-lg md:text-2xl mb-1 md:mb-3 text-primary tracking-tight">{service.name}</h3>
-      <p className="text-xs md:text-base leading-snug md:leading-relaxed text-on-surface-variant opacity-70 group-hover:opacity-100 transition-opacity font-bold">
+    <div className="relative z-10 overflow-hidden">
+      <h3 className="font-black text-sm md:text-lg text-primary tracking-tight truncate">{service.name}</h3>
+      <p className="text-[10px] md:text-xs leading-tight text-on-surface-variant opacity-70 group-hover:opacity-100 transition-opacity font-bold line-clamp-2 mt-1">
         {service.desc}
       </p>
     </div>

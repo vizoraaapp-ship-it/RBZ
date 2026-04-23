@@ -18,7 +18,7 @@ const SERVICES_DATA = [
     description: "Advanced cooling solutions featuring precision multi-stage cooling for optimal energy efficiency and humidity control.",
     detailedDescription: "Our comprehensive Air Conditioning solutions keep your home perfectly chilled during the hottest months. We provide end-to-end services from new installations of high-SEER systems to routine maintenance and emergency repairs.",
     features: ["Install", "Repair", "Maintenance"],
-    image: "/service/airconditioner.jfif",
+    image: "/service/airconditioner.jpeg",
     icon: "ac_unit"
   },
   {
@@ -36,7 +36,7 @@ const SERVICES_DATA = [
     description: "Eco-friendly heating and cooling hybrids that leverage sustainable technology to reduce your carbon footprint.",
     detailedDescription: "Heat pumps offer an incredibly energy-efficient alternative to traditional HVAC systems. Running on electricity, they extract ambient heat to warm your home, and reverse the process to chill it during summer.",
     features: ["Install", "Repair", "Maintenance"],
-    image: "/service/heatpump.jfif",
+    image: "/service/heatpump.jpeg",
     icon: "thermostat"
   },
   {
@@ -54,7 +54,7 @@ const SERVICES_DATA = [
     description: "High-efficiency boiler systems for hydronic heating, providing consistent radiant warmth throughout your home.",
     detailedDescription: "Hydronic heating provides unparalleled comfort. Our boiler services cover everything from baseboard radiators to under-floor radiant heating, guaranteeing a draft-free, comfortable winter.",
     features: ["Install", "Repair", "Maintenance"],
-    image: "/service-furnace.png",
+    image: "/service/boiler.jpeg",
     icon: "hvac"
   },
   {
@@ -81,7 +81,7 @@ const SERVICES_DATA = [
     description: "Essential accessories and components for HVAC and water systems.",
     detailedDescription: "Enhance your existing systems with our collection of high-quality accessories, from advanced filtration media to UV purifiers, ensuring maximum operational efficiency and air quality.",
     features: ["Install", "Repair", "Maintenance"],
-    image: "/service/accessories.jfif",
+    image: "/service/accessories.jpeg",
     icon: "settings"
   },
   {
@@ -117,7 +117,7 @@ const SERVICES_DATA = [
     description: "Energy-efficient tankless water heaters providing endless hot water on demand with a compact footprint.",
     detailedDescription: "Reclaim your utility space and never run out of hot water again. Our tankless systems heat water strictly on-demand, lowering gas bills by up to 40% while lasting roughly twice as long as traditional tanks.",
     features: ["Install", "Repair", "Maintenance"],
-    image: "/service-watertank.png",
+    image: "/service/tanklesswaterheater.jpeg",
     icon: "water_damage"
   }
 ];
@@ -146,7 +146,7 @@ export default function ServicesClient() {
     <main className="min-h-screen bg-surface">
       <Navbar />
       
-      <header className="relative w-full h-[60vh] min-h-[500px] md:h-screen md:min-h-[800px] flex items-center justify-center overflow-hidden">
+      <header className="relative w-full h-[60vh] min-h-[500px] md:h-[calc(100vh-156px)] md:min-h-[700px] flex items-center justify-center overflow-hidden mt-[104px] md:mt-[156px]">
         <motion.div 
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}

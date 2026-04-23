@@ -48,23 +48,21 @@ const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({ isOpen, onClose
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-primary opacity-60">Primary Features</h3>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-primary opacity-60">Service</h3>
+            <div className="flex flex-wrap gap-x-6 gap-y-3 items-center">
               {service.features.map((feature, idx) => (
-                <motion.li 
+                <motion.div 
                   key={idx} 
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 + idx * 0.05 }}
-                  className="flex items-start gap-4 p-4 rounded-2xl bg-surface-container/50 border border-outline-variant/10 group hover:border-primary/20 hover:bg-white transition-all"
+                  className="flex items-center gap-2 text-base font-bold text-on-surface-variant"
                 >
-                  <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-500">
-                    <span className="material-symbols-outlined text-lg font-black">check_circle</span>
-                  </div>
-                  <span className="text-sm font-bold text-on-surface-variant leading-snug">{feature}</span>
-                </motion.li>
+                  <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
+                  <span>{feature}</span>
+                </motion.div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
 

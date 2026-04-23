@@ -9,31 +9,31 @@ const VALUES = [
   {
     title: "Leading Manufacturers",
     description: "Quality work from leading manufacturers.",
-    icon: "precision_manufacturing",
+    icon: "🏭",
     color: "bg-secondary/10 text-secondary"
   },
   {
     title: "Best Solutions",
     description: "Expert advice and best suited solutions.",
-    icon: "home_repair_service",
+    icon: "💡",
     color: "bg-secondary/10 text-secondary"
   },
   {
     title: "No Surprises",
     description: "The price we quote is the price you pay.",
-    icon: "verified",
+    icon: "✅",
     color: "bg-secondary/10 text-secondary"
   },
   {
     title: "Budget Friendly",
     description: "Payment, rental or financing options.",
-    icon: "payments",
+    icon: "💰",
     color: "bg-secondary/10 text-secondary"
   },
   {
     title: "Proudly Canadian",
     description: "Experts for over 10 years.",
-    icon: "maple_leaf",
+    icon: "🍁",
     color: "bg-red-50 text-red-600"
   }
 ];
@@ -55,10 +55,12 @@ const OurValues = () => {
           </p>
         </motion.div>
 
-        {/* Desktop Grid: 5 Square Boxes */}
-        <div className="hidden md:grid grid-cols-5 gap-4 lg:gap-8">
+        {/* Desktop Grid: 5 Uniform Boxes */}
+        <div className="hidden md:grid grid-cols-5 gap-4 lg:gap-8 items-stretch">
           {VALUES.map((val, index) => (
-            <ValueCard key={index} val={val} index={index} />
+            <div key={index} className="h-full">
+              <ValueCard val={val} index={index} />
+            </div>
           ))}
         </div>
 
@@ -82,14 +84,10 @@ const ValueCard = ({ val, index = 0, isMobile = false }: { val: any, index?: num
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay: index * 0.1 }}
     whileHover={isMobile ? {} : { y: -8, scale: 1.02 }}
-    className={`bg-white rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-outline-variant/5 p-6 md:p-8 flex flex-col items-center justify-center text-center transition-all duration-300 group ${isMobile ? 'mx-2 h-full min-h-[250px]' : 'aspect-square hover:shadow-[0_20px_50px_rgba(10,37,64,0.08)] hover:border-primary/10'}`}
+    className={`bg-white rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-outline-variant/5 p-6 md:p-8 flex flex-col items-center justify-center text-center transition-all duration-300 group h-full min-h-[280px] md:min-h-[320px] ${isMobile ? 'mx-2' : 'hover:shadow-[0_20px_50px_rgba(10,37,64,0.08)] hover:border-primary/10'}`}
   >
     <div className={`w-14 h-14 md:w-20 md:h-20 ${val.color} rounded-2xl flex items-center justify-center mb-6 shadow-sm transition-transform group-hover:scale-105`}>
-      {val.icon === 'maple_leaf' ? (
-        <span className="text-4xl md:text-6xl select-none">🍁</span>
-      ) : (
-        <span className="material-symbols-outlined text-3xl md:text-5xl font-black">{val.icon}</span>
-      )}
+      <span className="text-4xl md:text-6xl select-none">{val.icon}</span>
     </div>
     
     <h3 className="font-headline text-lg md:text-2xl font-black text-primary mb-3 tracking-tight leading-tight group-hover:text-secondary transition-colors">

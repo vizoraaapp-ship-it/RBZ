@@ -93,4 +93,26 @@
     -ms-overflow-style: none !important; /* IE and Edge */
     scrollbar-width: none !important; /* Firefox */
   }
+
+  @keyframes marquee-left {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
+
+  @keyframes marquee-right {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .animate-marquee-left {
+    animation: marquee-left 35s linear infinite;
+  }
+
+  .animate-marquee-right {
+    animation: marquee-right 40s linear infinite;
+  }
+
+  .pause-animation {
+    animation-play-state: paused !important;
+  }
 }

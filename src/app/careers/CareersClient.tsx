@@ -74,7 +74,7 @@ export default function CareersClient() {
     <main className="min-h-screen bg-surface">
       <Navbar />
       
-      <header className="relative w-full h-[70vh] min-h-[500px] md:h-screen md:min-h-[800px] flex items-center justify-center overflow-hidden">
+      <header className="relative w-full h-[70vh] min-h-[500px] md:h-[calc(100vh-156px)] md:min-h-[700px] flex items-center justify-center overflow-hidden mt-[104px] md:mt-[156px]">
         <motion.div 
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
@@ -120,14 +120,14 @@ export default function CareersClient() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="text-4xl md:text-8xl font-black tracking-tight text-white leading-[1.1] drop-shadow-2xl"
           >
-            Precision in <br />
+            Join <br />
             <motion.span 
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.8 }}
               className="text-secondary"
             >
-              Your Career
+              RBZ Team
             </motion.span>
           </motion.h1>
           
@@ -137,16 +137,16 @@ export default function CareersClient() {
             transition={{ delay: 1, duration: 0.8 }}
             className="text-base md:text-2xl text-white/90 font-bold leading-relaxed max-w-2xl text-left drop-shadow-lg opacity-80"
           >
-            Grow your skills at RBZ Climate Solutions. We're looking for dedicated technicians and professionals to help us redefine home comfort across Ontario.
+            We are expanding our team of dedicated experts across the GTA & Ontario. Recent graduates are welcome at RBZ Climate Solutions. If you have the drive to learn and a passion for technical excellence, we’ll provide the platform to grow.
           </motion.p>
           
-          <div className="pt-4 md:pt-8">
+          <div className="pt-0">
             <Button size="xl" href="#openings" className="shadow-2xl">View Open Positions</Button>
           </div>
         </motion.div>
       </header>
 
-      <Section background="surface" className="py-16 md:py-32">
+      <Section background="surface" className="py-8 md:py-12">
         <motion.div 
           variants={containerVariants}
           initial="hidden"
@@ -168,39 +168,39 @@ export default function CareersClient() {
         </div>
       </Section>
 
-      <Section id="students" background="high" className="py-16 md:py-24">
+      <Section id="students" background="high" className="py-8 md:py-12">
         <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-4xl mx-auto bg-white rounded-[2.5rem] md:rounded-[4rem] p-8 md:p-20 border border-outline-variant/10 shadow-2xl flex flex-col md:flex-row items-center gap-10 md:gap-12 relative overflow-hidden group"
+          transition={{ duration: 0.8 }}
+          className="max-w-2xl mx-auto bg-white rounded-2xl md:rounded-[2.5rem] p-6 md:p-10 border border-outline-variant/10 shadow-xl flex flex-col md:flex-row items-center gap-6 md:gap-8 relative overflow-hidden group"
         >
            <motion.div 
              animate={{ rotate: 360 }}
              transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-             className="absolute -right-20 -bottom-20 w-80 h-80 border-2 border-primary/5 rounded-full pointer-events-none" 
+             className="absolute -right-10 -bottom-10 w-40 h-40 border border-primary/5 rounded-full pointer-events-none" 
            />
 
            <motion.div 
-            whileHover={{ scale: 1.1, rotate: 12 }}
-            className="w-24 h-24 md:w-32 md:h-32 shrink-0 bg-primary/10 rounded-[1.75rem] md:rounded-[2.5rem] flex items-center justify-center text-primary shadow-inner"
+            whileHover={{ scale: 1.05, rotate: 5 }}
+            className="w-16 h-16 md:w-20 md:h-20 shrink-0 bg-primary/10 rounded-2xl flex items-center justify-center text-primary shadow-inner"
            >
-              <span className="material-symbols-outlined text-4xl md:text-6xl">diversity_3</span>
+              <span className="material-symbols-outlined text-3xl md:text-4xl">diversity_3</span>
            </motion.div>
-           <div className="space-y-4 md:space-y-6 text-center md:text-left relative z-10">
-              <h2 className="text-2xl md:text-4xl font-black text-on-surface leading-tight tracking-tight">Collaboration &amp; Mentorship <br /><span className="text-primary text-xl md:text-3xl">(HVAC Students)</span></h2>
-              <p className="text-on-surface-variant text-base md:text-xl font-bold leading-relaxed opacity-70">
-                Supporting student growth through industry connections and knowledge sharing. At RBZ, we believe in mentoring the next generation of HVAC experts.
+           <div className="space-y-3 md:space-y-4 text-center md:text-left relative z-10">
+              <h2 className="text-xl md:text-2xl font-black text-on-surface leading-tight tracking-tight">Collaboration & Mentorship <br /><span className="text-primary text-base md:text-lg">(HVAC Students)</span></h2>
+              <p className="text-on-surface-variant text-sm md:text-base font-bold leading-relaxed opacity-70">
+                Supporting student growth through industry connections and knowledge sharing.
               </p>
-              <div className="pt-4 flex justify-center md:justify-start">
-                <Button variant="outline" href="/contact" fullWidth className="sm:w-auto" size="lg">Inquire for Mentorship</Button>
+              <div className="pt-2 flex justify-center md:justify-start">
+                <Button variant="outline" href="/contact" size="sm">Inquire Now</Button>
               </div>
            </div>
         </motion.div>
       </Section>
 
-      <Section id="openings" background="surface" className="py-24 md:py-32">
+      <Section id="openings" background="surface" className="py-8 md:py-12">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -232,42 +232,42 @@ export default function CareersClient() {
             <motion.div 
               key={job.id} 
               variants={{
-                hidden: { opacity: 0, scale: 0.95 },
-                visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as any } }
+                hidden: { opacity: 0, scale: 0.98 },
+                visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } }
               }}
               whileHover={{ 
-                x: 10,
+                x: 5,
                 backgroundColor: "rgba(255, 255, 255, 1)",
-                boxShadow: "0 25px 60px -12px rgba(0, 0, 0, 0.1)"
+                boxShadow: "0 10px 30px -10px rgba(0, 0, 0, 0.1)"
               }}
-              className="group bg-white/60 backdrop-blur-sm p-8 md:p-14 rounded-[2rem] md:rounded-[3rem] border border-outline-variant/10 shadow-sm transition-all duration-500 flex flex-col xl:flex-row items-center xl:items-center justify-between gap-8 md:gap-10 text-center xl:text-left"
+              className="group bg-white/60 backdrop-blur-sm p-4 md:p-6 rounded-2xl md:rounded-3xl border border-outline-variant/10 shadow-sm transition-all duration-500 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8 text-center md:text-left"
             >
-              <div className="flex flex-col md:flex-row gap-8 md:gap-10 items-center md:items-start w-full">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-center w-full">
                  <motion.div 
-                  whileHover={{ rotate: 15, scale: 1.1 }}
-                  className="w-14 h-14 bg-secondary/10 rounded-xl overflow-visible flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all duration-500 shadow-sm shrink-0"
+                  whileHover={{ rotate: 10, scale: 1.05 }}
+                  className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all duration-500 shrink-0"
                  >
-                    <span className="material-symbols-outlined" style={{ fontSize: '5rem', lineHeight: 1 }}>{job.icon}</span>
+                    <span className="material-symbols-outlined text-2xl font-black">{job.icon}</span>
                  </motion.div>
-                 <div className="space-y-4 flex-grow">
-                    <h3 className="text-2xl md:text-3xl font-black tracking-tight group-hover:text-secondary transition-colors leading-tight">{job.title}</h3>
-                    <div className="flex flex-wrap justify-center xl:justify-start gap-x-4 gap-y-3 text-[10px] font-black uppercase tracking-[0.2em] text-secondary/60">
-                      <span className="flex items-center gap-2 px-4 py-2 bg-secondary/5 rounded-full border border-secondary/10">
-                        <span className="material-symbols-outlined text-base">work</span> {job.type}
+                 <div className="space-y-2 flex-grow">
+                    <h3 className="text-lg md:text-xl font-black tracking-tight group-hover:text-secondary transition-colors leading-tight">{job.title}</h3>
+                    <div className="flex flex-wrap justify-center md:justify-start gap-x-3 gap-y-1.5 text-[9px] font-black uppercase tracking-widest text-secondary/60">
+                      <span className="flex items-center gap-1.5 px-3 py-1 bg-secondary/5 rounded-full border border-secondary/10">
+                        <span className="material-symbols-outlined text-[14px]">work</span> {job.type}
                       </span>
-                      <span className="flex items-center gap-2 px-4 py-2 bg-surface-container rounded-full border border-outline-variant/10 text-on-surface-variant">
-                        <span className="material-symbols-outlined text-base">location_on</span> {job.location}
+                      <span className="flex items-center gap-1.5 px-3 py-1 bg-surface-container rounded-full border border-outline-variant/10 text-on-surface-variant">
+                        <span className="material-symbols-outlined text-[14px]">location_on</span> {job.location}
                       </span>
                     </div>
-                    <p className="pt-4 text-on-surface-variant max-w-2xl font-bold text-sm md:text-lg opacity-80 group-hover:opacity-100 transition-opacity leading-relaxed">{job.description}</p>
+                    <p className="pt-1 text-on-surface-variant max-w-2xl font-bold text-xs md:text-sm opacity-70 group-hover:opacity-100 transition-opacity leading-relaxed">{job.description}</p>
                   </div>
               </div>
-              <div className="w-full xl:w-auto mt-4 xl:mt-0">
+              <div className="w-full md:w-auto mt-2 md:mt-0">
                 <Button
                   variant="primary"
-                  size="lg"
+                  size="sm"
                   fullWidth
-                  className="xl:px-12 rounded-2xl shadow-xl shadow-primary/20"
+                  className="md:px-8 rounded-xl shadow-lg shadow-primary/10 whitespace-nowrap"
                   onClick={() => setSelectedJob(job.title)}
                 >
                   Apply Now
@@ -290,23 +290,23 @@ export default function CareersClient() {
 }
 
 const BenefitCard = ({ item }: { item: any }) => (
-  <motion.div 
-    variants={{
-      hidden: { opacity: 0, y: 20, scale: 0.95 },
-      visible: { opacity: 1, y: 0, scale: 1 }
-    }}
-    whileHover={{ 
-      y: -10, 
-      backgroundColor: "rgba(255, 255, 255, 1)",
-      borderColor: "rgba(var(--primary), 0.1)"
-    }}
-    className="p-8 md:p-10 bg-white rounded-[2rem] md:rounded-[2.5rem] border border-outline-variant/10 shadow-sm transition-all duration-500 overflow-hidden relative group h-full flex flex-col"
-  >
-    <div className="absolute -top-12 -right-12 w-24 h-24 bg-secondary/5 rounded-full blur-2xl group-hover:bg-secondary/10 transition-colors" />
-    <div className="text-secondary mb-6 md:mb-8 relative z-10 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 flex-shrink-0">
-      <span className="material-symbols-outlined" style={{ fontSize: '6rem', lineHeight: 1 }}>{item.icon}</span>
-    </div>
-    <h3 className="text-xl md:text-2xl font-black mb-3 md:mb-4 tracking-tight group-hover:text-secondary transition-colors leading-tight">{item.title}</h3>
-    <p className="text-on-surface-variant text-sm md:text-base leading-relaxed font-bold opacity-70 group-hover:opacity-100 transition-opacity flex-grow">{item.desc}</p>
-  </motion.div>
+    <motion.div 
+      variants={{
+        hidden: { opacity: 0, y: 20, scale: 0.95 },
+        visible: { opacity: 1, y: 0, scale: 1 }
+      }}
+      whileHover={{ 
+        y: -10, 
+        backgroundColor: "rgba(255, 255, 255, 1)",
+        borderColor: "rgba(var(--primary), 0.1)"
+      }}
+      className="p-8 md:p-10 bg-white rounded-[2rem] md:rounded-[2.5rem] border border-outline-variant/10 shadow-sm transition-all duration-500 overflow-hidden relative group h-full flex flex-col"
+    >
+      <div className="absolute -top-12 -right-12 w-24 h-24 bg-secondary/5 rounded-full blur-2xl group-hover:bg-secondary/10 transition-colors" />
+      <div className="text-secondary mb-6 md:mb-8 relative z-10 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 flex-shrink-0">
+        <span className="material-symbols-outlined" style={{ fontSize: '6rem', lineHeight: 1 }}>{item.icon}</span>
+      </div>
+      <h3 className="text-xl md:text-2xl font-black mb-3 md:mb-4 tracking-tight group-hover:text-secondary transition-colors leading-tight">{item.title}</h3>
+      <p className="text-on-surface-variant text-sm md:text-base leading-relaxed font-bold opacity-70 group-hover:opacity-100 transition-opacity flex-grow">{item.desc}</p>
+    </motion.div>
 );

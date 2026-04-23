@@ -77,7 +77,7 @@ export default function ContactClient() {
     <main className="min-h-screen bg-surface">
       <Navbar />
       
-      <header className="relative w-full h-[60vh] min-h-[500px] md:h-screen md:min-h-[800px] flex items-center justify-center overflow-hidden">
+      <header className="relative w-full h-[60vh] min-h-[500px] md:h-[calc(100vh-156px)] md:min-h-[700px] flex items-center justify-center overflow-hidden mt-[104px] md:mt-[156px]">
         <motion.div 
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
@@ -115,7 +115,7 @@ export default function ContactClient() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="font-body text-base md:text-2xl text-white/90 font-bold leading-relaxed max-w-2xl text-left drop-shadow-lg opacity-80"
           >
-            Ready to schedule a service or get a free estimate? Our team is available 24/7 for all your comfort needs.
+            Want to book or ask for a free estimate? Our team is always ready to assist you 24/7
           </motion.p>
         </motion.div>
       </header>
@@ -131,9 +131,9 @@ export default function ContactClient() {
             className="space-y-16"
           >
             <motion.div variants={itemVariants} className="space-y-4 text-center lg:text-left">
-              <h2 className="text-[10px] font-black text-primary uppercase tracking-[0.3em]">Reach Our Experts</h2>
+              <h2 className="text-xl md:text-3xl font-black text-primary uppercase tracking-[0.2em]">Connect With Ontario’s HVAC Masters.</h2>
               <p className="text-on-surface-variant text-base md:text-xl leading-relaxed font-bold opacity-80">
-                Whether it's an emergency repair or a consultation for a new installation, we're just a call or message away.
+                Contact us now for a professional consultation and see why RBZ is the GTA's trusted name in climate control.
               </p>
             </motion.div>
             
@@ -222,8 +222,8 @@ export default function ContactClient() {
               ) : (
                 <motion.div key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                   <div className="mb-10 md:mb-16 text-center md:text-left">
-                    <h2 className="text-3xl md:text-5xl font-black mb-4 text-on-surface tracking-tight">Request a Consultation</h2>
-                    <p className="text-on-surface-variant font-bold opacity-60 text-sm md:text-base leading-relaxed">Fill out the form below and we'll reach out to you shortly to discuss your home comfort needs.</p>
+                    <h2 className="text-3xl md:text-5xl font-black mb-4 text-on-surface tracking-tight">Connect with an RBZ Specialist</h2>
+                    <p className="text-on-surface-variant font-bold opacity-60 text-sm md:text-base leading-relaxed">Complete the brief inquiry below, and our TSSA-certified team will reach out shortly to discuss your requirements.</p>
                   </div>
                   
                   <form className="space-y-8" onSubmit={handleSubmit} noValidate>

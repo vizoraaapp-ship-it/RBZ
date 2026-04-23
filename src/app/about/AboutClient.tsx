@@ -12,22 +12,22 @@ const VALUES = [
   { 
     title: 'Quality Workmanship', 
     icon: 'handyman', 
-    desc: 'No cutting corners. Every installation and repair is executed with surgical precision and lasting integrity.' 
+    desc: 'No cutting corners. We prioritize rigid, high-grade materials and perfect alignments in every project.' 
   },
   { 
     title: 'Transparent Pricing', 
     icon: 'payments', 
-    desc: 'Honest estimates without hidden fees. We build trust through clarity in every line item of our billing.' 
+    desc: 'With RBZ, what you see on the quote is what you see on the invoice—no hidden fees, no "surprise" labor costs.' 
   },
   { 
     title: 'Certified Team', 
     icon: 'verified', 
-    desc: 'Our technicians are TSSA certified and undergo continuous training to master the latest climate technologies.' 
+    desc: 'We invest in continuous technical training to ensure you receive the most advanced mechanical expertise in Ontario.' 
   },
   { 
     title: 'Eco-Friendly', 
     icon: 'eco', 
-    desc: 'Committed to Ontario\'s greener future through high-efficiency heat pumps and energy-saving audits.' 
+    desc: 'We help Ontario homeowners reduce their carbon footprint while slashing monthly utility costs for a better future.' 
   }
 ];
 
@@ -43,7 +43,7 @@ export default function AboutClient() {
     <main className="min-h-screen bg-surface">
       <Navbar />
       
-      <header className="relative w-full h-[60vh] min-h-[500px] md:h-screen md:min-h-[800px] flex items-center justify-center overflow-hidden">
+      <header className="relative w-full h-[60vh] min-h-[500px] md:h-[calc(100vh-156px)] md:min-h-[700px] flex items-center justify-center overflow-hidden mt-[104px] md:mt-[156px]">
         <motion.div 
           initial={{ scale: 1.1, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -86,66 +86,29 @@ export default function AboutClient() {
       </header>
 
       <Section id="who-we-are">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="space-y-6 md:space-y-8 text-center md:text-left"
+            className="space-y-8 md:space-y-12 text-center md:text-left"
           >
-            <h2 className="text-3xl md:text-6xl font-black tracking-tight text-on-surface leading-tight">Who We Are</h2>
-            <div className="space-y-6 text-lg text-on-surface-variant font-medium leading-relaxed opacity-90">
-              <p>
-                At RBZ Climate Solutions, we believe that the environment you live and work in dictates your quality of life. For over 10 years, our team has been the cornerstone of HVAC reliability throughout Ontario, blending technical expertise with white-glove service.
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-6xl font-black tracking-tight text-on-surface leading-tight">Who We Are</h2>
+              <p className="text-lg md:text-xl text-on-surface-variant font-bold leading-relaxed opacity-90">
+                At RBZ Climate Solutions, we believe the air you breathe and the warmth of your home define your quality of life. For over 10 years, specializing in the precision installation and emergency repair of high-performance HVAC systems.
               </p>
-              <p>
-                What started as a small family-focused repair shop has evolved into a leading architectural partner for environmental control. We don't just install units; we design sustainable systems that optimize comfort, air purity, and energy efficiency.
-              </p>
-              <p>
-                Our mission is to elevate the standard of living across Ontario by providing superior heating, cooling, and water solutions that prioritize precision, sustainability, and human comfort.
-              </p>
+            </div>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="mt-10"
-              >
-                <div className="flex flex-col md:flex-row items-center gap-8">
-                  <Image 
-                    src="/tssa.png" 
-                    alt="TSSA Certification Logo" 
-                    width={160} 
-                    height={160} 
-                    className="w-28 h-28 md:w-36 md:h-36 object-contain shrink-0"
-                    unoptimized
-                  />
-
-                  <div className="space-y-4 text-center md:text-left">
-                    <div className="space-y-2">
-                       <h3 className="text-2xl font-black text-on-surface tracking-tight">TSSA Certified & Verified</h3>
-                       <p className="text-sm text-on-surface-variant font-medium leading-relaxed opacity-80">
-                         We are fully certified and verified by TSSA, ensuring all our HVAC and mechanical services meet the highest safety and regulatory standards.
-                       </p>
-                    </div>
-                    
-                    <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
-                        {[
-                          { icon: 'shield_lock', label: 'Safety Compliant' },
-                          { icon: 'verified_user', label: 'Licensed Professionals' },
-                          { icon: 'assignment_turned_in', label: 'Regulatory Approved' }
-                        ].map((indicator) => (
-                          <div key={indicator.label} className="flex items-center gap-3 px-5 py-2.5 bg-white rounded-full border border-outline-variant/10 shadow-md transition-all hover:bg-primary/5 hover:border-primary/20 hover:scale-105">
-                             <span className="material-symbols-outlined text-primary text-lg font-black">{indicator.icon}</span>
-                             <span className="text-xs md:text-sm font-black uppercase tracking-widest text-on-surface-variant">{indicator.label}</span>
-                          </div>
-                        ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-6xl font-black tracking-tight text-on-surface leading-tight">What We Do</h2>
+              <p className="text-lg md:text-xl text-on-surface-variant font-medium leading-relaxed opacity-90">
+                We don't just swap parts; we provide structural solutions. From installing high-efficiency furnaces and AC units to executing complex boiler and gas piping projects, strict adherence to safety and security regulations directs our work, which is completed with a careful, superior finish.
+              </p>
+              <p className="text-lg md:text-xl text-primary font-black italic">
+                When performance cannot be compromised, Ontario calls upon us.
+              </p>
             </div>
           </motion.div>
           
@@ -168,6 +131,95 @@ export default function AboutClient() {
             </div>
           </motion.div>
         </div>
+      </Section>
+
+      <Section id="tssa-verification" background="surface">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-white rounded-[3rem] p-8 md:p-16 border border-outline-variant/10 shadow-xl shadow-primary/5 relative overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 p-8 opacity-5">
+            <span className="material-symbols-outlined text-[200px] font-black">verified</span>
+          </div>
+
+          <div className="flex flex-col md:flex-row items-center gap-12 relative z-10">
+            <Image 
+              src="/tssa.png" 
+              alt="TSSA Certification" 
+              width={240} 
+              height={240} 
+              className="w-40 h-40 md:w-56 md:h-56 object-contain shrink-0 drop-shadow-2xl"
+              unoptimized
+            />
+            <div className="space-y-6 text-center md:text-left">
+              <div className="space-y-4">
+                <h3 className="text-sm md:text-base font-black text-primary uppercase tracking-[0.3em]">TSSA Certified. Professionally Verified. RBZ Trusted.</h3>
+                <h2 className="text-3xl md:text-5xl font-black text-on-surface tracking-tight leading-tight">Safety Without Compromise</h2>
+                <p className="text-lg text-on-surface-variant font-medium leading-relaxed max-w-3xl">
+                  RBZ Climate Solutions is fully TSSA Certified, meaning our technicians are rigorously vetted and our work is strictly audited against Ontario’s highest safety regulations. We make sure all our work is done properly and built to last.
+                </p>
+              </div>
+              
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                {['Licensed Professionals', 'Safety Audited', 'Compliance Verified'].map((tag) => (
+                  <div key={tag} className="px-6 py-2 bg-primary/5 rounded-full border border-primary/10 text-primary text-xs font-black uppercase tracking-widest">
+                    {tag}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </Section>
+
+      <Section id="rbz-difference" className="py-0 px-4 md:px-8 mb-20">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-blue-950 rounded-[3rem] p-10 md:p-20 text-white relative overflow-hidden shadow-2xl shadow-primary/20"
+        >
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px] -mr-32 -mt-32" />
+          
+          <div className="relative z-10 space-y-12">
+            <div className="text-center md:text-left space-y-2">
+              <h2 className="text-3xl md:text-6xl font-black tracking-tight">The RBZ Difference</h2>
+              <p className="text-primary-fixed font-black uppercase tracking-[0.3em] text-xs opacity-60">Engineered for Reliability</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+              {[
+                { 
+                  title: '24/7 Technical Readiness', 
+                  icon: 'emergency_home', 
+                  desc: 'Whether it’s a midnight gas leak or a mid-winter furnace failure, our emergency repair team is on-call to restore your comfort immediately.' 
+                },
+                { 
+                  title: 'Precision Installation', 
+                  icon: 'settings_input_component', 
+                  desc: 'Every unit we install from water heaters to ERV systems is calibrated for maximum energy efficiency and long-term durability.' 
+                },
+                { 
+                  title: 'Uncompromising Standards', 
+                  icon: 'verified', 
+                  desc: 'We make sure all our work is done properly and built to last. Professionally verified and audited for excellence.' 
+                }
+              ].map((item, index) => (
+                <div key={index} className="space-y-6">
+                  <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-primary-fixed shadow-inner">
+                    <span className="material-symbols-outlined text-3xl font-black">{item.icon}</span>
+                  </div>
+                  <div className="space-y-4">
+                    <h3 className="text-2xl font-black tracking-tight leading-tight">{item.title}</h3>
+                    <p className="text-white/70 font-medium leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </Section>
 
       <Section background="primary" className="py-24 relative overflow-hidden">
@@ -213,8 +265,8 @@ export default function AboutClient() {
           viewport={{ once: true }}
           className="text-center mb-12 lg:mb-24 space-y-4"
         >
-          <h2 className="text-3xl md:text-5xl font-black text-on-surface tracking-tight">The Foundation of RBZ</h2>
-          <p className="text-base md:text-lg text-on-surface-variant font-medium opacity-80 max-w-lg mx-auto">Our core values drive every interaction and installation.</p>
+          <h2 className="text-3xl md:text-6xl font-black text-on-surface tracking-tight">The RBZ Standard</h2>
+          <p className="text-base md:text-lg text-on-surface-variant font-medium opacity-80 max-w-lg mx-auto">Our four pillars of operational excellence and customer trust.</p>
         </motion.div>
         
         <motion.div 
@@ -273,10 +325,9 @@ export default function AboutClient() {
               className="relative z-10 space-y-10 md:space-y-12"
             >
               <div className="space-y-6">
-                <h2 className="text-3xl md:text-7xl font-black mb-8 tracking-tight leading-[1.1]">Ready to work with <br /> a team you can trust?</h2>
-                <p className="text-primary-fixed text-base md:text-2xl max-w-2xl mx-auto font-bold opacity-80 leading-relaxed">
-                  Contact us today for a diagnostic audit or to discuss your upcoming installation project. Expert care is just a click away.
-                </p>
+                <h2 className="text-3xl md:text-6xl font-black mb-8 tracking-tight leading-[1.2] max-w-4xl mx-auto">
+                  Great for people looking to upgrade to newer, greener tech. Reliable, transparent, and just a click away, get the professional support you deserve.
+                </h2>
               </div>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-8 pt-4 md:pt-8">
