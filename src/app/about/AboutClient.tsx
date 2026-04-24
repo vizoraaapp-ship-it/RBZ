@@ -64,7 +64,7 @@ export default function AboutClient() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-20 max-w-7xl mx-auto px-6 md:px-8 text-left space-y-6 md:space-y-8 w-full"
+          className="relative z-20 max-w-7xl 2xl:max-w-screen-2xl 3xl:max-w-[1800px] mx-auto px-6 md:px-8 text-left space-y-6 md:space-y-8 w-full"
         >
           <motion.h1 
             initial={{ opacity: 0, scale: 0.95 }}
@@ -109,6 +109,22 @@ export default function AboutClient() {
               <p className="text-lg md:text-xl text-primary font-black italic">
                 When performance cannot be compromised, Ontario calls upon us.
               </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+              <div className="space-y-4">
+                <h3 className="text-2xl md:text-3xl font-black tracking-tight text-primary leading-tight">RBZ Mission</h3>
+                <p className="text-base md:text-lg text-on-surface-variant font-medium leading-relaxed opacity-90">
+                  RBZ Climate Solutions provides a degree of trustworthiness and technological supremacy to offer the most advanced HVAC services to the GTA.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-2xl md:text-3xl font-black tracking-tight text-primary leading-tight">RBZ Vision</h3>
+                <p className="text-base md:text-lg text-on-surface-variant font-medium leading-relaxed opacity-90">
+                  To set the standard for innovation, mentoring, and a "customer-first" approach to all repairs and installations in Ontario's HVAC sector.
+                </p>
+              </div>
             </div>
           </motion.div>
           
@@ -295,7 +311,7 @@ export default function AboutClient() {
       </Section>
 
       <section className="py-24 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl 2xl:max-w-screen-2xl 3xl:max-w-[1800px] mx-auto">
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}

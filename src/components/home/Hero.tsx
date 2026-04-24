@@ -190,7 +190,7 @@ const Hero = () => {
           exit="exit"
           className="relative z-20 h-full flex items-center pt-[80px] md:pt-0"
         >
-          <div className="max-w-7xl mx-auto px-6 md:px-8 w-full">
+          <div className="max-w-7xl 2xl:max-w-screen-2xl 3xl:max-w-[1800px] mx-auto px-6 md:px-8 w-full">
             <div className="max-w-3xl mx-auto lg:mx-0 text-center lg:text-left">
               {/* Text Content */}
               <div className="space-y-4 md:space-y-6">

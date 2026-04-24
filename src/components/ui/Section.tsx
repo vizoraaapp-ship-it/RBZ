@@ -37,7 +37,7 @@ const Section: React.FC<SectionProps> = ({
       className={`py-12 md:py-20 overflow-hidden ${backgrounds[background]} ${className}`}
     >
       <motion.div 
-        className={`${fullWidth ? 'w-full' : 'max-w-7xl mx-auto px-4 md:px-8'} ${containerClassName}`}
+        className={`${fullWidth ? 'w-full' : 'max-w-7xl 2xl:max-w-screen-2xl 3xl:max-w-[1800px] mx-auto px-4 md:px-8'} ${containerClassName}`}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }} // Animated in when 10% visible

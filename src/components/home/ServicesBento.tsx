@@ -44,8 +44,8 @@ const ServicesBento = () => {
   const [isPausedRow1, setIsPausedRow1] = React.useState(false);
   const [isPausedRow2, setIsPausedRow2] = React.useState(false);
   // Update rows to include new services
-  const row1 = [...SERVICES.slice(0, 5), ...SERVICES.slice(0, 5), ...SERVICES.slice(0, 5)];
-  const row2 = [...SERVICES.slice(5, 11), ...SERVICES.slice(5, 11), ...SERVICES.slice(5, 11)];
+  const row1 = [...SERVICES.slice(0, 5), ...SERVICES.slice(0, 5), ...SERVICES.slice(0, 5), ...SERVICES.slice(0, 5), ...SERVICES.slice(0, 5)];
+  const row2 = [...SERVICES.slice(5, 11), ...SERVICES.slice(5, 11), ...SERVICES.slice(5, 11), ...SERVICES.slice(5, 11), ...SERVICES.slice(5, 11)];
 
   return (
     <Section id="services" background="surface">

@@ -180,7 +180,7 @@ const Navbar = () => {
         }}
         className="w-full transition-shadow duration-300 border-b border-white/10 flex items-center shadow-md"
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-8 flex justify-between items-center w-full">
+        <div className="max-w-7xl 2xl:max-w-screen-2xl 3xl:max-w-[1800px] mx-auto px-6 md:px-8 flex justify-between items-center w-full">
           <Link href="/" className="flex items-center">
             <motion.div style={{ scale: logoScale, originX: 0 }}>
               <Image 
@@ -240,7 +240,7 @@ const Navbar = () => {
             className="flex items-stretch h-full w-max"
             animate={controls}
           >
-            {[...HVAC_CATEGORIES, ...HVAC_CATEGORIES].map((category, index) => (
+            {[...HVAC_CATEGORIES, ...HVAC_CATEGORIES, ...HVAC_CATEGORIES, ...HVAC_CATEGORIES].map((category, index) => (
               <div 
                 key={`${category.name}-${index}`} 
                 className="relative flex items-center flex-shrink-0"

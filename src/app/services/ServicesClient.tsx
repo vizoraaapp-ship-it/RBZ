@@ -167,7 +167,7 @@ export default function ServicesClient() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-20 max-w-7xl mx-auto px-6 md:px-8 text-left space-y-6 md:space-y-8 w-full"
+          className="relative z-20 max-w-7xl 2xl:max-w-screen-2xl 3xl:max-w-[1800px] mx-auto px-6 md:px-8 text-left space-y-6 md:space-y-8 w-full"
         >
           <motion.h1 
             initial={{ opacity: 0, scale: 0.95 }}
