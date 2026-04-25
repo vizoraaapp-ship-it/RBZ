@@ -17,18 +17,18 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL('https://rbzclimatesolutions.com'),
   title: {
-    default: "RBZ Climate Solutions | Premium HVAC Services Ontario",
+    default: "RBZ Climate Solutions | Premium HVAC Services GTA",
     template: "%s | RBZ Climate Solutions"
   },
-  description: "Expert HVAC services in Ontario including furnace, AC, heat pumps, and repairs. Reliable and affordable solutions.",
-  keywords: ["HVAC Ontario", "Furnace Repair GTA", "AC Installation Canada", "Heat Pump Ontario", "RBZ Climate Solutions", "HVAC repair"],
+  description: "Expert HVAC services in the GTA including furnace, AC, heat pumps, and repairs. Reliable and affordable solutions.",
+  keywords: ["HVAC GTA", "Furnace Repair GTA", "AC Installation Canada", "Heat Pump GTA", "RBZ Climate Solutions", "HVAC repair"],
   authors: [{ name: "RBZ Climate Solutions" }],
   openGraph: {
     type: "website",
     locale: "en_CA",
     url: "https://rbzclimatesolutions.com",
     title: "RBZ Climate Solutions",
-    description: "Trusted premium HVAC services across Ontario.",
+    description: "Trusted premium HVAC services across the GTA.",
     siteName: "RBZ Climate Solutions",
   },
   robots: {

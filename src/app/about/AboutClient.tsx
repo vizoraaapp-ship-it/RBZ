@@ -10,24 +10,33 @@ import Counter from '@/components/ui/Counter';
 
 const VALUES = [
   { 
-    title: 'Quality Workmanship', 
-    icon: 'handyman', 
-    desc: 'No cutting corners. We prioritize rigid, high-grade materials and perfect alignments in every project.' 
+    title: 'Built to Last', 
+    image: 'https://cdn-icons-png.flaticon.com/512/3259/3259163.png',
+    color: '#0EA5E9',
+    bgColor: 'bg-sky-500/10',
+    desc: 'We never cut corners. Every project is completed using premium materials and precise installation — because your home deserves workmanship that holds up.' 
   },
   { 
-    title: 'Transparent Pricing', 
-    icon: 'payments', 
-    desc: 'With RBZ, what you see on the quote is what you see on the invoice—no hidden fees, no "surprise" labor costs.' 
+    title: 'No Surprise Bills', 
+    image: 'https://cdn-icons-png.flaticon.com/512/2489/2489756.png',
+    color: '#F59E0B',
+    bgColor: 'bg-amber-500/10',
+    desc: 'Your quote is your invoice. RBZ provides upfront, itemized pricing — no hidden charges, no mystery labour fees tacked on at the end.' 
   },
   { 
-    title: 'Certified Team', 
-    icon: 'verified', 
-    desc: 'We invest in continuous technical training to ensure you receive the most advanced mechanical expertise in Ontario.' 
+    title: 'Trained & Trusted Professionals', 
+    image: 'https://cdn-icons-png.flaticon.com/512/7641/7641727.png',
+    color: '#8B5CF6',
+    bgColor: 'bg-violet-500/10',
+    desc: 'Our team undergoes ongoing technical training to stay current with the latest methods so every job is handled with skilled, up-to-date expertise.' 
   },
   { 
-    title: 'Eco-Friendly', 
-    icon: 'eco', 
-    desc: 'We help Ontario homeowners reduce their carbon footprint while slashing monthly utility costs for a better future.' 
+    title: 'Greener Homes, Lower Bills', 
+    image: 'https://cdn-icons-png.flaticon.com/512/3233/3233514.png',
+    attribution: 'Vlad Szirka - Flaticon',
+    color: '#10B981',
+    bgColor: 'bg-emerald-500/10',
+    desc: 'We help Ontario homeowners make smart, sustainable upgrades that cut energy costs month after month — good for your wallet and the environment.' 
   }
 ];
 
@@ -80,7 +89,7 @@ export default function AboutClient() {
             transition={{ delay: 0.9, duration: 0.8 }}
             className="text-base md:text-2xl text-white/90 font-medium leading-relaxed max-w-2xl text-left drop-shadow-lg opacity-80"
           >
-            Trusted by homeowners and businesses across Ontario to deliver precise atmospheric mastery and mechanical reliability.
+            Trusted by homeowners and businesses across the GTA to deliver precise atmospheric mastery and mechanical reliability.
           </motion.p>
         </motion.div>
       </header>
@@ -107,7 +116,7 @@ export default function AboutClient() {
                 We don't just swap parts; we provide structural solutions. From installing high-efficiency furnaces and AC units to executing complex boiler and gas piping projects, strict adherence to safety and security regulations directs our work, which is completed with a careful, superior finish.
               </p>
               <p className="text-lg md:text-xl text-primary font-black italic">
-                When performance cannot be compromised, Ontario calls upon us.
+                When performance cannot be compromised, the GTA calls upon us.
               </p>
             </div>
 
@@ -122,7 +131,7 @@ export default function AboutClient() {
               <div className="space-y-4">
                 <h3 className="text-2xl md:text-3xl font-black tracking-tight text-primary leading-tight">RBZ Vision</h3>
                 <p className="text-base md:text-lg text-on-surface-variant font-medium leading-relaxed opacity-90">
-                  To set the standard for innovation, mentoring, and a "customer-first" approach to all repairs and installations in Ontario's HVAC sector.
+                  To set the standard for innovation, mentoring, and a "customer-first" approach to all repairs and installations in the GTA's HVAC sector.
                 </p>
               </div>
             </div>
@@ -174,7 +183,7 @@ export default function AboutClient() {
                 <h3 className="text-sm md:text-base font-black text-primary uppercase tracking-[0.3em]">TSSA Certified. Professionally Verified. RBZ Trusted.</h3>
                 <h2 className="text-3xl md:text-5xl font-black text-on-surface tracking-tight leading-tight">Safety Without Compromise</h2>
                 <p className="text-lg text-on-surface-variant font-medium leading-relaxed max-w-3xl">
-                  RBZ Climate Solutions is fully TSSA Certified, meaning our technicians are rigorously vetted and our work is strictly audited against Ontario’s highest safety regulations. We make sure all our work is done properly and built to last.
+                  RBZ Climate Solutions is fully TSSA Certified, meaning our technicians are rigorously vetted and our work is strictly audited against the GTA’s highest safety regulations. We make sure all our work is done properly and built to last.
                 </p>
               </div>
               
@@ -311,13 +320,13 @@ export default function AboutClient() {
       </Section>
 
       <section className="py-24 px-4 md:px-8">
-        <div className="max-w-7xl 2xl:max-w-screen-2xl 3xl:max-w-[1800px] mx-auto">
+        <div className="max-w-5xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="bg-blue-950 rounded-[2.5rem] md:rounded-[4rem] p-10 md:p-32 text-center relative overflow-hidden text-white shadow-2xl border border-white/5"
+            className="bg-blue-950 rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-16 text-center relative overflow-hidden text-white shadow-2xl border border-white/5"
           >
             <motion.div 
               animate={{ 
@@ -338,10 +347,10 @@ export default function AboutClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="relative z-10 space-y-10 md:space-y-12"
+              className="relative z-10 space-y-8 md:space-y-10"
             >
               <div className="space-y-6">
-                <h2 className="text-3xl md:text-6xl font-black mb-8 tracking-tight leading-[1.2] max-w-4xl mx-auto">
+                <h2 className="text-2xl md:text-4xl font-black mb-6 tracking-tight leading-[1.3] max-w-3xl mx-auto">
                   Great for people looking to upgrade to newer, greener tech. Reliable, transparent, and just a click away, get the professional support you deserve.
                 </h2>
               </div>
@@ -383,19 +392,37 @@ const AboutValueCard = ({ value }: { value: any }) => (
     whileHover={{ 
       y: -10,
       boxShadow: "0 30px 60px -12px rgba(0, 0, 0, 0.15)",
-      borderColor: "rgba(var(--primary), 0.2)"
+      borderColor: value.color + "40"
     }}
     className="p-10 bg-white rounded-[2.5rem] shadow-sm border border-outline-variant/10 transition-all duration-500 overflow-hidden relative group h-full flex flex-col"
   >
-    <div className="absolute inset-0 bg-primary/[0.02] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+    <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none ${value.bgColor}`} />
     
-    <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 text-primary transition-transform relative z-10 flex-shrink-0">
-      <span className="material-symbols-outlined text-3xl font-black">{value.icon}</span>
+    <div className={`w-16 h-16 ${value.bgColor} rounded-2xl flex items-center justify-center mb-8 transition-transform relative z-10 flex-shrink-0 p-3`} style={{ color: value.color }}>
+      {value.image ? (
+        <div className="relative w-full h-full">
+          <Image 
+            src={value.image} 
+            alt={value.title} 
+            fill 
+            className="object-contain"
+            unoptimized
+          />
+        </div>
+      ) : (
+        <span className="material-symbols-outlined text-3xl font-black">{value.icon}</span>
+      )}
     </div>
     
     <div className="relative z-10 flex-grow">
-      <h3 className="text-2xl font-black text-on-surface mb-4 tracking-tight group-hover:text-primary transition-colors leading-tight">{value.title}</h3>
+      <h3 className="text-2xl font-black text-on-surface mb-4 tracking-tight group-hover:text-primary transition-colors leading-tight" style={{ color: value.color }}>{value.title}</h3>
       <p className="text-on-surface-variant text-sm leading-relaxed font-bold opacity-70 group-hover:opacity-100 transition-opacity">{value.desc}</p>
+      
+      {value.attribution && (
+        <p className="mt-4 text-[10px] text-on-surface-variant/40 italic font-medium">
+          Icon by <a href="https://www.flaticon.com/free-icons/green-power" className="hover:text-primary transition-colors underline" target="_blank" rel="noopener noreferrer">{value.attribution}</a>
+        </p>
+      )}
     </div>
   </motion.div>
 );

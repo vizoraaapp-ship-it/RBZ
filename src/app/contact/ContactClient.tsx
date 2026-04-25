@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { supabase } from '@/lib/supabase';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const INITIAL = { name: '', email: '', phone: '', subject: '', message: '' };
+const INITIAL = { name: '', email: '', phone: '', serviceType: '', serviceCategory: '', bookingDate: '', bookingTime: '', message: '' };
 
 export default function ContactClient() {
   const [form, setForm] = useState(INITIAL);
@@ -38,8 +38,14 @@ export default function ContactClient() {
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setLoading(true);
     const { error } = await supabase.from('contacts').insert({
-      name: form.name, email: form.email, phone: form.phone,
-      subject: form.subject || null, message: form.message || null,
+      name: form.name, 
+      email: form.email, 
+      phone: form.phone,
+      service_type: form.serviceType || null, 
+      service_category: form.serviceCategory || null,
+      booking_date: form.bookingDate || null,
+      booking_time: form.bookingTime || null,
+      message: form.message || null,
     });
     setLoading(false);
     
@@ -117,6 +123,15 @@ export default function ContactClient() {
           >
             Want to book or ask for a free estimate? Our team is always ready to assist you 24/7
           </motion.p>
+          <motion.a 
+            href="tel:+16472999648"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="block text-3xl md:text-6xl text-white font-black drop-shadow-2xl hover:text-primary transition-colors"
+          >
+            +1 647 299 9648
+          </motion.a>
         </motion.div>
       </header>
 
@@ -131,7 +146,7 @@ export default function ContactClient() {
             className="space-y-16"
           >
             <motion.div variants={itemVariants} className="space-y-4 text-center lg:text-left">
-              <h2 className="text-xl md:text-3xl font-black text-primary uppercase tracking-[0.2em]">Connect With Ontario’s HVAC Masters.</h2>
+              <h2 className="text-xl md:text-3xl font-black text-primary uppercase tracking-[0.2em]">Connect With the GTA’s HVAC Masters.</h2>
               <p className="text-on-surface-variant text-base md:text-xl leading-relaxed font-bold opacity-80">
                 Contact us now for a professional consultation and see why RBZ is the GTA's trusted name in climate control.
               </p>
@@ -139,7 +154,7 @@ export default function ContactClient() {
             
             <div className="space-y-8 md:space-y-12">
               {[
-                { icon: 'location_on', title: 'Our Office', content: '#220, 205 Morningside Avenue\nScarborough, Ontario, M1E 3E2' },
+                { icon: 'location_on', title: 'Our Office', content: '#220, 205 Morningside Avenue\nScarborough, GTA, M1E 3E2' },
                 { icon: 'phone_in_talk', title: 'Contact Details', content: 'Main: +1 647 299 9648\nEmail: info@rbzclimatesolutions.com' },
                 { icon: 'schedule', title: 'Business Hours', content: 'Mon - Fri: 8:00 AM - 6:00 PM\n24/7 Support Available' },
               ].map((item, idx) => (
@@ -167,21 +182,27 @@ export default function ContactClient() {
 
             <motion.div 
               variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.01 }}
               className="w-full h-80 md:h-96 bg-surface-container rounded-[2.5rem] md:rounded-[3rem] overflow-hidden relative shadow-2xl group border border-outline-variant/10"
             >
-              <div className="absolute inset-0 bg-primary/5 backdrop-blur-sm flex items-center justify-center">
-                <motion.span 
-                  animate={{ scale: [1, 1.2, 1] }} 
-                  transition={{ duration: 4, repeat: Infinity }}
-                  className="material-symbols-outlined text-7xl text-primary/20"
-                >
-                  map
-                </motion.span>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-8 py-4 rounded-2xl shadow-2xl font-black text-primary tracking-tight cursor-pointer">
-                  View On Google Maps
-                </div>
-              </div>
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2880.222!2d-79.1842545!3d43.7654239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4db53d4ee3cf3%3A0x6d9b7e300c72b537!2sRBZ%20Climate%20Solutions!5e0!3m2!1sen!2sca!4v1714041234567!5m2!1sen!2sca"
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full border-none"
+              />
+              <a 
+                href="https://www.google.com/maps/place/RBZ+Climate+Solutions/@43.7654239,-79.1842545,17z/data=!3m1!4b1!4m6!3m5!1s0x89d4db53d4ee3cf3:0x6d9b7e300c72b537!8m2!3d43.7654239!4d-79.1842545!16s%2Fg%2F11z0_hv5hx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-md px-6 py-3 rounded-xl shadow-xl font-black text-primary text-xs tracking-tight hover:bg-primary hover:text-white transition-all duration-300"
+              >
+                Open in Maps
+              </a>
             </motion.div>
           </motion.div>
 
@@ -247,21 +268,52 @@ export default function ContactClient() {
                         {errors.phone && <motion.p initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="text-error text-[10px] font-black uppercase tracking-widest mt-2 ml-1">{errors.phone}</motion.p>}
                       </div>
                       <div className="group">
-                        <label htmlFor="subject" className={labelStyle}>Topic</label>
+                        <label htmlFor="serviceType" className={labelStyle}>Service Type *</label>
                         <div className="relative">
-                          <select id="subject" value={form.subject} onChange={handleChange} className={`${inp('subject')} appearance-none cursor-pointer`}>
+                          <select id="serviceType" value={form.serviceType} onChange={handleChange} className={`${inp('serviceType')} appearance-none cursor-pointer`}>
                             <option value="">Select a topic...</option>
                             <option>Air Conditioning</option>
                             <option>Furnace / Heating</option>
                             <option>Heat Pump</option>
-                            <option>Water Systems</option>
-                            <option>Emergency Repair</option>
+                            <option>Water Tank</option>
+                            <option>Boiler</option>
+                            <option>Duct Work</option>
+                            <option>Repair</option>
                             <option>Other</option>
                           </select>
                           <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant/50">
                             <span className="material-symbols-outlined font-black">unfold_more</span>
                           </div>
                         </div>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div className="group">
+                        <label htmlFor="serviceCategory" className={labelStyle}>Service Category (Optional)</label>
+                        <div className="relative">
+                          <select id="serviceCategory" value={form.serviceCategory} onChange={handleChange} className={`${inp('serviceCategory')} appearance-none cursor-pointer`}>
+                            <option value="">Select category...</option>
+                            <option value="Install">Install</option>
+                            <option value="Repair">Repair</option>
+                            <option value="Maintenance">Maintenance</option>
+                            <option value="Opinion">Opinion</option>
+                          </select>
+                          <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant/50">
+                            <span className="material-symbols-outlined font-black">unfold_more</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="group">
+                        <label htmlFor="bookingDate" className={labelStyle}>Preferred Date (Optional)</label>
+                        <input type="date" id="bookingDate" value={form.bookingDate} onChange={handleChange} className={inp('bookingDate')} />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div className="group">
+                        <label htmlFor="bookingTime" className={labelStyle}>Preferred Time (Optional)</label>
+                        <input type="time" id="bookingTime" value={form.bookingTime} onChange={handleChange} className={inp('bookingTime')} />
                       </div>
                     </div>
                     

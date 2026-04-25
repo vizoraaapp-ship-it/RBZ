@@ -78,7 +78,7 @@ const Statistics = () => {
               className="text-4xl lg:text-6xl font-black text-on-background leading-[1.1] tracking-tight"
             >
               Trust and Reliability <br />
-              <span className="text-secondary">in GTA and Ontario</span>
+              <span className="text-secondary">in the GTA</span>
             </motion.h2>
             
             <motion.p 
@@ -88,7 +88,7 @@ const Statistics = () => {
               transition={{ delay: 0.4 }}
               className="text-xl text-on-surface-variant font-medium leading-relaxed max-w-xl"
             >
-              For over 10 years, RBZ Climate Solutions has been the leading provider of premium HVAC services across the Greater Toronto Area and Ontario.
+              For over 10 years, RBZ Climate Solutions has been the leading provider of premium HVAC services across the Greater Toronto Area (GTA).
             </motion.p>
           </div>
           
@@ -113,7 +113,7 @@ const Statistics = () => {
               className="space-y-5 pt-4"
             >
               {[
-                'Serving GTA and Ontario',
+                'Serving the GTA',
                 'Licensed & Fully Insured Technicians',
                 'Energy-Saving Solutions Experts',
                 '24/7 Emergency Response'

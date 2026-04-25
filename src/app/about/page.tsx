@@ -3,7 +3,7 @@ import AboutClient from "./AboutClient";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "Learn about RBZ Climate Solutions, our 10 years of experience, and our commitment to premium HVAC services in Ontario.",
+  description: "Learn about RBZ Climate Solutions, our 10 years of experience, and our commitment to premium HVAC services in the GTA.",
   alternates: {
     canonical: "/about",
   },

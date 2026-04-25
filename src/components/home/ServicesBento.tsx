@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import AutoSlider from '../ui/AutoSlider';
 
 const SERVICES = [
-  { name: 'Air Conditioner', icon: 'ac_unit', desc: 'Precision cooling for the hottest Ontario summers.', color: 'bg-blue-50' },
+  { name: 'Air Conditioner', icon: 'ac_unit', desc: 'Precision cooling for the hottest GTA summers.', color: 'bg-blue-50' },
   { name: 'Heat Pump', icon: 'heat_pump', desc: 'Efficient dual-purpose heating and cooling.', color: 'bg-blue-100/50' },
   { name: 'Furnace', icon: 'mode_fan', desc: 'Reliable gas and electric heating solutions.', color: 'bg-blue-50' },
   { name: 'Duct Work', icon: 'air', desc: 'Customized airflow for optimal efficiency.', color: 'bg-blue-100/50' },

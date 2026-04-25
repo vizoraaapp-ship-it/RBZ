@@ -19,6 +19,7 @@ const SERVICES_DATA = [
     detailedDescription: "Our comprehensive Air Conditioning solutions keep your home perfectly chilled during the hottest months. We provide end-to-end services from new installations of high-SEER systems to routine maintenance and emergency repairs.",
     features: ["Install", "Repair", "Maintenance"],
     image: "/service/airconditioner.jpeg",
+    objectFit: "cover",
     icon: "ac_unit"
   },
   {
@@ -64,6 +65,7 @@ const SERVICES_DATA = [
     detailedDescription: "Leaky or dirty ducts can reduce your HVAC efficiency by up to 30%. We design, install, repair, and clean custom ductwork to perfectly balance airflow throughout every room in your home.",
     features: ["Install", "Repair", "Maintenance"],
     image: "/service/duckwork.jfif",
+    objectFit: "cover",
     icon: "air"
   },
   {
@@ -73,6 +75,7 @@ const SERVICES_DATA = [
     detailedDescription: "HVAC emergencies don't wait for convenient times. Our rapid-response repair teams arrive with fully stocked trucks, ready to diagnose and restore your comfort systems 24/7.",
     features: ["Install", "Repair", "Maintenance"],
     image: "/service/repair.jfif",
+    objectFit: "cover",
     icon: "build"
   },
   {
@@ -91,6 +94,7 @@ const SERVICES_DATA = [
     detailedDescription: "Take total control of your home's ecosystem. We install and configure top-tier smart thermostats that learn your routine, allowing remote control and maximizing energy efficiency.",
     features: ["Install", "Repair", "Maintenance"],
     image: "/service/smarthome.jfif",
+    objectFit: "cover",
     icon: "smart_home"
   },
   {

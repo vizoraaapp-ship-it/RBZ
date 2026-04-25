@@ -22,10 +22,24 @@ interface ExtendedBanner {
 
 const DEFAULT_BANNERS: ExtendedBanner[] = [
   {
+    id: 'welcome',
+    image_url: '/hero-furnace.png',
+    banner_type: 'with_text',
+    badge: 'Welcome to RBZ Climate Solutions',
+    title: 'Precision Climate \nControl Specialists',
+    description: 'Providing the GTA with top-tier HVAC services for over 10 years. Quality you can feel in every breath.',
+    cta_text: 'Get a Free Quote',
+    cta_link: '/contact',
+    secondary_cta_text: 'Explore Services',
+    secondary_cta_link: '/services',
+    stats: [{v: '10+', l: 'Years Exp.'}, {v: '5k+', l: 'Happy Clients'}, {v: '24/7', l: 'Emergency'}],
+    accent_color: 'from-primary to-primary-dim'
+  },
+  {
     id: 'furnace',
     image_url: '/hero-furnace.png',
     banner_type: 'with_text',
-    badge: '#1 Rated HVAC Service in GTA and Ontario',
+    badge: '#1 Rated HVAC Service in GTA',
     title: 'Install, Repair \nand Maintenance',
     description: 'Precision climate control solutions for your home and business. Delivering excellence and comfort for over 10 years.',
     cta_text: 'Get a Free Quote',
@@ -95,7 +109,17 @@ const Hero = () => {
           stats: DEFAULT_BANNERS[0].stats, // Default stats for now
           accent_color: d.accent_color || 'from-primary to-primary-dim'
         }));
-        setBanners(mappedBanners);
+
+        // Sort so that banners with "Welcome" in the badge or title come first
+        const sortedBanners = [...mappedBanners].sort((a, b) => {
+          const aIsWelcome = a.badge.toLowerCase().includes('welcome') || a.title.toLowerCase().includes('welcome');
+          const bIsWelcome = b.badge.toLowerCase().includes('welcome') || b.title.toLowerCase().includes('welcome');
+          if (aIsWelcome && !bIsWelcome) return -1;
+          if (!aIsWelcome && bIsWelcome) return 1;
+          return 0;
+        });
+
+        setBanners(sortedBanners);
       }
     };
 

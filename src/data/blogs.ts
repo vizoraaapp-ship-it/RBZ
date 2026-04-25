@@ -13,11 +13,11 @@ export interface BlogPost {
 export const BLOGS_DATA: BlogPost[] = [
   {
     slug: "furnace-services-toronto-gta",
-    title: "Furnace Services in Toronto & GTA | RBZ Climate Solutions",
+    title: "Furnace Services in Toronto & GTA",
     excerpt: "When winter hits Toronto and the GTA, a reliable furnace isn't just a luxury—it's a necessity. Learn about our expert installation, repair, and maintenance services.",
     image: "/blog/furnace-interior.png",
     coverImage: "/blog/furnace-cover.png",
-    metaTitle: "Furnace Services Toronto & GTA | RBZ Climate Solutions | TSSA Certified",
+    metaTitle: "Furnace Services Toronto & GTA | TSSA Certified",
     metaDescription: "Professional furnace installation, repair, and maintenance in Toronto & GTA. TSSA & HRAI certified technicians. 24/7 service by RBZ Climate Solutions.",
     keywords: [
       "Furnace services Toronto",
@@ -118,9 +118,9 @@ Don’t wait until your furnace breaks down in the middle of winter. Whether you
     excerpt: "At RBZ Climate Solutions, we believe in providing our clients with the latest in climate technology. Here is everything you need to know about making the switch.",
     image: "/blog/heatpump-interior.png",
     coverImage: "/blog/heatpump-cover.png",
-    metaTitle: "Why Choose a Heat Pump for Your GTA Home | RBZ Climate Solutions",
+    metaTitle: "Why Choose a Heat Pump for Your GTA Home",
     metaDescription: "Learn why heat pumps are the most efficient heating and cooling solution for Toronto and the GTA. Discover savings, efficiency, and eco-friendly comfort.",
-    keywords: ["Heat Pump Toronto", "GTA Heat Pump", "Efficient HVAC Ontario", "Heat Pump Rebates Canada"],
+    keywords: ["Heat Pump Toronto", "GTA Heat Pump", "Efficient HVAC GTA", "Heat Pump Rebates Canada"],
     content: `At RBZ Climate Solutions, we believe in providing our clients with the latest in climate technology. Here is everything you need to know about making the switch.
 
 ### What is a Heat Pump?
@@ -141,7 +141,7 @@ Why maintain two separate systems? A heat pump replaces both your central air co
 A common myth is that heat pumps don't work in Canadian winters. Modern "Cold Climate" heat pumps are specifically engineered to operate effectively in temperatures as low as -25°C or -30°C. For those extra-frigid Toronto nights, many systems can be paired with a backup electric or gas source for total peace of mind.
 
 #### 4. Better for the Planet
-By utilizing electricity and moving heat rather than burning fossil fuels, you are significantly reducing your home’s carbon footprint. It’s one of the most impactful changes a homeowner can make to support a greener Ontario.
+By utilizing electricity and moving heat rather than burning fossil fuels, you are significantly reducing your home’s carbon footprint. It’s one of the most impactful changes a homeowner can make to support a greener GTA.
 
 ### Rebates and Incentives
 The federal and provincial governments often offer incentives to encourage energy-efficient upgrades. At RBZ Climate Solutions, we stay up to date on current programs to help you maximize your investment and lower your upfront costs.
@@ -153,11 +153,11 @@ Contact RBZ Climate Solutions today for a free consultation and let's find the r
   },
   {
     slug: "expert-ac-services-toronto-gta",
-    title: "Expert AC Services in Toronto & GTA | RBZ Climate Solutions",
+    title: "Expert AC Services in Toronto & GTA",
     excerpt: "When summer hits Toronto and the GTA, a reliable air conditioning system isn’t a luxury, it's a necessity. Get professional AC installation and repair.",
     image: "/service/airconditioner.jpeg",
     coverImage: "/service/airconditioner.jpeg",
-    metaTitle: "Expert AC Services Toronto & GTA | RBZ Climate Solutions | TSSA Certified",
+    metaTitle: "Expert AC Services Toronto & GTA | TSSA Certified",
     metaDescription: "Professional AC installation, repair, and maintenance in Toronto & GTA. TSSA & HRAI certified technicians. 24/7 emergency AC services.",
     keywords: [
       "AC services Toronto",

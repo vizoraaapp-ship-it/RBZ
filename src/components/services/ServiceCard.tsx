@@ -12,6 +12,7 @@ export interface ServiceCardProps {
   image: string;
   icon: string;
   isFlipped: boolean;
+  objectFit?: 'cover' | 'contain';
   onClick: () => void;
   onBook: (e: React.MouseEvent) => void;
 }
@@ -24,6 +25,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   image, 
   icon,
   isFlipped,
+  objectFit = 'contain',
   onClick,
   onBook
 }) => {
@@ -50,13 +52,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
         >
           {/* Image Container - Landscape rectangle */}
-          <div className="relative h-28 md:h-64 bg-slate-200 rounded-xl md:rounded-none overflow-hidden shrink-0">
+          <div className="relative h-28 md:h-64 bg-white rounded-xl md:rounded-none overflow-hidden shrink-0">
              <Image 
               src={image} 
               alt={title} 
               fill 
               sizes="(max-width: 768px) 50vw, 33vw"
-              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
+              className={`w-full h-full ${objectFit === 'cover' ? 'object-cover' : 'object-contain'} group-hover:scale-105 transition-transform duration-700`}
             />
             {/* Desktop Icon Badge */}
             <div className="hidden md:flex absolute top-6 left-6 bg-secondary/95 text-white p-3 rounded-2xl shadow-xl z-20">

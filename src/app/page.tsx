@@ -24,11 +24,11 @@ export default function Home() {
       "@type": "PostalAddress",
       "streetAddress": "#220, 205 Morningside Avenue",
       "addressLocality": "Scarborough",
-      "addressRegion": "Ontario",
+      "addressRegion": "GTA",
       "postalCode": "M1E 3E2",
       "addressCountry": "CA"
     },
-    "areaServed": "Ontario",
+    "areaServed": "GTA",
     "url": "https://rbzclimatesolutions.com",
     "sameAs": []
   };
@@ -47,10 +47,10 @@ export default function Home() {
       },
       {
         "@type": "Question",
-        "name": "Do you provide emergency HVAC repairs in Ontario?",
+        "name": "Do you provide emergency HVAC repairs in the GTA?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, RBZ Climate Solutions offers efficient HVAC repair services across Ontario."
+          "text": "Yes, RBZ Climate Solutions offers efficient HVAC repair services across the GTA."
         }
       }
     ]

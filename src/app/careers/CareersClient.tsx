@@ -14,7 +14,7 @@ const JOBS = [
     id: 1,
     title: 'HVAC Service Technician',
     type: 'Full-Time / Part-time / Interns / Volunteers',
-    location: 'Ontario/GTA',
+    location: 'GTA',
     description: 'Seeking experienced technicians for diagnostic and repair services. TSSA certification required.',
     icon: 'build'
   },
@@ -22,7 +22,7 @@ const JOBS = [
     id: 2,
     title: 'Lead HVAC Installer',
     type: 'Full-Time / Part-time / Interns / Volunteers',
-    location: 'Ontario/GTA',
+    location: 'GTA',
     description: 'Manage installation teams for residential and commercial heating and cooling systems.',
     icon: 'construction'
   },
@@ -30,7 +30,7 @@ const JOBS = [
     id: 3,
     title: 'Sales & Estimation Specialist',
     type: 'Full-Time / Part-time / Interns / Volunteers',
-    location: 'Ontario/GTA',
+    location: 'GTA',
     description: 'Expert in HVAC systems to provide accurate quotes and energy-efficient solutions to clients.',
     icon: 'sell'
   },
@@ -38,7 +38,7 @@ const JOBS = [
     id: 4,
     title: 'Customer Support Representative',
     type: 'Full-Time / Part-time / Interns / Volunteers',
-    location: 'Ontario/GTA',
+    location: 'GTA',
     description: 'Dedicated support for scheduling and client communications in a fast-paced environment.',
     icon: 'support_agent'
   },
@@ -46,7 +46,7 @@ const JOBS = [
     id: 5,
     title: 'Content Creator & Social Media',
     type: 'Full-Time / Part-time / Interns / Volunteers',
-    location: 'Ontario/GTA',
+    location: 'GTA',
     description: 'Seeking a creative professional to capture on-site content, manage social media presence, and elevate our digital brand Story.',
     icon: 'video_camera_front'
   }
@@ -137,7 +137,7 @@ export default function CareersClient() {
             transition={{ delay: 1, duration: 0.8 }}
             className="text-base md:text-2xl text-white/90 font-bold leading-relaxed max-w-2xl text-left drop-shadow-lg opacity-80"
           >
-            We are expanding our team of dedicated experts across the GTA & Ontario. Recent graduates are welcome at RBZ Climate Solutions. If you have the drive to learn and a passion for technical excellence, we’ll provide the platform to grow.
+            We are expanding our team of dedicated experts across the GTA. Recent graduates are welcome at RBZ Climate Solutions. If you have the drive to learn and a passion for technical excellence, we’ll provide the platform to grow.
           </motion.p>
           
           <div className="pt-0">
@@ -217,6 +217,13 @@ export default function CareersClient() {
           </motion.span>
           <h2 className="text-3xl md:text-6xl font-black text-on-background tracking-tight leading-tight">Current Opportunities</h2>
           <p className="text-base md:text-xl font-bold opacity-60 max-w-md mx-auto">Looking for professional growth? Apply today.</p>
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-xl md:text-3xl font-black text-red-600 drop-shadow-[0_0_15px_rgba(220,38,38,0.5)] animate-pulse uppercase tracking-widest pt-4"
+          >
+            We are currently not hiring
+          </motion.p>
         </motion.div>
         
         <motion.div 
@@ -267,7 +274,8 @@ export default function CareersClient() {
                   variant="primary"
                   size="sm"
                   fullWidth
-                  className="md:px-8 rounded-xl shadow-lg shadow-primary/10 whitespace-nowrap"
+                  disabled
+                  className="md:px-8 rounded-xl shadow-lg shadow-primary/10 whitespace-nowrap grayscale"
                   onClick={() => setSelectedJob(job.title)}
                 >
                   Apply Now

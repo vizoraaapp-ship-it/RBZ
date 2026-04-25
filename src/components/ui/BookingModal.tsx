@@ -139,7 +139,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
         <form onSubmit={handleSubmit} noValidate className="space-y-8 pb-10 md:pb-0">
           <div className="bg-primary/5 p-6 rounded-2xl border border-primary/10 mb-8">
             <p className="text-on-surface-variant text-sm md:text-base font-bold leading-relaxed opacity-80">
-              Schedule your professional HVAC service today. Our certified technicians serve all of Ontario with 24/7 support.
+              Schedule your professional HVAC service today. Our certified technicians serve the GTA with 24/7 support.
             </p>
           </div>
 
@@ -226,7 +226,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
             {/* Service Category */}
             <div className="group">
               <label htmlFor="booking-serviceCategory" className={labelClass}>
-                What Service <span className="text-[9px] opacity-50 lowercase">(Optional)</span>
+                Service Category <span className="text-[9px] opacity-50 lowercase">(Optional)</span>
               </label>
               <div className="relative">
                 <select

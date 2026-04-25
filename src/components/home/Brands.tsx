@@ -7,24 +7,24 @@ import Section from '../ui/Section';
 
 const BRANDS = [
   { name: 'Goodman', logo: '/brandlogo/image.png' },
-  { name: 'LG', logo: '/brandlogo/image1.png' },
-  { name: 'Carrier', logo: '/brandlogo/image2.png' },
-  { name: 'Daikin', logo: '/brandlogo/image3.png' },
+  { name: 'LG', logo: '/lg.png' },
+  { name: 'Amana', logo: '/brandlogo/image2.png' },
+  { name: 'Lennox', logo: '/brandlogo/image3.png' },
   { name: 'Honeywell', logo: '/brandlogo/image4.png' },
-  { name: 'Lennox', logo: '/brandlogo/image5.png' },
-  { name: 'Trane', logo: '/brandlogo/image6.png' },
-  { name: 'York', logo: '/brandlogo/image7.png' },
-  { name: 'Rheem', logo: '/brandlogo/image8.png' },
-  { name: 'Samsung', logo: '/brandlogo/image9.png' },
+  { name: 'Bryant', logo: '/brandlogo/image5.png' },
+  { name: 'Rheem', logo: '/brandlogo/image6.png' },
+  { name: 'Ruud', logo: '/brandlogo/image7.png' },
+  { name: 'American Standard', logo: '/brandlogo/image8.png' },
+  { name: 'Payne', logo: '/brandlogo/image9.png' },
   { name: 'Armstrong Air', logo: '/brandlogo/image10.png' },
-  { name: 'KeepRite', logo: '/brandlogo/image11.png' },
+  { name: 'Toshiba', logo: '/brandlogo/image11.png' },
   { name: 'Frigidaire', logo: '/brandlogo/image12.png' },
-  { name: 'Mitsubishi', logo: '/brandlogo/image13.png' },
-  { name: 'Napoleon', logo: '/brandlogo/image14.png' },
-  { name: 'Navien', logo: '/brandlogo/image15.png' },
-  { name: 'Bosch', logo: '/brandlogo/image16.png' },
-  { name: 'Fujitsu', logo: '/brandlogo/image17.png' },
-  { name: 'Moovair', logo: '/brandlogo/image18.png' },
+  { name: 'Weil-McLain', logo: '/brandlogo/image13.png' },
+  { name: 'WeatherKing', logo: '/brandlogo/image14.png' },
+  { name: 'Luxaire', logo: '/brandlogo/image15.png' },
+  { name: 'Fujitsu', logo: '/fujitsu.png' },
+  { name: 'Viessmann', logo: '/brandlogo/image17.png' },
+  { name: 'A.O. Smith', logo: '/brandlogo/image18.png' },
   { name: 'Gree', logo: '/brandlogo/image19.png' },
 ];
 
@@ -61,7 +61,7 @@ const Brands = () => {
                 src={brand.logo} 
                 alt={`${brand.name} logo`} 
                 fill 
-                className="object-contain p-2"
+                className="object-contain p-2 mix-blend-multiply"
                 sizes="(max-width: 768px) 50vw, 20vw"
               />
             </div>
@@ -91,7 +91,7 @@ const Brands = () => {
                     src={brand.logo} 
                     alt={`${brand.name} logo`} 
                     fill 
-                    className="object-contain"
+                    className="object-contain mix-blend-multiply"
                   />
                 </div>
               </div>
