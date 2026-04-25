@@ -146,7 +146,7 @@ export default function ContactClient() {
             className="space-y-16"
           >
             <motion.div variants={itemVariants} className="space-y-4 text-center lg:text-left">
-              <h2 className="text-xl md:text-3xl font-black text-primary uppercase tracking-[0.2em]">Connect With the GTA’s HVAC Masters.</h2>
+              <h2 className="text-xl md:text-3xl font-black text-primary uppercase tracking-[0.2em]">Connect With the GTA’s HVAC professional.</h2>
               <p className="text-on-surface-variant text-base md:text-xl leading-relaxed font-bold opacity-80">
                 Contact us now for a professional consultation and see why RBZ is the GTA's trusted name in climate control.
               </p>
