@@ -12,7 +12,7 @@ const BRANDS = [
   { name: 'Lennox', logo: '/brandlogo/image3.png' },
   { name: 'Honeywell', logo: '/brandlogo/image4.png' },
   { name: 'Bryant', logo: '/brandlogo/image5.png' },
-  { name: 'Rheem', logo: '/brandlogo/image6.png?v=2' },
+  { name: 'Rheem', logo: '/brandlogo/image6_v2.png' },
   { name: 'Ruud', logo: '/brandlogo/image7.png' },
   { name: 'American Standard', logo: '/brandlogo/image8.png' },
   { name: 'Payne', logo: '/brandlogo/image9.png' },
