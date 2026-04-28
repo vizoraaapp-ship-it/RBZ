@@ -7,32 +7,32 @@ import AutoSlider from '../ui/AutoSlider';
 
 const VALUES = [
   {
-    title: "Leading Manufacturers",
-    description: "Quality work from leading manufacturers.",
+    title: "Reliable Brands",
+    description: "Partnering with proven manufacturers for long-lasting performance.",
     icon: "🏭",
     color: "bg-secondary/10 text-secondary"
   },
   {
-    title: "Best Solutions",
-    description: "Expert advice and best suited solutions.",
+    title: "Solutions That Fit",
+    description: "We recommend what works best for your home or business—not a one-size-fits-all approach.",
     icon: "💡",
     color: "bg-secondary/10 text-secondary"
   },
   {
-    title: "No Surprises",
-    description: "The price we quote is the price you pay.",
+    title: "No Hidden Costs",
+    description: "Straightforward pricing you can depend on from start to finish.",
     icon: "✅",
     color: "bg-secondary/10 text-secondary"
   },
   {
-    title: "Budget Friendly",
-    description: "Payment, rental or financing options.",
+    title: "Budget-Friendly Plans",
+    description: "Multiple options available to make comfort affordable.",
     icon: "💰",
     color: "bg-secondary/10 text-secondary"
   },
   {
-    title: "Proudly Canadian",
-    description: "Experts for over 10 years.",
+    title: "Local & Experienced",
+    description: "Serving Canadians with a decade of HVAC expertise.",
     icon: "🍁",
     color: "bg-red-50 text-red-600"
   }
@@ -50,8 +50,8 @@ const OurValues = () => {
           className="mb-12 md:mb-20"
         >
           <h2 className="text-3xl md:text-5xl font-black text-on-background mb-4 tracking-tight">Experience Global Standards <br className="hidden md:block" /> <span className="text-primary">with Local Care</span></h2>
-          <p className="text-on-surface-variant text-base md:text-xl max-w-2xl mx-auto font-medium opacity-80">
-            RBZ Climate Solutions is built on trust, precision, and a commitment to your comfort.
+          <p className="text-on-surface-variant text-base md:text-xl max-w-3xl mx-auto font-medium opacity-80 leading-relaxed">
+            At RBZ Climate Solutions, our core values are built on a foundation of integrity, precision, and a deep commitment to our customers. We believe that everyone deserves a comfortable home, and we strive to provide that through our expert HVAC services.
           </p>
         </motion.div>
 

@@ -50,7 +50,7 @@ export default function Blogs() {
                     variant="outline" 
                     fullWidth 
                     href={`/blogs/${blog.slug}`}
-                    className="border-primary/20 text-primary hover:bg-primary hover:text-white"
+                    className="border-primary/20 text-primary hover:bg-primary hover:text-black active:text-black font-black"
                   >
                     View Article
                   </Button>

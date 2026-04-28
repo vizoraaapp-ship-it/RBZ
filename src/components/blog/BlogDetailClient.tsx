@@ -22,7 +22,7 @@ export default function BlogDetailClient({ blog }: { blog: BlogPost }) {
               <span className="material-symbols-outlined text-sm">auto_stories</span>
               Latest Insights
             </div>
-            <h1 className="text-4xl md:text-7xl font-black tracking-tight text-on-surface leading-[1.1]">
+            <h1 className="text-3xl md:text-5xl font-black tracking-tight text-on-surface leading-[1.1]">
               {blog.title}
             </h1>
           </header>
@@ -48,14 +48,14 @@ export default function BlogDetailClient({ blog }: { blog: BlogPost }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-on-surface prose-p:text-on-surface prose-p:font-medium prose-p:leading-relaxed prose-li:text-on-surface prose-li:font-medium prose-strong:text-on-surface prose-strong:font-black"
+            className="prose prose-sm md:prose-base max-w-none prose-headings:font-black prose-headings:text-on-surface prose-p:text-on-surface prose-p:font-medium prose-p:leading-relaxed prose-li:text-on-surface prose-li:font-medium prose-strong:text-on-surface prose-strong:font-black"
           >
             {blog.content.split(/\n\s*\n/).map((paragraph, i) => {
               if (paragraph.startsWith('### ')) {
-                return <h3 key={i} className="text-3xl md:text-4xl font-black text-on-surface mt-16 mb-8 scroll-mt-40">{paragraph.replace('### ', '')}</h3>;
+                return <h3 key={i} className="text-xl md:text-2xl font-black text-on-surface mt-10 mb-4 scroll-mt-40">{paragraph.replace('### ', '')}</h3>;
               }
               if (paragraph.startsWith('#### ')) {
-                return <h4 key={i} className="text-xl md:text-2xl font-black text-on-surface mt-12 mb-6">{paragraph.replace('#### ', '')}</h4>;
+                return <h4 key={i} className="text-base md:text-lg font-black text-on-surface mt-8 mb-3">{paragraph.replace('#### ', '')}</h4>;
               }
               
               const lines = paragraph.split('\n');
@@ -75,11 +75,11 @@ export default function BlogDetailClient({ blog }: { blog: BlogPost }) {
                 });
 
                 return (
-                  <div key={i} className="my-10 space-y-4">
+                  <div key={i} className="my-6 space-y-2">
                     {introLines.length > 0 && (
-                      <div className="space-y-4 mb-4">
+                      <div className="space-y-2 mb-2">
                         {introLines.map((line, idx) => (
-                          <p key={idx} className="text-lg md:text-xl font-medium text-on-surface leading-relaxed">
+                          <p key={idx} className="text-sm md:text-base font-medium text-on-surface leading-relaxed">
                             {line.split('**').map((part, pidx) => 
                               pidx % 2 === 1 ? <strong key={pidx} className="font-black">{part}</strong> : part
                             )}
@@ -87,11 +87,11 @@ export default function BlogDetailClient({ blog }: { blog: BlogPost }) {
                         ))}
                       </div>
                     )}
-                    <ul className="space-y-4 list-none p-0 ml-4 md:ml-8">
+                    <ul className="space-y-2 list-none p-0 ml-4 md:ml-8">
                       {listItems.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-4">
-                          <span className="w-2 h-2 rounded-full bg-on-surface shrink-0 mt-2.5 shadow-sm" />
-                          <span className="text-lg md:text-xl font-medium text-on-surface leading-relaxed">
+                          <span className="w-1 h-1 rounded-full bg-on-surface shrink-0 mt-2.5 shadow-sm" />
+                          <span className="text-sm md:text-base font-medium text-on-surface leading-relaxed">
                             {item.split('**').map((part, pidx) => 
                               pidx % 2 === 1 ? <strong key={pidx} className="font-black">{part}</strong> : part
                             )}
@@ -104,7 +104,7 @@ export default function BlogDetailClient({ blog }: { blog: BlogPost }) {
               }
 
               return (
-                <p key={i} className="text-lg md:text-xl text-on-surface font-medium leading-relaxed mb-8 whitespace-pre-line">
+                <p key={i} className="text-sm md:text-base text-on-surface font-medium leading-relaxed mb-4 whitespace-pre-line">
                   {paragraph.split('**').map((part, pidx) => 
                     pidx % 2 === 1 ? <strong key={pidx} className="font-black">{part}</strong> : part
                   )}
@@ -115,13 +115,6 @@ export default function BlogDetailClient({ blog }: { blog: BlogPost }) {
 
           {/* Footer of Content */}
           <div className="pt-10 border-t border-outline-variant/10 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="flex flex-wrap gap-2">
-              {blog.keywords.slice(0, 5).map((tag, i) => (
-                <span key={i} className="px-3 py-1 bg-surface-container rounded-full text-[10px] font-black uppercase tracking-wider text-on-surface-variant opacity-60">
-                  #{tag.replace(/\s+/g, '')}
-                </span>
-              ))}
-            </div>
             <div className="flex items-center gap-4">
               <Button href="/contact" variant="primary">Book This Service</Button>
               <Button href="/" variant="outline">Back to Home</Button>

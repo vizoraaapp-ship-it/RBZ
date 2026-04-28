@@ -43,9 +43,9 @@ const Footer = () => {
               <Image 
                 src="/logo.png" 
                 alt="RBZ Climate Solutions Logo" 
-                width={320} 
-                height={114} 
-                className="h-auto w-[180px] sm:w-[240px] md:w-[320px] transition-all duration-300 group-hover:opacity-80"
+                width={400} 
+                height={142} 
+                className="h-auto w-[180px] sm:w-[240px] md:w-[400px] transition-all duration-300 group-hover:opacity-80"
                 priority
               />
             </Link>
@@ -187,6 +187,14 @@ const Footer = () => {
           </motion.div>
         </div>
 
+        {/* Bottom Bar: Privacy & Terms */}
+        <motion.div 
+          variants={itemVariants}
+          className="mt-16 md:mt-24 pt-8 border-t border-white/10 flex justify-start items-center gap-8 text-sm md:text-base font-black uppercase tracking-widest text-white"
+        >
+          <Link href="/privacy-policy" className="hover:text-accent transition-all">Privacy Policy</Link>
+          <Link href="/terms-conditions" className="hover:text-accent transition-all">Terms of Use</Link>
+        </motion.div>
       </motion.div>
     </footer>
   );

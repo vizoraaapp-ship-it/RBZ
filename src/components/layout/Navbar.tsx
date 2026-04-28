@@ -127,7 +127,7 @@ const Navbar = () => {
   const pathname = usePathname();
   const { scrollY } = useScroll();
 
-  const logoScale = useTransform(scrollY, [0, 50], [1.1, 0.9]);
+  const logoScale = useTransform(scrollY, [0, 50], [1.0, 0.9]);
   const headerHeight = useTransform(scrollY, [0, 50], [104, 80]);
 
   const [mounted, setMounted] = useState(false);
@@ -180,26 +180,26 @@ const Navbar = () => {
         }}
         className="w-full transition-shadow duration-300 border-b border-white/10 flex items-center shadow-md"
       >
-        <div className="max-w-7xl 2xl:max-w-screen-2xl 3xl:max-w-[1800px] mx-auto px-6 md:px-8 flex justify-between items-center w-full">
+        <div className="w-full max-w-7xl 2xl:max-w-none mx-auto px-6 md:px-8 2xl:px-20 3xl:px-24 flex justify-between items-center">
           <Link href="/" className="flex items-center">
             <motion.div style={{ scale: logoScale, originX: 0 }}>
               <Image 
                 src="/logo.png" 
                 alt="RBZ Climate Solutions Logo" 
-                width={224} 
-                height={80} 
-                className="h-auto w-[120px] sm:w-[170px] md:w-64 transition-all duration-300"
+                width={500} 
+                height={178} 
+                className="h-auto w-[120px] sm:w-[150px] md:w-48 2xl:w-[320px] 3xl:w-[380px] transition-all duration-300"
                 priority
               />
             </motion.div>
           </Link>
           
-          <div className="hidden md:flex items-center space-x-10">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8 2xl:space-x-16 3xl:space-x-20">
             {NAV_LINKS.map((link) => (
               <Link 
                 key={link.name} 
                 href={link.href} 
-                className={`relative group transition-all font-black py-1 tracking-[0.08em] uppercase text-[12px] md:text-[13px] ${isActive(link.href) ? 'text-white' : 'text-white/70 hover:text-white'}`}
+                className={`relative group transition-all font-extrabold py-1 tracking-[0.05em] uppercase text-[10px] md:text-[11px] lg:text-[12px] 2xl:text-[20px] 3xl:text-[24px] ${isActive(link.href) ? 'text-white' : 'text-white/70 hover:text-white'}`}
               >
                 {link.name}
                 {isActive(link.href) ? (
@@ -214,8 +214,8 @@ const Navbar = () => {
             ))}
           </div>
 
-          <div className="flex items-center gap-2 md:gap-4">
-            <Button size="sm" className="xs:inline-flex sm:inline-flex shadow-lg text-[10px] sm:text-base px-3 sm:px-6 py-2" onClick={() => setBookingOpen(true)}>Book Service</Button>
+          <div className="flex items-center gap-2 md:gap-3 2xl:gap-8">
+            <Button size="sm" className="xs:inline-flex sm:inline-flex shadow-lg text-[10px] sm:text-xs md:text-sm 2xl:text-2xl 3xl:text-3xl px-3 sm:px-4 md:px-5 2xl:px-10 3xl:px-14 py-2 2xl:py-4 3xl:py-6" onClick={() => setBookingOpen(true)}>Book Service</Button>
             
             <motion.button 
               whileTap={{ scale: 0.9 }}

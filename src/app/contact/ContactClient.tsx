@@ -123,15 +123,26 @@ export default function ContactClient() {
           >
             Want to book or ask for a free estimate? Our team is always ready to assist you 24/7
           </motion.p>
-          <motion.a 
-            href="tel:+16472999648"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
-            className="block text-3xl md:text-6xl text-white font-black drop-shadow-2xl hover:text-primary transition-colors"
-          >
-            +1 647 299 9648
-          </motion.a>
+          <div className="space-y-4">
+            <motion.a 
+              href="tel:+16472999648"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+              className="block text-3xl md:text-6xl text-white font-black drop-shadow-2xl hover:text-primary transition-colors"
+            >
+              +1 647 299 9648
+            </motion.a>
+            <motion.a 
+              href="mailto:info@rbzclimatesolutions.com"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.8 }}
+              className="block text-xl md:text-3xl text-white/80 font-bold drop-shadow-2xl hover:text-primary transition-colors"
+            >
+              info@rbzclimatesolutions.com
+            </motion.a>
+          </div>
         </motion.div>
       </header>
 

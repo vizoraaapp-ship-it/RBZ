@@ -120,15 +120,7 @@ export default function CareersClient() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="text-4xl md:text-8xl font-black tracking-tight text-white leading-[1.1] drop-shadow-2xl"
           >
-            Join <br />
-            <motion.span 
-              initial={{ x: -20, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.8 }}
-              className="text-secondary"
-            >
-              RBZ Team
-            </motion.span>
+            Join <span className="text-secondary">RBZ Team</span>
           </motion.h1>
           
           <motion.p 
@@ -137,7 +129,7 @@ export default function CareersClient() {
             transition={{ delay: 1, duration: 0.8 }}
             className="text-base md:text-2xl text-white/90 font-bold leading-relaxed max-w-2xl text-left drop-shadow-lg opacity-80"
           >
-            We are expanding our team of dedicated experts across the GTA. Recent graduates are welcome at RBZ Climate Solutions. If you have the drive to learn and a passion for technical excellence, we’ll provide the platform to grow.
+            We appreciate your efforts to apply, but we will offer the position to the best suitable candidates.
           </motion.p>
           
           <div className="pt-0">

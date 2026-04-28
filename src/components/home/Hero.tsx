@@ -36,20 +36,6 @@ const DEFAULT_BANNERS: ExtendedBanner[] = [
     accent_color: 'from-primary to-primary-dim'
   },
   {
-    id: 'furnace',
-    image_url: '/hero-furnace.png',
-    banner_type: 'with_text',
-    badge: '#1 Rated HVAC Service in GTA',
-    title: 'Install, Repair \nand Maintenance',
-    description: 'Precision climate control solutions for your home and business. Delivering excellence and comfort for over 10 years.',
-    cta_text: 'Get a Free Quote',
-    cta_link: '/contact',
-    secondary_cta_text: 'Explore Services',
-    secondary_cta_link: '/services',
-    stats: [{v: '10+', l: 'Years Exp.'}, {v: '5k+', l: 'Happy Clients'}, {v: '24/7', l: 'Emergency'}],
-    accent_color: 'from-primary to-primary-dim'
-  },
-  {
     id: 'kitchen',
     image_url: '/service-hero.png',
     banner_type: 'with_text',
@@ -110,16 +96,17 @@ const Hero = () => {
           accent_color: d.accent_color || 'from-primary to-primary-dim'
         }));
 
-        // Sort so that banners with "Welcome" in the badge or title come first
+        // Sort so that banners with "Welcome" in the ID, badge, or title come first
         const sortedBanners = [...mappedBanners].sort((a, b) => {
-          const aIsWelcome = a.badge.toLowerCase().includes('welcome') || a.title.toLowerCase().includes('welcome');
-          const bIsWelcome = b.badge.toLowerCase().includes('welcome') || b.title.toLowerCase().includes('welcome');
+          const aIsWelcome = a.id === 'welcome' || a.badge.toLowerCase().includes('welcome') || a.title.toLowerCase().includes('welcome');
+          const bIsWelcome = b.id === 'welcome' || b.badge.toLowerCase().includes('welcome') || b.title.toLowerCase().includes('welcome');
           if (aIsWelcome && !bIsWelcome) return -1;
           if (!aIsWelcome && bIsWelcome) return 1;
           return 0;
         });
 
         setBanners(sortedBanners);
+        setCurrentIndex(0); // Reset to first banner after fetching
       }
     };
 
