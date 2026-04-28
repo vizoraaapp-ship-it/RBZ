@@ -188,7 +188,7 @@ const Navbar = () => {
                 alt="RBZ Climate Solutions Logo" 
                 width={500} 
                 height={178} 
-                className="h-auto w-[120px] sm:w-[150px] md:w-48 2xl:w-[320px] 3xl:w-[380px] transition-all duration-300"
+                className="h-auto w-[160px] sm:w-[200px] md:w-48 2xl:w-[320px] 3xl:w-[380px] transition-all duration-300"
                 priority
               />
             </motion.div>
