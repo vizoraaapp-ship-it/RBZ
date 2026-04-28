@@ -1,5 +1,9 @@
 'use client';
 
+import React from 'react';
+import { useRouter } from 'next/navigation';
+import { motion } from 'framer-motion';
+import Section from '@/components/ui/Section';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
