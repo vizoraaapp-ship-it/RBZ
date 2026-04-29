@@ -21,7 +21,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   Install: 'bg-red-500',
   Repair: 'bg-blue-500',
   Maintenance: 'bg-yellow-500',
-  Opinion: 'bg-black',
+  Inquiry: 'bg-black',
 };
 
 export default function CalendarPage() {
@@ -135,7 +135,7 @@ export default function CalendarPage() {
         <LegendItem color="bg-red-500" label="Install" />
         <LegendItem color="bg-blue-500" label="Repair" />
         <LegendItem color="bg-yellow-500" label="Maintenance" />
-        <LegendItem color="bg-black" label="Opinion" />
+        <LegendItem color="bg-black" label="Inquiry" />
       </div>
 
       <div className="bg-white rounded-[2.5rem] shadow-xl shadow-primary/5 border border-outline-variant/10 overflow-hidden">

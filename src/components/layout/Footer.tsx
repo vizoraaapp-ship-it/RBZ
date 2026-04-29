@@ -168,7 +168,7 @@ const Footer = () => {
               <div className="group cursor-pointer text-left">
                 <div className="text-[14px] md:text-base text-white font-bold leading-tight flex flex-col gap-1">
                   <span className="whitespace-nowrap">#220, 205 Morningside Avenue</span>
-                  <span className="whitespace-nowrap">Scarborough, GTA, M1E 3E2</span>
+                  <span className="whitespace-nowrap">Scarborough, ON, M1E 3E2</span>
                 </div>
               </div>
               <div className="flex flex-row items-center gap-4 group cursor-pointer">

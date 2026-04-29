@@ -114,11 +114,11 @@ Don’t wait until your furnace breaks down in the middle of winter. Whether you
   },
   {
     slug: "why-choose-heat-pump",
-    title: "Why Choose a Heat Pump for Your GTA Home",
+    title: "Why Choose a Heat Pump for Your Home",
     excerpt: "At RBZ Climate Solutions, we believe in providing our clients with the latest in climate technology. Here is everything you need to know about making the switch.",
-    image: "/blog/heatpump-interior.png",
+    image: "/blog/heatpump-main.png",
     coverImage: "/blog/heatpump-cover.png",
-    metaTitle: "Why Choose a Heat Pump for Your GTA Home",
+    metaTitle: "Why Choose a Heat Pump for Your Home",
     metaDescription: "Learn why heat pumps are the most efficient heating and cooling solution for Toronto and the GTA. Discover savings, efficiency, and eco-friendly comfort.",
     keywords: ["Heat Pump Toronto", "GTA Heat Pump", "Efficient HVAC GTA", "Heat Pump Rebates Canada"],
     content: `At RBZ Climate Solutions, we believe in providing our clients with the latest in climate technology. Here is everything you need to know about making the switch.
@@ -129,7 +129,7 @@ Unlike a traditional furnace that generates heat by burning fuel, a heat pump mo
 - **In the Summer:** It acts like an air conditioner, pulling heat from inside your home and pushing it outside.
 - **In the Winter:** It extracts heat from the outside air (yes, even when it’s cold!) and transfers it indoors.
 
-### Why Choose a Heat Pump for Your GTA Home?
+### Why Choose a Heat Pump for Your Home?
 
 #### 1. Extreme Efficiency
 Heat pumps can be up to 300% to 400% efficient. This means for every unit of electricity used, they produce three to four units of heating or cooling. Compared to traditional electric baseboard heaters or older furnaces, the savings on your monthly utility bills can be significant.

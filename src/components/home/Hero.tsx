@@ -22,10 +22,24 @@ interface ExtendedBanner {
 
 const DEFAULT_BANNERS: ExtendedBanner[] = [
   {
+    id: 'kitchen',
+    image_url: '/service-hero.png',
+    banner_type: 'with_text',
+    badge: 'Precision HVAC Services',
+    title: 'Welcome to RBZ',
+    description: 'Rbz Climate Solutions\nHeating and Cooling\nKeeping you cool in summer and warm in winter',
+    cta_text: 'View Services',
+    cta_link: '/services',
+    secondary_cta_text: 'Contact Us',
+    secondary_cta_link: '/contact',
+    stats: [{v: '100%', l: 'Compliance'}, {v: 'Fast', l: 'Install'}, {v: 'Pro', l: 'Grade'}],
+    accent_color: 'from-slate-900 to-primary-dim'
+  },
+  {
     id: 'welcome',
     image_url: '/hero-furnace.png',
     banner_type: 'with_text',
-    badge: 'Welcome to RBZ Climate Solutions',
+    badge: 'Expert Climate Care',
     title: 'Precision Climate \nControl Specialists',
     description: 'Providing the GTA with top-tier HVAC services for over 10 years. Quality you can feel in every breath.',
     cta_text: 'Get a Free Quote',
@@ -34,20 +48,6 @@ const DEFAULT_BANNERS: ExtendedBanner[] = [
     secondary_cta_link: '/services',
     stats: [{v: '10+', l: 'Years Exp.'}, {v: '5k+', l: 'Happy Clients'}, {v: '24/7', l: 'Emergency'}],
     accent_color: 'from-primary to-primary-dim'
-  },
-  {
-    id: 'kitchen',
-    image_url: '/service-hero.png',
-    banner_type: 'with_text',
-    badge: 'New Professional Service',
-    title: 'Commercial \nKitchen Excellence',
-    description: 'Expert ventilation and climate solutions for professional kitchens. Ensure peak performance and safety.',
-    cta_text: 'View Commercial',
-    cta_link: '/services/commercial-kitchens',
-    secondary_cta_text: 'Contact Us',
-    secondary_cta_link: '/contact',
-    stats: [{v: '100%', l: 'Compliance'}, {v: 'Fast', l: 'Install'}, {v: 'Pro', l: 'Grade'}],
-    accent_color: 'from-slate-900 to-primary-dim'
   },
   {
     id: 'gasline',
@@ -218,7 +218,7 @@ const Hero = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4 }}
-                  className="text-base md:text-xl text-white/90 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium"
+                  className="text-base md:text-xl text-white/90 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium whitespace-pre-line"
                 >
                   {currentBanner.description}
                 </motion.p>

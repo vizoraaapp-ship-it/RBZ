@@ -12,7 +12,7 @@ export default function Blogs() {
     <Section id="blogs" background="surface">
       <div className="space-y-12 md:space-y-16">
         <div className="text-center space-y-4">
-          <h2 className="text-[10px] font-black text-primary uppercase tracking-[0.3em]">Our Insights</h2>
+          <h2 className="text-sm md:text-lg font-black text-primary uppercase tracking-[0.3em]">Our Insights</h2>
           <h3 className="text-3xl md:text-5xl font-black text-on-surface tracking-tight">Expert HVAC Blog</h3>
           <p className="text-on-surface-variant font-bold opacity-60 max-w-xl mx-auto">Stay informed with the latest tips, guides, and expertise on home comfort and energy efficiency.</p>
         </div>

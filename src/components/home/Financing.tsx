@@ -42,7 +42,7 @@ const Financing = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-black text-[10px] tracking-[0.3em] uppercase"
+            className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-black text-sm md:text-lg tracking-[0.3em] uppercase"
           >
             Financing Available
           </motion.span>

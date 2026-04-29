@@ -129,7 +129,7 @@ export default function CareersClient() {
             transition={{ delay: 1, duration: 0.8 }}
             className="text-base md:text-2xl text-white/90 font-bold leading-relaxed max-w-2xl text-left drop-shadow-lg opacity-80"
           >
-            We appreciate your efforts to apply, but we will offer the position to the best suitable candidates.
+            We appreciate the time and effort you put into your application. After careful consideration, we have decided to proceed with candidates who more closely align with the role’s requirements
           </motion.p>
           
           <div className="pt-0">
@@ -199,16 +199,9 @@ export default function CareersClient() {
           viewport={{ once: true }}
           className="text-center mb-16 md:mb-24 space-y-4"
         >
-          <motion.span 
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 rounded-full bg-secondary/10 text-secondary font-black text-[10px] tracking-[0.3em] uppercase"
-          >
-            Open Positions
-          </motion.span>
+
           <h2 className="text-3xl md:text-6xl font-black text-on-background tracking-tight leading-tight">Current Opportunities</h2>
-          <p className="text-base md:text-xl font-bold opacity-60 max-w-md mx-auto">Looking for professional growth? Apply today.</p>
+          <p className="text-base md:text-xl font-bold opacity-60 max-w-2xl mx-auto whitespace-nowrap">Looking for professional growth? Apply today.</p>
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}

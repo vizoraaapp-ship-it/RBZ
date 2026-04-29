@@ -11,9 +11,9 @@ import Counter from '@/components/ui/Counter';
 const VALUES = [
   { 
     title: 'Built to Last', 
-    image: 'https://cdn-icons-png.flaticon.com/512/3259/3259163.png',
-    color: '#0EA5E9',
-    bgColor: 'bg-sky-500/10',
+    isStars: true,
+    color: '#F59E0B',
+    bgColor: 'bg-amber-500/10',
     desc: 'We never cut corners. Every project is completed using premium materials and precise installation — because your home deserves workmanship that holds up.' 
   },
   { 
@@ -33,7 +33,6 @@ const VALUES = [
   { 
     title: 'Greener Homes, Lower Bills', 
     image: 'https://cdn-icons-png.flaticon.com/512/3233/3233514.png',
-    attribution: 'Vlad Szirka - Flaticon',
     color: '#10B981',
     bgColor: 'bg-emerald-500/10',
     desc: 'We help Ontario homeowners make smart, sustainable upgrades that cut energy costs month after month — good for your wallet and the environment.' 
@@ -398,8 +397,14 @@ const AboutValueCard = ({ value }: { value: any }) => (
   >
     <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none ${value.bgColor}`} />
     
-    <div className={`w-16 h-16 ${value.bgColor} rounded-2xl flex items-center justify-center mb-8 transition-transform relative z-10 flex-shrink-0 p-3`} style={{ color: value.color }}>
-      {value.image ? (
+    <div className={`w-16 h-16 ${value.isStars ? 'bg-transparent' : value.bgColor} rounded-2xl flex items-center justify-center mb-8 transition-transform relative z-10 flex-shrink-0 ${value.isStars ? 'p-1' : 'p-3'}`} style={{ color: value.color }}>
+      {value.isStars ? (
+        <div className="flex gap-0.5">
+          {[1, 2, 3, 4, 5].map((s) => (
+            <span key={s} className="material-symbols-outlined text-sm font-black fill-1" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
+          ))}
+        </div>
+      ) : value.image ? (
         <div className="relative w-full h-full">
           <Image 
             src={value.image} 

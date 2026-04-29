@@ -240,7 +240,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
                   <option value="Install">Install</option>
                   <option value="Repair">Repair</option>
                   <option value="Maintenance">Maintenance</option>
-                  <option value="Opinion">Opinion</option>
+                  <option value="Inquiry">Inquiry</option>
                 </select>
                 <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant/50">
                    <span className="material-symbols-outlined font-black">unfold_more</span>

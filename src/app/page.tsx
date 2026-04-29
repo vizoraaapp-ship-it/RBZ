@@ -24,7 +24,7 @@ export default function Home() {
       "@type": "PostalAddress",
       "streetAddress": "#220, 205 Morningside Avenue",
       "addressLocality": "Scarborough",
-      "addressRegion": "GTA",
+      "addressRegion": "ON",
       "postalCode": "M1E 3E2",
       "addressCountry": "CA"
     },

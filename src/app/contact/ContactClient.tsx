@@ -165,8 +165,8 @@ export default function ContactClient() {
             
             <div className="space-y-8 md:space-y-12">
               {[
-                { icon: 'location_on', title: 'Our Office', content: '#220, 205 Morningside Avenue\nScarborough, GTA, M1E 3E2' },
-                { icon: 'phone_in_talk', title: 'Contact Details', content: 'Main: +1 647 299 9648\nEmail: info@rbzclimatesolutions.com' },
+                { icon: 'location_on', title: 'Our Office', content: '#220, 205 Morningside Avenue\nScarborough, ON, M1E 3E2' },
+                { icon: 'phone_in_talk', title: 'Contact Details', content: 'Cell: +1 647 299 9648\nEmail: info@rbzclimatesolutions.com' },
                 { icon: 'schedule', title: 'Business Hours', content: 'Mon - Fri: 8:00 AM - 6:00 PM\n24/7 Support Available' },
               ].map((item, idx) => (
                 <motion.div 
@@ -308,7 +308,7 @@ export default function ContactClient() {
                             <option value="Install">Install</option>
                             <option value="Repair">Repair</option>
                             <option value="Maintenance">Maintenance</option>
-                            <option value="Opinion">Opinion</option>
+                            <option value="Inquiry">Inquiry</option>
                           </select>
                           <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant/50">
                             <span className="material-symbols-outlined font-black">unfold_more</span>
