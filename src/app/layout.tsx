@@ -17,11 +17,35 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL('https://rbzclimatesolutions.com'),
   title: {
-    default: "RBZ Climate Solutions | Premium HVAC Services GTA",
+    default: "HVAC Services in Ontario | Furnace, AC & Heat Pump Experts | RBZ Climate Solutions",
     template: "%s | RBZ Climate Solutions"
   },
-  description: "Expert HVAC services in the GTA including furnace, AC, heat pumps, and repairs. Reliable and affordable solutions.",
-  keywords: ["HVAC GTA", "Furnace Repair GTA", "AC Installation Canada", "Heat Pump GTA", "RBZ Climate Solutions", "HVAC repair"],
+  description: "Professional HVAC services in Ontario including furnace repair, AC installation, heat pumps, and water heaters. Serving GTA and surrounding areas.",
+  keywords: [
+  "HVAC installation Ontario", "HVAC repair Ontario", "HVAC service near me Canada", "HVAC contractors Ontario", "heating and cooling contractors GTA", "HVAC system installation Canada", "HVAC service providers Ontario", "HVAC inspection services", "HVAC system replacement Ontario",
+
+  "gas furnace installation Ontario", "furnace tune-up GTA", "furnace replacement Ontario", "furnace not working repair", "emergency furnace service near me", "residential furnace services", "furnace cleaning services", "high efficiency furnace installation Canada",
+
+  "central AC installation Ontario", "AC tune-up services GTA", "AC not cooling repair", "ductless AC installation Ontario", "split AC installation Canada", "residential AC services Ontario", "commercial AC repair GTA", "AC cleaning services",
+
+  "cold climate heat pump Canada", "heat pump rebates Ontario", "heat pump maintenance services", "best heat pump for Ontario homes", "heat pump system installation GTA", "residential heat pump services", "commercial heat pump installation",
+
+  "hot water tank installation Ontario", "water heater repair near me", "tankless water heater repair GTA", "electric water heater installation", "gas water heater service Canada", "water heater replacement Ontario", "hot water system repair",
+
+  "air duct repair Ontario", "HVAC duct sealing services", "indoor air quality services Canada", "home air purification systems", "HVAC airflow problems solution", "duct inspection services", "ventilation system services Ontario",
+
+  "24 hour HVAC repair Ontario", "emergency heating repair GTA", "emergency AC repair Ontario", "same day HVAC service near me", "urgent furnace repair Canada", "weekend HVAC services Ontario",
+
+  "commercial HVAC services Ontario", "commercial HVAC installation GTA", "commercial heating and cooling systems", "industrial HVAC services Canada", "office HVAC maintenance services",
+
+  "home HVAC services Ontario", "residential heating services Canada", "home air conditioning installation", "HVAC solutions for homes", "home comfort systems Ontario",
+
+  "smart thermostat installation Canada", "smart HVAC systems Ontario", "home automation HVAC solutions", "energy efficient HVAC systems Canada",
+
+  "HVAC services North York", "HVAC services Etobicoke", "HVAC services Vaughan", "HVAC services Richmond Hill", "HVAC services Markham", "HVAC services Ajax", "HVAC services Pickering", "HVAC services Oshawa",
+
+  "HVAC installation cost Ontario", "furnace repair cost GTA", "AC installation price Canada", "heat pump installation cost Ontario", "best HVAC company near me", "affordable heating and cooling services"
+],
   authors: [{ name: "RBZ Climate Solutions" }],
   openGraph: {
     type: "website",

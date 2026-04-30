@@ -15,20 +15,20 @@ import ContactCTA from '@/components/home/ContactCTA';
 export default function Home() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "HVACBusiness",
     "name": "RBZ Climate Solutions",
     "image": "https://rbzclimatesolutions.com/logo.png",
     "telephone": "+16472999648",
     "email": "rbzclimatesolutions@gmail.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "#220, 205 Morningside Avenue",
+      "streetAddress": "205 Morningside Avenue",
       "addressLocality": "Scarborough",
-      "addressRegion": "ON",
+      "addressRegion": "Ontario",
       "postalCode": "M1E 3E2",
       "addressCountry": "CA"
     },
-    "areaServed": "GTA",
+    "areaServed": "Ontario",
     "url": "https://rbzclimatesolutions.com",
     "sameAs": []
   };

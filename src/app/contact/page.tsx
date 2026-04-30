@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import ContactClient from "./ContactClient";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
-  description: "Get in touch with RBZ Climate Solutions for expert HVAC services in the GTA. We offer 24/7 support for furnace, AC, and heat pump repairs.",
+  title: "Contact HVAC Experts in Ontario | RBZ Climate Solutions",
+  description: "Contact RBZ Climate Solutions for reliable HVAC services in Ontario. Call or book your service today.",
   alternates: {
     canonical: "/contact",
   },
