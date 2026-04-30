@@ -47,6 +47,9 @@ export const metadata: Metadata = {
   "HVAC installation cost Ontario", "furnace repair cost GTA", "AC installation price Canada", "heat pump installation cost Ontario", "best HVAC company near me", "affordable heating and cooling services"
 ],
   authors: [{ name: "RBZ Climate Solutions" }],
+  verification: {
+    google: "6JLaB7TnCMvwzUJjFWts5cf0XlutPIymFuGiKna4DFk",
+  },
   openGraph: {
     type: "website",
     locale: "en_CA",
