@@ -22,8 +22,8 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
   const pathname = usePathname();
   const router = useRouter();
 
-  const handleLogout = async () => {
-    await adminLogout();
+  const handleLogout = () => {
+    adminLogout();
     router.replace('/admin');
   };
 

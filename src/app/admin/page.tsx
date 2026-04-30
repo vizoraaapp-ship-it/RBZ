@@ -15,7 +15,8 @@ export default function AdminLoginPage() {
     e.preventDefault();
     setLoading(true);
     setError('');
-    const ok = await adminLogin(username, password);
+    await new Promise(r => setTimeout(r, 600)); // UX delay
+    const ok = adminLogin(username, password);
     setLoading(false);
     if (ok) {
       router.push('/admin/dashboard');
