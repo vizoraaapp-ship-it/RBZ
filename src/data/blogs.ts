@@ -118,9 +118,20 @@ Don’t wait until your furnace breaks down in the middle of winter. Whether you
     excerpt: "At RBZ Climate Solutions, we believe in providing our clients with the latest in climate technology. Here is everything you need to know about making the switch.",
     image: "/blog/heatpump-main.png",
     coverImage: "/blog/heatpump-cover.png",
-    metaTitle: "Why Choose a Heat Pump for Your Home",
-    metaDescription: "Learn why heat pumps are the most efficient heating and cooling solution for Toronto and the GTA. Discover savings, efficiency, and eco-friendly comfort.",
-    keywords: ["Heat Pump Toronto", "GTA Heat Pump", "Efficient HVAC GTA", "Heat Pump Rebates Canada"],
+    metaTitle: "Why Choose a Heat Pump for Your Home in Ontario | RBZ Climate Solutions",
+    metaDescription: "Learn why cold-climate heat pumps are the most efficient heating and cooling solution for Ontario and GTA homes. Discover energy savings, heat pump rebates Canada, and eco-friendly comfort with RBZ Climate Solutions.",
+    keywords: [
+      "heat pump installation Ontario",
+      "cold climate heat pump Canada",
+      "heat pump Toronto GTA",
+      "ductless heat pump Ontario",
+      "heat pump rebates Canada",
+      "energy efficient HVAC Ontario",
+      "heat pump vs furnace Canada",
+      "mini split heat pump GTA",
+      "air source heat pump Ontario",
+      "heat pump repair Toronto"
+    ],
     content: `At RBZ Climate Solutions, we believe in providing our clients with the latest in climate technology. Here is everything you need to know about making the switch.
 
 ### What is a Heat Pump?

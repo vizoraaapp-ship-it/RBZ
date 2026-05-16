@@ -7,17 +7,17 @@ import AutoSlider from '../ui/AutoSlider';
 import Link from 'next/link';
 
 const SERVICES = [
-  { name: 'Air Conditioner', slug: 'air-conditioning', icon: 'ac_unit', desc: 'Precision cooling for the hottest GTA summers.', color: 'bg-blue-50' },
-  { name: 'Heat Pump', slug: 'heat-pump', icon: 'heat_pump', desc: 'Efficient dual-purpose heating and cooling.', color: 'bg-blue-100/50' },
-  { name: 'Furnace', slug: 'furnace', icon: 'mode_fan', desc: 'Reliable gas and electric heating solutions.', color: 'bg-blue-50' },
-  { name: 'Duct Work', slug: 'ductwork', icon: 'air', desc: 'Customized airflow for optimal efficiency.', color: 'bg-blue-100/50' },
-  { name: 'Water Tank', slug: 'water-heater', icon: 'water_heater', desc: 'Hot water on demand, anytime you need it.', color: 'bg-blue-100/50' },
-  { name: 'Boiler', slug: 'boiler', icon: 'hvac', desc: 'Radiant heating expertise for ultimate comfort.', color: 'bg-blue-50' },
-  { name: 'Repair', slug: 'repair', icon: 'build', desc: 'Fast diagnostic and repair services 24/7.', color: 'bg-blue-100/50' },
-  { name: 'Accessories', slug: 'accessories', icon: 'settings', desc: 'Filters, parts, and specialized add-ons.', color: 'bg-blue-50' },
-  { name: 'Commercial', slug: 'commercial', icon: 'kitchen', desc: 'Specialized HVAC for small commercial kitchens.', color: 'bg-blue-100/50' },
-  { name: 'Gas Lines', slug: 'gas-lines', icon: 'outdoor_grill', desc: 'Professional installation for BBQ and appliances.', color: 'bg-blue-50' },
-  { name: 'Pool Heaters', slug: 'pool-heaters', icon: 'pool', desc: 'Efficient solutions for year-round swimming comfort.', color: 'bg-blue-100/50' },
+  { name: 'Air Conditioner', slug: 'air-conditioning', icon: 'ac_unit', desc: 'Central AC installation & repair across GTA — stay cool all summer.', color: 'bg-blue-50' },
+  { name: 'Heat Pump', slug: 'heat-pump', icon: 'heat_pump', desc: 'Cold-climate heat pump installation Ontario — efficient dual-purpose systems.', color: 'bg-blue-100/50' },
+  { name: 'Furnace', slug: 'furnace', icon: 'mode_fan', desc: 'Gas furnace repair & installation in Ontario — built for Canadian winters.', color: 'bg-blue-50' },
+  { name: 'Duct Work', slug: 'ductwork', icon: 'air', desc: 'Duct cleaning & custom ductwork installation across Toronto & GTA.', color: 'bg-blue-100/50' },
+  { name: 'Water Tank', slug: 'water-heater', icon: 'water_heater', desc: 'Hot water tank installation & repair in Ontario — reliable service.', color: 'bg-blue-100/50' },
+  { name: 'Boiler', slug: 'boiler', icon: 'hvac', desc: 'Boiler installation & radiant heating expertise across Ontario.', color: 'bg-blue-50' },
+  { name: 'Repair', slug: 'repair', icon: 'build', desc: '24/7 emergency HVAC repair in GTA — fast diagnostic & same-day service.', color: 'bg-blue-100/50' },
+  { name: 'Accessories', slug: 'accessories', icon: 'settings', desc: 'HVAC filters, parts, and air quality add-ons for Ontario homes.', color: 'bg-blue-50' },
+  { name: 'Commercial', slug: 'commercial', icon: 'kitchen', desc: 'Commercial HVAC & kitchen systems for GTA businesses.', color: 'bg-blue-100/50' },
+  { name: 'Gas Lines', slug: 'gas-lines', icon: 'outdoor_grill', desc: 'Licensed gas line installation for BBQ & appliances in Ontario.', color: 'bg-blue-50' },
+  { name: 'Pool Heaters', slug: 'pool-heaters', icon: 'pool', desc: 'Pool heater installation & repair — year-round swimming in Ontario.', color: 'bg-blue-100/50' },
 ];
 
 const containerVariants = {
@@ -56,8 +56,8 @@ const ServicesBento = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl lg:text-5xl font-black text-on-background mb-4">Our Services</h2>
-        <p className="text-base lg:text-xl text-on-surface-variant max-w-2xl mx-auto opacity-80">Providing master-level environmental control for every corner of your living space.</p>
+        <h2 className="text-3xl lg:text-5xl font-black text-on-background mb-4">HVAC Services Ontario &amp; GTA</h2>
+        <p className="text-base lg:text-xl text-on-surface-variant max-w-2xl mx-auto opacity-80">Professional heating and cooling services across Toronto, Scarborough, Mississauga, Brampton, Vaughan, Markham, and all of Ontario.</p>
       </motion.div>
       
       {/* Services Infinite Marquee */}

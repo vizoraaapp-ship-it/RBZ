@@ -15,8 +15,8 @@ const SERVICES_DATA = [
   {
     id: 'ac',
     title: "Air Conditioning",
-    description: "Advanced cooling solutions featuring precision multi-stage cooling for optimal energy efficiency and humidity control.",
-    detailedDescription: "Our comprehensive Air Conditioning solutions keep your home perfectly chilled during the hottest months. We provide end-to-end services from new installations of high-SEER systems to routine maintenance and emergency repairs.",
+    description: "Central AC installation and repair in Ontario — precision multi-stage cooling for optimal energy efficiency and humidity control across GTA homes.",
+    detailedDescription: "Our comprehensive Air Conditioning services keep Ontario homes perfectly cool during the hottest months. From new central AC installations and ductless mini-split systems to routine maintenance and emergency AC repair in Toronto and across the GTA — we deliver end-to-end cooling solutions.",
     features: ["Install", "Repair", "Maintenance"],
     image: "/service/airconditioner.jpeg",
     objectFit: "cover",
@@ -25,8 +25,8 @@ const SERVICES_DATA = [
   {
     id: 'furnace',
     title: "Furnace",
-    description: "Installation and maintenance of high-efficiency gas and electric heating systems designed for maximum reliability.",
-    detailedDescription: "Stay warm all winter with our expert furnace services. We specialize in ultra-efficient gas and electric furnace installations, promising lower utility bills and reliable comfort throughout the freezing season.",
+    description: "Gas furnace installation, repair, and maintenance across Ontario — high-efficiency heating systems built for Canadian winters.",
+    detailedDescription: "Stay warm all winter with expert furnace services across Ontario and the GTA. We specialize in high-efficiency gas and electric furnace installations, emergency furnace repair, and annual furnace tune-ups to keep your home comfortable throughout Canada's freezing season.",
     features: ["Install", "Repair", "Maintenance"],
     image: "/service/furnace.jfif",
     icon: "mode_fan"
@@ -34,8 +34,8 @@ const SERVICES_DATA = [
   {
     id: 'heat-pump',
     title: "Heat Pump",
-    description: "Eco-friendly heating and cooling hybrids that leverage sustainable technology to reduce your carbon footprint.",
-    detailedDescription: "Heat pumps offer an incredibly energy-efficient alternative to traditional HVAC systems. Running on electricity, they extract ambient heat to warm your home, and reverse the process to chill it during summer.",
+    description: "Cold-climate heat pump installation in Ontario — eco-friendly, energy-efficient heating and cooling for Canadian homes.",
+    detailedDescription: "Heat pumps offer an incredibly energy-efficient alternative to traditional HVAC systems for Ontario homes. Our cold-climate heat pumps operate efficiently even in extreme Canadian winters. We install ductless and central heat pump systems across Toronto, Scarborough, Mississauga, and all GTA regions — and help you maximize heat pump rebates in Ontario.",
     features: ["Install", "Repair", "Maintenance"],
     image: "/service/heatpump.jpeg",
     icon: "thermostat"
@@ -43,8 +43,8 @@ const SERVICES_DATA = [
   {
     id: 'water-tank',
     title: "Water Tank",
-    description: "Premium water storage tank systems engineered for thermal retention and long-term durability in any home.",
-    detailedDescription: "Ensure your home never runs out of hot water with our premium storage tanks. We provide fast replacements and reliable maintenance to ensure optimal pressure, heating recovery time, and rust prevention.",
+    description: "Hot water tank installation and repair in Ontario — reliable storage systems engineered for long-term durability in any home.",
+    detailedDescription: "Ensure your Ontario home never runs out of hot water with our premium storage tank services. We provide fast hot water tank replacements and reliable maintenance to ensure optimal pressure, heating recovery time, and rust prevention — serving all GTA communities.",
     features: ["Install", "Repair", "Maintenance"],
     image: "/service/watertank.jfif",
     icon: "water_heater"
@@ -52,8 +52,8 @@ const SERVICES_DATA = [
   {
     id: 'boiler',
     title: "Boiler",
-    description: "High-efficiency boiler systems for hydronic heating, providing consistent radiant warmth throughout your home.",
-    detailedDescription: "Hydronic heating provides unparalleled comfort. Our boiler services cover everything from baseboard radiators to under-floor radiant heating, guaranteeing a draft-free, comfortable winter.",
+    description: "High-efficiency boiler installation and repair in Ontario — consistent radiant heating solutions for GTA homes and businesses.",
+    detailedDescription: "Hydronic boiler heating provides unparalleled comfort for Ontario homes. Our boiler services cover everything from baseboard radiators to under-floor radiant heating systems — guaranteeing a draft-free, comfortable Canadian winter for residential and commercial properties across the GTA.",
     features: ["Install", "Repair", "Maintenance"],
     image: "/service/boiler.jpeg",
     icon: "hvac"
@@ -61,8 +61,8 @@ const SERVICES_DATA = [
   {
     id: 'duct-work',
     title: "Duct Work",
-    description: "Professional cleaning and airtight sealing services to ensure your air quality and system efficiency remain peaked.",
-    detailedDescription: "Leaky or dirty ducts can reduce your HVAC efficiency by up to 30%. We design, install, repair, and clean custom ductwork to perfectly balance airflow throughout every room in your home.",
+    description: "Professional air duct cleaning and custom ductwork installation in Ontario — improve HVAC efficiency and indoor air quality across GTA homes.",
+    detailedDescription: "Leaky or dirty ducts can reduce your HVAC efficiency by up to 30%. We design, install, repair, and clean custom ductwork to perfectly balance airflow throughout every room in your Ontario home — serving Toronto, Scarborough, Mississauga, and the entire GTA.",
     features: ["Install", "Repair", "Maintenance"],
     image: "/service/duckwork.jfif",
     objectFit: "cover",
@@ -71,8 +71,8 @@ const SERVICES_DATA = [
   {
     id: 'repair',
     title: "Repair",
-    description: "Expert repair services for all major brands, utilizing genuine parts and advanced diagnostic equipment.",
-    detailedDescription: "HVAC emergencies don't wait for convenient times. Our rapid-response repair teams arrive with fully stocked trucks, ready to diagnose and restore your comfort systems 24/7.",
+    description: "24/7 emergency HVAC repair in Ontario — expert diagnostics and same-day service across Toronto and GTA.",
+    detailedDescription: "HVAC emergencies don't wait for convenient times. Our rapid-response emergency repair teams serve Toronto, Scarborough, Mississauga, Brampton, Vaughan, and all of the GTA — arriving with fully stocked trucks ready to diagnose and restore your heating and cooling systems 24/7.",
     features: ["Install", "Repair", "Maintenance"],
     image: "/service/repair.jfif",
     objectFit: "cover",
@@ -81,8 +81,8 @@ const SERVICES_DATA = [
   {
     id: 'accessories',
     title: "Accessories",
-    description: "Essential accessories and components for HVAC and water systems.",
-    detailedDescription: "Enhance your existing systems with our collection of high-quality accessories, from advanced filtration media to UV purifiers, ensuring maximum operational efficiency and air quality.",
+    description: "HVAC accessories, filters, and air quality components for Ontario homes — maximize your system performance.",
+    detailedDescription: "Enhance your existing HVAC systems with high-quality accessories — from advanced filtration media and UV air purifiers to smart thermostats and humidifiers. We supply and install premium HVAC accessories across Ontario and the GTA to improve indoor air quality and system efficiency.",
     features: ["Install", "Repair", "Maintenance"],
     image: "/service/accessories.jpeg",
     icon: "settings"
@@ -90,8 +90,8 @@ const SERVICES_DATA = [
   {
     id: 'smart-home',
     title: "Smart Home",
-    description: "Smart home automation integration for intelligent temperature scheduling and remote climate control.",
-    detailedDescription: "Take total control of your home's ecosystem. We install and configure top-tier smart thermostats that learn your routine, allowing remote control and maximizing energy efficiency.",
+    description: "Smart thermostat and home automation HVAC integration in Ontario — intelligent climate control for GTA homes.",
+    detailedDescription: "Take total control of your Ontario home's climate. We install and configure WiFi-connected smart thermostats and HVAC home automation systems that learn your routine, allow remote control from anywhere, and maximize energy efficiency — serving Toronto, Scarborough, and all GTA communities.",
     features: ["Install", "Repair", "Maintenance"],
     image: "/service/smarthome.jfif",
     objectFit: "cover",
@@ -100,8 +100,8 @@ const SERVICES_DATA = [
   {
     id: 'ductless',
     title: "Ductless Heat Pump",
-    description: "Ductless mini-split systems for efficient heating and cooling without ductwork.",
-    detailedDescription: "Perfect for additions, sunrooms, or older homes, our ductless mini-split systems provide hyper-efficient, whisper-quiet zoning without the need to tear open walls for ductwork.",
+    description: "Ductless mini-split heat pump installation in Ontario — efficient zoned heating and cooling for GTA homes without ductwork.",
+    detailedDescription: "Perfect for additions, sunrooms, or older Ontario homes without ductwork, our ductless mini-split heat pump systems provide hyper-efficient, whisper-quiet zoned heating and cooling. We install leading brands across Toronto, Scarborough, Mississauga, and the entire GTA.",
     features: ["Install", "Repair", "Maintenance"],
     image: "/service/ducklessheatpump.jfif",
     icon: "heat_pump"
@@ -109,8 +109,8 @@ const SERVICES_DATA = [
   {
     id: 'air-quality',
     title: "Humidifier / Air Quality",
-    description: "Whole-home humidifiers and air quality solutions for improved indoor comfort and health.",
-    detailedDescription: "Indoor air can be 5x more polluted than outside air. We deploy whole-home humidifiers and HEPA filtration systems to eliminate dry winter air, allergens, and airborne pathogens.",
+    description: "Whole-home humidifier and indoor air quality solutions in Ontario — breathe cleaner, healthier air in your GTA home.",
+    detailedDescription: "Indoor air in Ontario can be 5x more polluted than outdoor air. We deploy whole-home humidifiers, HEPA air filtration systems, and UV air purifiers to eliminate dry winter air, allergens, and airborne pathogens — serving all GTA communities for healthier indoor environments.",
     features: ["Install", "Repair", "Maintenance"],
     image: "/service/humidifier.jfif",
     icon: "air_purifier"
@@ -118,8 +118,8 @@ const SERVICES_DATA = [
   {
     id: 'tankless',
     title: "Tankless Water Heater",
-    description: "Energy-efficient tankless water heaters providing endless hot water on demand with a compact footprint.",
-    detailedDescription: "Reclaim your utility space and never run out of hot water again. Our tankless systems heat water strictly on-demand, lowering gas bills by up to 40% while lasting roughly twice as long as traditional tanks.",
+    description: "Tankless water heater installation in Ontario — on-demand hot water, energy savings, and a compact footprint for GTA homes.",
+    detailedDescription: "Reclaim your utility space and never run out of hot water again. Our tankless water heater installations across Ontario heat water strictly on-demand, lowering gas bills by up to 40% while lasting roughly twice as long as traditional hot water tanks — serving all GTA communities.",
     features: ["Install", "Repair", "Maintenance"],
     image: "/service/tanklesswaterheater.jpeg",
     icon: "water_damage"
@@ -159,10 +159,11 @@ export default function ServicesClient() {
         >
           <Image 
             src="/service-hero.png" 
-            alt="HVAC Services Hero" 
+            alt="Professional HVAC services in Ontario — furnace repair, AC installation, heat pump services, and duct cleaning across Toronto, Scarborough, and GTA by RBZ Climate Solutions" 
             fill 
             className="object-cover"
             priority
+            loading="eager"
           />
           <div className="absolute inset-0 bg-black/60 z-10" />
         </motion.div>
@@ -179,7 +180,7 @@ export default function ServicesClient() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-4xl md:text-8xl font-black tracking-tight text-white leading-[1.1] drop-shadow-2xl"
           >
-            Our Services
+            HVAC Services Ontario
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
@@ -187,7 +188,7 @@ export default function ServicesClient() {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="text-base md:text-2xl text-white/90 font-medium leading-relaxed max-w-2xl text-left drop-shadow-lg opacity-80"
           >
-            Professional solutions for your home comfort needs, delivered with atmospheric precision and technical mastery.
+            Licensed HVAC contractors serving Toronto, Scarborough, Mississauga, Brampton, Vaughan, Markham, and all of Ontario. Expert heating and cooling services delivered with precision.
           </motion.p>
           <div className="pt-4 md:pt-6">
             <Button size="xl" href="#services-grid">Explore Solutions ↓</Button>

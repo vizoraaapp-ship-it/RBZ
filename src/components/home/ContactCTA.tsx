@@ -45,16 +45,25 @@ const ContactCTA = () => {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="text-4xl md:text-6xl font-black mb-6 tracking-tight leading-tight text-on-background"
             >
-              Ready to improve <br className="hidden md:block" /> your home comfort?
+              Ready to improve <br className="hidden md:block" /> your home comfort in Ontario?
             </motion.h2>
             <motion.p 
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-xl md:text-2xl text-on-surface-variant max-w-2xl mx-auto mb-10 font-medium opacity-90 leading-relaxed"
+              className="text-xl md:text-2xl text-on-surface-variant max-w-2xl mx-auto mb-4 font-medium opacity-90 leading-relaxed"
             >
-              Our expert technicians are ready to help with all your heating and cooling needs. Experience the RBZ difference today.
+              Our licensed HVAC technicians are ready to help with furnace repair, AC installation, heat pump services, and all your heating and cooling needs across Ontario.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="text-sm md:text-base text-on-surface-variant opacity-70 font-medium mb-6"
+            >
+              Serving Toronto · Scarborough · Mississauga · Brampton · Vaughan · Markham · Richmond Hill · North York &amp; all GTA
             </motion.p>
           </div>
 

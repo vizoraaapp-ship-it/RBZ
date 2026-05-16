@@ -17,11 +17,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: blog.metaTitle,
     description: blog.metaDescription,
     keywords: blog.keywords,
+    alternates: {
+      canonical: `/blogs/${slug}`,
+    },
     openGraph: {
       title: blog.metaTitle,
       description: blog.metaDescription,
       images: [blog.image],
-    }
+      type: 'article',
+      locale: 'en_CA',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: blog.metaTitle,
+      description: blog.metaDescription,
+      images: [blog.image],
+    },
   };
 }
 

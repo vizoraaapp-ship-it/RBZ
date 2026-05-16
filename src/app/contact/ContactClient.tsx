@@ -92,7 +92,7 @@ export default function ContactClient() {
         >
           <Image 
             src="/contact-hero.png" 
-            alt="Contact RBZ Climate Solutions" 
+            alt="Contact RBZ Climate Solutions for expert HVAC services in Ontario — Book your furnace repair or AC installation today" 
             fill 
             className="object-cover"
             priority
@@ -113,7 +113,7 @@ export default function ContactClient() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="font-headline text-4xl md:text-8xl font-black tracking-tight text-white leading-tight drop-shadow-2xl"
           >
-            Get in Touch
+            Contact HVAC Experts <br /> in Ontario &amp; GTA
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
@@ -157,7 +157,7 @@ export default function ContactClient() {
             className="space-y-16"
           >
             <motion.div variants={itemVariants} className="space-y-4 text-center lg:text-left">
-              <h2 className="text-xl md:text-3xl font-black text-primary uppercase tracking-[0.2em]">Connect With the GTA’s HVAC professional.</h2>
+              <h2 className="text-xl md:text-3xl font-black text-primary uppercase tracking-[0.2em]">Connect With the GTA’s Trusted HVAC Professionals.</h2>
               <p className="text-on-surface-variant text-base md:text-xl leading-relaxed font-bold opacity-80">
                 Contact us now for a professional consultation and see why RBZ is the GTA's trusted name in climate control.
               </p>
@@ -254,7 +254,7 @@ export default function ContactClient() {
               ) : (
                 <motion.div key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                   <div className="mb-10 md:mb-16 text-center md:text-left">
-                    <h2 className="text-3xl md:text-5xl font-black mb-4 text-on-surface tracking-tight">Connect with an RBZ Specialist</h2>
+                    <h2 className="text-3xl md:text-5xl font-black mb-4 text-on-surface tracking-tight">Connect with an RBZ HVAC Specialist</h2>
                     <p className="text-on-surface-variant font-bold opacity-60 text-sm md:text-base leading-relaxed">Complete the brief inquiry below, and our TSSA-certified team will reach out shortly to discuss your requirements.</p>
                   </div>
                   

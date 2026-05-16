@@ -5,20 +5,44 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const FAQS_DATA = [
   {
-    question: "How often should I service my furnace?",
-    answer: "It is recommended to service your furnace at least once a year, ideally before the winter season, to ensure safe and efficient operation."
+    question: "How often should I service my furnace in Ontario?",
+    answer: "We recommend servicing your furnace at least once a year in Ontario — ideally before the winter season hits. Annual furnace maintenance ensures safe and efficient operation, helps you avoid emergency furnace breakdowns during the coldest months, and can significantly lower your heating bills. Our licensed HVAC technicians serve all GTA communities including Toronto, Scarborough, Mississauga, and Markham."
   },
   {
-    question: "What are the signs that my AC needs repair?",
-    answer: "Common signs include weak airflow, unusual noises, bad odors, higher energy bills, or the unit not cooling properly."
+    question: "What is the best heat pump for Canadian winters?",
+    answer: "Cold-climate heat pumps from brands like Mitsubishi, Fujitsu, and Daikin are engineered for Canadian winters and operate efficiently down to -30°C. These hyper-heat systems are perfect for Ontario homeowners who want energy-efficient year-round comfort. As a licensed heat pump installer in Ontario, RBZ Climate Solutions can help you choose the right system and maximize available government rebates."
   },
   {
-    question: "Are there any government rebates for heat pumps?",
-    answer: "Yes, in many regions there are government incentives or rebates available for installing energy-efficient heat pumps. Check with local authorities or energy providers for current programs."
+    question: "How much does AC installation cost in Toronto?",
+    answer: "Central air conditioning installation in Toronto typically ranges from $3,000 to $7,000, depending on your home size, the SEER efficiency rating, and any required ductwork modifications. Ductless mini-split AC systems typically cost $1,500–$4,000 per zone. Contact us for a free, no-obligation AC installation quote in Toronto or anywhere in the GTA."
   },
   {
-    question: "What is the benefit of a tankless water heater?",
-    answer: "Tankless water heaters provide on-demand hot water, are more energy-efficient, take up less space, and have a longer lifespan compared to traditional systems."
+    question: "Are there government rebates for heat pump installation in Ontario?",
+    answer: "Yes! Ontario homeowners can access rebates through programs like the Canada Greener Homes Grant and Ontario Energy Board initiatives. Heat pump rebates in Canada can range from $1,000 to $7,000 or more. RBZ Climate Solutions stays up-to-date on all available heat pump rebates and can guide you through the process to ensure your installation qualifies."
+  },
+  {
+    question: "What are the signs that my AC needs repair in Ontario?",
+    answer: "Common signs your air conditioner needs professional repair include: weak or warm airflow, unusual noises (rattling, banging, or hissing), ice forming on the unit, higher than normal energy bills, and the system not cooling your home properly. If you notice any of these issues, contact RBZ Climate Solutions for prompt AC repair in Toronto and across the GTA."
+  },
+  {
+    question: "Do you offer 24/7 emergency HVAC services in the GTA?",
+    answer: "Yes, RBZ Climate Solutions provides emergency HVAC repair services across the Greater Toronto Area including Toronto, Scarborough, Mississauga, Brampton, Vaughan, and Markham. Whether it's an emergency furnace failure in winter or an AC breakdown in summer, our HVAC technicians respond quickly to restore your home comfort."
+  },
+  {
+    question: "What is the benefit of a tankless water heater for Canadian homes?",
+    answer: "Tankless water heaters provide on-demand hot water, eliminating the wait and the standby heat loss of traditional storage tanks. They are 20–40% more energy-efficient, take up far less space, and last 20+ years — ideal for Ontario homes. RBZ Climate Solutions provides expert tankless water heater installation across Ontario and GTA regions."
+  },
+  {
+    question: "How much does duct cleaning cost in Ontario?",
+    answer: "Professional air duct cleaning in Ontario typically costs between $300 and $600 for a residential home, depending on the size of the ductwork system and the level of contamination. Regular duct cleaning every 3–5 years improves indoor air quality, reduces allergens, and keeps your HVAC system running efficiently. RBZ Climate Solutions offers comprehensive duct cleaning services across Toronto and GTA."
+  },
+  {
+    question: "How long does a furnace last in Ontario?",
+    answer: "A well-maintained gas furnace in Ontario typically lasts 15–20 years. If your furnace is over 15 years old, frequently breaking down, or causing unusually high heating bills, it may be time to consider furnace replacement. RBZ Climate Solutions offers expert furnace replacement and new high-efficiency furnace installation across Ontario and the Greater Toronto Area."
+  },
+  {
+    question: "Do you provide commercial HVAC services in Ontario?",
+    answer: "Absolutely. RBZ Climate Solutions provides a full range of commercial HVAC services in Ontario, including commercial furnace installation and repair, commercial air conditioning services, commercial boiler systems, and specialized HVAC for small commercial kitchens. We serve businesses across Toronto, Scarborough, Mississauga, and all of the GTA."
   }
 ];
 

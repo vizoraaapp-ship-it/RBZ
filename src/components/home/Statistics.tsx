@@ -31,7 +31,7 @@ const Statistics = () => {
           <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10">
             <Image 
               src="/technicians.png" 
-              alt="RBZ Climate Solutions Technicians" 
+              alt="Licensed RBZ Climate Solutions HVAC technicians serving Toronto, Scarborough, Mississauga, Brampton, Vaughan, Markham, and all of Ontario with professional heating and cooling services" 
               width={600} 
               height={600}
               className="w-full object-cover aspect-square group-hover:scale-105 transition-transform duration-1000"
@@ -78,7 +78,7 @@ const Statistics = () => {
               className="text-4xl lg:text-6xl font-black text-on-background leading-[1.1] tracking-tight"
             >
               Trust and Reliability <br />
-              <span className="text-secondary">in the GTA</span>
+              <span className="text-secondary">Across Ontario &amp; GTA</span>
             </motion.h2>
             
             <motion.p 
@@ -88,7 +88,7 @@ const Statistics = () => {
               transition={{ delay: 0.4 }}
               className="text-xl text-on-surface-variant font-medium leading-relaxed max-w-xl"
             >
-              For over 10 years, RBZ Climate Solutions has been the leading provider of premium HVAC services across the Greater Toronto Area (GTA).
+              For over 10 years, RBZ Climate Solutions has been a trusted provider of professional HVAC services across Ontario and the Greater Toronto Area — from furnace repair and AC installation to heat pump services and emergency HVAC repair.
             </motion.p>
           </div>
           
@@ -113,10 +113,10 @@ const Statistics = () => {
               className="space-y-5 pt-4"
             >
               {[
-                'Serving the GTA',
-                'Licensed & Fully Insured Technicians',
-                'Energy-Saving Solutions Experts',
-                '24/7 Emergency Response'
+                'Serving Toronto, Scarborough & All GTA',
+                'Licensed & Fully Insured HVAC Contractors',
+                'Energy-Efficient HVAC Solutions Ontario',
+                '24/7 Emergency HVAC Repair Available'
               ].map((item) => (
                 <motion.li 
                   key={item} 
@@ -150,7 +150,7 @@ const Statistics = () => {
                 <div className="w-32 h-32 shrink-0 flex items-center justify-center rounded-full overflow-hidden bg-white mix-blend-multiply border-2 border-white shadow-sm hover:scale-105 transition-transform duration-500">
                   <Image 
                     src="/tssa.png" 
-                    alt="TSSA Logo" 
+                    alt="TSSA Certified HVAC contractor Ontario — RBZ Climate Solutions licensed heating and cooling services" 
                     width={160} 
                     height={160} 
                     className="w-[110%] h-[110%] object-cover scale-[1.05]"

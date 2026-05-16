@@ -60,7 +60,7 @@ export default function AboutClient() {
         >
           <Image 
             src="/about-hero.jpeg" 
-            alt="About RBZ Climate Solutions" 
+            alt="RBZ Climate Solutions — Premium HVAC services in Ontario and GTA. Our team providing expert heating and cooling solutions." 
             fill 
             className="object-cover"
             priority
@@ -80,7 +80,7 @@ export default function AboutClient() {
             transition={{ delay: 0.7, duration: 0.8 }}
             className="text-4xl md:text-8xl font-black tracking-tight text-white leading-[1.1] drop-shadow-2xl"
           >
-            About RBZ <br /> Climate Solutions
+            About RBZ <br /> Climate Solutions Ontario
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
@@ -103,14 +103,14 @@ export default function AboutClient() {
             className="space-y-8 md:space-y-12 text-center md:text-left"
           >
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-6xl font-black tracking-tight text-on-surface leading-tight">Who We Are</h2>
+              <h2 className="text-3xl md:text-6xl font-black tracking-tight text-on-surface leading-tight">Who We Are | HVAC Experts Toronto &amp; GTA</h2>
               <p className="text-lg md:text-xl text-on-surface-variant font-bold leading-relaxed opacity-90">
                 At RBZ Climate Solutions, we believe the air you breathe and the warmth of your home define your quality of life. For over 10 years, specializing in the precision installation and emergency repair of high-performance HVAC systems.
               </p>
             </div>
 
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-6xl font-black tracking-tight text-on-surface leading-tight">What We Do</h2>
+              <h2 className="text-3xl md:text-6xl font-black tracking-tight text-on-surface leading-tight">What We Do | Furnace, AC &amp; Heat Pump Experts</h2>
               <p className="text-lg md:text-xl text-on-surface-variant font-medium leading-relaxed opacity-90">
                 We don't just swap parts; we provide structural solutions. From installing high-efficiency furnaces and AC units to executing complex boiler and gas piping projects, strict adherence to safety and security regulations directs our work, which is completed with a careful, superior finish.
               </p>
@@ -147,7 +147,7 @@ export default function AboutClient() {
             <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border border-white/10">
               <Image 
                 src="/technicians.png" 
-                alt="HVAC Technicians" 
+                alt="Certified RBZ Climate Solutions HVAC technicians providing professional furnace and air conditioning services across Ontario" 
                 width={800} 
                 height={800} 
                 className="w-full aspect-square object-cover transition-transform duration-1000 group-hover:scale-105"

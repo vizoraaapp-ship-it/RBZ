@@ -27,7 +27,7 @@ const DEFAULT_BANNERS: ExtendedBanner[] = [
     banner_type: 'with_text',
     badge: 'Precision HVAC Services',
     title: 'Welcome to RBZ',
-    description: 'Rbz Climate Solutions\nHeating and Cooling\nKeeping you cool in summer and warm in winter',
+    description: 'RBZ Climate Solutions\nHeating and Cooling Ontario\nKeeping GTA homes cool in summer and warm in winter',
     cta_text: 'View Services',
     cta_link: '/services',
     secondary_cta_text: 'Contact Us',
@@ -41,7 +41,7 @@ const DEFAULT_BANNERS: ExtendedBanner[] = [
     banner_type: 'with_text',
     badge: 'Expert Climate Care',
     title: 'Precision Climate \nControl Specialists',
-    description: 'Providing the GTA with top-tier HVAC services for over 10 years. Quality you can feel in every breath.',
+    description: 'Providing Ontario and the GTA with top-tier HVAC services for over 10 years. Furnace repair, AC installation, heat pumps, and more — quality you can feel.',
     cta_text: 'Get a Free Quote',
     cta_link: '/contact',
     secondary_cta_text: 'Explore Services',
@@ -54,8 +54,8 @@ const DEFAULT_BANNERS: ExtendedBanner[] = [
     image_url: '/service-ac.png',
     banner_type: 'with_text',
     badge: 'Certified Gas Experts',
-    title: 'Barbeque & Gas \nLine Installations',
-    description: 'Safe and certified gas line installations for your home, BBQ, or pool heaters. Reliable energy solutions.',
+    title: 'Barbeque &amp; Gas \nLine Installations',
+    description: 'Safe and certified gas line installations for Ontario homes, BBQ, or pool heaters. Licensed gas technicians serving Toronto, Scarborough, and all GTA areas.',
     cta_text: 'Book Inspection',
     cta_link: '/contact',
     secondary_cta_text: 'Our Expertise',
@@ -169,7 +169,7 @@ const Hero = () => {
         >
           <Image
             src={currentBanner.image_url}
-            alt=""
+            alt={`RBZ Climate Solutions HVAC services in Ontario — ${currentBanner.title.replace(/\n/g, ' ')} serving Toronto, Scarborough, Mississauga, Brampton, Vaughan, and all GTA areas`}
             fill
             className="object-cover blur-3xl opacity-30 scale-110"
             priority
@@ -178,7 +178,7 @@ const Hero = () => {
           />
           <Image
             src={currentBanner.image_url}
-            alt="RBZ Premium Service"
+            alt={`Professional heating and cooling services Ontario by RBZ Climate Solutions — ${currentBanner.badge}`}
             fill
             className="object-cover"
             priority

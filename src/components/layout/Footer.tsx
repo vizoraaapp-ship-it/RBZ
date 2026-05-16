@@ -35,7 +35,7 @@ const Footer = () => {
         viewport={{ once: true }}
         className="max-w-7xl 2xl:max-w-screen-2xl 3xl:max-w-[1800px] mx-auto px-6 md:px-12 relative z-10"
       >
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 md:gap-12">
+        <div className="grid grid-cols-2 lg:grid-cols-6 gap-x-6 gap-y-12 md:gap-10">
           
           {/* Brand & Info */}
           <motion.div variants={itemVariants} className="col-span-2 lg:col-span-1 space-y-6 md:space-y-8 flex flex-col items-start">
@@ -50,7 +50,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-white text-sm md:text-base font-bold leading-relaxed max-w-xs mx-auto md:mx-0">
-              Pioneering precision climate control for homes across the GTA. Quality you can feel in every breath. Licensed, insured, and 24/7 dedicated.
+              Trusted HVAC contractors serving Ontario and the GTA. Expert furnace repair, AC installation, heat pump services, duct cleaning, and 24/7 emergency HVAC repair in Toronto, Scarborough, Mississauga, Brampton, Vaughan, and Markham.
             </p>
             <div className="flex flex-wrap gap-4 pt-2 justify-center md:justify-start">
                {/* Instagram */}
@@ -139,14 +139,23 @@ const Footer = () => {
             </ul>
           </motion.div>
 
-          {/* Our Services */}
+          {/* Our Services - SEO optimized links */}
           <motion.div variants={itemVariants} className="flex flex-col items-start">
-            <h4 className="font-black text-[#003366] mb-4 md:mb-10 uppercase tracking-[0.3em] text-[12px] md:text-[16px]">Expertise</h4>
+            <h4 className="font-black text-[#003366] mb-4 md:mb-10 uppercase tracking-[0.3em] text-[12px] md:text-[16px]">Our Services</h4>
             <ul className="space-y-3 md:space-y-5 flex flex-col items-start">
-              {['Gas Furnace', 'Central Air', 'Heat Pumps', 'Small Commercial Kitchens', 'Barbeque Gas Lines', 'Pool Heaters', 'Duct Cleaning', 'Repair Services'].map((link) => (
-                <li key={link}>
+              {[
+                { label: 'Furnace Repair Ontario', href: '/services' },
+                { label: 'AC Installation GTA', href: '/services' },
+                { label: 'Heat Pump Installation', href: '/services' },
+                { label: 'Duct Cleaning Toronto', href: '/services' },
+                { label: 'Water Heater Services', href: '/services' },
+                { label: 'Emergency HVAC Repair', href: '/services' },
+                { label: 'Commercial HVAC Ontario', href: '/services' },
+                { label: 'Boiler Installation GTA', href: '/services' },
+              ].map((link) => (
+                <li key={link.label}>
                   <Link 
-                    href="/services" 
+                    href={link.href} 
                     className="text-white hover:text-accent transition-all text-xs md:text-sm font-black uppercase tracking-widest flex items-center gap-2 group"
                   >
                     <motion.span 
@@ -154,7 +163,38 @@ const Footer = () => {
                       whileHover={{ width: 12 }}
                       className="h-[2px] bg-accent rounded-full block hidden md:block"
                     />
-                    {link}
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Service Areas - Local SEO */}
+          <motion.div variants={itemVariants} className="flex flex-col items-start">
+            <h4 className="font-black text-[#003366] mb-4 md:mb-10 uppercase tracking-[0.3em] text-[12px] md:text-[16px]">Service Areas</h4>
+            <ul className="space-y-3 md:space-y-5 flex flex-col items-start">
+              {[
+                { label: 'HVAC Services Toronto', href: '/contact' },
+                { label: 'HVAC Services Scarborough', href: '/contact' },
+                { label: 'HVAC Services Mississauga', href: '/contact' },
+                { label: 'HVAC Services Brampton', href: '/contact' },
+                { label: 'HVAC Services Vaughan', href: '/contact' },
+                { label: 'HVAC Services Markham', href: '/contact' },
+                { label: 'HVAC Services Richmond Hill', href: '/contact' },
+                { label: 'HVAC Services North York', href: '/contact' },
+              ].map((link) => (
+                <li key={link.label}>
+                  <Link 
+                    href={link.href} 
+                    className="text-white hover:text-accent transition-all text-xs md:text-sm font-black uppercase tracking-widest flex items-center gap-2 group"
+                  >
+                    <motion.span 
+                      initial={{ width: 0 }}
+                      whileHover={{ width: 12 }}
+                      className="h-[2px] bg-accent rounded-full block hidden md:block"
+                    />
+                    {link.label}
                   </Link>
                 </li>
               ))}
