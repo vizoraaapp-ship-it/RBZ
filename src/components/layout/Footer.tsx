@@ -221,7 +221,7 @@ const Footer = () => {
                 <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-colors shrink-0 shadow-sm">
                   <span className="material-symbols-outlined text-xl font-black">mail</span>
                 </div>
-                <p className="text-xs md:text-sm text-white font-black group-hover:text-white transition-colors">info@rbzclimatesolutions.com</p>
+                <p className="text-xs md:text-sm text-white font-black group-hover:text-white transition-colors">rbzclimatesolutions@gmail.com</p>
               </div>
             </div>
           </motion.div>

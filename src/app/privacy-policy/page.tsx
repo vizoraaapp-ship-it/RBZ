@@ -103,7 +103,7 @@ const PrivacyPolicy = () => {
                 <p>For privacy-related inquiries or requests:</p>
                 <p>
                   <strong>RBZ Climate Solutions Inc.</strong><br />
-                  Email: <a href="mailto:info@rbzclimatesolutions.com" className="text-primary hover:underline">info@rbzclimatesolutions.com</a>
+                  Email: <a href="mailto:rbzclimatesolutions@gmail.com" className="text-primary hover:underline">rbzclimatesolutions@gmail.com</a>
                 </p>
               </div>
             </motion.div>

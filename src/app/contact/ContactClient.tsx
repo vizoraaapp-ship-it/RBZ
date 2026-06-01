@@ -134,13 +134,13 @@ export default function ContactClient() {
               +1 647 299 9648
             </motion.a>
             <motion.a 
-              href="mailto:info@rbzclimatesolutions.com"
+              href="mailto:rbzclimatesolutions@gmail.com"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.8 }}
               className="block text-xl md:text-3xl text-white/80 font-bold drop-shadow-2xl hover:text-primary transition-colors"
             >
-              info@rbzclimatesolutions.com
+              rbzclimatesolutions@gmail.com
             </motion.a>
           </div>
         </motion.div>
@@ -166,7 +166,7 @@ export default function ContactClient() {
             <div className="space-y-8 md:space-y-12">
               {[
                 { icon: 'location_on', title: 'Our Office', content: '#220, 205 Morningside Avenue\nScarborough, ON, M1E 3E2' },
-                { icon: 'phone_in_talk', title: 'Contact Details', content: 'Cell: +1 647 299 9648\nEmail: info@rbzclimatesolutions.com' },
+                { icon: 'phone_in_talk', title: 'Contact Details', content: 'Cell: +1 647 299 9648\nEmail: rbzclimatesolutions@gmail.com' },
                 { icon: 'schedule', title: 'Business Hours', content: 'Mon - Fri: 8:00 AM - 6:00 PM\n24/7 Support Available' },
               ].map((item, idx) => (
                 <motion.div 
