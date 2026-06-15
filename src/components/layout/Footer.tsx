@@ -230,10 +230,15 @@ const Footer = () => {
         {/* Bottom Bar: Privacy & Terms */}
         <motion.div 
           variants={itemVariants}
-          className="mt-16 md:mt-24 pt-8 border-t border-white/10 flex justify-start items-center gap-8 text-sm md:text-base font-black uppercase tracking-widest text-white"
+          className="mt-16 md:mt-24 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-8 text-sm md:text-base font-black uppercase tracking-widest text-white"
         >
-          <Link href="/privacy-policy" className="hover:text-accent transition-all">Privacy Policy</Link>
-          <Link href="/terms-conditions" className="hover:text-accent transition-all">Terms of Use</Link>
+          <div className="flex gap-8 items-center">
+            <Link href="/privacy-policy" className="hover:text-accent transition-all">Privacy Policy</Link>
+            <Link href="/terms-conditions" className="hover:text-accent transition-all">Terms of Use</Link>
+          </div>
+          <div className="text-[10px] md:text-xs normal-case tracking-normal font-bold opacity-80">
+            Design By <a href="https://elevi8.netlify.app/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-all underline underline-offset-2">Elevi8</a>
+          </div>
         </motion.div>
       </motion.div>
     </footer>
